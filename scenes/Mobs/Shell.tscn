@@ -46,7 +46,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_re4yq")
 _body = NodePath("..")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=5614037]
-debug_enabled = true
 debug_path_custom_color = Color(0.95686275, 0.13333334, 0.23137255, 1)
 script = ExtResource("6_ajbgq")
 
@@ -85,7 +84,7 @@ wander_time = 10.0
 patrol_time = 10.0
 scream_time = 1.0
 state_machine = NodePath("..")
-player_sight_range = 4.0
+player_sight_range = 6.0
 
 [node name="Patrol" type="Node" parent="State_machine" unique_id=1952931126 node_paths=PackedStringArray("empty_target")]
 script = ExtResource("7_ayt5m")

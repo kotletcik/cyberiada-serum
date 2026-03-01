@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c66vv1yiekulm" path="res://scripts/PJ/door.gd" id="1_poson"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oftrq"]
-size = Vector3(0.5, 4.003, 3)
+size = Vector3(0.5, 2.7920272, 1.3734131)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oftrq"]
 albedo_color = Color(0.5831522, 0.3126706, 0.33575776, 1)
@@ -13,7 +13,7 @@ material = SubResource("StandardMaterial3D_oftrq")
 size = Vector3(0.5, 4, 3)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_poson"]
-albedo_color = Color(0.1584723, 0.15847233, 0.1584723, 1)
+albedo_color = Color(0.7417984, 0.7867048, 0.97661155, 1)
 
 [node name="Door" type="StaticBody3D" unique_id=1301287337]
 collision_layer = 4

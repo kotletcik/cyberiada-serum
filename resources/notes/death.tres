@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Note" format=3 uid="uid://b2q3agdc7eyfd"]
+
+[ext_resource type="Script" uid="uid://db4xf6hpks04h" path="res://scripts/Valk/Resource Types/note.gd" id="1_qbc30"]
+
+[resource]
+script = ExtResource("1_qbc30")
+title = "Death"
+content = "I will die in a minute and meet CATS!!!!"
+metadata/_custom_type_script = "uid://db4xf6hpks04h"

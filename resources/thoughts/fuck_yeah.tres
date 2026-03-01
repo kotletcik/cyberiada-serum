@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Clue" format=3 uid="uid://b4lyqlncafmig"]
+
+[ext_resource type="Script" uid="uid://q760mct2evav" path="res://scripts/Valk/Resource Types/clue.gd" id="1_3yb82"]
+
+[resource]
+script = ExtResource("1_3yb82")
+name = "FUCK YEAH!!!!"
+description = "I FOUND THE GUN!!!! HELLO KITTIES!!!! I CAN SEE YOU ALREADY!!!!"
+metadata/_custom_type_script = "uid://q760mct2evav"

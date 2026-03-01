@@ -89,7 +89,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9462496, 0, 0)
 
 [node name="Follow_player" type="Node" parent="State_machine" unique_id=563903924]
 script = ExtResource("6_vjfo8")
-move_speed = 4.0
+move_speed = 8.0
 acceleration = 4.0
 model_color = Color(1, 0.32410014, 0.25894427, 1)
 state_type = 1

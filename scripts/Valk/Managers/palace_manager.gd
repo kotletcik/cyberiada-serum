@@ -8,6 +8,8 @@ var first_free_index: int = 0;
 
 @export var thought_paths: Array[ThoughtPath] = [null];
 
+
+
 func _ready() -> void:
 	if(instance == null):
 		instance = self;
@@ -24,6 +26,7 @@ func add_gathered_clue(new_clue: Clue):
 		gathered_clues.resize(first_free_index * 2);
 	UIManager.instance.show_added_thought_notif(new_clue, 5.0);
 	if(is_first_thought(new_clue)): create_thought(new_clue);
+	EventBus.clue_gathered.emit(new_clue);
 
 func remove_gathered_clue(clue_to_remove: Clue):
 	for i in range(0, gathered_clues.size()):

@@ -2,8 +2,7 @@ extends StaticBody3D
 
 @export var note_to_hold: Note;
 @export var clue_to_gather: Clue;
-
-var clue_gathered: bool = false;
+@export var clue_gathered: bool = false;
 
 func player_interact() -> void:
 	print(note_to_hold.title);

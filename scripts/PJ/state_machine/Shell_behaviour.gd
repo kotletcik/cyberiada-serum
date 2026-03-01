@@ -26,50 +26,47 @@ func Check_conditions(delta: float) -> void:
 	match current:
 		STATE_TYPES.Follow_player:
 			if ((state_machine.mob.global_position) - (GameManager.instance.player.global_position)).length() < attack_range:
-				change_state_by_name(STATE_TYPES.Follow_player,STATE_TYPES.Attack)
+				change_state_by_name(current, STATE_TYPES.Attack)
 			elif timer > 0:
 				timer-=delta
 			else:
-				change_state_by_name(STATE_TYPES.Follow_player,STATE_TYPES.Searching)
+				change_state_by_name(current, STATE_TYPES.Searching)
 			if(PsycheManager.instance.invisibility_timer > 0):
-				change_state_by_name(STATE_TYPES.Follow_player,STATE_TYPES.Patrol)
+				change_state_by_name(current, STATE_TYPES.Patrol)
 		STATE_TYPES.Searching:
 			if timer > 0:
 				timer -= delta
 				if (is_player_in_sight()):
 					if (PsycheManager.instance.invisibility_timer <= 0): 
-						change_state_by_name(STATE_TYPES.Searching,STATE_TYPES.Scream);
+						change_state_by_name(current,STATE_TYPES.Scream);
 			else:
-				change_state_by_name(STATE_TYPES.Searching,STATE_TYPES.Patrol)
+				change_state_by_name(current, STATE_TYPES.Patrol)
 		STATE_TYPES.Follow_sound:
 			if (is_player_in_sight()):
 				if (PsycheManager.instance.invisibility_timer <= 0): 
-					change_state_by_name(STATE_TYPES.Follow_sound,STATE_TYPES.Scream);
+					change_state_by_name(current, STATE_TYPES.Scream);
 			elif ((state_machine.mob.position) - (sound_target.position)).length() < attack_range:
-				change_state_by_name(STATE_TYPES.Follow_sound,STATE_TYPES.Searching)
+				change_state_by_name(current, STATE_TYPES.Searching)
 			elif timer > 0:
 				timer-=delta
 			elif timer < 0:
-				change_state_by_name(STATE_TYPES.Follow_sound,STATE_TYPES.Searching)
+				change_state_by_name(current, STATE_TYPES.Searching)
 			else:
-				change_state_by_name(STATE_TYPES.Follow_sound,STATE_TYPES.Patrol)
+				change_state_by_name(current, STATE_TYPES.Patrol)
 		STATE_TYPES.Wander:
 			if (is_player_in_sight()):
 				if (PsycheManager.instance.invisibility_timer <= 0): 
-					change_state_by_name(STATE_TYPES.Wander,STATE_TYPES.Scream);
+					change_state_by_name(current, STATE_TYPES.Scream);
 		STATE_TYPES.Patrol:
 			if (is_player_in_sight()):
 				if (PsycheManager.instance.invisibility_timer <= 0): 
-					change_state_by_name(STATE_TYPES.Patrol,STATE_TYPES.Scream);
+					change_state_by_name(current, STATE_TYPES.Scream);
 		STATE_TYPES.Scream:
 			if timer > 0:
 				timer-=delta
-			else: change_state_by_name(STATE_TYPES.Scream,STATE_TYPES.Follow_player);
+			else: change_state_by_name(current, STATE_TYPES.Follow_player);
 		
-			
-			
 
-		
 func Enter_state(state: int):
 	match state:
 		STATE_TYPES.Follow_player:

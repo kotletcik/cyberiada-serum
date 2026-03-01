@@ -5,3 +5,4 @@ signal game_restarted
 signal level_changed(level: int)
 signal shells_disappear
 signal shells_appear
+signal clue_gathered(clue: Clue)

@@ -13,7 +13,7 @@ material = SubResource("StandardMaterial3D_otuf4")
 size = Vector3(0.5, 4, 2.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_poson"]
-albedo_color = Color(0.1584723, 0.15847233, 0.1584723, 1)
+albedo_color = Color(0.82205325, 0.90787274, 0.9828926, 1)
 
 [node name="DoubleDoor" type="StaticBody3D" unique_id=1301287337 node_paths=PackedStringArray("first_door", "second_door")]
 collision_layer = 4

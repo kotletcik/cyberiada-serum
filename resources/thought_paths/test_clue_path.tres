@@ -10,5 +10,5 @@
 script = ExtResource("2_w77fc")
 required_clues = Array[ExtResource("1_sv7fu")]([ExtResource("2_3eoet"), ExtResource("3_vsf20"), ExtResource("4_vsf20")])
 is_clue_realized = Array[bool]([false, false, false])
-does_automatically_unlock = Array[bool]([false, false, true])
+does_automatically_unlock = Array[bool]([false, false, false])
 metadata/_custom_type_script = "uid://b3e6n7nbttp0c"
