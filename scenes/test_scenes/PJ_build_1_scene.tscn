@@ -32,6 +32,7 @@
 [ext_resource type="Resource" uid="uid://cuerh7w08uco4" path="res://resources/thoughts/Gun.tres" id="30_a22ly"]
 [ext_resource type="PackedScene" uid="uid://5jpcyg1fb8pf" path="res://scenes/clue_trigger.tscn" id="31_hdlg5"]
 [ext_resource type="Resource" uid="uid://c3dxhs7itgyy6" path="res://resources/thoughts/forgor.tres" id="32_rf5c3"]
+[ext_resource type="Resource" uid="uid://b4lyqlncafmig" path="res://resources/thoughts/fuck_yeah.tres" id="33_85qxo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13hkq"]
 albedo_color = Color(0.27450982, 0.27450982, 0.27450982, 1)
@@ -627,11 +628,11 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -77.
 [node name="Geometry" type="Node3D" parent="Location4" unique_id=471358102]
 
 [node name="floor" type="CSGBox3D" parent="Location4/Geometry" unique_id=1527311062]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5066986, -0.054899216, -9.840195)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.019905, -0.054899216, -9.824783)
 material_override = SubResource("StandardMaterial3D_13hkq")
 use_collision = true
 collision_layer = 2
-size = Vector3(5.1020813, 1, 62.78366)
+size = Vector3(6.0569, 1, 62.78366)
 
 [node name="wall1" type="CSGBox3D" parent="Location4/Geometry" unique_id=1276283682]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.022102356, 2, 20.965523)
@@ -1972,6 +1973,7 @@ trigger_clue = ExtResource("32_rf5c3")
 
 [node name="Clue Trigger2" parent="." unique_id=148831654 instance=ExtResource("31_hdlg5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.444859, 0.62236345, 19.76002)
+trigger_clue = ExtResource("33_85qxo")
 
 [node name="Scene Clue6" parent="." unique_id=1881452790 instance=ExtResource("16_m1rxk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.57197, 1.5168839, -7.972666)
