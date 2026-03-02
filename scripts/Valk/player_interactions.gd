@@ -1,7 +1,7 @@
 extends Node3D
 
 @export var serum: PackedScene 
-@export var interaction_range:= 10.0
+@export var interaction_range: float = 10.0
 
 func _ready() -> void:
 	pass 
