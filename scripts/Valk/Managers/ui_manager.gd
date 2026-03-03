@@ -7,9 +7,13 @@ static var instance: UIManager;
 @export var added_thought_notif: CanvasLayer;
 @export var mind_palace_ui: CanvasLayer;
 @export var thought_ui: Resource;
+@export var thought_path_ui: Resource;
 
 var instanciated_thought_uis: Array[ThoughtUI] = [null];
 var thought_uis_count: int = 0;
+
+var instanciated_thought_path_uis: Array[Button] = [null];
+var thought_path_uis_count: int = 0;
 
 var cursor_locked_menu: bool = true;
 var cursor_locked_game: bool = true;
@@ -19,6 +23,8 @@ var is_mind_palace_ui_active: bool = false;
 
 var is_in_esc_menu: bool = false;
 var is_in_game: bool = true;
+
+var chosen_thought_path: ThoughtPath = null;
 
 func _ready() -> void:
 	if(instance == null):
@@ -80,6 +86,17 @@ func show_mind_palace_ui():
 	update_cursor();
 
 func update_mind_palace_ui():
+	for i in range(0, PalaceManager.instance.thought_paths.size()):
+		var thought_path_ui_instance = thought_path_ui.instantiate();
+		mind_palace_ui.get_node("ThoughtPaths").add_child(thought_path_ui_instance);
+		thought_path_ui_instance.text = PalaceManager.instance.thought_paths[i].name;
+		thought_path_ui_instance.pressed.connect(choose_thought_path.bind(PalaceManager.instance.thought_paths[i])	);
+		thought_path_ui_instance.position = Vector2(0, 540 + i * 80);
+		instanciated_thought_path_uis[thought_path_uis_count] = thought_path_ui_instance;
+		thought_path_uis_count += 1;
+		if(instanciated_thought_path_uis.size() == thought_path_uis_count):
+			instanciated_thought_path_uis.resize(thought_path_uis_count * 2);
+
 	for i in range(0, PalaceManager.instance.first_free_index):
 		# print("spawning thought ui");
 		var thought_ui_instance = thought_ui.instantiate();
@@ -90,17 +107,19 @@ func update_mind_palace_ui():
 		thought_uis_count += 1;
 		if(instanciated_thought_uis.size() == thought_uis_count):
 			instanciated_thought_uis.resize(thought_uis_count * 2);
-	for j in range(0, PalaceManager.instance.thought_paths.size()):
-		for i in range(0, PalaceManager.instance.thought_paths[j].required_clues.size()):
-			if(!PalaceManager.instance.thought_paths[j].is_clue_realized[i]): break;
-			var thought_ui_instance = thought_ui.instantiate();
-			mind_palace_ui.get_node("Panel").add_child(thought_ui_instance);
-			var current_clue: Clue = PalaceManager.instance.thought_paths[j].required_clues[i];
-			thought_ui_instance.set_thought_ui_instance(current_clue.name, current_clue.description, 240 + i * 240, 240 + j * 120, current_clue, true);
-			instanciated_thought_uis[thought_uis_count] = thought_ui_instance;
-			thought_uis_count += 1;
-			if(instanciated_thought_uis.size() == thought_uis_count):
-				instanciated_thought_uis.resize(thought_uis_count * 2);
+	print(chosen_thought_path == null);
+	if(chosen_thought_path == null): return
+	# for j in range(0, PalaceManager.instance.thought_paths.size()):
+	for i in range(0, chosen_thought_path.required_clues.size()):
+		if(!chosen_thought_path.is_clue_realized[i]): break;
+		var thought_ui_instance = thought_ui.instantiate();
+		mind_palace_ui.get_node("Panel").add_child(thought_ui_instance);
+		var current_clue: Clue = chosen_thought_path.required_clues[i];
+		thought_ui_instance.set_thought_ui_instance(current_clue.name, current_clue.description, 240 + i * 240, 240, current_clue, true);
+		instanciated_thought_uis[thought_uis_count] = thought_ui_instance;
+		thought_uis_count += 1;
+		if(instanciated_thought_uis.size() == thought_uis_count):
+			instanciated_thought_uis.resize(thought_uis_count * 2);
 
 func clear_mind_palace_ui():
 	for i in range(thought_uis_count - 1, -1, -1): #-1 bo koniec jest exlusive wiec idzie do 0
@@ -108,6 +127,18 @@ func clear_mind_palace_ui():
 		# print("destroyed thought ui");
 	instanciated_thought_uis = [null];
 	thought_uis_count = 0;
+
+	for i in range(thought_path_uis_count - 1, -1, -1):
+		instanciated_thought_path_uis[i].queue_free();
+		# print("destroyed thought ui");
+	instanciated_thought_path_uis = [null];
+	thought_path_uis_count = 0;
+
+func choose_thought_path(path: ThoughtPath):
+	print("Chosen: " + path.name);
+	chosen_thought_path = path;
+	clear_mind_palace_ui();
+	update_mind_palace_ui();
 
 func hide_mind_palace_ui():
 	is_in_game = true;

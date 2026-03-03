@@ -2,12 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://dg433bvfg6cvt" path="res://scenes/PlayerValk.tscn" id="1_cb1vq"]
 [ext_resource type="Script" uid="uid://s47j5s0f3fdy" path="res://scripts/Valk/Managers/psyche_manager.gd" id="2_1a1i1"]
+[ext_resource type="PackedScene" uid="uid://bkmfixym7ftg7" path="res://scenes/test_scenes/scene_clue.tscn" id="2_k4afo"]
 [ext_resource type="Script" uid="uid://c681q57ewat6f" path="res://scripts/Valk/Managers/game_manager.gd" id="3_1tntn"]
 [ext_resource type="PackedScene" uid="uid://elmpcqsoarjp" path="res://scenes/Mobs/Shell.tscn" id="3_81ya1"]
+[ext_resource type="Resource" uid="uid://cpshgebigpcom" path="res://resources/thoughts/meow.tres" id="3_axhgm"]
 [ext_resource type="PackedScene" uid="uid://ce6h2fmee74sw" path="res://scenes/test_scenes/serum.tscn" id="3_t4e8a"]
 [ext_resource type="Script" uid="uid://bj28ubqcmsltd" path="res://scripts/Valk/Managers/palace_manager.gd" id="4_32swi"]
+[ext_resource type="Resource" uid="uid://beopfd6yqk0so" path="res://resources/thoughts/TimeToDie.tres" id="4_axhgm"]
 [ext_resource type="PackedScene" uid="uid://bieh4iknld2hn" path="res://scenes/test_scenes/rock.tscn" id="5_0nogy"]
 [ext_resource type="Script" uid="uid://b3e6n7nbttp0c" path="res://scripts/Valk/Resource Types/thought_path.gd" id="5_jdfls"]
+[ext_resource type="Resource" uid="uid://dwbrn5l1ernyw" path="res://resources/thoughts/Hello.tres" id="5_suiiq"]
 [ext_resource type="Resource" uid="uid://cop13c5am162g" path="res://resources/thought_paths/test_clue_path.tres" id="6_oc1qc"]
 [ext_resource type="Script" uid="uid://coysphqpo5g2l" path="res://scripts/Valk/Managers/inventory_manager.gd" id="7_j8bvq"]
 [ext_resource type="Resource" uid="uid://cught0y7spfwy" path="res://resources/thought_paths/second_test_path.tres" id="7_n1lhp"]
@@ -17,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://d1i2hyd827vx1" path="res://scenes/ui/note_ui.tscn" id="10_32swi"]
 [ext_resource type="Script" uid="uid://k7qr63sybur6" path="res://scripts/Valk/Managers/ui_manager.gd" id="10_j8bvq"]
 [ext_resource type="Script" uid="uid://bw0o64kaou276" path="res://scripts/Valk/palace_ui_controller.gd" id="10_k4afo"]
+[ext_resource type="PackedScene" uid="uid://bya7074yvflm6" path="res://scenes/ui/thought_path_button.tscn" id="11_oc1qc"]
 [ext_resource type="PackedScene" uid="uid://bicg3xk5h40ss" path="res://scenes/test_scenes/interact_test.tscn" id="13_51aie"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_cb1vq"]
@@ -258,6 +263,18 @@ surface_material_override/0 = SubResource("StandardMaterial3D_0nogy")
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_1a1i1")
 
+[node name="Scene Clue" parent="Floors" unique_id=1221183155 instance=ExtResource("2_k4afo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.987793, 1.1323555, -26.55916)
+clue_to_gather = ExtResource("3_axhgm")
+
+[node name="Scene Clue2" parent="Floors" unique_id=485985847 instance=ExtResource("2_k4afo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.78561, 1.1323555, -26.55916)
+clue_to_gather = ExtResource("4_axhgm")
+
+[node name="Scene Clue3" parent="Floors" unique_id=1381739620 instance=ExtResource("2_k4afo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.456338, 1.1323555, -26.55916)
+clue_to_gather = ExtResource("5_suiiq")
+
 [node name="PsycheManager" type="Node" parent="." unique_id=535571037 node_paths=PackedStringArray("player")]
 script = ExtResource("2_1a1i1")
 player = NodePath("../Player")
@@ -309,6 +326,7 @@ note_ui = NodePath("NoteUI")
 added_thought_notif = NodePath("AddedThoughtNotif")
 mind_palace_ui = NodePath("MindPalace")
 thought_ui = ExtResource("8_pu81h")
+thought_path_ui = ExtResource("11_oc1qc")
 metadata/_custom_type_script = "uid://k7qr63sybur6"
 
 [node name="NoteUI" parent="UIManager" unique_id=1191746793 instance=ExtResource("10_32swi")]
@@ -339,8 +357,23 @@ offset_left = -576.0
 offset_top = -324.0
 offset_right = 575.0
 offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("10_k4afo")
 thought_ui_scene = ExtResource("8_pu81h")
+
+[node name="ThoughtPaths" type="Panel" parent="UIManager/MindPalace" unique_id=2091509819]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.49500003
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -915.0
+offset_top = -323.60004
+offset_right = -649.0
+offset_bottom = 318.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="InventoryManager" type="Node" parent="." unique_id=93593884]
 script = ExtResource("7_j8bvq")
