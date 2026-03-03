@@ -87,6 +87,7 @@ func show_mind_palace_ui():
 
 func update_mind_palace_ui():
 	for i in range(0, PalaceManager.instance.thought_paths.size()):
+		if(!PalaceManager.instance.thought_paths[i].is_unlocked()): continue;
 		var thought_path_ui_instance = thought_path_ui.instantiate();
 		mind_palace_ui.get_node("ThoughtPaths").add_child(thought_path_ui_instance);
 		thought_path_ui_instance.text = PalaceManager.instance.thought_paths[i].name;
