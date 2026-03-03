@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://bieh4iknld2hn" path="res://scenes/test_scenes/rock.tscn" id="10_abvy7"]
 [ext_resource type="PackedScene" uid="uid://bw8wddlntpkih" path="res://scenes/test_scenes/Door.tscn" id="10_vcjj7"]
 [ext_resource type="PackedScene" uid="uid://cetykgnumtcvk" path="res://scenes/Mobs/shell_2.tscn" id="11_01gpf"]
+[ext_resource type="PackedScene" uid="uid://bya7074yvflm6" path="res://scenes/ui/thought_path_button.tscn" id="12_a22ly"]
 [ext_resource type="PackedScene" uid="uid://dfiw1ws6ojtp8" path="res://scenes/test_scenes/PatrolPoint.tscn" id="12_uyulh"]
 [ext_resource type="PackedScene" uid="uid://dug2gg4ldjhoc" path="res://scenes/test_scenes/Mutation_navigation.tscn" id="14_uyulh"]
 [ext_resource type="PackedScene" uid="uid://bl7pr1jrqx1d8" path="res://scenes/restart_trigger.tscn" id="15_lfu3u"]
@@ -161,6 +162,7 @@ note_ui = NodePath("NoteUI")
 added_thought_notif = NodePath("AddedThoughtNotif")
 mind_palace_ui = NodePath("MindPalace")
 thought_ui = ExtResource("6_aa7i7")
+thought_path_ui = ExtResource("12_a22ly")
 metadata/_custom_type_script = "uid://k7qr63sybur6"
 
 [node name="NoteUI" parent="UIManager" unique_id=1193079714 instance=ExtResource("7_01gpf")]
@@ -194,6 +196,19 @@ offset_bottom = 324.0
 script = ExtResource("8_sq7co")
 thought_ui_scene = ExtResource("6_aa7i7")
 
+[node name="ThoughtPaths" type="Panel" parent="UIManager/MindPalace" unique_id=665321674]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.49500003
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -915.0
+offset_top = -323.60004
+offset_right = -649.0
+offset_bottom = 318.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="floor" type="CSGBox3D" parent="." unique_id=587062996]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12173462, -1.0557508, 0.5328655)
 material_override = SubResource("StandardMaterial3D_13hkq")
@@ -203,7 +218,6 @@ size = Vector3(500, 1.1, 500)
 
 [node name="Ceiling" type="MeshInstance3D" parent="." unique_id=1733152512]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.897, 4, 0.384)
-visible = false
 mesh = SubResource("BoxMesh_01gpf")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_uyulh")
