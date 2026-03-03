@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bya7074yvflm6"]
+
+[node name="ThoughtPathButton" type="Button" unique_id=82415184]
+offset_right = 184.0
+offset_bottom = 89.0
+text = "Thought Path"

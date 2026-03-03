@@ -38,31 +38,28 @@ func Check_conditions(delta: float) -> void:
 		STATE_TYPES.Searching:
 			if timer > 0:
 				timer -= delta
-				if (is_player_in_sight()):
+				if (is_player_in_sight() && player_is_on_region()):
 					if (PsycheManager.instance.invisibility_timer <= 0): 
 						change_state_by_name(current,STATE_TYPES.Scream);
 			else:
 				change_state_by_name(current, STATE_TYPES.Patrol)
 		STATE_TYPES.Follow_sound:
-			if (is_player_in_sight()):
+			if (is_player_in_sight() && player_is_on_region()):
 				if (PsycheManager.instance.invisibility_timer <= 0): 
 					change_state_by_name(current, STATE_TYPES.Scream);
 			elif ((state_machine.mob.position) - (sound_target.position)).length() < attack_range:
 				change_state_by_name(current, STATE_TYPES.Searching)
-			elif timer > 0:
-				timer-=delta
+			elif timer > 0: timer -= delta
 			elif timer < 0:
 				change_state_by_name(current, STATE_TYPES.Searching)
 			else:
 				change_state_by_name(current,STATE_TYPES.Patrol)
-			if (!player_is_on_region()):
-				change_state_by_name(current,STATE_TYPES.Patrol)
 		STATE_TYPES.Wander:
-			if (is_player_in_sight()):
+			if (is_player_in_sight() && player_is_on_region()):
 				if (PsycheManager.instance.invisibility_timer <= 0): 
 					change_state_by_name(current, STATE_TYPES.Scream);
 		STATE_TYPES.Patrol:
-			if (is_player_in_sight()):
+			if (is_player_in_sight() && player_is_on_region()):
 				if (PsycheManager.instance.invisibility_timer <= 0): 
 					change_state_by_name(current, STATE_TYPES.Scream);
 		STATE_TYPES.Scream:

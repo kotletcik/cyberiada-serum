@@ -9,7 +9,6 @@ var first_free_index: int = 0;
 @export var thought_paths: Array[ThoughtPath] = [null];
 
 
-
 func _ready() -> void:
 	if(instance == null):
 		instance = self;

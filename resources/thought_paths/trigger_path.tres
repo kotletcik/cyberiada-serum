@@ -7,6 +7,7 @@
 
 [resource]
 script = ExtResource("2_ub42a")
+name = "Forgor"
 required_clues = Array[ExtResource("1_us72l")]([ExtResource("2_77wu0"), ExtResource("3_77wu0")])
 is_clue_realized = Array[bool]([false, false])
 does_automatically_unlock = Array[bool]([false, false])
