@@ -13,5 +13,7 @@ func set_thought_ui_instance(title: String, desc: String, x_pos: int, y_pos: int
 	get_node("DescText").text = desc;
 	position.x = x_pos;
 	position.y = y_pos;
+	if(x_pos == 0 && y_pos == 0):
+		position = clue.ui_pos;
 	thought_clue = clue;
 	is_on_thought_path = is_on_path;

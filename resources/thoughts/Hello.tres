@@ -6,4 +6,5 @@
 script = ExtResource("1_qvvap")
 name = "Life"
 description = "I EXIST!!!"
+ui_pos = Vector2(32, 32)
 metadata/_custom_type_script = "uid://q760mct2evav"

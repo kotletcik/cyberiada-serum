@@ -6,4 +6,5 @@
 script = ExtResource("1_yt7a6")
 name = "Death"
 description = "Therefore I must die"
+ui_pos = Vector2(256, 30)
 metadata/_custom_type_script = "uid://q760mct2evav"

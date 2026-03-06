@@ -6,4 +6,5 @@
 script = ExtResource("1_8nwc0")
 name = "HEAVEN"
 description = "IN CAT HAVEN!!!! I HAVE TO KILL MYSELF"
+ui_pos = Vector2(704, 16)
 metadata/_custom_type_script = "uid://q760mct2evav"

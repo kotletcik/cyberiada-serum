@@ -91,7 +91,7 @@ func update_mind_palace_ui():
 		var thought_path_ui_instance = thought_path_ui.instantiate();
 		mind_palace_ui.get_node("ThoughtPaths").add_child(thought_path_ui_instance);
 		thought_path_ui_instance.text = PalaceManager.instance.thought_paths[i].name;
-		thought_path_ui_instance.pressed.connect(choose_thought_path.bind(PalaceManager.instance.thought_paths[i])	);
+		thought_path_ui_instance.pressed.connect(choose_thought_path.bind(PalaceManager.instance.thought_paths[i]));
 		thought_path_ui_instance.position = Vector2(0, 720 - i * 96);
 		instanciated_thought_path_uis[thought_path_uis_count] = thought_path_ui_instance;
 		thought_path_uis_count += 1;
@@ -116,7 +116,7 @@ func update_mind_palace_ui():
 		var thought_ui_instance = thought_ui.instantiate();
 		mind_palace_ui.get_node("Panel").add_child(thought_ui_instance);
 		var current_clue: Clue = chosen_thought_path.required_clues[i];
-		thought_ui_instance.set_thought_ui_instance(current_clue.name, current_clue.description, 240 + i * 240, 240, current_clue, true);
+		thought_ui_instance.set_thought_ui_instance(current_clue.name, current_clue.description, 0, 0, current_clue, true);
 		instanciated_thought_uis[thought_uis_count] = thought_ui_instance;
 		thought_uis_count += 1;
 		if(instanciated_thought_uis.size() == thought_uis_count):

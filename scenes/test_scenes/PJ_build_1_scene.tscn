@@ -218,6 +218,7 @@ size = Vector3(500, 1.1, 500)
 
 [node name="Ceiling" type="MeshInstance3D" parent="." unique_id=1733152512]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.897, 4, 0.384)
+visible = false
 mesh = SubResource("BoxMesh_01gpf")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_uyulh")
