@@ -385,7 +385,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.843849, 1.4558756, -18.73
 [node name="State_machine" parent="Shell" index="5" unique_id=593020358 node_paths=PackedStringArray("initial_state")]
 initial_state = NodePath("Patrol")
 
-[node name="Patrol" parent="Shell/State_machine" index="6" unique_id=1952931126 node_paths=PackedStringArray("patrol_points")]
+[node name="Patrol" parent="Shell/State_machine" index="5" unique_id=1952931126 node_paths=PackedStringArray("patrol_points")]
 patrol_points = [NodePath("../../../Patrols/Patrol3"), NodePath("../../../Patrols/Patrol4")]
 
 [node name="Serums" type="Node" parent="." unique_id=1170967438]
@@ -449,7 +449,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.196171, 1.524102, -18.6417
 [node name="State_machine" parent="Shell2" index="5" unique_id=593020358 node_paths=PackedStringArray("initial_state")]
 initial_state = NodePath("Patrol")
 
-[node name="Patrol" parent="Shell2/State_machine" index="6" unique_id=1952931126 node_paths=PackedStringArray("patrol_points")]
+[node name="Patrol" parent="Shell2/State_machine" index="5" unique_id=1952931126 node_paths=PackedStringArray("patrol_points")]
 patrol_points = [NodePath("../../../Patrols/Patrol1"), NodePath("../../../Patrols/Patrol2")]
 
 [node name="Restart Trigger" parent="." unique_id=1712831958 instance=ExtResource("9_b4wx3")]

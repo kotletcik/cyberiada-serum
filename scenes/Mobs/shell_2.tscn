@@ -44,9 +44,12 @@ size = Vector3(0.2, 0.2, 0.2)
 [sub_resource type="BoxMesh" id="BoxMesh_raqt8"]
 size = Vector3(0.4, 0.2, 0.2)
 
-[node name="Shell" type="CharacterBody3D" unique_id=559753415]
+[node name="Shell" type="CharacterBody3D" unique_id=559753415 node_paths=PackedStringArray("sound_target", "state_machine")]
 collision_layer = 8
 collision_mask = 7
+script = ExtResource("10_mn5ew")
+sound_target = NodePath("State_machine/Follow_sound/Empty_target")
+state_machine = NodePath("State_machine")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=303566284]
 shape = SubResource("CapsuleShape3D_lj2st")
@@ -129,17 +132,6 @@ metadata/_custom_type_script = "uid://foywhiftl87x"
 [node name="empty_target" type="Node3D" parent="State_machine/Searching" unique_id=156156754]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9462496, 0, 0)
 
-[node name="Behaviour" type="Node" parent="State_machine" unique_id=762454768 node_paths=PackedStringArray("sound_target", "state_machine")]
-script = ExtResource("10_mn5ew")
-sound_target = NodePath("../Follow_sound/Empty_target")
-state_machine = NodePath("..")
-player_sight_range = 4.0
-walls_layer = 3
-metadata/_custom_type_script = "uid://fn4i2xt1rjiu"
-
-[node name="DebugLines" type="MeshInstance3D" parent="State_machine/Behaviour" unique_id=1753125660]
-skeleton = NodePath("../../..")
-
 [node name="Patrol" type="Node" parent="State_machine" unique_id=749532481 node_paths=PackedStringArray("empty_target", "patrol_points")]
 script = ExtResource("11_j677n")
 empty_target = NodePath("empty_target")
@@ -168,3 +160,5 @@ metadata/_custom_type_script = "uid://foywhiftl87x"
 [node name="Eyes" type="MeshInstance3D" parent="." unique_id=533341750]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4183241, -0.47043222)
 mesh = SubResource("BoxMesh_raqt8")
+
+[node name="DebugLines" type="MeshInstance3D" parent="." unique_id=1753125660]

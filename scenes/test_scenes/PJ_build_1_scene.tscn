@@ -101,9 +101,10 @@ agent_radius = 1.0
 [node name="Main_scene" type="Node3D" unique_id=649139474]
 
 [node name="Player" parent="." unique_id=2039338456 instance=ExtResource("1_ahihw")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -78.345245, 1.6258812, -7.82485)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -19.108109, 1.6258812, -9.566368)
 collision_mask = 6
 SOBER_WALK_SPEED = 7.5
+CROUCH_SPEED_MULTIPLIER = 0.3
 crouching_noise_volume = 1.5
 walking_noise_volume = 3.0
 
@@ -1220,14 +1221,11 @@ acceleration = 9.0
 [node name="Searching" parent="Location7/Shell/State_machine" parent_id_path=PackedInt32Array(691060374, 1095814439) index="4" unique_id=381951325]
 acceleration = 15.0
 
-[node name="Behaviour" parent="Location7/Shell/State_machine" parent_id_path=PackedInt32Array(691060374, 1095814439) index="5" unique_id=762454768]
-player_sight_range = 8.0
-
-[node name="Patrol" parent="Location7/Shell/State_machine" parent_id_path=PackedInt32Array(691060374, 1095814439) index="6" unique_id=749532481 node_paths=PackedStringArray("patrol_points")]
+[node name="Patrol" parent="Location7/Shell/State_machine" parent_id_path=PackedInt32Array(691060374, 1095814439) index="5" unique_id=749532481 node_paths=PackedStringArray("patrol_points")]
 patrol_points = [NodePath("../../../ShellPatrolPoints/PatrolPoint1"), NodePath("../../../ShellPatrolPoints/PatrolPoint2"), NodePath("../../../ShellPatrolPoints/PatrolPoint3"), NodePath("../../../ShellPatrolPoints/PatrolPoint2")]
 acceleration = 3.0
 
-[node name="Scream" parent="Location7/Shell/State_machine" parent_id_path=PackedInt32Array(691060374, 1095814439) index="7" unique_id=2136210656]
+[node name="Scream" parent="Location7/Shell/State_machine" parent_id_path=PackedInt32Array(691060374, 1095814439) index="6" unique_id=2136210656]
 acceleration = 9.0
 
 [node name="ShellNavRegion" type="NavigationRegion3D" parent="Location7" unique_id=1328549488]
@@ -1567,14 +1565,11 @@ acceleration = 9.0
 [node name="Searching" parent="Location9/Shell/State_machine" parent_id_path=PackedInt32Array(1986411226, 1095814439) index="4" unique_id=381951325]
 acceleration = 15.0
 
-[node name="Behaviour" parent="Location9/Shell/State_machine" parent_id_path=PackedInt32Array(1986411226, 1095814439) index="5" unique_id=762454768]
-player_sight_range = 8.0
-
-[node name="Patrol" parent="Location9/Shell/State_machine" parent_id_path=PackedInt32Array(1986411226, 1095814439) index="6" unique_id=749532481 node_paths=PackedStringArray("patrol_points")]
+[node name="Patrol" parent="Location9/Shell/State_machine" parent_id_path=PackedInt32Array(1986411226, 1095814439) index="5" unique_id=749532481 node_paths=PackedStringArray("patrol_points")]
 patrol_points = [NodePath("../../../ShellPatrolPoints/PatrolPoint1"), NodePath("../../../ShellPatrolPoints/PatrolPoint2"), NodePath("../../../ShellPatrolPoints/PatrolPoint3"), NodePath("../../../ShellPatrolPoints/PatrolPoint2")]
 acceleration = 3.0
 
-[node name="Scream" parent="Location9/Shell/State_machine" parent_id_path=PackedInt32Array(1986411226, 1095814439) index="7" unique_id=2136210656]
+[node name="Scream" parent="Location9/Shell/State_machine" parent_id_path=PackedInt32Array(1986411226, 1095814439) index="6" unique_id=2136210656]
 acceleration = 9.0
 
 [node name="ShellNavRegion" type="NavigationRegion3D" parent="Location9" unique_id=762941749]

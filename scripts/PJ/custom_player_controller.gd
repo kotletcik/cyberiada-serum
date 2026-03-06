@@ -54,6 +54,7 @@ func _physics_process(delta: float) -> void:
 	if(UIManager.instance.is_in_esc_menu || !UIManager.instance.is_in_game): return;
 	# zmiana szybkości w przyszłości by była tutaj
 	move_speed = SOBER_WALK_SPEED; 
+	
 	if(Input.is_action_pressed("Crouch")):
 		collision_shape.scale.y = 0.5;
 		#position.y -= 0.1

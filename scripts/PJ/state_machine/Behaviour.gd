@@ -1,8 +1,8 @@
-extends Node
+extends Node3D
 class_name Behaviour
 
-@export_group("general")
 @export var state_machine: State_machine
+@export_group("general")
 @export var player_sight_fov: float = 180
 @export var player_sight_range: float = 2
 @export var attack_range: float = 1.0
@@ -20,15 +20,15 @@ var fov_gizmo: MeshInstance3D
 func is_player_in_sight() -> bool:
 	if (disable_fov_check): return false;
 	if (state_machine == null): return false
-	var player_in_local: Vector3 = GameManager.instance.player.global_position - state_machine.mob.global_position;
+	var player_in_local: Vector3 = GameManager.instance.player.global_position - self.global_position;
 	var direction = player_in_local.normalized();
-	dot = state_machine.mob.global_basis.z.dot(direction);
+	dot = self.global_basis.z.dot(direction);
+	
 	if(dot < 1-(player_sight_fov/180)): 
 		if (PsycheManager.instance.invisibility_timer > 0): return false;
-		var global_position: Vector3 = state_machine.mob.global_position;
 		var query = PhysicsRayQueryParameters3D.create(global_position, global_position + direction * player_sight_range);
 		# query.collision_mask itd
-		var space_state = state_machine.mob.get_world_3d().direct_space_state
+		var space_state = self.get_world_3d().direct_space_state
 		var result = space_state.intersect_ray(query);
 		if(!result.is_empty()):
 			if result["collider"] is CharacterBody3D:
