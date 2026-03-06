@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="Clue" format=3 uid="uid://cpshgebigpcom"]
 
 [ext_resource type="Script" uid="uid://q760mct2evav" path="res://scripts/Valk/Resource Types/clue.gd" id="1_cwu2e"]
+[ext_resource type="Resource" uid="uid://dt7dtcb4bds7m" path="res://resources/thoughts/cat.tres" id="2_8e8ai"]
+[ext_resource type="Resource" uid="uid://emdxa24gcxrb" path="res://resources/thoughts/where.tres" id="3_pbnvd"]
 
 [resource]
 script = ExtResource("1_cwu2e")
 name = "Meow"
 description = "MEOW MEOW!!!"
 ui_pos = Vector2(32, 36)
+clues_to_gather = Array[ExtResource("1_cwu2e")]([ExtResource("2_8e8ai"), ExtResource("3_pbnvd")])
+does_automatically_unlock = Array[bool]([true, false])
 metadata/_custom_type_script = "uid://q760mct2evav"

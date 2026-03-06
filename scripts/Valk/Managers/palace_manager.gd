@@ -25,6 +25,7 @@ func add_gathered_clue(new_clue: Clue):
 		gathered_clues.resize(first_free_index * 2);
 	UIManager.instance.show_added_thought_notif(new_clue, 5.0);
 	if(is_first_thought(new_clue)): create_thought(new_clue);
+	# if(does_automatically_unlock(new_clue)): create_thought(new_clue);
 	EventBus.clue_gathered.emit(new_clue);
 
 func remove_gathered_clue(clue_to_remove: Clue):
@@ -52,16 +53,26 @@ func is_first_thought(chosen_clue: Clue) -> bool:
 		if(thought_paths[i].required_clues[0] == chosen_clue): return true;
 	return false;
 
+# func does_automatically_unlock(clue: Clue) -> bool:
+# 	for i in range(0, thought_paths.size()):
+# 		for j in range(0, thought_paths[i].required_clues.size()):
+# 			if(thought_paths[i].required_clues[j] == clue): 
+# 				return thought_paths[i].does_automatically_unlock[j];
+# 	return false;
+
 func create_thought(chosen_clue: Clue):
 	for i in range(0, thought_paths.size()):
 		for j in range(0, thought_paths[i].required_clues.size()):
 			if(thought_paths[i].required_clues[j] == chosen_clue):
 				thought_paths[i].is_clue_realized[j] = true;
-				if(!thought_paths[i].does_automatically_unlock[j]):
-					remove_gathered_clue(chosen_clue);
-				var index: int = j + 1;
-				if(index < thought_paths[i].does_automatically_unlock.size()):
-					if(thought_paths[i].does_automatically_unlock[index]): 
-						create_thought(thought_paths[i].required_clues[index]);
+				# if(!thought_paths[i].does_automatically_unlock[j]):
+				remove_gathered_clue(chosen_clue);
+				# var index: int = j + 1;
+				# if(index < thought_paths[i].does_automatically_unlock.size()):
+				# 	if(thought_paths[i].does_automatically_unlock[index]): 
+				# 		create_thought(thought_paths[i].required_clues[index]);
+				for k in range(0, chosen_clue.clues_to_gather.size()):
+					add_gathered_clue(chosen_clue.clues_to_gather[k]);
+					if(chosen_clue.does_automatically_unlock[k]): create_thought(chosen_clue.clues_to_gather[k]);
 				return;
 	print("Error while creating a thought, probably the clue was not found in thought paths");
