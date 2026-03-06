@@ -12,6 +12,8 @@ var first_free_index: int = 0;
 func _ready() -> void:
 	if(instance == null):
 		instance = self;
+		for i in range(0, thought_paths.size()):
+			thought_paths[i].initialize();
 	else:
 		print("More than one PalaceManager exists!!!");
 	pass 

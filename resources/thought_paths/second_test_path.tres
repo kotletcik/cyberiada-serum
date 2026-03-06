@@ -11,6 +11,4 @@
 script = ExtResource("2_6e27h")
 name = "Cat Meow"
 required_clues = Array[ExtResource("1_iiuqw")]([ExtResource("3_xko24"), ExtResource("2_vxc38"), ExtResource("4_7k7qr"), ExtResource("5_f7c7i")])
-is_clue_realized = Array[bool]([false, false, false, false])
-does_automatically_unlock = Array[bool]([false, true, true, false])
 metadata/_custom_type_script = "uid://b3e6n7nbttp0c"

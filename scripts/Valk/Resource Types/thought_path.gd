@@ -3,8 +3,12 @@ extends Resource
 
 @export var name: String = "Thought Path";
 @export var required_clues: Array[Clue] = [null];
-@export var is_clue_realized: Array[bool] = [false];
+# @export 
+var is_clue_realized: Array[bool] = [false];
 # @export var does_automatically_unlock: Array[bool] = [false];
+
+func initialize() -> void:
+    is_clue_realized.resize(required_clues.size());
 
 func is_unlocked() -> bool:
     if(required_clues.size() <= 0 || is_clue_realized.size() <= 0): return false;
