@@ -25,7 +25,7 @@ func Check_conditions(delta: float) -> void:
 	var current = state_machine.current_state.state_type
 	match current:
 		STATE_TYPES.Follow_player:
-			if ((state_machine.mob.global_position) - (GameManager.instance.player.global_position)).length() < attack_range:
+			if ((self.global_position) - (GameManager.instance.player.global_position)).length() < attack_range:
 				change_state_by_name(current, STATE_TYPES.Attack)
 			elif timer > 0:
 				timer-=delta
@@ -47,7 +47,7 @@ func Check_conditions(delta: float) -> void:
 			if (is_player_in_sight() && player_is_on_region()):
 				if (PsycheManager.instance.invisibility_timer <= 0): 
 					change_state_by_name(current, STATE_TYPES.Scream);
-			elif ((state_machine.mob.position) - (sound_target.position)).length() < attack_range:
+			elif ((self.global_position) - (sound_target.global_position)).length() < attack_range:
 				change_state_by_name(current, STATE_TYPES.Searching)
 			elif timer > 0: timer -= delta
 			elif timer < 0:

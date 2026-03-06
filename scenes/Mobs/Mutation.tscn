@@ -29,10 +29,11 @@ albedo_color = Color(0.27935672, 0.27935672, 0.27935672, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_3x212"]
 size = Vector3(0.4, 0.2, 0.2)
 
-[node name="Mutation" type="CharacterBody3D" unique_id=1656460003]
+[node name="Mutation" type="CharacterBody3D" unique_id=1656460003 node_paths=PackedStringArray("state_machine")]
 collision_layer = 8
 collision_mask = 3
 script = ExtResource("4_u10fb")
+state_machine = NodePath("State_machine")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=347165820]
 shape = SubResource("CapsuleShape3D_lj2st")
