@@ -1,8 +1,8 @@
 extends Node
 class_name Behaviour
 
+@onready var state_machine: State_machine = $State_machine
 @export_group("general")
-@export var state_machine: State_machine
 @export var player_sight_fov: float = 180
 @export var player_sight_range: float = 2
 @export var attack_range: float = 1.0

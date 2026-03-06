@@ -1,8 +1,8 @@
 extends Behaviour
 class_name Shell_behaviour
 
-@onready var nav_agent: NavigationAgent3D = $"../../NavigationAgent3D"
-@onready var mesh_instance: MeshInstance3D = $"../../MeshInstance3D"
+@onready var nav_agent: NavigationAgent3D = $"NavigationAgent3D"
+@onready var mesh_instance: MeshInstance3D = $"MeshInstance3D"
 @export_group("follow_player")
 @export var follow_state_duration:= 5.0
 @export_group("searching_player")

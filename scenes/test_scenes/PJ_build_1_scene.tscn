@@ -7,25 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://b8wfahed5pckx" path="res://scenes/Locations/Test_level1.tscn" id="5_3rc8y"]
 [ext_resource type="Script" uid="uid://k7qr63sybur6" path="res://scripts/Valk/Managers/ui_manager.gd" id="6_abvy7"]
 [ext_resource type="PackedScene" uid="uid://d1i2hyd827vx1" path="res://scenes/ui/note_ui.tscn" id="7_01gpf"]
-[ext_resource type="Script" uid="uid://b7oh0gjgvjexb" path="res://scripts/PJ/state_machine/AI_controller.gd" id="8_g76yq"]
 [ext_resource type="PackedScene" uid="uid://doimrejwy0736" path="res://scenes/test_scenes/Double_door.tscn" id="8_vcjj7"]
 [ext_resource type="PackedScene" uid="uid://ce6h2fmee74sw" path="res://scenes/test_scenes/serum.tscn" id="9_3rc8y"]
-[ext_resource type="Script" uid="uid://b7ydidx4polw6" path="res://scripts/Valk/shell_disappearance.gd" id="9_e7wky"]
 [ext_resource type="PackedScene" uid="uid://bieh4iknld2hn" path="res://scenes/test_scenes/rock.tscn" id="10_abvy7"]
 [ext_resource type="PackedScene" uid="uid://bw8wddlntpkih" path="res://scenes/test_scenes/Door.tscn" id="10_vcjj7"]
-[ext_resource type="Script" uid="uid://bt2rps524x0ph" path="res://scripts/PJ/state_machine/State_machine.gd" id="10_wmpl2"]
 [ext_resource type="PackedScene" uid="uid://cetykgnumtcvk" path="res://scenes/Mobs/shell_2.tscn" id="11_01gpf"]
-[ext_resource type="Script" uid="uid://cxanx1emdbq8r" path="res://scripts/PJ/state_machine/States/Wander.gd" id="11_pb5qx"]
-[ext_resource type="Script" uid="uid://cosu5u4u5tn61" path="res://scripts/PJ/state_machine/States/Follow_player.gd" id="12_dclo1"]
 [ext_resource type="PackedScene" uid="uid://dfiw1ws6ojtp8" path="res://scenes/test_scenes/PatrolPoint.tscn" id="12_uyulh"]
-[ext_resource type="Script" uid="uid://cc74fqip5mv6y" path="res://scripts/PJ/state_machine/States/Attack.gd" id="13_hes8m"]
-[ext_resource type="Script" uid="uid://bm34qfrf1h2m1" path="res://scripts/PJ/state_machine/States/follow_sound.gd" id="14_77tn1"]
 [ext_resource type="PackedScene" uid="uid://dug2gg4ldjhoc" path="res://scenes/test_scenes/Mutation_navigation.tscn" id="14_uyulh"]
-[ext_resource type="Script" uid="uid://bthija1821lvr" path="res://scripts/PJ/state_machine/States/searching_player.gd" id="15_85qxo"]
 [ext_resource type="PackedScene" uid="uid://bl7pr1jrqx1d8" path="res://scenes/restart_trigger.tscn" id="15_lfu3u"]
-[ext_resource type="Script" uid="uid://dkukaamdo4acb" path="res://scripts/PJ/state_machine/Shell_behaviour.gd" id="16_a22ly"]
-[ext_resource type="Script" uid="uid://ws43rxsp8qki" path="res://scripts/PJ/state_machine/States/Patrol.gd" id="17_hdlg5"]
-[ext_resource type="Script" uid="uid://cch3iwxpn7a6u" path="res://scripts/PJ/state_machine/States/Scream.gd" id="18_rf5c3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13hkq"]
 albedo_color = Color(0.27450982, 0.27450982, 0.27450982, 1)
@@ -171,123 +160,20 @@ shape = SubResource("BoxShape3D_lfu3u")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91.70074, 0, -1.5256891)
 visible = false
 
-[node name="Shell" parent="Test_level_1" index="0" unique_id=559753415]
-collision_layer = 8
-collision_mask = 7
-
-[node name="CollisionShape3D" parent="Test_level_1/Shell" index="0" unique_id=303566284]
+[node name="CollisionShape3D" parent="Test_level_1/Shell" parent_id_path=PackedInt32Array(914488937, 559753415) index="0" unique_id=303566284]
 shape = SubResource("CapsuleShape3D_lj2st")
 
-[node name="MeshInstance3D" parent="Test_level_1/Shell" index="1" unique_id=1202210949]
+[node name="MeshInstance3D" parent="Test_level_1/Shell" parent_id_path=PackedInt32Array(914488937, 559753415) index="1" unique_id=1202210949]
 mesh = SubResource("CapsuleMesh_ajbgq")
 surface_material_override/0 = SubResource("StandardMaterial3D_re4yq")
 
-[node name="Gravity" parent="Test_level_1/Shell" index="2" unique_id=1685677336 node_paths=PackedStringArray("_body")]
-_body = NodePath("..")
-
-[node name="NavigationAgent3D" parent="Test_level_1/Shell" index="3" unique_id=974769277]
-avoidance_enabled = true
-height = 2.0
-radius = 1.05
-debug_enabled = true
-debug_path_custom_color = Color(0.95686275, 0.13333334, 0.23137255, 1)
-script = ExtResource("8_g76yq")
-acceleration = 3.0
-
-[node name="Shell Disappearance" parent="Test_level_1/Shell" index="4" unique_id=1611389492 node_paths=PackedStringArray("shell_mesh")]
-script = ExtResource("9_e7wky")
-shell_mesh = NodePath("../MeshInstance3D")
-
-[node name="State_machine" parent="Test_level_1/Shell" index="5" unique_id=1095814439 node_paths=PackedStringArray("initial_state", "mob", "nav_agent")]
-script = ExtResource("10_wmpl2")
-initial_state = NodePath("Patrol")
-mob = NodePath("..")
-nav_agent = NodePath("../NavigationAgent3D")
-metadata/_custom_type_script = "uid://bt2rps524x0ph"
-
-[node name="Wander" parent="Test_level_1/Shell/State_machine" index="0" unique_id=1224842155 node_paths=PackedStringArray("empty_target")]
-script = ExtResource("11_pb5qx")
-empty_target = NodePath("empty_target")
-move_speed = 1.0
-metadata/_custom_type_script = "uid://foywhiftl87x"
-
-[node name="empty_target" parent="Test_level_1/Shell/State_machine/Wander" index="0" unique_id=527127653]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9462496, 0, 0)
-
-[node name="Follow_player" parent="Test_level_1/Shell/State_machine" index="1" unique_id=563903924]
-script = ExtResource("12_dclo1")
-move_speed = 4.0
-model_color = Color(1, 0.32410014, 0.25894427, 1)
-state_type = 1
-metadata/_custom_type_script = "uid://foywhiftl87x"
-
-[node name="Attack" parent="Test_level_1/Shell/State_machine" index="2" unique_id=1192327527]
-script = ExtResource("13_hes8m")
-model_color = Color(0.7670247, 2.5268644e-06, 9.62615e-07, 1)
-state_type = 4
-metadata/_custom_type_script = "uid://foywhiftl87x"
-
-[node name="Follow_sound" parent="Test_level_1/Shell/State_machine" index="3" unique_id=1204063766 node_paths=PackedStringArray("follow_target")]
-script = ExtResource("14_77tn1")
-follow_target = NodePath("Empty_target")
-model_color = Color(0, 0.40392157, 0.11372549, 1)
-state_type = 2
-metadata/_custom_type_script = "uid://foywhiftl87x"
-
-[node name="Empty_target" parent="Test_level_1/Shell/State_machine/Follow_sound" index="0" unique_id=101725219]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
-
-[node name="MeshInstance3D" parent="Test_level_1/Shell/State_machine/Follow_sound/Empty_target" index="0" unique_id=659896337]
+[node name="MeshInstance3D" parent="Test_level_1/Shell/State_machine/Follow_sound/Empty_target" parent_id_path=PackedInt32Array(914488937, 559753415, 101725219) index="0" unique_id=659896337]
 mesh = SubResource("SphereMesh_jt8f1")
 
-[node name="Searching" parent="Test_level_1/Shell/State_machine" index="4" unique_id=381951325 node_paths=PackedStringArray("empty_target")]
-script = ExtResource("15_85qxo")
-empty_target = NodePath("empty_target")
-searching_point_change_time = 2.5
-move_speed = 4.0
-model_color = Color(0.02745098, 0.30980393, 0.7921569, 1)
-state_type = 3
-metadata/_custom_type_script = "uid://foywhiftl87x"
-
-[node name="empty_target" parent="Test_level_1/Shell/State_machine/Searching" index="0" unique_id=156156754]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9462496, 0, 0)
-
-[node name="Behaviour" parent="Test_level_1/Shell/State_machine" index="5" unique_id=762454768 node_paths=PackedStringArray("sound_target", "state_machine")]
-script = ExtResource("16_a22ly")
-sound_target = NodePath("../Follow_sound/Empty_target")
-state_machine = NodePath("..")
-player_sight_range = 4.0
-walls_layer = 3
-metadata/_custom_type_script = "uid://fn4i2xt1rjiu"
-
-[node name="DebugLines" parent="Test_level_1/Shell/State_machine/Behaviour" index="0" unique_id=1753125660]
-skeleton = NodePath("../../..")
-
-[node name="Patrol" parent="Test_level_1/Shell/State_machine" index="6" unique_id=749532481 node_paths=PackedStringArray("empty_target")]
-script = ExtResource("17_hdlg5")
-empty_target = NodePath("empty_target")
-patrol_point_waiting_time = 1.0
-move_speed = 2.0
-model_color = Color(0.7581918, 0.7581918, 0.7581917, 1)
-state_type = 6
-metadata/_custom_type_script = "uid://foywhiftl87x"
-
-[node name="empty_target" parent="Test_level_1/Shell/State_machine/Patrol" index="0" unique_id=1291422138]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0076146, -29.651814)
-
-[node name="MeshInstance3D" parent="Test_level_1/Shell/State_machine/Patrol/empty_target" index="0" unique_id=345258922]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9188995, 0, 32.13404)
+[node name="MeshInstance3D" parent="Test_level_1/Shell/State_machine/Patrol/empty_target" parent_id_path=PackedInt32Array(914488937, 559753415, 1291422138) index="0" unique_id=345258922]
 mesh = SubResource("BoxMesh_lqxc7")
 
-[node name="Scream" parent="Test_level_1/Shell/State_machine" index="7" unique_id=2136210656]
-script = ExtResource("18_rf5c3")
-move_speed = 0.1
-model_color = Color(0.62540996, 0.0008913695, 0.00048867153, 1)
-state_type = 7
-metadata/_custom_type_script = "uid://foywhiftl87x"
-
-[node name="Eyes" parent="Test_level_1/Shell" index="6" unique_id=533341750]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4183241, -0.47043222)
+[node name="Eyes" parent="Test_level_1/Shell" parent_id_path=PackedInt32Array(914488937, 559753415) index="6" unique_id=533341750]
 mesh = SubResource("BoxMesh_raqt8")
 
 [node name="Start Location" type="Node3D" parent="." unique_id=944735480]
@@ -1225,11 +1111,11 @@ acceleration = 9.0
 [node name="Searching" parent="Location7/Shell/State_machine" parent_id_path=PackedInt32Array(691060374, 1095814439) index="4" unique_id=381951325]
 acceleration = 15.0
 
-[node name="Patrol" parent="Location7/Shell/State_machine" parent_id_path=PackedInt32Array(691060374, 1095814439) index="6" unique_id=749532481 node_paths=PackedStringArray("patrol_points")]
+[node name="Patrol" parent="Location7/Shell/State_machine" parent_id_path=PackedInt32Array(691060374, 1095814439) index="5" unique_id=749532481 node_paths=PackedStringArray("patrol_points")]
 patrol_points = [NodePath("../../../ShellPatrolPoints/PatrolPoint1"), NodePath("../../../ShellPatrolPoints/PatrolPoint2"), NodePath("../../../ShellPatrolPoints/PatrolPoint3"), NodePath("../../../ShellPatrolPoints/PatrolPoint2")]
 acceleration = 3.0
 
-[node name="Scream" parent="Location7/Shell/State_machine" parent_id_path=PackedInt32Array(691060374, 1095814439) index="7" unique_id=2136210656]
+[node name="Scream" parent="Location7/Shell/State_machine" parent_id_path=PackedInt32Array(691060374, 1095814439) index="6" unique_id=2136210656]
 acceleration = 9.0
 
 [node name="ShellNavRegion" type="NavigationRegion3D" parent="Location7" unique_id=1328549488]
@@ -1558,11 +1444,11 @@ acceleration = 9.0
 [node name="Searching" parent="Location9/Shell/State_machine" parent_id_path=PackedInt32Array(1986411226, 1095814439) index="4" unique_id=381951325]
 acceleration = 15.0
 
-[node name="Patrol" parent="Location9/Shell/State_machine" parent_id_path=PackedInt32Array(1986411226, 1095814439) index="6" unique_id=749532481 node_paths=PackedStringArray("patrol_points")]
+[node name="Patrol" parent="Location9/Shell/State_machine" parent_id_path=PackedInt32Array(1986411226, 1095814439) index="5" unique_id=749532481 node_paths=PackedStringArray("patrol_points")]
 patrol_points = [NodePath("../../../ShellPatrolPoints/PatrolPoint1"), NodePath("../../../ShellPatrolPoints/PatrolPoint2"), NodePath("../../../ShellPatrolPoints/PatrolPoint3"), NodePath("../../../ShellPatrolPoints/PatrolPoint2")]
 acceleration = 3.0
 
-[node name="Scream" parent="Location9/Shell/State_machine" parent_id_path=PackedInt32Array(1986411226, 1095814439) index="7" unique_id=2136210656]
+[node name="Scream" parent="Location9/Shell/State_machine" parent_id_path=PackedInt32Array(1986411226, 1095814439) index="6" unique_id=2136210656]
 acceleration = 9.0
 
 [node name="ShellNavRegion" type="NavigationRegion3D" parent="Location9" unique_id=762941749]
@@ -1992,6 +1878,7 @@ omni_range = 30.271
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11294556, -0.01115036, -42.314934)
 
 [editable path="Test_level_1"]
+[editable path="Test_level_1/Shell"]
 [editable path="Test_level_1/Mutation"]
 [editable path="Location7/Shell"]
 [editable path="Location9/Shell"]
