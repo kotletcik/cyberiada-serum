@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://chqddn3tlmas8" path="res://scripts/Valk/throw_rocks.gd" id="6_moip8"]
 [ext_resource type="PackedScene" uid="uid://bl467r2v4j413" path="res://scenes/test_scenes/throwable_rock.tscn" id="7_52ka2"]
 [ext_resource type="Script" uid="uid://2qft4tmq65a0" path="res://scripts/PJ/noise_maker.gd" id="8_pb500"]
+[ext_resource type="PackedScene" uid="uid://6tgemnaldm0g" path="res://scenes/ui/player_hud.tscn" id="9_d4q5a"]
 
 [sub_resource type="Environment" id="Environment_473a2"]
 fog_enabled = true
@@ -30,7 +31,7 @@ script = ExtResource("2_3li8b")
 serum = ExtResource("3_0dfmc")
 
 [node name="Rock Throw Position" type="Node3D" parent="Head/Camera3D" unique_id=1675000720]
-transform = Transform3D(1, 0, 0, 0, 0.9659258, -0.25881904, 0, 0.25881904, 0.9659258, 0.5736686, 0, 0)
+transform = Transform3D(0.99415094, 0.018753894, 0.10635862, 0, 0.98480785, -0.1736482, -0.107999355, 0.17263252, 0.97904766, 0.5736686, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2006764769]
 shape = SubResource("CapsuleShape3D_v6fml")
@@ -45,6 +46,9 @@ script = ExtResource("6_moip8")
 throw_position = NodePath("../Head/Camera3D/Rock Throw Position")
 throw_force = 25.0
 rock = ExtResource("7_52ka2")
+y = 1.0
 
 [node name="Noise Maker" type="Node3D" parent="." unique_id=1725856524]
 script = ExtResource("8_pb500")
+
+[node name="PlayerHud" parent="." unique_id=271417674 instance=ExtResource("9_d4q5a")]
