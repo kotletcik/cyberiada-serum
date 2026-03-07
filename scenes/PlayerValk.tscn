@@ -10,15 +10,17 @@
 [ext_resource type="Script" uid="uid://2qft4tmq65a0" path="res://scripts/PJ/noise_maker.gd" id="8_pb500"]
 [ext_resource type="PackedScene" uid="uid://6tgemnaldm0g" path="res://scenes/ui/player_hud.tscn" id="9_d4q5a"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v6fml"]
+
 [sub_resource type="Environment" id="Environment_473a2"]
 fog_enabled = true
 fog_light_color = Color(0.30184436, 0.32968265, 0.37299633, 1)
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v6fml"]
-
 [node name="PlayerValk" type="CharacterBody3D" unique_id=767105809]
 collision_layer = 16
 script = ExtResource("1_v6fml")
+player_capsule = SubResource("CapsuleShape3D_v6fml")
+crouch_check_collision_mask = 15
 
 [node name="Head" type="Node3D" parent="." unique_id=830310683]
 
