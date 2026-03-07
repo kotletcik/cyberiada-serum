@@ -11,7 +11,7 @@ func _process(_delta: float) -> void:
 		var forward: Vector3 = -get_global_transform().basis.z;
 		var query = PhysicsRayQueryParameters3D.create(global_position, global_position + forward * interaction_range);
 		var collision = get_world_3d().direct_space_state.intersect_ray(query);
-		print(collision)
+		# print(collision)
 		# print(collision.is_empty());
 		if(!collision.is_empty()):
 			var object: Node3D = collision["collider"];

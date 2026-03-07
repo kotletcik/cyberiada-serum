@@ -10,7 +10,6 @@ class_name PlayerController
 const SUBSTANCE_WALK_SPEED = 8.0
 @export var CROUCH_SPEED_MULTIPLIER = 0.5
 const SENSITIVITY = 0.004
-var is_Crouching: bool = false
 @export var crouching_noise_volume:= 2.0 # promień słyszalności
 @export var walking_noise_volume:= 4.0
 var noise:= 4.0
@@ -27,6 +26,20 @@ var camera_base_offset: Vector3 # zapamiętany oryginalny lokalny offset kamery
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
 @onready var collision_shape = $CollisionShape3D
+
+var crouch_check_sphere: RID;
+@export var player_capsule: CapsuleShape3D
+@export_flags_3d_physics var crouch_check_collision_mask: int
+@export var crouch_check_y: float = 0.5;
+
+var is_crouching = false;
+
+func _enter_tree() -> void:
+	crouch_check_sphere = PhysicsServer3D.sphere_shape_create();
+	PhysicsServer3D.shape_set_data(crouch_check_sphere, player_capsule.radius);
+
+func _exit_tree() -> void:
+	PhysicsServer3D.free_rid(crouch_check_sphere);
 
 func _ready() -> void:
 	
@@ -50,22 +63,24 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-
 	if(UIManager.instance.is_in_esc_menu || !UIManager.instance.is_in_game): return;
 	# zmiana szybkości w przyszłości by była tutaj
 	move_speed = SOBER_WALK_SPEED; 
-	
-	if(Input.is_action_pressed("Crouch")):
+	if(Input.is_action_just_pressed("Crouch")):
 		collision_shape.scale.y = 0.5;
-		#position.y -= 0.1
-		move_speed *= CROUCH_SPEED_MULTIPLIER;
-		noise = crouching_noise_volume
-		is_Crouching = true;
-	elif Input.is_action_just_released("Crouch"):
+		is_crouching = true;
+	elif Input.is_action_just_released("Crouch") && space_for_uncrouch():
 		collision_shape.scale.y = 1.0;
-		#position.y += 0.6
+		is_crouching = false;
+	elif(!Input.is_action_pressed("Crouch") && is_crouching && space_for_uncrouch()):
+		collision_shape.scale.y = 1.0;
+		is_crouching = false;
+	
+	if(is_crouching):
+		noise = crouching_noise_volume
+		move_speed *= CROUCH_SPEED_MULTIPLIER;
+	else:
 		noise = walking_noise_volume
-		is_Crouching = false;
 
 	var input_dir = Vector3.ZERO
 	input_dir.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
@@ -131,3 +146,15 @@ func _headbob(time) -> Vector3:
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP
 	pos.x = cos(time * BOB_FREQ / 2) * BOB_AMP
 	return pos
+
+func space_for_uncrouch() -> bool:  
+	var params = PhysicsShapeQueryParameters3D.new();
+	params.shape_rid = crouch_check_sphere;
+	params.collide_with_areas = false;
+	params.collide_with_bodies = true;
+	params.collision_mask = crouch_check_collision_mask;
+	params.transform.origin = global_position + Vector3(0, crouch_check_y, 0);
+
+	var results = get_world_3d().direct_space_state.intersect_shape(params, 32);
+	print(results.size());
+	return results.size() <= 0;

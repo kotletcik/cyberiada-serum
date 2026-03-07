@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://6tgemnaldm0g"]
+
+[ext_resource type="Texture2D" uid="uid://iwcpcvl3jlkc" path="res://assets/crosshair.png" id="1_e6e0b"]
+
+[node name="PlayerHud" type="Control" unique_id=271417674]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1605742932]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+texture = ExtResource("1_e6e0b")
+stretch_mode = 1
