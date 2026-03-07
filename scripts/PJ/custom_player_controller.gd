@@ -156,5 +156,4 @@ func space_for_uncrouch() -> bool:
 	params.transform.origin = global_position + Vector3(0, crouch_check_y, 0);
 
 	var results = get_world_3d().direct_space_state.intersect_shape(params, 32);
-	print(results.size());
-	return results.size() <= 0;
+	return results.size() == 0;
