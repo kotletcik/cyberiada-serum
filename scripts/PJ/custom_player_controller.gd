@@ -69,10 +69,8 @@ func _physics_process(delta: float) -> void:
 	if(Input.is_action_just_pressed("Crouch")):
 		collision_shape.scale.y = 0.5;
 		is_crouching = true;
-	elif Input.is_action_just_released("Crouch") && space_for_uncrouch():
-		collision_shape.scale.y = 1.0;
-		is_crouching = false;
-	elif(!Input.is_action_pressed("Crouch") && is_crouching && space_for_uncrouch()):
+	elif(Input.is_action_just_released("Crouch") && space_for_uncrouch() ||
+			(!Input.is_action_pressed("Crouch") && is_crouching && space_for_uncrouch())):
 		collision_shape.scale.y = 1.0;
 		is_crouching = false;
 	
