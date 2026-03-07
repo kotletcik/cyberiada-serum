@@ -34,6 +34,7 @@ size = Vector3(0.4, 0.2, 0.2)
 [node name="Shell" type="CharacterBody3D" unique_id=2079833793]
 collision_layer = 8
 collision_mask = 7
+script = ExtResource("6_raqt8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=58911616]
 shape = SubResource("CapsuleShape3D_lj2st")
@@ -57,18 +58,18 @@ shell_mesh = NodePath("../MeshInstance3D")
 mob = NodePath("..")
 nav_agent = NodePath("../NavigationAgent3D")
 
-[node name="Follow_player" parent="State_machine" index="1"]
+[node name="Follow_player" parent="State_machine" index="1" unique_id=228265934]
 state_type = 1
 
-[node name="Attack" parent="State_machine" index="2"]
+[node name="Attack" parent="State_machine" index="2" unique_id=494533407]
 move_speed = 10.0
 state_type = 4
 
-[node name="Follow_sound" parent="State_machine" index="3" node_paths=PackedStringArray("follow_target")]
+[node name="Follow_sound" parent="State_machine" index="3" unique_id=1770033404 node_paths=PackedStringArray("follow_target")]
 follow_target = NodePath("Empty_target")
 state_type = 2
 
-[node name="Searching" parent="State_machine" index="4"]
+[node name="Searching" parent="State_machine" index="4" unique_id=1226388208]
 searching_radius = 3.0
 move_speed = 5.0
 state_type = 3
@@ -109,5 +110,7 @@ metadata/_custom_type_script = "uid://foywhiftl87x"
 [node name="Eyes" type="MeshInstance3D" parent="." unique_id=1218871193]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4183241, -0.47043222)
 mesh = SubResource("BoxMesh_raqt8")
+
+[node name="DebugLines" type="MeshInstance3D" parent="." unique_id=533354744]
 
 [editable path="State_machine"]

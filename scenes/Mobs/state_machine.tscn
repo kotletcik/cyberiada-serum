@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bxerqeybhhs0c"]
+[gd_scene format=3 uid="uid://bxerqeybhhs0c"]
 
 [ext_resource type="Script" uid="uid://bt2rps524x0ph" path="res://scripts/PJ/state_machine/State_machine.gd" id="1_dib8p"]
 [ext_resource type="Script" uid="uid://cxanx1emdbq8r" path="res://scripts/PJ/state_machine/States/Wander.gd" id="2_xerc2"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://cc74fqip5mv6y" path="res://scripts/PJ/state_machine/States/Attack.gd" id="4_0aqfu"]
 [ext_resource type="Script" uid="uid://bm34qfrf1h2m1" path="res://scripts/PJ/state_machine/States/follow_sound.gd" id="5_vivqa"]
 [ext_resource type="Script" uid="uid://bthija1821lvr" path="res://scripts/PJ/state_machine/States/searching_player.gd" id="6_ghmv1"]
-[ext_resource type="Script" uid="uid://fn4i2xt1rjiu" path="res://scripts/PJ/state_machine/Behaviour.gd" id="7_xerc2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lqxc7"]
 albedo_color = Color(1, 0, 0, 1)
@@ -16,44 +15,44 @@ material = SubResource("StandardMaterial3D_lqxc7")
 radius = 0.1
 height = 0.2
 
-[node name="State_machine" type="Node" node_paths=PackedStringArray("initial_state")]
+[node name="State_machine" type="Node" unique_id=1251998672 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_dib8p")
 initial_state = NodePath("Wander")
 metadata/_custom_type_script = "uid://bt2rps524x0ph"
 
-[node name="Wander" type="Node" parent="." node_paths=PackedStringArray("empty_target")]
+[node name="Wander" type="Node" parent="." unique_id=1270087543 node_paths=PackedStringArray("empty_target")]
 script = ExtResource("2_xerc2")
 empty_target = NodePath("empty_target")
 move_speed = 1.0
 metadata/_custom_type_script = "uid://foywhiftl87x"
 
-[node name="empty_target" type="Node3D" parent="Wander"]
+[node name="empty_target" type="Node3D" parent="Wander" unique_id=630684163]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9462496, 0, 0)
 
-[node name="Follow_player" type="Node" parent="."]
+[node name="Follow_player" type="Node" parent="." unique_id=228265934]
 script = ExtResource("3_8cm82")
 move_speed = 2.0
 model_color = Color(1, 0.32410014, 0.25894427, 1)
 metadata/_custom_type_script = "uid://foywhiftl87x"
 
-[node name="Attack" type="Node" parent="."]
+[node name="Attack" type="Node" parent="." unique_id=494533407]
 script = ExtResource("4_0aqfu")
 move_speed = 0.0
 model_color = Color(0.7670247, 2.5268644e-06, 9.62615e-07, 1)
 metadata/_custom_type_script = "uid://foywhiftl87x"
 
-[node name="Follow_sound" type="Node" parent="."]
+[node name="Follow_sound" type="Node" parent="." unique_id=1770033404]
 script = ExtResource("5_vivqa")
 model_color = Color(0, 0.40392157, 0.11372549, 1)
 metadata/_custom_type_script = "uid://foywhiftl87x"
 
-[node name="Empty_target" type="Node3D" parent="Follow_sound"]
+[node name="Empty_target" type="Node3D" parent="Follow_sound" unique_id=1642078660]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Follow_sound/Empty_target"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Follow_sound/Empty_target" unique_id=1853946824]
 mesh = SubResource("SphereMesh_jt8f1")
 
-[node name="Searching" type="Node" parent="." node_paths=PackedStringArray("empty_target")]
+[node name="Searching" type="Node" parent="." unique_id=1226388208 node_paths=PackedStringArray("empty_target")]
 script = ExtResource("6_ghmv1")
 empty_target = NodePath("empty_target")
 searching_point_change_time = 2.5
@@ -62,9 +61,5 @@ move_speed = null
 model_color = Color(0.02745098, 0.30980393, 0.7921569, 1)
 metadata/_custom_type_script = "uid://foywhiftl87x"
 
-[node name="empty_target" type="Node3D" parent="Searching"]
+[node name="empty_target" type="Node3D" parent="Searching" unique_id=1875634739]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9462496, 0, 0)
-
-[node name="Behaviour" type="Node" parent="."]
-script = ExtResource("7_xerc2")
-metadata/_custom_type_script = "uid://fn4i2xt1rjiu"

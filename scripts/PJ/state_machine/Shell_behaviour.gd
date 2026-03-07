@@ -1,8 +1,8 @@
 extends Behaviour
 class_name Shell_behaviour
 
-@onready var nav_agent: NavigationAgent3D = $"../../NavigationAgent3D"
-@onready var mesh_instance: MeshInstance3D = $"../../MeshInstance3D"
+@onready var nav_agent: NavigationAgent3D = $"NavigationAgent3D"
+@onready var mesh_instance: MeshInstance3D = $"MeshInstance3D"
 @export_group("follow_player")
 @export var follow_state_duration:= 5.0
 @export_group("searching_player")
@@ -25,7 +25,7 @@ func Check_conditions(delta: float) -> void:
 	var current = state_machine.current_state.state_type
 	match current:
 		STATE_TYPES.Follow_player:
-			if ((state_machine.mob.global_position) - (GameManager.instance.player.global_position)).length() < attack_range:
+			if ((self.global_position) - (GameManager.instance.player.global_position)).length() < attack_range:
 				change_state_by_name(current, STATE_TYPES.Attack)
 			elif timer > 0:
 				timer-=delta
@@ -47,7 +47,7 @@ func Check_conditions(delta: float) -> void:
 			if (is_player_in_sight() && player_is_on_region()):
 				if (PsycheManager.instance.invisibility_timer <= 0): 
 					change_state_by_name(current, STATE_TYPES.Scream);
-			elif ((state_machine.mob.position) - (sound_target.position)).length() < attack_range:
+			elif ((self.global_position) - (sound_target.global_position)).length() < attack_range:
 				change_state_by_name(current, STATE_TYPES.Searching)
 			elif timer > 0: timer -= delta
 			elif timer < 0:

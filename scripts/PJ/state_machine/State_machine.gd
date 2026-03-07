@@ -9,7 +9,7 @@ class_name State_machine
 @export var mob: CharacterBody3D
 @export var nav_agent: NavigationAgent3D
 @onready var mesh := $"../MeshInstance3D"
-@onready var behaviour: Behaviour = $Behaviour
+@onready var behaviour: Behaviour = $"../"
 var target: Vector3
 var mat: StandardMaterial3D
 var current_state : State
