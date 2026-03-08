@@ -144,7 +144,7 @@ transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_yi4xk")
 
 [node name="MeshInstance3D7" type="MeshInstance3D" parent="Floors" unique_id=607933415]
-transform = Transform3D(0.76784045, 0, 0, 0, 3.422888, 0, 0, 0, 52.01362, -25.071785, 1.5987782, -25.060314)
+transform = Transform3D(0.76784045, 0, 0, 0, 3.422888, 0, 0, 0, 55.60044, -25.071785, 1.5987782, -25.060314)
 mesh = SubResource("BoxMesh_cb1vq")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_0nogy")
@@ -382,7 +382,7 @@ metadata/_custom_type_script = "uid://coysphqpo5g2l"
 [node name="Shell" parent="." unique_id=1427820130 instance=ExtResource("3_81ya1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.843849, 1.4558756, -18.730312)
 
-[node name="State_machine" parent="Shell" index="5" unique_id=593020358 node_paths=PackedStringArray("initial_state")]
+[node name="State_machine" parent="Shell" index="6" unique_id=593020358 node_paths=PackedStringArray("initial_state")]
 initial_state = NodePath("Patrol")
 
 [node name="Patrol" parent="Shell/State_machine" index="5" unique_id=1952931126 node_paths=PackedStringArray("patrol_points")]
@@ -446,7 +446,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7255268, 0, -21.429012)
 [node name="Shell2" parent="." unique_id=1832136921 instance=ExtResource("3_81ya1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.196171, 1.524102, -18.641739)
 
-[node name="State_machine" parent="Shell2" index="5" unique_id=593020358 node_paths=PackedStringArray("initial_state")]
+[node name="State_machine" parent="Shell2" index="6" unique_id=593020358 node_paths=PackedStringArray("initial_state")]
 initial_state = NodePath("Patrol")
 
 [node name="Patrol" parent="Shell2/State_machine" index="5" unique_id=1952931126 node_paths=PackedStringArray("patrol_points")]
