@@ -33,6 +33,7 @@ var crouch_check_sphere: RID;
 @export var crouch_check_y: float = 0.5;
 
 var is_crouching = false;
+var player_height = 2;
 
 func _enter_tree() -> void:
 	crouch_check_sphere = PhysicsServer3D.sphere_shape_create();
@@ -53,25 +54,16 @@ func _ready() -> void:
 	if camera:
 		camera_base_offset = camera.transform.origin
 
-# func set_start_pos(level):
-# 	var _level=level
-# 	if !_level:
-# 		_level = Game_Manager.current_level
-# 	if _level-1 < start_pos.size() and _level-1>=0:
-# 		position = start_pos[_level-1]
-  
-
-
 func _physics_process(delta: float) -> void:
 	if(UIManager.instance.is_in_esc_menu || !UIManager.instance.is_in_game): return;
 	# zmiana szybkości w przyszłości by była tutaj
 	move_speed = SOBER_WALK_SPEED; 
 	if(Input.is_action_just_pressed("Crouch")):
-		collision_shape.scale.y = 0.5;
+		player_capsule.height = player_height/2; # trzeba zmieniac height CapsuleShape, a nie scale node'a bo to tworzy bugi
 		is_crouching = true;
 	elif(Input.is_action_just_released("Crouch") && space_for_uncrouch() ||
 			(!Input.is_action_pressed("Crouch") && is_crouching && space_for_uncrouch())):
-		collision_shape.scale.y = 1.0;
+		player_capsule.height = player_height;
 		is_crouching = false;
 	
 	if(is_crouching):
