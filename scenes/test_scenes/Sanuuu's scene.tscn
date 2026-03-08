@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bya7074yvflm6" path="res://scenes/ui/thought_path_button.tscn" id="12_kjvlw"]
 [ext_resource type="PackedScene" uid="uid://d1i2hyd827vx1" path="res://scenes/ui/note_ui.tscn" id="13_rxep2"]
 [ext_resource type="Script" uid="uid://bw0o64kaou276" path="res://scripts/Valk/palace_ui_controller.gd" id="14_u4ndo"]
-[ext_resource type="PackedScene" uid="uid://ckx0nbqjwjwi2" path="res://scenes/test_scenes/level1.tscn" id="15_ngn0i"]
+[ext_resource type="PackedScene" uid="uid://lw2fgo1qjxta" path="res://scenes/test_scenes/level1.tscn" id="15_ngn0i"]
 
 [node name="Sanuuu\'sScene" type="Node3D" unique_id=1279937539]
 
@@ -22,7 +22,7 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.504807, -2.514573, -11.614073)
 
 [node name="Player" parent="." unique_id=767105809 instance=ExtResource("1_d7j53")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -19.108109, 1.6258812, -9.566368)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -19.108109, 1.6258812, 7.8333187)
 collision_mask = 6
 SOBER_WALK_SPEED = 7.5
 CROUCH_SPEED_MULTIPLIER = 0.3
@@ -132,4 +132,4 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1073508512]
-transform = Transform3D(358.8966, 0, 0, 0, 1, 0, 0, 0, 193.94424, 0, -3.064415, 0)
+transform = Transform3D(358.8966, 0, 0, 0, 1, 0, 0, 0, 193.94424, 0, -18.414103, 0)
