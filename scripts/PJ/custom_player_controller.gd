@@ -33,7 +33,7 @@ var crouch_check_sphere: RID;
 @export var crouch_check_y: float = 0.5;
 
 var is_crouching = false;
-var player_height = 2;
+var player_height:float = 2;
 
 func _enter_tree() -> void:
 	crouch_check_sphere = PhysicsServer3D.sphere_shape_create();

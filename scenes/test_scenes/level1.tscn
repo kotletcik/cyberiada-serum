@@ -33,6 +33,7 @@ albedo_color = Color(0, 0, 0.34117648, 1)
 transform = Transform3D(-6.642192, 0, 0, 0, 0.27069113, 0, 0, 0, 6.5359025, 0, 0, 0)
 use_collision = true
 collision_layer = 2
+collision_mask = 16
 mesh = SubResource("BoxMesh_oibo5")
 material = SubResource("StandardMaterial3D_pm7s6")
 

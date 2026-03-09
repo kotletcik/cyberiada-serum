@@ -22,8 +22,9 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.504807, -2.514573, -11.614073)
 
 [node name="Player" parent="." unique_id=767105809 instance=ExtResource("1_d7j53")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -19.108109, 1.6258812, 7.8333187)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -17.066166, 1.6258812, -10.05286)
 collision_mask = 6
+floor_stop_on_slope = true
 SOBER_WALK_SPEED = 7.5
 CROUCH_SPEED_MULTIPLIER = 0.3
 crouching_noise_volume = 1.5
@@ -132,4 +133,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1073508512]
-transform = Transform3D(358.8966, 0, 0, 0, 1, 0, 0, 0, 193.94424, 0, -18.414103, 0)
+transform = Transform3D(358.8966, 0, 0, 0, 1, 0, 0, 0, 193.94424, 0, -25.22758, 0)
+use_collision = true
+collision_mask = 16
+size = Vector3(1, 14.626953, 1)
