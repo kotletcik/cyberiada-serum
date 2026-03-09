@@ -168,5 +168,6 @@ func update_cursor() -> void:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE);
 		print("Cursor unlocked");
 	else:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
+		# mi na linuxie i z wayland to działa jedynie, później na windowsa może się zmieni na Input.MOUSE_MODE_CAPTURED
+		Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN); 
 		print("Cursor locked");
