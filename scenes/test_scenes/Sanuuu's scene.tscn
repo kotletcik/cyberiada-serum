@@ -174,7 +174,7 @@ mesh = SubResource("BoxMesh_21gb1")
 material = SubResource("StandardMaterial3D_bn5kw")
 
 [node name="Player" parent="." unique_id=767105809 instance=ExtResource("1_d7j53")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -18.09175, 1.4319539, 1.7989917)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -24.281105, 1.4319539, 1.7989917)
 SOBER_WALK_SPEED = 7.5
 CROUCH_SPEED_MULTIPLIER = 0.3
 crouching_noise_volume = 1.5
