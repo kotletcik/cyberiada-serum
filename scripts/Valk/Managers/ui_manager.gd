@@ -32,6 +32,8 @@ func _ready() -> void:
 		if(note_ui != null): remove_child(note_ui);
 		if(added_thought_notif != null): remove_child(added_thought_notif);
 		if(mind_palace_ui != null): remove_child(mind_palace_ui);
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED); 
+		Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN); 
 		update_cursor();
 	else:
 		print("More than one UIManager exists!!!");
@@ -168,6 +170,8 @@ func update_cursor() -> void:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE);
 		print("Cursor unlocked");
 	else:
+		# bawie sie z tym na razie
 		# mi na linuxie i z wayland to działa jedynie, później na windowsa może się zmieni na Input.MOUSE_MODE_CAPTURED
+		# Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED); 
 		Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN); 
 		print("Cursor locked");

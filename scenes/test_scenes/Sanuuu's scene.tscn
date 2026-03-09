@@ -16,15 +16,18 @@
 [ext_resource type="Script" uid="uid://bw0o64kaou276" path="res://scripts/Valk/palace_ui_controller.gd" id="14_u4ndo"]
 [ext_resource type="PackedScene" uid="uid://lw2fgo1qjxta" path="res://scenes/test_scenes/level1.tscn" id="15_ngn0i"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_ngn0i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_epoec"]
+
 [node name="Sanuuu\'sScene" type="Node3D" unique_id=1279937539]
 
 [node name="Level1" parent="." unique_id=1424703341 instance=ExtResource("15_ngn0i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.504807, -2.514573, -11.614073)
 
 [node name="Player" parent="." unique_id=767105809 instance=ExtResource("1_d7j53")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -17.066166, 1.6258812, -10.05286)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -18.09175, -0.6331005, -7.227675)
 collision_mask = 6
-floor_stop_on_slope = true
 SOBER_WALK_SPEED = 7.5
 CROUCH_SPEED_MULTIPLIER = 0.3
 crouching_noise_volume = 1.5
@@ -134,6 +137,16 @@ grow_vertical = 2
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1073508512]
 transform = Transform3D(358.8966, 0, 0, 0, 1, 0, 0, 0, 193.94424, 0, -25.22758, 0)
-use_collision = true
+visible = false
 collision_mask = 16
 size = Vector3(1, 14.626953, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=259314789]
+transform = Transform3D(121.80836, 0, 0, 0, 1, 0, 0, 0, 316.3333, -9.267281, -7.091923, 6.116308)
+mesh = SubResource("BoxMesh_ngn0i")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=762151780]
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=2099722738]
+shape = SubResource("BoxShape3D_epoec")

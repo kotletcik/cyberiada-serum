@@ -102,7 +102,6 @@ agent_radius = 1.0
 
 [node name="Player" parent="." unique_id=2039338456 instance=ExtResource("1_ahihw")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -19.108109, 1.6258812, -9.566368)
-collision_mask = 6
 SOBER_WALK_SPEED = 7.5
 CROUCH_SPEED_MULTIPLIER = 0.3
 crouching_noise_volume = 1.5

@@ -18,7 +18,7 @@ fog_light_color = Color(0.30184436, 0.32968265, 0.37299633, 1)
 
 [node name="PlayerValk" type="CharacterBody3D" unique_id=767105809]
 collision_layer = 16
-floor_stop_on_slope = false
+collision_mask = 7
 platform_floor_layers = 4294967040
 script = ExtResource("1_v6fml")
 player_capsule = SubResource("CapsuleShape3D_v6fml")

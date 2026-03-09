@@ -49,7 +49,7 @@ func _ready() -> void:
 	# EventBus.connect("game_restarted", set_start_pos)
 	# EventBus.connect("level_changed", set_start_pos)
 	# Przechwycenie kursora myszy dla obrotu kamery
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	# Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	# Zachowaj oryginalną lokalną pozycję kamery aby bobbing jej nie nadpisywał
 	if camera:
 		camera_base_offset = camera.transform.origin
