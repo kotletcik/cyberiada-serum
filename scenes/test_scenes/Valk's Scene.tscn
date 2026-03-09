@@ -61,6 +61,7 @@ skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_0nogy")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Floors/MeshInstance3D" unique_id=360238032]
+collision_mask = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floors/MeshInstance3D/StaticBody3D" unique_id=1943587094]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -379,8 +380,9 @@ grow_vertical = 2
 script = ExtResource("7_j8bvq")
 metadata/_custom_type_script = "uid://coysphqpo5g2l"
 
-[node name="Shell" parent="." unique_id=1427820130 instance=ExtResource("3_81ya1")]
+[node name="Shell" parent="." unique_id=1427820130 node_paths=PackedStringArray("state_machine") instance=ExtResource("3_81ya1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.843849, 1.4558756, -18.730312)
+state_machine = NodePath("State_machine")
 
 [node name="State_machine" parent="Shell" index="6" unique_id=593020358 node_paths=PackedStringArray("initial_state")]
 initial_state = NodePath("Patrol")
@@ -443,8 +445,9 @@ navigation_mesh = SubResource("NavigationMesh_b4wx3")
 [node name="NavRegionFloor2" type="Node3D" parent="." unique_id=882507256]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7255268, 0, -21.429012)
 
-[node name="Shell2" parent="." unique_id=1832136921 instance=ExtResource("3_81ya1")]
+[node name="Shell2" parent="." unique_id=1832136921 node_paths=PackedStringArray("state_machine") instance=ExtResource("3_81ya1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.196171, 1.524102, -18.641739)
+state_machine = NodePath("State_machine")
 
 [node name="State_machine" parent="Shell2" index="6" unique_id=593020358 node_paths=PackedStringArray("initial_state")]
 initial_state = NodePath("Patrol")

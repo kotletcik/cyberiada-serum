@@ -8,4 +8,5 @@ func _ready() -> void:
 		
 func _process(delta: float) -> void:
 	if _body:
-		_body.velocity.y -= _gravity_acc*delta
+		# _body.velocity.y -= _gravity_acc*delta
+		_body.move_and_collide(Vector3(0, -_gravity_acc*delta, 0));
