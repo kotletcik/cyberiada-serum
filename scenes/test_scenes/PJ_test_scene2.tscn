@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bogcd3xj4e66"]
 
+[ext_resource type="Script" uid="uid://0ahw5u1ks8ua" path="res://scripts/Valk/root_node_script.gd" id="1_0faun"]
 [ext_resource type="PackedScene" uid="uid://dg433bvfg6cvt" path="res://prefabs/PlayerValk.tscn" id="1_x6adb"]
 [ext_resource type="Script" uid="uid://s47j5s0f3fdy" path="res://scripts/Valk/Managers/psyche_manager.gd" id="2_kbpjc"]
 [ext_resource type="Resource" uid="uid://dxgio7tm8on85" path="res://resources/settings/psyche_manager_settings.tres" id="3_0bhsg"]
@@ -11,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://d1i2hyd827vx1" path="res://prefabs/ui/note_ui.tscn" id="7_fa6sy"]
 
 [node name="Main_scene" type="Node3D" unique_id=649139474]
+script = ExtResource("1_0faun")
 
 [node name="Player" parent="." unique_id=2039338456 instance=ExtResource("1_x6adb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6876144, 2.1234412, -1.7883773)

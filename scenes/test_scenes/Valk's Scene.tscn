@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cq4mdp3xlsb4a"]
 
 [ext_resource type="PackedScene" uid="uid://dg433bvfg6cvt" path="res://prefabs/PlayerValk.tscn" id="1_cb1vq"]
+[ext_resource type="Script" uid="uid://0ahw5u1ks8ua" path="res://scripts/Valk/root_node_script.gd" id="1_p128x"]
 [ext_resource type="Script" uid="uid://s47j5s0f3fdy" path="res://scripts/Valk/Managers/psyche_manager.gd" id="2_1a1i1"]
 [ext_resource type="PackedScene" uid="uid://bkmfixym7ftg7" path="res://prefabs/Scene Prefabs/scene_clue.tscn" id="2_k4afo"]
 [ext_resource type="Script" uid="uid://c681q57ewat6f" path="res://scripts/Valk/Managers/game_manager.gd" id="3_1tntn"]
@@ -50,6 +51,7 @@ size = Vector3(121.991776, 3.3544922, 114.51001)
 [sub_resource type="NavigationMesh" id="NavigationMesh_ql4bp"]
 
 [node name="Node3D" type="Node3D" unique_id=835645690]
+script = ExtResource("1_p128x")
 
 [node name="Player" parent="." unique_id=511857231 instance=ExtResource("1_cb1vq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.021383, 2.1234412, -31.405394)

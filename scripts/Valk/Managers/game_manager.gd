@@ -10,6 +10,8 @@ func _ready() -> void:
 	else:
 		print("More than one GameManager exists!!!");
 		queue_free();
+		
 
 func restart_scene() -> void:
+	get_tree().get_root().request_ready();
 	get_tree().reload_current_scene();

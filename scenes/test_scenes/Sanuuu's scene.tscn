@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ctuve3f2cvq0"]
 
 [ext_resource type="PackedScene" uid="uid://dg433bvfg6cvt" path="res://prefabs/PlayerValk.tscn" id="1_d7j53"]
+[ext_resource type="Script" uid="uid://0ahw5u1ks8ua" path="res://scripts/Valk/root_node_script.gd" id="1_f302j"]
 [ext_resource type="Script" uid="uid://s47j5s0f3fdy" path="res://scripts/Valk/Managers/psyche_manager.gd" id="2_ngn0i"]
 [ext_resource type="Script" uid="uid://c681q57ewat6f" path="res://scripts/Valk/Managers/game_manager.gd" id="3_epoec"]
 [ext_resource type="Script" uid="uid://coysphqpo5g2l" path="res://scripts/Valk/Managers/inventory_manager.gd" id="4_ccebf"]
@@ -23,6 +24,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_epoec"]
 
 [node name="Sanuuu\'sScene" type="Node3D" unique_id=1279937539]
+script = ExtResource("1_f302j")
 
 [node name="Level1" parent="." unique_id=1424703341 instance=ExtResource("15_ngn0i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.504807, -2.514573, -11.614073)

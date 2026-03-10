@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cwpnmj2jjqjcg"]
+
+[ext_resource type="Script" uid="uid://c3vodqyuptu4f" path="res://scripts/Valk/restart_trigger.gd" id="1_hafmg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_id4pr"]
+size = Vector3(1, 1, 4.9329834)
+
+[node name="Checkpoint Trigger" type="Area3D" unique_id=68270860]
+collision_mask = 16
+script = ExtResource("1_hafmg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1228957436]
+shape = SubResource("BoxShape3D_id4pr")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

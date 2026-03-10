@@ -52,28 +52,28 @@ mesh = SubResource("BoxMesh_oibo5")
 material = SubResource("StandardMaterial3D_pm7s6")
 
 [node name="wall1" type="CSGMesh3D" parent="." unique_id=1679597037]
-transform = Transform3D(-0.15400998, 0, 0, 0, 1.4562666, 0, 0, 0, 6.5351405, 3.2509348, 0.8251481, -0.012859166)
+transform = Transform3D(0.154, 0, 0, 0, -1.456, 5.7130785e-07, 0, -1.2728756e-07, -6.535, 3.2509348, 0.8251481, -0.012859166)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_oibo5")
 material = SubResource("StandardMaterial3D_pm7s6")
 
 [node name="wall2" type="CSGMesh3D" parent="." unique_id=1393513991]
-transform = Transform3D(-0.15400998, 0, 0, 0, 1.4562666, 0, 0, 0, 3.3911083, -3.2294626, 0.8251481, -1.5857507)
+transform = Transform3D(0.154, 0, 0, 0, -1.456, 2.9645065e-07, 0, -1.2728756e-07, -3.391, -3.2294626, 0.8251481, -1.5857507)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_oibo5")
 material = SubResource("StandardMaterial3D_pm7s6")
 
 [node name="wall4" type="CSGMesh3D" parent="." unique_id=838865865]
-transform = Transform3D(6.73199e-09, 0, -2.6355917, 0, 1.4562666, 0, -0.15400998, 0, -1.15205374e-07, 1.9539313, 0.8251481, 3.17539)
+transform = Transform3D(-1.16266765e-08, -9.609944e-15, 2.636, 1.3463108e-08, -1.456, 0, 0.154, 1.2728756e-07, 1.9901246e-07, 1.9539313, 0.8251481, 3.17539)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_oibo5")
 material = SubResource("StandardMaterial3D_pm7s6")
 
 [node name="wall3" type="CSGMesh3D" parent="." unique_id=275413476]
-transform = Transform3D(6.73199e-09, 0, 6.5351405, 0, 1.4562666, 0, 0.15400998, 0, -2.8566006e-07, 0.01314795, 0.8251481, -3.1971972)
+transform = Transform3D(-1.16266765e-08, -9.609944e-15, -6.535, 1.3463108e-08, -1.456, 0, -0.154, -1.2728756e-07, 4.9337876e-07, 0.01314795, 0.8251481, -3.1971972)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_oibo5")

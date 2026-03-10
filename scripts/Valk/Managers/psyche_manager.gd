@@ -104,8 +104,8 @@ func find_closest_serum_with_fov(fov: float) -> Node3D:
 
 func _physics_process(delta: float) -> void:
 	if(serum_level > settings.serum_overdose_level && serum_level < settings.serum_critical_level):
-		print("works");
-		print(craving_timer);
+		# print("works");
+		# print(craving_timer);
 		craving_timer -= delta;
 		if(craving_timer < 0):
 			var closest_serum: Node3D = find_closest_serum_with_fov(settings.craving_serum_fov); # vs find_closest_serum()
@@ -135,7 +135,7 @@ func _physics_process(delta: float) -> void:
 
 func _process(delta: float) -> void:
 	serum_level -= settings.serum_drop_rate * delta;
-	print(serum_level);
+	# print(serum_level);
 	if(serum_level < 0): serum_level = 0;
 	if(invisibility_timer > 0):
 		invisibility_timer -= delta;
@@ -204,6 +204,12 @@ func spawn_mutation() -> void:
 		mutation_instance.global_position = spawn_pos;
 		mutation_spawn_timer = randf_range(settings.min_mutation_spawn_timer, settings.max_mutation_spawn_timer)
 		return;
+
+func restart_timers() -> void:
+	craving_timer = randf_range(settings.min_craving_timer, settings.max_craving_timer);
+	overtake_timer = randf_range(settings.min_overtake_timer, settings.max_overtake_timer);
+	overtake_dir = Vector3(randf_range(-1, 1), 0 , randf_range(-1, 1)).normalized();
+	mutation_spawn_timer = randf_range(settings.min_mutation_spawn_timer, settings.max_mutation_spawn_timer)
 
 func set_vignette_parameters(intensity: float, color: Color, radius: float) -> void:
 	vignette_texture.material.set_shader_parameter("intensity", intensity);

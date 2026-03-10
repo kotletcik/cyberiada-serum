@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://df6gi0w1863l1"]
 
 [ext_resource type="PackedScene" uid="uid://dg433bvfg6cvt" path="res://prefabs/PlayerValk.tscn" id="1_ahihw"]
+[ext_resource type="Script" uid="uid://0ahw5u1ks8ua" path="res://scripts/Valk/root_node_script.gd" id="1_xanii"]
 [ext_resource type="Script" uid="uid://s47j5s0f3fdy" path="res://scripts/Valk/Managers/psyche_manager.gd" id="2_bq4fy"]
 [ext_resource type="Resource" uid="uid://brv8sbdh27gef" path="res://resources/settings/test_psyche_manager_settings.tres" id="3_rf5c3"]
 [ext_resource type="Script" uid="uid://c681q57ewat6f" path="res://scripts/Valk/Managers/game_manager.gd" id="3_u6map"]
@@ -26,6 +27,8 @@
 [ext_resource type="PackedScene" uid="uid://dug2gg4ldjhoc" path="res://prefabs/Mutation_navigation.tscn" id="14_uyulh"]
 [ext_resource type="PackedScene" uid="uid://bl7pr1jrqx1d8" path="res://prefabs/restart_trigger.tscn" id="15_lfu3u"]
 [ext_resource type="PackedScene" uid="uid://bkmfixym7ftg7" path="res://prefabs/Scene Prefabs/scene_clue.tscn" id="16_m1rxk"]
+[ext_resource type="Script" uid="uid://bvpanlcy3bc06" path="res://scripts/Valk/Managers/save_manager.gd" id="17_njve1"]
+[ext_resource type="Resource" uid="uid://mm8l7277obwj" path="res://resources/last_checkpoint.tres" id="19_cnf01"]
 [ext_resource type="Resource" uid="uid://cpshgebigpcom" path="res://resources/thoughts/meow.tres" id="24_8isj6"]
 [ext_resource type="PackedScene" uid="uid://clg0uguj2n21v" path="res://prefabs/Scene Prefabs/scene_note.tscn" id="25_sbrwg"]
 [ext_resource type="Resource" uid="uid://b2q3agdc7eyfd" path="res://resources/notes/death.tres" id="26_e7wky"]
@@ -36,6 +39,8 @@
 [ext_resource type="PackedScene" uid="uid://5jpcyg1fb8pf" path="res://prefabs/clue_trigger.tscn" id="31_hdlg5"]
 [ext_resource type="Resource" uid="uid://c3dxhs7itgyy6" path="res://resources/thoughts/forgor.tres" id="32_rf5c3"]
 [ext_resource type="Resource" uid="uid://b4lyqlncafmig" path="res://resources/thoughts/fuck_yeah.tres" id="33_85qxo"]
+[ext_resource type="PackedScene" uid="uid://cwpnmj2jjqjcg" path="res://prefabs/checkpoint_trigger.tscn" id="37_l3ixd"]
+[ext_resource type="Script" uid="uid://bc2ji67pooap7" path="res://scripts/Valk/save_trigger.gd" id="38_3at83"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13hkq"]
 albedo_color = Color(0.27450982, 0.27450982, 0.27450982, 1)
@@ -101,6 +106,7 @@ agent_radius = 1.0
 [sub_resource type="BoxMesh" id="BoxMesh_lfu3u"]
 
 [node name="Main_scene" type="Node3D" unique_id=649139474]
+script = ExtResource("1_xanii")
 
 [node name="Player" parent="." unique_id=2039338456 instance=ExtResource("1_ahihw")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -19.108109, 1.6258812, -9.566368)
@@ -181,6 +187,11 @@ offset_right = -649.0
 offset_bottom = 318.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="SaveManager" type="Node" parent="." unique_id=1313784305]
+script = ExtResource("17_njve1")
+last_checkpoint = ExtResource("19_cnf01")
+metadata/_custom_type_script = "uid://bvpanlcy3bc06"
 
 [node name="floor" type="CSGBox3D" parent="." unique_id=587062996]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12173462, -1.0557508, 0.5328655)
@@ -2047,6 +2058,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.043434, 1.63972, -7.69711
 [node name="MutationSpawnPoint5" type="Node3D" parent="." unique_id=855703259 groups=["Mutation Spawn Point"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.870495, 1.63972, 14.341333)
 
+[node name="Checkpoint Trigger" parent="." unique_id=664344628 instance=ExtResource("37_l3ixd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.176845, 0.44707966, -9.253845)
+script = ExtResource("38_3at83")
+
+[node name="CollisionShape3D" parent="Checkpoint Trigger" index="0" unique_id=1228957436]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7888974, -0.30792236)
+
 [editable path="Test_level_1"]
 [editable path="Test_level_1/Shell"]
 [editable path="Test_level_1/Mutation"]
@@ -2058,3 +2076,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.870495, 1.63972, 14.34133
 [editable path="Location10/Restart Trigger"]
 [editable path="Clue Trigger"]
 [editable path="Clue Trigger2"]
+[editable path="Checkpoint Trigger"]
