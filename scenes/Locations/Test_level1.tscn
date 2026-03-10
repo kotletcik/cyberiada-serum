@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://b8wfahed5pckx"]
 
-[ext_resource type="PackedScene" uid="uid://cetykgnumtcvk" path="res://scenes/Mobs/shell_2.tscn" id="1_71br7"]
-[ext_resource type="PackedScene" uid="uid://doimrejwy0736" path="res://scenes/test_scenes/Double_door.tscn" id="2_71br7"]
-[ext_resource type="PackedScene" uid="uid://dug2gg4ldjhoc" path="res://scenes/test_scenes/Mutation_navigation.tscn" id="2_oewj3"]
-[ext_resource type="PackedScene" uid="uid://dfiw1ws6ojtp8" path="res://scenes/test_scenes/PatrolPoint.tscn" id="3_fycel"]
-[ext_resource type="PackedScene" uid="uid://d02kasr2lce4t" path="res://scenes/Mobs/Mutation.tscn" id="4_fycel"]
-[ext_resource type="PackedScene" uid="uid://ce6h2fmee74sw" path="res://scenes/test_scenes/serum.tscn" id="5_fl3d6"]
-[ext_resource type="PackedScene" uid="uid://bieh4iknld2hn" path="res://scenes/test_scenes/rock.tscn" id="6_gcfar"]
+[ext_resource type="PackedScene" uid="uid://cetykgnumtcvk" path="res://prefabs/Mobs/shell_2.tscn" id="1_71br7"]
+[ext_resource type="PackedScene" uid="uid://doimrejwy0736" path="res://prefabs/Double_door.tscn" id="2_71br7"]
+[ext_resource type="PackedScene" uid="uid://dug2gg4ldjhoc" path="res://prefabs/Mutation_navigation.tscn" id="2_oewj3"]
+[ext_resource type="PackedScene" uid="uid://dfiw1ws6ojtp8" path="res://prefabs/PatrolPoint.tscn" id="3_fycel"]
+[ext_resource type="PackedScene" uid="uid://d02kasr2lce4t" path="res://prefabs/Mobs/Mutation.tscn" id="4_fycel"]
+[ext_resource type="PackedScene" uid="uid://ce6h2fmee74sw" path="res://prefabs/Scene Prefabs/scene_serum.tscn" id="5_fl3d6"]
+[ext_resource type="PackedScene" uid="uid://bieh4iknld2hn" path="res://prefabs/Scene Prefabs/scene_rock.tscn" id="6_gcfar"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_13hkq"]
 vertices = PackedVector3Array(-2.75, 1, 0, -1, 1, 0.25, -1, 1, -0.5, -0.25, 1, -1.25, -2.75, 1, -5.5, 3.25, 1, -7.75, -3.5, 1, -6.25, 1.5, 1, -1.25, -7.75, 1, 0.75, -5.75, 1, 0.75, -6, 1, -5.5, -7.75, 1, -7.75, 2.25, 1, -0.5, 2.25, 1, 8, 3.25, 1, 8, -5.25, 1, -6.25, 8, 1, -7.75, 6.5, 1, -7.75, 6.25, 1, -4, 6.5, 1, 8, 8, 1, 8, -5.25, 1, 1.25, -7.75, 1, 8, -3.5, 1, 1.25, -1, 1, 8)
@@ -37,11 +37,11 @@ acceleration = 9.0
 [node name="Searching" parent="Shell/State_machine" parent_id_path=PackedInt32Array(559753415, 1095814439) index="4" unique_id=381951325]
 acceleration = 15.0
 
-[node name="Patrol" parent="Shell/State_machine" parent_id_path=PackedInt32Array(559753415, 1095814439) index="6" unique_id=749532481 node_paths=PackedStringArray("patrol_points")]
+[node name="Patrol" parent="Shell/State_machine" parent_id_path=PackedInt32Array(559753415, 1095814439) index="5" unique_id=749532481 node_paths=PackedStringArray("patrol_points")]
 patrol_points = [NodePath("../../../ShellPatrolPoints/PatrolPoint1"), NodePath("../../../ShellPatrolPoints/PatrolPoint2"), NodePath("../../../ShellPatrolPoints/PatrolPoint3"), NodePath("../../../ShellPatrolPoints/PatrolPoint2")]
 acceleration = 3.0
 
-[node name="Scream" parent="Shell/State_machine" parent_id_path=PackedInt32Array(559753415, 1095814439) index="7" unique_id=2136210656]
+[node name="Scream" parent="Shell/State_machine" parent_id_path=PackedInt32Array(559753415, 1095814439) index="6" unique_id=2136210656]
 acceleration = 9.0
 
 [node name="ShellNavRegion" type="NavigationRegion3D" parent="." unique_id=762941749]
@@ -130,9 +130,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0737839, 1.6206341, -4.821
 
 [node name="empty_target" parent="Mutation/State_machine/Wander" parent_id_path=PackedInt32Array(1656460003, 950494872) index="0" unique_id=861664593]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8195176, 1.4382358, -4.916814)
-
-[node name="Behaviour" parent="Mutation/State_machine" parent_id_path=PackedInt32Array(1656460003, 1810036990) index="2" unique_id=378908477]
-walls_layer = 3
 
 [node name="MutationNavRegion" parent="." unique_id=580662191 instance=ExtResource("2_oewj3")]
 navigation_layers = 2

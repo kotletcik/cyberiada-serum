@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2itobj36oc5y"]
+[gd_scene format=3 uid="uid://d2itobj36oc5y"]
 
 [ext_resource type="Script" uid="uid://67dqw2stjnr6" path="res://scripts/PJ/custom_player_controller.gd" id="1_xogrw"]
-[ext_resource type="PackedScene" uid="uid://b4512qioi3g1i" path="res://scenes/Gravity.tscn" id="2_6e4r0"]
+[ext_resource type="PackedScene" uid="uid://b4512qioi3g1i" path="res://prefabs/Gravity.tscn" id="2_6e4r0"]
 [ext_resource type="Script" uid="uid://bqn6kcag86uce" path="res://scripts/PJ/Cam_pos.gd" id="3_msvm6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6e4r0"]

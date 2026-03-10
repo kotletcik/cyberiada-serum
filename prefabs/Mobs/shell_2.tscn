@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cetykgnumtcvk"]
 
-[ext_resource type="PackedScene" uid="uid://b4512qioi3g1i" path="res://scenes/Gravity.tscn" id="1_stvs5"]
+[ext_resource type="PackedScene" uid="uid://b4512qioi3g1i" path="res://prefabs/Gravity.tscn" id="1_stvs5"]
 [ext_resource type="Script" uid="uid://b7oh0gjgvjexb" path="res://scripts/PJ/state_machine/AI_controller.gd" id="2_c1ncq"]
 [ext_resource type="Script" uid="uid://b7ydidx4polw6" path="res://scripts/Valk/shell_disappearance.gd" id="3_ah46a"]
 [ext_resource type="Script" uid="uid://bt2rps524x0ph" path="res://scripts/PJ/state_machine/State_machine.gd" id="4_djl5a"]

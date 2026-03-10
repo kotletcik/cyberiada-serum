@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://elmpcqsoarjp"]
 
-[ext_resource type="PackedScene" uid="uid://b4512qioi3g1i" path="res://scenes/Gravity.tscn" id="2_6sbjw"]
-[ext_resource type="PackedScene" uid="uid://bxerqeybhhs0c" path="res://scenes/Mobs/state_machine.tscn" id="5_e6lbg"]
+[ext_resource type="PackedScene" uid="uid://b4512qioi3g1i" path="res://prefabs/Gravity.tscn" id="2_6sbjw"]
+[ext_resource type="PackedScene" uid="uid://bxerqeybhhs0c" path="res://prefabs/Mobs/state_machine.tscn" id="5_e6lbg"]
 [ext_resource type="Script" uid="uid://b7oh0gjgvjexb" path="res://scripts/PJ/state_machine/AI_controller.gd" id="6_ajbgq"]
 [ext_resource type="Script" uid="uid://dkukaamdo4acb" path="res://scripts/PJ/state_machine/Shell_behaviour.gd" id="6_raqt8"]
 [ext_resource type="Script" uid="uid://ws43rxsp8qki" path="res://scripts/PJ/state_machine/States/Patrol.gd" id="7_ayt5m"]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cyybsaqsl3q66"]
 
-[ext_resource type="PackedScene" uid="uid://clt361dqika0r" path="res://scenes/Wall.tscn" id="2_2to0n"]
+[ext_resource type="PackedScene" uid="uid://clt361dqika0r" path="res://prefabs/Wall.tscn" id="2_2to0n"]
 [ext_resource type="PackedScene" uid="uid://b8wfahed5pckx" path="res://scenes/Locations/Test_level1.tscn" id="2_eri21"]
 
 [node name="Location" type="Node3D"]

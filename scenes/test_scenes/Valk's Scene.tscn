@@ -1,28 +1,29 @@
 [gd_scene format=3 uid="uid://cq4mdp3xlsb4a"]
 
-[ext_resource type="PackedScene" uid="uid://dg433bvfg6cvt" path="res://scenes/PlayerValk.tscn" id="1_cb1vq"]
+[ext_resource type="PackedScene" uid="uid://dg433bvfg6cvt" path="res://prefabs/PlayerValk.tscn" id="1_cb1vq"]
 [ext_resource type="Script" uid="uid://s47j5s0f3fdy" path="res://scripts/Valk/Managers/psyche_manager.gd" id="2_1a1i1"]
-[ext_resource type="PackedScene" uid="uid://bkmfixym7ftg7" path="res://scenes/test_scenes/scene_clue.tscn" id="2_k4afo"]
+[ext_resource type="PackedScene" uid="uid://bkmfixym7ftg7" path="res://prefabs/Scene Prefabs/scene_clue.tscn" id="2_k4afo"]
 [ext_resource type="Script" uid="uid://c681q57ewat6f" path="res://scripts/Valk/Managers/game_manager.gd" id="3_1tntn"]
-[ext_resource type="PackedScene" uid="uid://elmpcqsoarjp" path="res://scenes/Mobs/Shell.tscn" id="3_81ya1"]
+[ext_resource type="PackedScene" uid="uid://elmpcqsoarjp" path="res://prefabs/Mobs/Shell.tscn" id="3_81ya1"]
 [ext_resource type="Resource" uid="uid://cpshgebigpcom" path="res://resources/thoughts/meow.tres" id="3_axhgm"]
-[ext_resource type="PackedScene" uid="uid://ce6h2fmee74sw" path="res://scenes/test_scenes/serum.tscn" id="3_t4e8a"]
+[ext_resource type="PackedScene" uid="uid://ce6h2fmee74sw" path="res://prefabs/Scene Prefabs/scene_serum.tscn" id="3_t4e8a"]
 [ext_resource type="Script" uid="uid://bj28ubqcmsltd" path="res://scripts/Valk/Managers/palace_manager.gd" id="4_32swi"]
 [ext_resource type="Resource" uid="uid://beopfd6yqk0so" path="res://resources/thoughts/TimeToDie.tres" id="4_axhgm"]
-[ext_resource type="PackedScene" uid="uid://bieh4iknld2hn" path="res://scenes/test_scenes/rock.tscn" id="5_0nogy"]
+[ext_resource type="PackedScene" uid="uid://bieh4iknld2hn" path="res://prefabs/Scene Prefabs/scene_rock.tscn" id="5_0nogy"]
 [ext_resource type="Script" uid="uid://b3e6n7nbttp0c" path="res://scripts/Valk/Resource Types/thought_path.gd" id="5_jdfls"]
 [ext_resource type="Resource" uid="uid://dwbrn5l1ernyw" path="res://resources/thoughts/Hello.tres" id="5_suiiq"]
 [ext_resource type="Resource" uid="uid://cop13c5am162g" path="res://resources/thought_paths/test_clue_path.tres" id="6_oc1qc"]
+[ext_resource type="Resource" uid="uid://dxgio7tm8on85" path="res://resources/settings/psyche_manager_settings.tres" id="7_40r5k"]
 [ext_resource type="Script" uid="uid://coysphqpo5g2l" path="res://scripts/Valk/Managers/inventory_manager.gd" id="7_j8bvq"]
 [ext_resource type="Resource" uid="uid://cught0y7spfwy" path="res://resources/thought_paths/second_test_path.tres" id="7_n1lhp"]
 [ext_resource type="Resource" uid="uid://wncbvvg6xpva" path="res://resources/thought_paths/trigger_path.tres" id="8_p128x"]
-[ext_resource type="PackedScene" uid="uid://drcpcwf6f8sgw" path="res://scenes/ui/thought_ui.tscn" id="8_pu81h"]
-[ext_resource type="PackedScene" uid="uid://bl7pr1jrqx1d8" path="res://scenes/restart_trigger.tscn" id="9_b4wx3"]
-[ext_resource type="PackedScene" uid="uid://d1i2hyd827vx1" path="res://scenes/ui/note_ui.tscn" id="10_32swi"]
+[ext_resource type="PackedScene" uid="uid://drcpcwf6f8sgw" path="res://prefabs/ui/thought_ui.tscn" id="8_pu81h"]
+[ext_resource type="PackedScene" uid="uid://bl7pr1jrqx1d8" path="res://prefabs/restart_trigger.tscn" id="9_b4wx3"]
+[ext_resource type="PackedScene" uid="uid://d1i2hyd827vx1" path="res://prefabs/ui/note_ui.tscn" id="10_32swi"]
 [ext_resource type="Script" uid="uid://k7qr63sybur6" path="res://scripts/Valk/Managers/ui_manager.gd" id="10_j8bvq"]
 [ext_resource type="Script" uid="uid://bw0o64kaou276" path="res://scripts/Valk/palace_ui_controller.gd" id="10_k4afo"]
-[ext_resource type="PackedScene" uid="uid://bya7074yvflm6" path="res://scenes/ui/thought_path_button.tscn" id="11_oc1qc"]
-[ext_resource type="PackedScene" uid="uid://bicg3xk5h40ss" path="res://scenes/test_scenes/interact_test.tscn" id="13_51aie"]
+[ext_resource type="PackedScene" uid="uid://bya7074yvflm6" path="res://prefabs/ui/thought_path_button.tscn" id="11_oc1qc"]
+[ext_resource type="PackedScene" uid="uid://bicg3xk5h40ss" path="res://prefabs/interact_test.tscn" id="13_51aie"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_cb1vq"]
 
@@ -279,37 +280,7 @@ clue_to_gather = ExtResource("5_suiiq")
 [node name="PsycheManager" type="Node" parent="." unique_id=535571037 node_paths=PackedStringArray("player")]
 script = ExtResource("2_1a1i1")
 player = NodePath("../Player")
-serum_drop_rate = 0.1
-normal_fog_density = 0.5
-serum_fog_density = 0.01
-serum_take_amount = 10.0
-serum_overdose_level = 60.0
-serum_critical_level = 90.0
-serum_to_normal_fog_speed = 0.005
-serum_invisibility_time = 5.0
-fog_fade_drop_rate = 0.5
-fog_fade_start_level = 10.0
-fog_fade_addiction_addition = 10.0
-min_overtake_timer = 1.0
-max_overtake_timer = 2.0
-overtake_player_force = 2.0
-min_craving_timer = 5.0
-max_craving_timer = 10.0
-craving_player_force = 2.5
-craving_serum_take_radius = 1.5
-craving_serum_fov = 90.0
-serum_to_normal_saturation_speed = 0.05
-normal_saturation = 1.0
-overdose_saturation = 0.5
-critical_saturation = 0.1
-serum_to_normal_vignette_speed = 0.5
-serum_vignette_intensity = 1.0
-serum_vignette_color = Color(0.85490197, 0, 0, 1)
-serum_vignette_radius = 0.532
-serum_overdose_vignette_intensity = 1.5
-serum_overdose_vignette_radius = 0.34
-serum_critical_vignette_intensity = 2.0
-serum_critical_vignette_radius = 0.1
+settings = ExtResource("7_40r5k")
 metadata/_custom_type_script = "uid://s47j5s0f3fdy"
 
 [node name="GameManager" type="Node" parent="." unique_id=267506616]

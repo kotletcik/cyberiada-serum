@@ -3,10 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://b8wfahed5pckx" path="res://scenes/Locations/Test_level1.tscn" id="1_ayop5"]
 [ext_resource type="PackedScene" uid="uid://c6h31nhsej0tn" path="res://scenes/Locations/nav_region_floor_2.tscn" id="2_taq7a"]
 [ext_resource type="PackedScene" uid="uid://6malwfmg48s6" path="res://scenes/Locations/nav_region_floor_3.tscn" id="3_vj0eh"]
-[ext_resource type="PackedScene" uid="uid://bs84gaxhmaiy4" path="res://scenes/Locations/nav_region_floor_4.tscn" id="4_7yv2u"]
-[ext_resource type="PackedScene" uid="uid://b48uiu5u5tfxh" path="res://scenes/Locations/nav_region_floor_5.tscn" id="5_dmxso"]
-[ext_resource type="PackedScene" uid="uid://d2itobj36oc5y" path="res://scenes/Mobs/Player.tscn" id="6_21boj"]
-[ext_resource type="PackedScene" uid="uid://elmpcqsoarjp" path="res://scenes/Mobs/Shell.tscn" id="7_edess"]
+[ext_resource type="PackedScene" path="res://scenes/Locations/nav_region_floor_4.tscn" id="4_7yv2u"]
+[ext_resource type="PackedScene" path="res://scenes/Locations/nav_region_floor_5.tscn" id="5_dmxso"]
+[ext_resource type="PackedScene" uid="uid://d2itobj36oc5y" path="res://prefabs/Mobs/Player.tscn" id="6_21boj"]
+[ext_resource type="PackedScene" uid="uid://elmpcqsoarjp" path="res://prefabs/Mobs/Shell.tscn" id="7_edess"]
 
 [node name="MainScene2" type="Node3D" unique_id=617364505]
 

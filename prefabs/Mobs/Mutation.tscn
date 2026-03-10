@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d02kasr2lce4t"]
 
-[ext_resource type="PackedScene" uid="uid://b4512qioi3g1i" path="res://scenes/Gravity.tscn" id="2_p815j"]
+[ext_resource type="PackedScene" uid="uid://b4512qioi3g1i" path="res://prefabs/Gravity.tscn" id="2_p815j"]
 [ext_resource type="Script" uid="uid://bt2rps524x0ph" path="res://scripts/PJ/state_machine/State_machine.gd" id="3_xi3xm"]
 [ext_resource type="Script" uid="uid://cxanx1emdbq8r" path="res://scripts/PJ/state_machine/States/Wander.gd" id="4_dsl82"]
 [ext_resource type="Script" uid="uid://bqg2eh1uhbi55" path="res://scripts/PJ/state_machine/Mutation_behaviour.gd" id="4_u10fb"]

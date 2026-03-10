@@ -1,37 +1,38 @@
 [gd_scene format=3 uid="uid://df6gi0w1863l1"]
 
-[ext_resource type="PackedScene" uid="uid://dg433bvfg6cvt" path="res://scenes/PlayerValk.tscn" id="1_ahihw"]
+[ext_resource type="PackedScene" uid="uid://dg433bvfg6cvt" path="res://prefabs/PlayerValk.tscn" id="1_ahihw"]
 [ext_resource type="Script" uid="uid://s47j5s0f3fdy" path="res://scripts/Valk/Managers/psyche_manager.gd" id="2_bq4fy"]
+[ext_resource type="Resource" uid="uid://dxgio7tm8on85" path="res://resources/settings/psyche_manager_settings.tres" id="3_hdlg5"]
 [ext_resource type="Script" uid="uid://c681q57ewat6f" path="res://scripts/Valk/Managers/game_manager.gd" id="3_u6map"]
 [ext_resource type="Script" uid="uid://coysphqpo5g2l" path="res://scripts/Valk/Managers/inventory_manager.gd" id="4_vcjj7"]
 [ext_resource type="PackedScene" uid="uid://b8wfahed5pckx" path="res://scenes/Locations/Test_level1.tscn" id="5_3rc8y"]
 [ext_resource type="Script" uid="uid://bj28ubqcmsltd" path="res://scripts/Valk/Managers/palace_manager.gd" id="5_7uhkk"]
 [ext_resource type="Script" uid="uid://b3e6n7nbttp0c" path="res://scripts/Valk/Resource Types/thought_path.gd" id="6_8isj6"]
-[ext_resource type="PackedScene" uid="uid://drcpcwf6f8sgw" path="res://scenes/ui/thought_ui.tscn" id="6_aa7i7"]
+[ext_resource type="PackedScene" uid="uid://drcpcwf6f8sgw" path="res://prefabs/ui/thought_ui.tscn" id="6_aa7i7"]
 [ext_resource type="Script" uid="uid://k7qr63sybur6" path="res://scripts/Valk/Managers/ui_manager.gd" id="6_abvy7"]
-[ext_resource type="PackedScene" uid="uid://d1i2hyd827vx1" path="res://scenes/ui/note_ui.tscn" id="7_01gpf"]
+[ext_resource type="PackedScene" uid="uid://d1i2hyd827vx1" path="res://prefabs/ui/note_ui.tscn" id="7_01gpf"]
 [ext_resource type="Resource" uid="uid://cught0y7spfwy" path="res://resources/thought_paths/second_test_path.tres" id="7_sbrwg"]
 [ext_resource type="Resource" uid="uid://cop13c5am162g" path="res://resources/thought_paths/test_clue_path.tres" id="8_g76yq"]
 [ext_resource type="Script" uid="uid://bw0o64kaou276" path="res://scripts/Valk/palace_ui_controller.gd" id="8_sq7co"]
-[ext_resource type="PackedScene" uid="uid://doimrejwy0736" path="res://scenes/test_scenes/Double_door.tscn" id="8_vcjj7"]
-[ext_resource type="PackedScene" uid="uid://ce6h2fmee74sw" path="res://scenes/test_scenes/serum.tscn" id="9_3rc8y"]
+[ext_resource type="PackedScene" uid="uid://doimrejwy0736" path="res://prefabs/Double_door.tscn" id="8_vcjj7"]
+[ext_resource type="PackedScene" uid="uid://ce6h2fmee74sw" path="res://prefabs/Scene Prefabs/scene_serum.tscn" id="9_3rc8y"]
 [ext_resource type="Resource" uid="uid://wncbvvg6xpva" path="res://resources/thought_paths/trigger_path.tres" id="9_e7wky"]
-[ext_resource type="PackedScene" uid="uid://bieh4iknld2hn" path="res://scenes/test_scenes/rock.tscn" id="10_abvy7"]
-[ext_resource type="PackedScene" uid="uid://bw8wddlntpkih" path="res://scenes/test_scenes/Door.tscn" id="10_vcjj7"]
-[ext_resource type="PackedScene" uid="uid://cetykgnumtcvk" path="res://scenes/Mobs/shell_2.tscn" id="11_01gpf"]
-[ext_resource type="PackedScene" uid="uid://bya7074yvflm6" path="res://scenes/ui/thought_path_button.tscn" id="12_a22ly"]
-[ext_resource type="PackedScene" uid="uid://dfiw1ws6ojtp8" path="res://scenes/test_scenes/PatrolPoint.tscn" id="12_uyulh"]
-[ext_resource type="PackedScene" uid="uid://dug2gg4ldjhoc" path="res://scenes/test_scenes/Mutation_navigation.tscn" id="14_uyulh"]
-[ext_resource type="PackedScene" uid="uid://bl7pr1jrqx1d8" path="res://scenes/restart_trigger.tscn" id="15_lfu3u"]
-[ext_resource type="PackedScene" uid="uid://bkmfixym7ftg7" path="res://scenes/test_scenes/scene_clue.tscn" id="16_m1rxk"]
+[ext_resource type="PackedScene" uid="uid://bieh4iknld2hn" path="res://prefabs/Scene Prefabs/scene_rock.tscn" id="10_abvy7"]
+[ext_resource type="PackedScene" uid="uid://bw8wddlntpkih" path="res://prefabs/Door.tscn" id="10_vcjj7"]
+[ext_resource type="PackedScene" uid="uid://cetykgnumtcvk" path="res://prefabs/Mobs/shell_2.tscn" id="11_01gpf"]
+[ext_resource type="PackedScene" uid="uid://bya7074yvflm6" path="res://prefabs/ui/thought_path_button.tscn" id="12_a22ly"]
+[ext_resource type="PackedScene" uid="uid://dfiw1ws6ojtp8" path="res://prefabs/PatrolPoint.tscn" id="12_uyulh"]
+[ext_resource type="PackedScene" uid="uid://dug2gg4ldjhoc" path="res://prefabs/Mutation_navigation.tscn" id="14_uyulh"]
+[ext_resource type="PackedScene" uid="uid://bl7pr1jrqx1d8" path="res://prefabs/restart_trigger.tscn" id="15_lfu3u"]
+[ext_resource type="PackedScene" uid="uid://bkmfixym7ftg7" path="res://prefabs/Scene Prefabs/scene_clue.tscn" id="16_m1rxk"]
 [ext_resource type="Resource" uid="uid://cpshgebigpcom" path="res://resources/thoughts/meow.tres" id="24_8isj6"]
-[ext_resource type="PackedScene" uid="uid://clg0uguj2n21v" path="res://scenes/test_scenes/scene_note.tscn" id="25_sbrwg"]
+[ext_resource type="PackedScene" uid="uid://clg0uguj2n21v" path="res://prefabs/Scene Prefabs/scene_note.tscn" id="25_sbrwg"]
 [ext_resource type="Resource" uid="uid://b2q3agdc7eyfd" path="res://resources/notes/death.tres" id="26_e7wky"]
 [ext_resource type="Resource" uid="uid://chbvik850k7tu" path="res://resources/thoughts/cat_heaven.tres" id="27_wmpl2"]
 [ext_resource type="Resource" uid="uid://dwbrn5l1ernyw" path="res://resources/thoughts/Hello.tres" id="28_77tn1"]
 [ext_resource type="Resource" uid="uid://beopfd6yqk0so" path="res://resources/thoughts/TimeToDie.tres" id="29_85qxo"]
 [ext_resource type="Resource" uid="uid://cuerh7w08uco4" path="res://resources/thoughts/Gun.tres" id="30_a22ly"]
-[ext_resource type="PackedScene" uid="uid://5jpcyg1fb8pf" path="res://scenes/clue_trigger.tscn" id="31_hdlg5"]
+[ext_resource type="PackedScene" uid="uid://5jpcyg1fb8pf" path="res://prefabs/clue_trigger.tscn" id="31_hdlg5"]
 [ext_resource type="Resource" uid="uid://c3dxhs7itgyy6" path="res://resources/thoughts/forgor.tres" id="32_rf5c3"]
 [ext_resource type="Resource" uid="uid://b4lyqlncafmig" path="res://resources/thoughts/fuck_yeah.tres" id="33_85qxo"]
 
@@ -110,37 +111,7 @@ walking_noise_volume = 3.0
 [node name="PsycheManager" type="Node" parent="." unique_id=410702270 node_paths=PackedStringArray("player")]
 script = ExtResource("2_bq4fy")
 player = NodePath("../Player")
-serum_drop_rate = 0.1
-normal_fog_density = 0.3
-serum_fog_density = 0.01
-serum_take_amount = 10.0
-serum_overdose_level = 60.0
-serum_critical_level = 90.0
-serum_to_normal_fog_speed = 0.005
-serum_invisibility_time = 5.0
-fog_fade_drop_rate = 0.5
-fog_fade_start_level = 10.0
-fog_fade_addiction_addition = 10.0
-min_overtake_timer = 1.0
-max_overtake_timer = 2.0
-overtake_player_force = 2.0
-min_craving_timer = 5.0
-max_craving_timer = 10.0
-craving_player_force = 2.5
-craving_serum_take_radius = 1.5
-craving_serum_fov = 90.0
-serum_to_normal_saturation_speed = 0.05
-normal_saturation = 1.0
-overdose_saturation = 0.5
-critical_saturation = 0.1
-serum_to_normal_vignette_speed = 0.5
-serum_vignette_intensity = 1.0
-serum_vignette_color = Color(0.85490197, 0, 0, 1)
-serum_vignette_radius = 0.532
-serum_overdose_vignette_intensity = 1.5
-serum_overdose_vignette_radius = 0.34
-serum_critical_vignette_intensity = 2.0
-serum_critical_vignette_radius = 0.1
+settings = ExtResource("3_hdlg5")
 metadata/_custom_type_script = "uid://s47j5s0f3fdy"
 
 [node name="GameManager" type="Node" parent="." unique_id=2052087701]
@@ -2046,6 +2017,20 @@ trigger_clue = ExtResource("33_85qxo")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.57197, 1.5168839, -7.972666)
 clue_to_gather = ExtResource("29_85qxo")
 disappear_if_duplicate_detected = true
+
+[node name="Serum" parent="." unique_id=782537107 instance=ExtResource("9_3rc8y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.158737, 1.5168862, -8.095255)
+
+[node name="Serum2" parent="." unique_id=1755032216 instance=ExtResource("9_3rc8y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.35641, 1.5168862, -8.095255)
+
+[node name="Serum3" parent="." unique_id=1173841196 instance=ExtResource("9_3rc8y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.667303, 1.5168862, -8.084301)
+
+[node name="Serum4" parent="." unique_id=967979298 instance=ExtResource("9_3rc8y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.36315, 1.5168862, -8.066268)
+
+[node name="MutationSpawnPoint" type="Node3D" parent="." unique_id=298744421 groups=["Mutation Spawn Point"]]
 
 [editable path="Test_level_1"]
 [editable path="Test_level_1/Shell"]

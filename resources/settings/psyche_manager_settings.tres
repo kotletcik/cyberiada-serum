@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="PsycheManagerSettings" format=3 uid="uid://dxgio7tm8on85"]
+
+[ext_resource type="Script" uid="uid://2un3wiyrn4h7" path="res://scripts/Valk/Resource Types/psyche_manager_settings.gd" id="1_ehost"]
+
+[resource]
+script = ExtResource("1_ehost")
+serum_drop_rate = 0.1
+normal_fog_density = 0.3
+serum_fog_density = 0.01
+serum_take_amount = 10.0
+serum_overdose_level = 60.0
+serum_critical_level = 90.0
+serum_to_normal_fog_speed = 0.005
+serum_invisibility_time = 5.0
+fog_fade_drop_rate = 0.5
+fog_fade_start_level = 10.0
+fog_fade_addiction_addition = 10.0
+min_overtake_timer = 1.0
+max_overtake_timer = 2.0
+overtake_player_force = 2.0
+min_craving_timer = 5.0
+max_craving_timer = 10.0
+craving_player_force = 2.5
+craving_serum_take_radius = 1.5
+craving_serum_fov = 90.0
+serum_to_normal_saturation_speed = 0.05
+normal_saturation = 1.0
+overdose_saturation = 0.5
+critical_saturation = 0.1
+serum_to_normal_vignette_speed = 0.5
+serum_vignette_intensity = 1.0
+serum_vignette_color = Color(0.85490197, 0, 0, 1)
+serum_vignette_radius = 0.532
+serum_overdose_vignette_intensity = 1.5
+serum_overdose_vignette_radius = 0.34
+serum_critical_vignette_intensity = 2.0
+serum_critical_vignette_radius = 0.1

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://4h1fpllxicik"]
 
-[ext_resource type="PackedScene" uid="uid://dg433bvfg6cvt" path="res://scenes/PlayerValk.tscn" id="1_m5tkx"]
+[ext_resource type="PackedScene" uid="uid://dg433bvfg6cvt" path="res://prefabs/PlayerValk.tscn" id="1_m5tkx"]
 [ext_resource type="Script" uid="uid://s47j5s0f3fdy" path="res://scripts/Valk/Managers/psyche_manager.gd" id="2_1uptq"]
 [ext_resource type="Script" uid="uid://c681q57ewat6f" path="res://scripts/Valk/Managers/game_manager.gd" id="3_otuf4"]
 [ext_resource type="Script" uid="uid://coysphqpo5g2l" path="res://scripts/Valk/Managers/inventory_manager.gd" id="6_c5ca3"]
