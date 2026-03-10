@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://s47j5s0f3fdy" path="res://scripts/Valk/Managers/psyche_manager.gd" id="2_bq4fy"]
 [ext_resource type="Resource" uid="uid://dxgio7tm8on85" path="res://resources/settings/psyche_manager_settings.tres" id="3_hdlg5"]
 [ext_resource type="Script" uid="uid://c681q57ewat6f" path="res://scripts/Valk/Managers/game_manager.gd" id="3_u6map"]
+[ext_resource type="PackedScene" uid="uid://d02kasr2lce4t" path="res://prefabs/Mobs/Mutation.tscn" id="4_rf5c3"]
 [ext_resource type="Script" uid="uid://coysphqpo5g2l" path="res://scripts/Valk/Managers/inventory_manager.gd" id="4_vcjj7"]
 [ext_resource type="PackedScene" uid="uid://b8wfahed5pckx" path="res://scenes/Locations/Test_level1.tscn" id="5_3rc8y"]
 [ext_resource type="Script" uid="uid://bj28ubqcmsltd" path="res://scripts/Valk/Managers/palace_manager.gd" id="5_7uhkk"]
@@ -112,6 +113,7 @@ walking_noise_volume = 3.0
 script = ExtResource("2_bq4fy")
 player = NodePath("../Player")
 settings = ExtResource("3_hdlg5")
+mutation = ExtResource("4_rf5c3")
 metadata/_custom_type_script = "uid://s47j5s0f3fdy"
 
 [node name="GameManager" type="Node" parent="." unique_id=2052087701]
@@ -2031,6 +2033,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.667303, 1.5168862, -8.084
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.36315, 1.5168862, -8.066268)
 
 [node name="MutationSpawnPoint" type="Node3D" parent="." unique_id=298744421 groups=["Mutation Spawn Point"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4162692, 0)
+
+[node name="MutationSpawnPoint2" type="Node3D" parent="." unique_id=865605291 groups=["Mutation Spawn Point"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.482082, 1.7426103, -22.162298)
+
+[node name="MutationSpawnPoint3" type="Node3D" parent="." unique_id=1519794704 groups=["Mutation Spawn Point"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.296408, 1.63972, -10.880654)
+
+[node name="MutationSpawnPoint4" type="Node3D" parent="." unique_id=740315806 groups=["Mutation Spawn Point"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.043434, 1.63972, -7.6971135)
+
+[node name="MutationSpawnPoint5" type="Node3D" parent="." unique_id=855703259 groups=["Mutation Spawn Point"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.870495, 1.63972, 14.341333)
 
 [editable path="Test_level_1"]
 [editable path="Test_level_1/Shell"]

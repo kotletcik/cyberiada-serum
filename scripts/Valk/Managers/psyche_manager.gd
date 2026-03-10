@@ -28,6 +28,8 @@ var craving_timer: float;
 var overtake_timer: float;
 var overtake_dir: Vector3;
 
+var mutation_spawn_timer: float
+
 func register_serum(node: Node3D, pos: Vector3) -> void:
 	serums[first_free_index] = node;
 	serum_positions[first_free_index] = pos;
@@ -129,6 +131,11 @@ func _process(delta: float) -> void:
 		invisibility_timer -= delta;
 		if(invisibility_timer <= 0):
 			EventBus.shells_appear.emit();
+	
+	if(serum_level > settings.serum_overdose_level && serum_level < settings.serum_critical_level):
+		mutation_spawn_timer -= delta;
+		if(mutation_spawn_timer <= 0):
+			spawn_mutation(); #funkcja resetuje timer
 
 	fog_fade_level -= settings.fog_fade_drop_rate * delta;
 	if(fog_fade_level < 0): fog_fade_level = 0;
@@ -162,6 +169,7 @@ func take_serum():
 		set_vignette_parameters(settings.serum_vignette_intensity, 
 				settings.serum_vignette_color, settings.serum_vignette_radius);
 	elif(serum_level < settings.serum_critical_level):
+		mutation_spawn_timer = randf_range(settings.min_mutation_spawn_timer, settings.max_mutation_spawn_timer)
 		overtake_timer = randf_range(settings.min_overtake_timer, settings.max_overtake_timer);
 		overtake_dir = Vector3(randf_range(-1, 1), 0 , randf_range(-1, 1)).normalized();
 		saturation_texture.material.set_shader_parameter("saturation", settings.overdose_saturation);
@@ -173,6 +181,19 @@ func take_serum():
 		saturation_texture.material.set_shader_parameter("saturation", settings.critical_saturation);
 		set_vignette_parameters(settings.serum_critical_vignette_intensity, 
 				settings.serum_critical_vignette_color, settings.serum_critical_vignette_radius);
+
+func spawn_mutation() -> void:
+	var spawn_points = get_tree().get_nodes_in_group("Mutation Spawn Point");
+	for i in range(0, spawn_points.size()):
+		var spawn_pos: Vector3 = spawn_points[i].global_position;
+		var distance: float = (spawn_pos - player.global_position).length();
+		if(distance > settings.max_mutation_spawn_range): continue;
+		if(distance < settings.min_mutation_spawn_range): continue;
+		var mutation_instance = mutation.instantiate();
+		mutation_instance.global_position = spawn_pos;
+		get_tree().get_current_scene().add_child(mutation_instance);
+		mutation_spawn_timer = randf_range(settings.min_mutation_spawn_timer, settings.max_mutation_spawn_timer)
+		return;
 
 func set_vignette_parameters(intensity: float, color: Color, radius: float) -> void:
 	vignette_texture.material.set_shader_parameter("intensity", intensity);

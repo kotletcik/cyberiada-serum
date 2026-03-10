@@ -16,6 +16,7 @@
 [ext_resource type="Resource" uid="uid://dxgio7tm8on85" path="res://resources/settings/psyche_manager_settings.tres" id="7_40r5k"]
 [ext_resource type="Script" uid="uid://coysphqpo5g2l" path="res://scripts/Valk/Managers/inventory_manager.gd" id="7_j8bvq"]
 [ext_resource type="Resource" uid="uid://cught0y7spfwy" path="res://resources/thought_paths/second_test_path.tres" id="7_n1lhp"]
+[ext_resource type="PackedScene" uid="uid://d02kasr2lce4t" path="res://prefabs/Mobs/Mutation.tscn" id="8_40r5k"]
 [ext_resource type="Resource" uid="uid://wncbvvg6xpva" path="res://resources/thought_paths/trigger_path.tres" id="8_p128x"]
 [ext_resource type="PackedScene" uid="uid://drcpcwf6f8sgw" path="res://prefabs/ui/thought_ui.tscn" id="8_pu81h"]
 [ext_resource type="PackedScene" uid="uid://bl7pr1jrqx1d8" path="res://prefabs/restart_trigger.tscn" id="9_b4wx3"]
@@ -281,6 +282,7 @@ clue_to_gather = ExtResource("5_suiiq")
 script = ExtResource("2_1a1i1")
 player = NodePath("../Player")
 settings = ExtResource("7_40r5k")
+mutation = ExtResource("8_40r5k")
 metadata/_custom_type_script = "uid://s47j5s0f3fdy"
 
 [node name="GameManager" type="Node" parent="." unique_id=267506616]

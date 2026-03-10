@@ -2,7 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://dg433bvfg6cvt" path="res://prefabs/PlayerValk.tscn" id="1_x6adb"]
 [ext_resource type="Script" uid="uid://s47j5s0f3fdy" path="res://scripts/Valk/Managers/psyche_manager.gd" id="2_kbpjc"]
+[ext_resource type="Resource" uid="uid://dxgio7tm8on85" path="res://resources/settings/psyche_manager_settings.tres" id="3_0bhsg"]
 [ext_resource type="Script" uid="uid://c681q57ewat6f" path="res://scripts/Valk/Managers/game_manager.gd" id="3_jmeif"]
+[ext_resource type="PackedScene" uid="uid://d02kasr2lce4t" path="res://prefabs/Mobs/Mutation.tscn" id="4_0faun"]
 [ext_resource type="Script" uid="uid://coysphqpo5g2l" path="res://scripts/Valk/Managers/inventory_manager.gd" id="4_fa6sy"]
 [ext_resource type="PackedScene" uid="uid://b8wfahed5pckx" path="res://scenes/Locations/Test_level1.tscn" id="5_0bhsg"]
 [ext_resource type="Script" uid="uid://k7qr63sybur6" path="res://scripts/Valk/Managers/ui_manager.gd" id="6_jmeif"]
@@ -18,6 +20,8 @@ walking_noise_volume = 3.0
 [node name="PsycheManager" type="Node" parent="." unique_id=410702270 node_paths=PackedStringArray("player")]
 script = ExtResource("2_kbpjc")
 player = NodePath("../Player")
+settings = ExtResource("3_0bhsg")
+mutation = ExtResource("4_0faun")
 metadata/_custom_type_script = "uid://s47j5s0f3fdy"
 
 [node name="GameManager" type="Node" parent="." unique_id=2052087701]
