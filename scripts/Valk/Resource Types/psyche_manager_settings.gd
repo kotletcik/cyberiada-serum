@@ -21,9 +21,18 @@ extends Resource
 @export var fog_fade_start_level: float;
 @export var fog_fade_addiction_addition: float;
 
+@export_group("Craving")
+@export var min_craving_timer: float;
+@export var max_craving_timer: float;
+@export var craving_duration: float;
+@export var craving_player_force: float;
+@export var craving_serum_take_radius: float;
+@export var craving_serum_fov: float;
+
 @export_group("Overtake")
 @export var min_overtake_timer: float;
 @export var max_overtake_timer: float;
+@export var overtake_duration: float;
 @export var overtake_player_force: float;
 
 @export_group("Mutation Spawning")
@@ -31,13 +40,6 @@ extends Resource
 @export var max_mutation_spawn_timer: float;
 @export var max_mutation_spawn_range: float;
 @export var min_mutation_spawn_range: float;
-
-@export_group("Craving")
-@export var min_craving_timer: float;
-@export var max_craving_timer: float;
-@export var craving_player_force: float;
-@export var craving_serum_take_radius: float;
-@export var craving_serum_fov: float;
 
 @export_group("Saturation")
 @export var serum_to_normal_saturation_speed: float;

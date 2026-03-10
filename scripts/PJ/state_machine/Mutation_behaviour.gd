@@ -42,7 +42,7 @@ func Exit_state(state_type: int):
 		STATE_TYPES.Wander:
 			EventBus.disconnect("sound_emitted_by_player", change_state_to_follow_sound)
 
-func change_state_to_follow_sound(sound_pos: Vector3):
+func change_state_to_follow_sound(sound_pos: Vector3, sound_volume: float):
 	state_machine.target = sound_pos
 	change_state_to(state_machine.current_state, STATE_TYPES.Follow_sound)
 

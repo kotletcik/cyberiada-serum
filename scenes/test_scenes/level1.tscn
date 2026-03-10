@@ -30,7 +30,7 @@ albedo_color = Color(0, 0, 0.34117648, 1)
 [node name="Level1" type="Node3D" unique_id=1424703341]
 
 [node name="floor1" type="CSGMesh3D" parent="." unique_id=1064392878]
-transform = Transform3D(-6.642192, 0, 0, 0, 0.27069113, 0, 0, 0, 6.5359025, 0, 0, 0)
+transform = Transform3D(6.642, 0, 0, 0, -0.271, 5.713953e-07, 0, -2.3691573e-08, -6.536, 0, 0, 0)
 use_collision = true
 collision_layer = 2
 collision_mask = 16
@@ -38,14 +38,14 @@ mesh = SubResource("BoxMesh_oibo5")
 material = SubResource("StandardMaterial3D_pm7s6")
 
 [node name="floor2" type="CSGMesh3D" parent="." unique_id=2024080918]
-transform = Transform3D(-6.642192, 0, 0, 0, 0.27069113, 0, 0, 0, 6.5359025, -6.6395893, 0, 3.386621)
+transform = Transform3D(6.642, 0, 0, 0, -0.271, 5.713953e-07, 0, -2.3691573e-08, -6.536, -6.6395893, 0, 3.386621)
 use_collision = true
 collision_layer = 2
 mesh = SubResource("BoxMesh_oibo5")
 material = SubResource("StandardMaterial3D_pm7s6")
 
 [node name="floor3" type="CSGMesh3D" parent="." unique_id=107555447]
-transform = Transform3D(-4.0388865, 0, 0, 0, 0.11048723, 0, 0, 0, 3.4785216, -1.3843426, 0.07924479, 4.92109)
+transform = Transform3D(4.039, 0, 0, 0, -0.11, 3.0414384e-07, 0, -9.616506e-09, -3.479, -1.3843426, 0.07924479, 4.92109)
 use_collision = true
 collision_layer = 2
 mesh = SubResource("BoxMesh_oibo5")

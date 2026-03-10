@@ -103,24 +103,34 @@ func find_closest_serum_with_fov(fov: float) -> Node3D:
 	return serums[min_index] if min_index != -1 else null;
 
 func _physics_process(delta: float) -> void:
-	if(craving_timer > 0):
+	if(serum_level > settings.serum_overdose_level && serum_level < settings.serum_critical_level):
+		print("works");
+		print(craving_timer);
 		craving_timer -= delta;
-		var closest_serum: Node3D = find_closest_serum_with_fov(settings.craving_serum_fov); # vs find_closest_serum()
-		if(closest_serum == null): return;
-		var closest_serum_pos: Vector3 = closest_serum.global_position;
-		var direction: Vector3 = (closest_serum_pos - player.global_position).normalized();
-		# var dot: float = -player.global_basis.z.dot(direction);
-		# if(dot < 1-craving_serum_fov/180): dot = 0;
-		player.global_translate(direction * settings.craving_player_force * delta);
+		if(craving_timer < 0):
+			var closest_serum: Node3D = find_closest_serum_with_fov(settings.craving_serum_fov); # vs find_closest_serum()
+			if(closest_serum == null): return;
+			var closest_serum_pos: Vector3 = closest_serum.global_position;
+			var direction: Vector3 = (closest_serum_pos - player.global_position).normalized();
+			# var dot: float = -player.global_basis.z.dot(direction);
+			# if(dot < 1-craving_serum_fov/180): dot = 0;
+			player.global_translate(direction * settings.craving_player_force * delta);
 
-		var distance_sqr = (closest_serum_pos - player.global_position).length_squared();
-		if(distance_sqr < settings.craving_serum_take_radius*settings.craving_serum_take_radius):
-			unregister_serum(closest_serum);
-			closest_serum.queue_free();
-			take_serum();	
-	if(overtake_timer > 0):
+			var distance_sqr = (closest_serum_pos - player.global_position).length_squared();
+			if(distance_sqr < settings.craving_serum_take_radius*settings.craving_serum_take_radius):
+				unregister_serum(closest_serum);
+				closest_serum.queue_free();
+				take_serum();	
+			if(craving_timer <= -settings.craving_duration):
+				craving_timer = randf_range(settings.min_craving_timer, settings.max_craving_timer);
+
+	if(serum_level > settings.serum_critical_level):
 		overtake_timer -= delta;
-		player.global_translate(overtake_dir * settings.overtake_player_force * delta);
+		if(overtake_timer < 0):
+			player.global_translate(overtake_dir * settings.overtake_player_force * delta);
+			if(overtake_timer < -settings.overtake_duration):
+				overtake_timer = randf_range(settings.min_overtake_timer, settings.max_overtake_timer);
+				overtake_dir = Vector3(randf_range(-1, 1), 0 , randf_range(-1, 1)).normalized();
 
 
 func _process(delta: float) -> void:
@@ -190,8 +200,8 @@ func spawn_mutation() -> void:
 		if(distance > settings.max_mutation_spawn_range): continue;
 		if(distance < settings.min_mutation_spawn_range): continue;
 		var mutation_instance = mutation.instantiate();
-		mutation_instance.global_position = spawn_pos;
 		get_tree().get_current_scene().add_child(mutation_instance);
+		mutation_instance.global_position = spawn_pos;
 		mutation_spawn_timer = randf_range(settings.min_mutation_spawn_timer, settings.max_mutation_spawn_timer)
 		return;
 
