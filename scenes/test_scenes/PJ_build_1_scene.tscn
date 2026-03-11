@@ -1186,7 +1186,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3614998, 1.3235435, 4.86585
 [node name="Location7" type="Node3D" parent="." unique_id=1190777787]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.057377, 0, -15.342804)
 
-[node name="Shell" parent="Location7" unique_id=691060374 instance=ExtResource("11_01gpf")]
+[node name="Shell" parent="Location7" unique_id=691060374 groups=["Shell"] instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6056662, 1.4558756, 5.8289146)
 
 [node name="NavigationAgent3D" parent="Location7/Shell" index="3" unique_id=974769277]
@@ -1530,7 +1530,7 @@ spot_range = 8.705
 [node name="Location9" type="Node3D" parent="." unique_id=1443309715]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3121138, 0, -4.3173733)
 
-[node name="Shell" parent="Location9" unique_id=1986411226 instance=ExtResource("11_01gpf")]
+[node name="Shell" parent="Location9" unique_id=1986411226 groups=["Shell"] instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6056662, 1.4558756, 5.8289146)
 
 [node name="NavigationAgent3D" parent="Location9/Shell" index="3" unique_id=974769277]

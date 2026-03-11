@@ -18,6 +18,9 @@ class_name Shell_behaviour
 @export_group("scream")
 @export var scream_time: float = 1.0
 	
+func _ready() -> void:
+	add_to_group("Shell");
+
 func _process(delta: float) -> void:
 	Check_conditions(delta)
 
