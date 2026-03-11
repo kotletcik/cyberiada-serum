@@ -33,6 +33,8 @@ func save_checkpoint() -> void:
 		var pickup_item: PickupItem = all_rocks[i];
 		pickup_item.set_meta("id", i);
 		last_checkpoint.is_rock_taken[i] = pickup_item.is_disabled;
+
+	last_checkpoint.is_player_crouching = player.is_crouching;
 	print("saved");
 
 func load_last_checkpoint() -> void:
@@ -65,5 +67,7 @@ func load_last_checkpoint() -> void:
 				if(pickup_item.get_meta("id") == pickup_item_id):
 					pickup_item.disable();
 
+	if(last_checkpoint.is_player_crouching):
+		player.crouch();
 	print(last_checkpoint.last_serum_level);
 	print("restored");

@@ -59,12 +59,10 @@ func _physics_process(delta: float) -> void:
 	# zmiana szybkości w przyszłości by była tutaj
 	move_speed = SOBER_WALK_SPEED; 
 	if(Input.is_action_just_pressed("Crouch")):
-		player_capsule.height = player_height/2; # trzeba zmieniac height CapsuleShape, a nie scale node'a bo to tworzy bugi
-		is_crouching = true;
+		crouch();
 	elif(Input.is_action_just_released("Crouch") && space_for_uncrouch() ||
 			(!Input.is_action_pressed("Crouch") && is_crouching && space_for_uncrouch())):
-		player_capsule.height = player_height;
-		is_crouching = false;
+		uncrouch();
 	
 	if(is_crouching):
 		noise = crouching_noise_volume
@@ -138,6 +136,14 @@ func _headbob(time) -> Vector3:
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP
 	pos.x = cos(time * BOB_FREQ / 2) * BOB_AMP
 	return pos
+
+func crouch() -> void:
+	player_capsule.height = player_height/2; # trzeba zmieniac height CapsuleShape, a nie scale node'a bo to tworzy bugi
+	is_crouching = true;
+
+func uncrouch() -> void:
+	player_capsule.height = player_height;
+	is_crouching = false;
 
 func space_for_uncrouch() -> bool:  
 	var params = PhysicsShapeQueryParameters3D.new();

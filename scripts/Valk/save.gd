@@ -9,3 +9,5 @@ var last_invisibility_timer: float = 0;
 
 var is_serum_taken: Dictionary[int, bool];
 var is_rock_taken: Dictionary[int, bool];
+
+var is_player_crouching: bool;
