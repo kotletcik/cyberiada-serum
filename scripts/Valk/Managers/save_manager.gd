@@ -19,6 +19,20 @@ func save_checkpoint() -> void:
 	last_checkpoint.last_fog_fade_level = PsycheManager.instance.fog_fade_level;
 	last_checkpoint.last_invisibility_timer = PsycheManager.instance.invisibility_timer;
 	last_checkpoint.checkpoint_exists = true;
+
+	last_checkpoint.is_serum_taken.clear();
+	var all_serums = get_tree().get_nodes_in_group("Serum");
+	for i in range(0, all_serums.size()):
+		var pickup_item: PickupItem = all_serums[i];
+		pickup_item.set_meta("id", i);
+		last_checkpoint.is_serum_taken[i] = pickup_item.is_disabled;
+	
+	last_checkpoint.is_rock_taken.clear();
+	var all_rocks = get_tree().get_nodes_in_group("Rock");
+	for i in range(0, all_rocks.size()):
+		var pickup_item: PickupItem = all_rocks[i];
+		pickup_item.set_meta("id", i);
+		last_checkpoint.is_rock_taken[i] = pickup_item.is_disabled;
 	print("saved");
 
 func load_last_checkpoint() -> void:
@@ -29,5 +43,27 @@ func load_last_checkpoint() -> void:
 	PsycheManager.instance.fog_fade_level = last_checkpoint.last_fog_fade_level;
 	PsycheManager.instance.invisibility_timer = last_checkpoint.last_invisibility_timer;
 	PsycheManager.instance.restart_timers();
+	var all_serums = get_tree().get_nodes_in_group("Serum");
+	for i in range(0, all_serums.size()):
+		var pickup_item: PickupItem = all_serums[i];
+		pickup_item.set_meta("id", i);
+	for pickup_item_id in last_checkpoint.is_serum_taken:
+		if(last_checkpoint.is_serum_taken[pickup_item_id]):
+			for i in range(0, all_serums.size()):
+				var pickup_item: PickupItem = all_serums[i];
+				if(pickup_item.get_meta("id") == pickup_item_id):
+					pickup_item.disable();
+
+	var all_rocks = get_tree().get_nodes_in_group("Rock");
+	for i in range(0, all_rocks.size()):
+		var pickup_item: PickupItem = all_rocks[i];
+		pickup_item.set_meta("id", i);
+	for pickup_item_id in last_checkpoint.is_rock_taken:
+		if(last_checkpoint.is_rock_taken[pickup_item_id]):
+			for i in range(0, all_rocks.size()):
+				var pickup_item: PickupItem = all_rocks[i];
+				if(pickup_item.get_meta("id") == pickup_item_id):
+					pickup_item.disable();
+
 	print(last_checkpoint.last_serum_level);
 	print("restored");

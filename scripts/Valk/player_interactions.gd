@@ -18,9 +18,9 @@ func _process(_delta: float) -> void:
 			# print(object.name);
 			if(object.is_in_group("Serum")):
 				InventoryManager.instance.add_item(ITEM_TYPE.SERUM, 1);
-				object.queue_free();
+				object.disable();
 			if(object.is_in_group("Rock")):
 				InventoryManager.instance.add_item(ITEM_TYPE.ROCK, 1);
-				object.queue_free();
+				object.disable();
 			if(object.has_method("player_interact")):
 				object.player_interact();
