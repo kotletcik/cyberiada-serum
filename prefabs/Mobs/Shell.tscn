@@ -31,10 +31,13 @@ size = Vector3(0.2, 0.2, 0.2)
 [sub_resource type="BoxMesh" id="BoxMesh_raqt8"]
 size = Vector3(0.4, 0.2, 0.2)
 
-[node name="Shell" type="CharacterBody3D" unique_id=2079833793]
+[node name="Shell" type="CharacterBody3D" unique_id=2079833793 groups=["Shell"]]
 collision_layer = 8
 collision_mask = 7
 script = ExtResource("6_raqt8")
+
+[node name="State_machine_Behaviour#DebugLines" type="MeshInstance3D" parent="." unique_id=533354744]
+skeleton = NodePath("../../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=58911616]
 shape = SubResource("CapsuleShape3D_lj2st")
@@ -74,22 +77,6 @@ searching_radius = 3.0
 move_speed = 5.0
 state_type = 3
 
-[node name="Behaviour" parent="State_machine" index="5" node_paths=PackedStringArray("sound_target", "state_machine")]
-script = ExtResource("6_raqt8")
-follow_state_duration = 5.0
-searching_time = 5.0
-follow_sound_state_duration = 2.0
-sound_target = NodePath("../Follow_sound/Empty_target")
-hearing_range = 10.0
-wander_time = 10.0
-patrol_time = 10.0
-scream_time = 1.0
-state_machine = NodePath("..")
-player_sight_range = 6.0
-
-[node name="DebugLines" type="MeshInstance3D" parent="State_machine/Behaviour" index="0" unique_id=533354744]
-skeleton = NodePath("../../..")
-
 [node name="Patrol" type="Node" parent="State_machine" unique_id=1952931126 node_paths=PackedStringArray("empty_target")]
 script = ExtResource("7_ayt5m")
 empty_target = NodePath("empty_target")
@@ -111,6 +98,6 @@ metadata/_custom_type_script = "uid://foywhiftl87x"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4183241, -0.47043222)
 mesh = SubResource("BoxMesh_raqt8")
 
-[node name="DebugLines" type="MeshInstance3D" parent="." unique_id=533354744]
+[node name="DebugLines" type="MeshInstance3D" parent="." unique_id=2138520060]
 
 [editable path="State_machine"]

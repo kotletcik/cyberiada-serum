@@ -52,6 +52,13 @@ func save_checkpoint() -> void:
 	for i in range(0, PalaceManager.instance.first_free_index):
 		last_checkpoint.last_gathered_clues[i] = PalaceManager.instance.gathered_clues[i];
 
+	last_checkpoint.last_shell_positions.clear();
+	var all_shells = get_tree().get_nodes_in_group("Shell");
+	for i in range(0, all_shells.size()):
+		var node_3d: Node3D = all_shells[i];
+		# node_3d.set_meta("id", i);
+		last_checkpoint.last_shell_positions[i] = node_3d.global_position;
+
 	last_checkpoint.is_player_crouching = player.is_crouching;
 	last_checkpoint.checkpoint_exists = true;
 	print("saved");
@@ -106,6 +113,10 @@ func load_last_checkpoint() -> void:
 	PalaceManager.instance.remove_all_clues();
 	for i in range(0, last_checkpoint.last_gathered_clues.size()): # musi być last_checkpoint.last_gathered_clues.size() a nie size
 		PalaceManager.instance.add_gathered_clue( last_checkpoint.last_gathered_clues[i]);
+
+	var all_shells = get_tree().get_nodes_in_group("Shell");
+	for i in range(0, last_checkpoint.last_shell_positions.size()):
+		all_shells[i].global_position = last_checkpoint.last_shell_positions[i];
 
 	if(last_checkpoint.is_player_crouching):
 		player.crouch();

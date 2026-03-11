@@ -15,4 +15,6 @@ var last_thought_paths: Array[ThoughtPath] = [null];
 
 var last_gathered_clues: Array[Clue] = [null];
 
+var last_shell_positions: Array[Vector3];
+
 var is_player_crouching: bool;
