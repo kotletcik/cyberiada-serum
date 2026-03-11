@@ -2065,6 +2065,13 @@ script = ExtResource("38_3at83")
 [node name="CollisionShape3D" parent="Checkpoint Trigger" index="0" unique_id=1228957436]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7888974, -0.30792236)
 
+[node name="Checkpoint Trigger2" parent="." unique_id=68270860 instance=ExtResource("37_l3ixd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.776155, 0.44707966, -11.365209)
+script = ExtResource("38_3at83")
+
+[node name="CollisionShape3D" parent="Checkpoint Trigger2" index="0" unique_id=1228957436]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7888974, -0.30792236)
+
 [editable path="Test_level_1"]
 [editable path="Test_level_1/Shell"]
 [editable path="Test_level_1/Mutation"]
@@ -2077,3 +2084,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7888974, -0.30792236)
 [editable path="Clue Trigger"]
 [editable path="Clue Trigger2"]
 [editable path="Checkpoint Trigger"]
+[editable path="Checkpoint Trigger2"]

@@ -18,6 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://d1i2hyd827vx1" path="res://prefabs/ui/note_ui.tscn" id="13_rxep2"]
 [ext_resource type="Script" uid="uid://bw0o64kaou276" path="res://scripts/Valk/palace_ui_controller.gd" id="14_u4ndo"]
 [ext_resource type="PackedScene" uid="uid://lw2fgo1qjxta" path="res://scenes/test_scenes/level1.tscn" id="15_ngn0i"]
+[ext_resource type="Script" uid="uid://bvpanlcy3bc06" path="res://scripts/Valk/Managers/save_manager.gd" id="19_cgang"]
+[ext_resource type="Resource" uid="uid://mm8l7277obwj" path="res://resources/last_checkpoint.tres" id="20_lmckm"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ngn0i"]
 
@@ -108,6 +110,11 @@ offset_right = -649.0
 offset_bottom = 318.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="SaveManager" type="Node" parent="." unique_id=33374960]
+script = ExtResource("19_cgang")
+last_checkpoint = ExtResource("20_lmckm")
+metadata/_custom_type_script = "uid://bvpanlcy3bc06"
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1073508512]
 transform = Transform3D(358.8966, 0, 0, 0, 1, 0, 0, 0, 193.94424, 0, -25.22758, 0)

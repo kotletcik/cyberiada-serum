@@ -26,6 +26,8 @@
 [ext_resource type="Script" uid="uid://bw0o64kaou276" path="res://scripts/Valk/palace_ui_controller.gd" id="10_k4afo"]
 [ext_resource type="PackedScene" uid="uid://bya7074yvflm6" path="res://prefabs/ui/thought_path_button.tscn" id="11_oc1qc"]
 [ext_resource type="PackedScene" uid="uid://bicg3xk5h40ss" path="res://prefabs/interact_test.tscn" id="13_51aie"]
+[ext_resource type="Script" uid="uid://bvpanlcy3bc06" path="res://scripts/Valk/Managers/save_manager.gd" id="16_yi4xk"]
+[ext_resource type="Resource" uid="uid://mm8l7277obwj" path="res://resources/last_checkpoint.tres" id="17_bnfbb"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_cb1vq"]
 
@@ -295,6 +297,11 @@ metadata/_custom_type_script = "uid://s47j5s0f3fdy"
 script = ExtResource("4_32swi")
 thought_paths = Array[ExtResource("5_jdfls")]([ExtResource("7_n1lhp"), ExtResource("6_oc1qc"), ExtResource("8_p128x")])
 metadata/_custom_type_script = "uid://bj28ubqcmsltd"
+
+[node name="SaveManager" type="Node" parent="." unique_id=242605350]
+script = ExtResource("16_yi4xk")
+last_checkpoint = ExtResource("17_bnfbb")
+metadata/_custom_type_script = "uid://bvpanlcy3bc06"
 
 [node name="UIManager" type="Node" parent="." unique_id=793604871 node_paths=PackedStringArray("note_ui", "added_thought_notif", "mind_palace_ui")]
 script = ExtResource("10_j8bvq")
