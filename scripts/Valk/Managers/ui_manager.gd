@@ -27,12 +27,18 @@ var is_in_game: bool = true;
 
 var chosen_thought_path: ThoughtPath = null;
 
+var rocks_label: Label
+var serum_label: Label
+
 func _ready() -> void:
 	if(instance == null):
 		instance = self;    
 		if(note_ui != null): remove_child(note_ui);
 		if(added_thought_notif != null): remove_child(added_thought_notif);
-		if(mind_palace_ui != null): remove_child(mind_palace_ui);
+		if(mind_palace_ui != null): 
+			rocks_label = mind_palace_ui.get_node("Inventory/Rock");
+			serum_label = mind_palace_ui.get_node("Inventory/Serum");
+			remove_child(mind_palace_ui);
 		if(esc_menu != null): 
 			var button: Button = esc_menu.get_node("Panel/Resume");
 			button.pressed.connect(resume_game);
@@ -107,6 +113,10 @@ func show_mind_palace_ui():
 	update_cursor();
 
 func update_mind_palace_ui():
+
+	rocks_label.text = str(InventoryManager.instance.itemCount[ITEM_TYPE.ROCK]) + "x Rocks";
+	serum_label.text = str(InventoryManager.instance.itemCount[ITEM_TYPE.SERUM]) + "x Serum";
+
 	for i in range(0, PalaceManager.instance.thought_paths.size()):
 		if(!PalaceManager.instance.thought_paths[i].is_unlocked()): continue;
 		var thought_path_ui_instance = thought_path_ui.instantiate();

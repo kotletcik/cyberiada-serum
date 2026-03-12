@@ -189,6 +189,46 @@ offset_bottom = 318.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Inventory" type="Panel" parent="UIManager/MindPalace" unique_id=676863246]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.49500003
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 650.0
+offset_top = 357.39996
+offset_right = 916.0
+offset_bottom = 489.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="UIManager/MindPalace/Inventory" unique_id=31945284]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 1.0
+offset_right = 260.0
+offset_bottom = 49.0
+text = "I have:"
+vertical_alignment = 1
+
+[node name="Rock" type="Label" parent="UIManager/MindPalace/Inventory" unique_id=1649745766]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 36.0
+offset_right = 257.0
+offset_bottom = 84.0
+text = "10x Rocks"
+vertical_alignment = 1
+
+[node name="Serum" type="Label" parent="UIManager/MindPalace/Inventory" unique_id=1263054985]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 85.0
+offset_right = 257.0
+offset_bottom = 133.0
+text = "10x Serum"
+vertical_alignment = 1
+
 [node name="EscMenu" type="CanvasLayer" parent="UIManager" unique_id=948287569]
 
 [node name="Panel" type="Panel" parent="UIManager/EscMenu" unique_id=189870409]
