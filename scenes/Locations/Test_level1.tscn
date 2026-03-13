@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b8wfahed5pckx"]
 
-[ext_resource type="PackedScene" uid="uid://cetykgnumtcvk" path="res://prefabs/Mobs/shell_2.tscn" id="1_71br7"]
+[ext_resource type="PackedScene" uid="uid://cetykgnumtcvk" path="res://prefabs/Mobs/shell.tscn" id="1_71br7"]
 [ext_resource type="PackedScene" uid="uid://doimrejwy0736" path="res://prefabs/Double_door.tscn" id="2_71br7"]
 [ext_resource type="PackedScene" uid="uid://dug2gg4ldjhoc" path="res://prefabs/Mutation_navigation.tscn" id="2_oewj3"]
 [ext_resource type="PackedScene" uid="uid://dfiw1ws6ojtp8" path="res://prefabs/PatrolPoint.tscn" id="3_fycel"]

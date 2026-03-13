@@ -2,8 +2,8 @@ extends State
 class_name Searching
 
 @export var empty_target: Node3D
-@export var searching_point_change_time: float = 5.0
-@export var searching_radius: float = 3
+var searching_point_change_time: float = 1.0
+var searching_radius: float = 1.0
 var searching_point_timer: float
 var searching_area_center: Vector3
 
@@ -29,6 +29,8 @@ func Enter():
 	super.Enter()
 	state_machine.nav_agent.target = empty_target
 	searching_area_center = state_machine.mob.global_position
+	searching_point_change_time = state_machine.behaviour.searching_point_change_time
+	searching_radius = state_machine.behaviour.searching_radius 
 
 	randomize_searching_point()
 

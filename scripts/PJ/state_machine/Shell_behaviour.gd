@@ -7,6 +7,8 @@ class_name Shell_behaviour
 @export var follow_state_duration:= 5.0
 @export_group("searching_player")
 @export var searching_time: float = 5.0
+@export var searching_point_change_time = 2.0
+@export var searching_radius = 2.0
 @export_group("follow_sound")
 @export var follow_sound_state_duration:= 2.0
 @export var sound_target: Node3D
@@ -15,6 +17,7 @@ class_name Shell_behaviour
 @export var wander_time: float = 10.0
 @export_group("patrol")
 @export var patrol_time: float = 10.0
+@export var patrol_points: Array[Node3D] = []
 @export_group("scream")
 @export var scream_time: float = 1.0
 	
