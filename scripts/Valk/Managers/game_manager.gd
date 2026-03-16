@@ -24,8 +24,7 @@ func restart_scene() -> void:
 	is_game_over = false;
 	get_tree().get_root().request_ready();
 	get_tree().reload_current_scene();
-	# get_tree().paused = false;
-
+	
 func pause_game() -> void:
 	get_tree().paused = true;
 

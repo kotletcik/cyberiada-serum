@@ -29,7 +29,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.504807, 20.468477, -11.61
 
 [node name="Player" parent="." unique_id=767105809 instance=ExtResource("1_d7j53")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -16.399467, 21.389395, -10.606398)
-SOBER_WALK_SPEED = 7.5
 CROUCH_SPEED_MULTIPLIER = 0.3
 crouching_noise_volume = 1.5
 walking_noise_volume = 3.0
