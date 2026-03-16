@@ -6,7 +6,7 @@ extends Node
 @export var y: float;
 @onready var camera: Camera3D = $"../Head/Camera3D"
 
-@export var throw_angle = 10.0; # from looking direction to up
+@export var throw_angle = 40.0; # from looking direction to up
 @export var torque_force = 100.0;
 @export var aim_range = 20.0;
 var vel_vector: Vector3;
@@ -29,8 +29,8 @@ func throw_rock(rock: RigidBody3D):
 	var horizontal: Vector2 = Vector2(delta.x, delta.z)
 	var R: float = horizontal.length()
 	var y: float = delta.y
-	var alpha: float = camera.global_rotation.x + deg_to_rad(throw_angle) * pow(cos(camera.global_rotation.x/2),3);
-
+	#var alpha: float = camera.global_rotation.x + deg_to_rad(throw_angle) * pow(cos(camera.global_rotation.x/2),3);
+	var alpha: float = camera.global_rotation.x + delta.length()/aim_range * deg_to_rad(throw_angle)
 	var cos_a = cos(alpha)
 	var tan_a = tan(alpha)
 

@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://s47j5s0f3fdy" path="res://scripts/Valk/Managers/psyche_manager.gd" id="2_1a1i1"]
 [ext_resource type="PackedScene" uid="uid://bkmfixym7ftg7" path="res://prefabs/Scene Prefabs/scene_clue.tscn" id="2_k4afo"]
 [ext_resource type="Script" uid="uid://c681q57ewat6f" path="res://scripts/Valk/Managers/game_manager.gd" id="3_1tntn"]
-[ext_resource type="PackedScene" uid="uid://elmpcqsoarjp" path="res://prefabs/Mobs/Shell.tscn" id="3_81ya1"]
+[ext_resource type="PackedScene" uid="uid://dqoenfwxbkoli" path="res://prefabs/Mobs/Shell.tscn" id="3_81ya1"]
 [ext_resource type="Resource" uid="uid://cpshgebigpcom" path="res://resources/thoughts/meow.tres" id="3_axhgm"]
 [ext_resource type="PackedScene" uid="uid://ce6h2fmee74sw" path="res://prefabs/Scene Prefabs/scene_serum.tscn" id="3_t4e8a"]
 [ext_resource type="Script" uid="uid://bj28ubqcmsltd" path="res://scripts/Valk/Managers/palace_manager.gd" id="4_32swi"]
@@ -633,15 +633,11 @@ label_settings = SubResource("LabelSettings_bnfbb")
 script = ExtResource("7_j8bvq")
 metadata/_custom_type_script = "uid://coysphqpo5g2l"
 
-[node name="Shell" parent="." unique_id=1427820130 node_paths=PackedStringArray("state_machine") instance=ExtResource("3_81ya1")]
+[node name="Shell" parent="." unique_id=1427820130 instance=ExtResource("3_81ya1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.843849, 1.4558756, -18.730312)
-state_machine = NodePath("State_machine")
 
 [node name="State_machine" parent="Shell" index="6" unique_id=593020358 node_paths=PackedStringArray("initial_state")]
 initial_state = NodePath("Patrol")
-
-[node name="Patrol" parent="Shell/State_machine" index="5" unique_id=1952931126 node_paths=PackedStringArray("patrol_points")]
-patrol_points = [NodePath("../../../Patrols/Patrol3"), NodePath("../../../Patrols/Patrol4")]
 
 [node name="Serums" type="Node" parent="." unique_id=1170967438]
 
@@ -698,15 +694,11 @@ navigation_mesh = SubResource("NavigationMesh_b4wx3")
 [node name="NavRegionFloor2" type="Node3D" parent="." unique_id=882507256]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7255268, 0, -21.429012)
 
-[node name="Shell2" parent="." unique_id=1832136921 node_paths=PackedStringArray("state_machine") instance=ExtResource("3_81ya1")]
+[node name="Shell2" parent="." unique_id=1832136921 instance=ExtResource("3_81ya1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.196171, 1.524102, -18.641739)
-state_machine = NodePath("State_machine")
 
 [node name="State_machine" parent="Shell2" index="6" unique_id=593020358 node_paths=PackedStringArray("initial_state")]
 initial_state = NodePath("Patrol")
-
-[node name="Patrol" parent="Shell2/State_machine" index="5" unique_id=1952931126 node_paths=PackedStringArray("patrol_points")]
-patrol_points = [NodePath("../../../Patrols/Patrol1"), NodePath("../../../Patrols/Patrol2")]
 
 [node name="Restart Trigger" parent="." unique_id=1712831958 instance=ExtResource("9_b4wx3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.758549, 1.7260493, -28.211353)
