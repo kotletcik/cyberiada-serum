@@ -9,6 +9,8 @@ static var instance: UIManager;
 @export var thought_ui: Resource;
 @export var thought_path_ui: Resource;
 @export var esc_menu: CanvasLayer;
+@export var game_over_screen: CanvasLayer;
+var game_over_controls: Control;
 var controls_menu: Control;
 
 var instanciated_thought_uis: Array[ThoughtUI] = [null];
@@ -34,26 +36,45 @@ var serum_label: Label
 func _ready() -> void:
 	if(instance == null):
 		instance = self;    
-		if(note_ui != null): remove_child(note_ui);
-		if(added_thought_notif != null): remove_child(added_thought_notif);
-		if(mind_palace_ui != null): 
-			rocks_label = mind_palace_ui.get_node("Inventory/Rock");
-			serum_label = mind_palace_ui.get_node("Inventory/Serum");
-			remove_child(mind_palace_ui);
-		if(esc_menu != null): 
-			var button: Button = esc_menu.get_node("Panel/Resume");
-			button.pressed.connect(resume_game);
-			var button2: Button = esc_menu.get_node("Panel/Checkpoint");
-			button2.pressed.connect(reload_last_checkpoint);
-			var button3: Button = esc_menu.get_node("Panel/Controls");
-			button3.pressed.connect(show_controls);
-			controls_menu = esc_menu.get_node("ControlsPanel");
-			var button4: Button = controls_menu.get_node("Close");
-			button4.pressed.connect(hide_controls);
-			esc_menu.remove_child(controls_menu);
-			remove_child(esc_menu);
+		remove_child(note_ui);
+		remove_child(added_thought_notif);
+		
+		rocks_label = mind_palace_ui.get_node("Inventory/Rock");
+		serum_label = mind_palace_ui.get_node("Inventory/Serum");
+		remove_child(mind_palace_ui);
+
+		var button: Button = esc_menu.get_node("Panel/Resume");
+		button.pressed.connect(resume_game);
+		button.process_mode = Node.PROCESS_MODE_ALWAYS;
+		var button2: Button = esc_menu.get_node("Panel/Checkpoint");
+		button2.pressed.connect(reload_last_checkpoint);
+		button2.process_mode = Node.PROCESS_MODE_ALWAYS;
+		var button3: Button = esc_menu.get_node("Panel/Controls");
+		button3.pressed.connect(show_controls);
+		button3.process_mode = Node.PROCESS_MODE_ALWAYS;
+		controls_menu = esc_menu.get_node("ControlsPanel");
+		var button4: Button = controls_menu.get_node("Close");
+		button4.pressed.connect(hide_controls);
+		button4.process_mode = Node.PROCESS_MODE_ALWAYS;
+		esc_menu.remove_child(controls_menu);
+		remove_child(esc_menu);
+
+		var button5: Button = game_over_screen.get_node("Panel/Checkpoint");
+		button5.pressed.connect(game_over_load_checkpoint);
+		button5.process_mode = Node.PROCESS_MODE_ALWAYS;
+		var button6: Button = game_over_screen.get_node("Panel/Controls");
+		button6.pressed.connect(show_game_over_controls);
+		button6.process_mode = Node.PROCESS_MODE_ALWAYS;
+		game_over_controls = game_over_screen.get_node("ControlsPanel");
+		var button7: Button = game_over_controls.get_node("Close");
+		button7.pressed.connect(hide_game_over_controls);
+		button7.process_mode = Node.PROCESS_MODE_ALWAYS;
+		game_over_screen.remove_child(game_over_controls);
+		remove_child(game_over_screen);
+
 		# Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED); 
 		# Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN); 
+		process_mode = Node.PROCESS_MODE_ALWAYS;
 		update_cursor();
 	else:
 		print("More than one UIManager exists!!!");
@@ -68,32 +89,56 @@ func _process(_delta: float) -> void:
 		is_mind_palace_ui_active = !is_mind_palace_ui_active;
 
 func _input(event):
+	if(GameManager.instance.is_game_over): return;
 	if event is InputEventKey:
 		if event.pressed and event.keycode == Key.KEY_ESCAPE:
-			if(is_note_ui_active): return;
-			hide_controls();
-			cursor_locked_menu = !cursor_locked_menu;
 			is_in_esc_menu = !is_in_esc_menu;
-			if(is_in_esc_menu): add_child(esc_menu);
-			else: remove_child(esc_menu);
-			update_cursor();
-	if(mind_palace_ui == null): return;
+			if(is_in_esc_menu): 
+				cursor_locked_menu = false;
+				add_child(esc_menu);
+				GameManager.instance.pause_game();
+				update_cursor();
+			else: 
+				resume_game();
+
 
 func resume_game() -> void:
 	hide_controls();
 	cursor_locked_menu = true;
 	is_in_esc_menu = false;
 	remove_child(esc_menu);
+	GameManager.instance.unpause_game();
 	update_cursor();
 
 func reload_last_checkpoint() -> void:
 	SaveManager.instance.load_last_checkpoint();
 	resume_game();
 
+func game_over_load_checkpoint():
+	hide_game_over();
+	GameManager.instance.restart_scene();
+
+func show_game_over() -> void:
+	add_child(game_over_screen);
+	cursor_locked_menu = false;
+	update_cursor();
+
+func hide_game_over() -> void:
+	remove_child(game_over_screen);
+	cursor_locked_menu = true;
+	update_cursor();
+
 func show_controls() -> void:
 	esc_menu.add_child(controls_menu);
+
 func hide_controls() -> void:
 	esc_menu.remove_child(controls_menu);
+
+func show_game_over_controls() -> void:
+	game_over_screen.add_child(game_over_controls);
+
+func hide_game_over_controls() -> void:
+	game_over_screen.remove_child(game_over_controls);
 
 func show_added_thought_notif(new_clue: Clue, time: float):
 	if(!has_node("AddedThoughtNotif")): add_child(added_thought_notif);
@@ -128,7 +173,7 @@ func show_mind_palace_ui():
 
 func update_mind_palace_ui():
 
-	rocks_label.text = str(InventoryManager.instance.itemCount[ITEM_TYPE.ROCK]) + "x Rocks";
+	rocks_label.text = str(InventoryManager.instance.itemCount[ITEM_TYPE.ROCK]) + "x Kamieni";
 	serum_label.text = str(InventoryManager.instance.itemCount[ITEM_TYPE.SERUM]) + "x Serum";
 
 	for i in range(0, PalaceManager.instance.thought_paths.size()):
@@ -148,6 +193,7 @@ func update_mind_palace_ui():
 		var thought_ui_instance = thought_ui.instantiate();
 		mind_palace_ui.get_node("Panel").add_child(thought_ui_instance);
 		var current_clue: Clue = PalaceManager.instance.gathered_clues[i];
+		print(current_clue.description);
 		thought_ui_instance.set_thought_ui_instance(current_clue.name, current_clue.description, 240 + i * 240, 540, current_clue, false);
 		instanciated_thought_uis[thought_uis_count] = thought_ui_instance;
 		thought_uis_count += 1;

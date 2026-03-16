@@ -7,5 +7,5 @@ func Update(_delta: float):
 func attack():
 	# EventBus.level_changed.emit(Game_Manager.current_level)
 	if (PsycheManager.instance.invisibility_timer > 0): return;
-	GameManager.instance.restart_scene();
+	GameManager.instance.game_over();
 	

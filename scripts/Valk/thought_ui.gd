@@ -4,10 +4,6 @@ extends Control
 var thought_clue: Clue;
 var is_on_thought_path: bool = false;
 
-func _get_drag_data(_at_position: Vector2) -> Variant:
-	print("hau");
-	return "meow";
-
 func set_thought_ui_instance(title: String, desc: String, x_pos: int, y_pos: int, clue: Clue, is_on_path: bool):
 	get_node("TitleText").text = title;
 	get_node("DescText").text = desc;

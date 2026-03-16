@@ -21,14 +21,19 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 2.671997
 text = "Meow"
 scroll_active = false
+horizontal_alignment = 1
 
 [node name="DescText" type="RichTextLabel" parent="." unique_id=733876173]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 4.0
 offset_top = 21.0
+offset_right = -5.0
+offset_bottom = -4.328003
 text = "Meow Meow"
 scroll_active = false
