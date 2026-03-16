@@ -35,10 +35,10 @@ font_size = 24
 script = ExtResource("1_f302j")
 
 [node name="Level1" parent="." unique_id=1424703341 instance=ExtResource("15_ngn0i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.504807, -2.514573, -11.614073)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.504807, 20.468477, -11.614073)
 
 [node name="Player" parent="." unique_id=767105809 instance=ExtResource("1_d7j53")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -24.281105, 1.0652359, -10.5092945)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -16.399467, 21.389395, -10.606398)
 SOBER_WALK_SPEED = 7.5
 CROUCH_SPEED_MULTIPLIER = 0.3
 crouching_noise_volume = 1.5
@@ -191,6 +191,14 @@ offset_top = 579.0
 offset_right = 1157.0
 offset_bottom = 657.0
 text = "Reload Last Checkpoint"
+
+[node name="Controls" type="Button" parent="UIManager/EscMenu/Panel" unique_id=267174070]
+layout_mode = 0
+offset_left = 769.0
+offset_top = 711.0
+offset_right = 1166.0
+offset_bottom = 789.0
+text = "Controls"
 
 [node name="ControlsPanel" type="Panel" parent="UIManager/EscMenu" unique_id=1068959300]
 anchors_preset = 8
@@ -394,7 +402,7 @@ collision_mask = 16
 size = Vector3(1, 14.626953, 1)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=259314789]
-transform = Transform3D(121.80836, 0, 0, 0, 1, 0, 0, 0, 316.3333, -8.970064, -7.3295174, 7.0658865)
+transform = Transform3D(121.80836, 0, 0, 0, 1, 0, 0, 0, 316.3333, -350.9301, -7.3295174, 7.057948)
 mesh = SubResource("BoxMesh_ngn0i")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=762151780]
