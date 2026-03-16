@@ -1,0 +1,60 @@
+extends Control
+
+@onready var start_button: Button = $VBoxContainer/StartButton
+@onready var credits_button: Button = $VBoxContainer/CreditsButton
+@onready var exit_button: Button = $VBoxContainer/ExitButton
+@onready var credits_panel: Panel = $CreditsPanel
+@onready var close_button: Button = $CreditsPanel/VBox/CloseButton
+@onready var credits_scroll: ScrollContainer = $CreditsPanel/VBox/ScrollContainer
+
+var _credits_tween = null
+
+func _ready():
+	start_button.connect("pressed", Callable(self, "_on_start_pressed"))
+	credits_button.connect("pressed", Callable(self, "_on_credits_pressed"))
+	exit_button.connect("pressed", Callable(self, "_on_exit_pressed"))
+	close_button.connect("pressed", Callable(self, "_on_close_credits"))
+
+func _on_start_pressed():
+	get_tree().change_scene_to_file("res://scenes/test_scenes/Main_scene.tscn")
+
+func _on_credits_pressed():
+	credits_panel.visible = true
+	credits_scroll.scroll_vertical = 0
+	if _credits_tween != null:
+		_credits_tween.kill()
+		_credits_tween = null
+	var bar = null
+	if credits_scroll.has_method("get_v_scrollbar"):
+		bar = credits_scroll.get_v_scrollbar()
+	# fallback: try to find a VScrollBar child by common names
+	if bar == null:
+		for child in credits_scroll.get_children():
+			if child is ScrollBar:
+				bar = child
+				break
+	# If we found a scrollbar, animate scroll_vertical. Otherwise animate CreditsVBox position as fallback.
+	if bar != null:
+		var target = bar.max_value
+		var duration = max(8.0, float(target) / 40.0)
+		_credits_tween = create_tween()
+		_credits_tween.tween_property(credits_scroll, "scroll_vertical", target, duration).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
+	else:
+		var credits_label = $CreditsPanel/VBox/ScrollContainer/CreditsVBox/CreditsLabel
+		var label_h = credits_label.get_minimum_size().y
+		var view_h = credits_scroll.get_size().y
+		# compute scroll target (content height - view height)
+		var target = int(max(0, label_h - view_h))
+		var duration = max(8.0, float(label_h + view_h) / 40.0)
+		_credits_tween = create_tween()
+		_credits_tween.tween_property(credits_scroll, "scroll_vertical", target, duration).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
+
+func _on_close_credits():
+	if _credits_tween != null:
+		_credits_tween.kill()
+		_credits_tween = null
+	credits_scroll.scroll_vertical = 0
+	credits_panel.visible = false
+
+func _on_exit_pressed():
+	get_tree().quit()
