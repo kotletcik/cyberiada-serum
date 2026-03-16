@@ -48,9 +48,9 @@ _body = NodePath("..")
 [node name="Throw Rocks" type="Node" parent="." unique_id=1178421797 node_paths=PackedStringArray("throw_position")]
 script = ExtResource("6_moip8")
 throw_position = NodePath("../Head/Camera3D/Rock Throw Position")
-throw_force = 25.0
 rock = ExtResource("7_52ka2")
 y = 1.0
+throw_angle = 20.0
 
 [node name="Noise Maker" type="Node3D" parent="." unique_id=1725856524]
 script = ExtResource("8_pb500")

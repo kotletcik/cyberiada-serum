@@ -73,7 +73,7 @@ agent_radius = 1.0
 script = ExtResource("1_xanii")
 
 [node name="Player" parent="." unique_id=2039338456 instance=ExtResource("1_ahihw")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -19.108109, 1.6258812, -9.566368)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -79.927734, 1.6258812, -7.5417986)
 SOBER_WALK_SPEED = 7.5
 CROUCH_SPEED_MULTIPLIER = 0.3
 crouching_noise_volume = 1.5
@@ -1408,6 +1408,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3121138, 0, -4.3173733)
 [node name="Shell" parent="Location9" unique_id=1986411226 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6056662, 1.4558756, 5.8289146)
 patrol_points = [NodePath("../ShellPatrolPoints/PatrolPoint1"), NodePath("../ShellPatrolPoints/PatrolPoint2"), NodePath("../ShellPatrolPoints/PatrolPoint3"), NodePath("../ShellPatrolPoints/PatrolPoint2")]
+player_sight_range = 5.0
 
 [node name="ShellNavRegion" type="NavigationRegion3D" parent="Location9" unique_id=762941749]
 navigation_mesh = SubResource("NavigationMesh_m1rxk")
@@ -1933,6 +1934,13 @@ script = ExtResource("38_3at83")
 [node name="CollisionShape3D" parent="Checkpoint Trigger3" index="0" unique_id=1228957436]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7888974, -0.30792236)
 
+[node name="Checkpoint Trigger4" parent="." unique_id=1413528973 instance=ExtResource("37_l3ixd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.456825, 0.44707966, 0.5804119)
+script = ExtResource("38_3at83")
+
+[node name="CollisionShape3D" parent="Checkpoint Trigger4" index="0" unique_id=1228957436]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7888974, -0.30792236)
+
 [editable path="Location5/Geometry/StaticBody3D2"]
 [editable path="Location5/Geometry/StaticBody3D3"]
 [editable path="Location5/Geometry/StaticBody3D4"]
@@ -1942,3 +1950,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7888974, -0.30792236)
 [editable path="Checkpoint Trigger"]
 [editable path="Checkpoint Trigger2"]
 [editable path="Checkpoint Trigger3"]
+[editable path="Checkpoint Trigger4"]

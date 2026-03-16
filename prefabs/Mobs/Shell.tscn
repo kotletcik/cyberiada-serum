@@ -63,24 +63,34 @@ shell_mesh = NodePath("../MeshInstance3D")
 mob = NodePath("..")
 nav_agent = NodePath("../NavigationAgent3D")
 
+[node name="Wander" parent="State_machine" index="0" unique_id=1270087543]
+move_speed = 5.0
+acceleration = 5.0
+
 [node name="Follow_player" parent="State_machine" index="1" unique_id=228265934]
+move_speed = 5.0
+acceleration = 5.0
 state_type = 1
 
 [node name="Attack" parent="State_machine" index="2" unique_id=494533407]
 move_speed = 10.0
+acceleration = 5.0
 state_type = 4
 
 [node name="Follow_sound" parent="State_machine" index="3" unique_id=1770033404 node_paths=PackedStringArray("follow_target")]
 follow_target = NodePath("Empty_target")
+acceleration = 5.0
 state_type = 2
 
 [node name="Searching" parent="State_machine" index="4" unique_id=1226388208]
 move_speed = 5.0
+acceleration = 5.0
 state_type = 3
 
 [node name="Patrol" type="Node" parent="State_machine" unique_id=1952931126 node_paths=PackedStringArray("empty_target")]
 script = ExtResource("7_ayt5m")
 empty_target = NodePath("empty_target")
+acceleration = 5.0
 metadata/_custom_type_script = "uid://foywhiftl87x"
 
 [node name="empty_target" type="Node3D" parent="State_machine/Patrol" unique_id=571049646]
