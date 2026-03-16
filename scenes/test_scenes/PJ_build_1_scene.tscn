@@ -120,10 +120,8 @@ esc_menu = NodePath("EscMenu")
 metadata/_custom_type_script = "uid://k7qr63sybur6"
 
 [node name="NoteUI" parent="UIManager" unique_id=1193079714 instance=ExtResource("7_01gpf")]
-visible = false
 
 [node name="AddedThoughtNotif" type="CanvasLayer" parent="UIManager" unique_id=1211661595]
-visible = false
 
 [node name="RichTextLabel" type="RichTextLabel" parent="UIManager/AddedThoughtNotif" unique_id=1001095165]
 anchors_preset = -1
@@ -138,7 +136,6 @@ offset_bottom = 266.968
 text = "Meow Meow Meow"
 
 [node name="MindPalace" type="CanvasLayer" parent="UIManager" unique_id=1290244830]
-visible = false
 
 [node name="Panel" type="Panel" parent="UIManager/MindPalace" unique_id=21560684]
 anchors_preset = 8
