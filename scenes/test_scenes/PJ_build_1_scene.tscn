@@ -1079,6 +1079,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.057377, 0, -15.342804)
 [node name="Shell" parent="Location7" unique_id=691060374 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6056662, 1.4558756, 5.8289146)
 patrol_points = [NodePath("../ShellPatrolPoints/PatrolPoint1"), NodePath("../ShellPatrolPoints/PatrolPoint2"), NodePath("../ShellPatrolPoints/PatrolPoint3"), NodePath("../ShellPatrolPoints/PatrolPoint2")]
+player_sight_range = 4.0
+
+[node name="Shell2" parent="Location7" unique_id=2079833793 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6056662, 1.4558756, 5.8289146)
+patrol_points = [NodePath("../ShellPatrolPoints/PatrolPoint1"), NodePath("../ShellPatrolPoints/PatrolPoint2"), NodePath("../ShellPatrolPoints/PatrolPoint3"), NodePath("../ShellPatrolPoints/PatrolPoint2")]
+player_sight_range = 4.0
 
 [node name="ShellNavRegion" type="NavigationRegion3D" parent="Location7" unique_id=1328549488]
 navigation_mesh = SubResource("NavigationMesh_lfu3u")
