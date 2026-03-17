@@ -2,21 +2,34 @@ extends Control
 
 @onready var start_button: Button = $VBoxContainer/StartButton
 @onready var credits_button: Button = $VBoxContainer/CreditsButton
+@onready var controls_button: Button = $VBoxContainer/ControlsButton
 @onready var exit_button: Button = $VBoxContainer/ExitButton
 @onready var credits_panel: Panel = $CreditsPanel
 @onready var close_button: Button = $CreditsPanel/VBox/CloseButton
 @onready var credits_scroll: ScrollContainer = $CreditsPanel/VBox/ScrollContainer
+@onready var controls_panel: Panel = $ControlsPanel
+@onready var controls_close_button: Button = $ControlsPanel/Close
+
+@export var game_scene: Resource;
 
 var _credits_tween = null
 
 func _ready():
 	start_button.connect("pressed", Callable(self, "_on_start_pressed"))
 	credits_button.connect("pressed", Callable(self, "_on_credits_pressed"))
+	controls_button.connect("pressed", Callable(self, "_on_controls_pressed"))
 	exit_button.connect("pressed", Callable(self, "_on_exit_pressed"))
 	close_button.connect("pressed", Callable(self, "_on_close_credits"))
+	controls_close_button.connect("pressed", Callable(self, "_on_close_controls"))
 
 func _on_start_pressed():
-	get_tree().change_scene_to_file("res://scenes/test_scenes/Main_scene.tscn")
+	get_tree().change_scene_to_file(game_scene.resource_path)
+
+func _on_controls_pressed():
+	controls_panel.visible = true;
+
+func _on_close_controls():
+	controls_panel.visible = false;
 
 func _on_credits_pressed():
 	credits_panel.visible = true
