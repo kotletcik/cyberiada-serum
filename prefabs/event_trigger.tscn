@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://kkrsyjqqsie6"]
+
+[ext_resource type="Script" uid="uid://dijw6c56hhghf" path="res://scripts/Valk/event_trigger.gd" id="1_q1wwn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_id4pr"]
+size = Vector3(4.526245, 2.6328125, 7.4286804)
+
+[node name="Event Trigger" type="Area3D" unique_id=1351867159]
+collision_mask = 16
+script = ExtResource("1_q1wwn")
+event_delay = 1.0
+trigger_event = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=422333525]
+shape = SubResource("BoxShape3D_id4pr")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://bkmfixym7ftg7" path="res://prefabs/Scene Prefabs/scene_clue.tscn" id="16_m1rxk"]
 [ext_resource type="Script" uid="uid://bvpanlcy3bc06" path="res://scripts/Valk/Managers/save_manager.gd" id="17_njve1"]
 [ext_resource type="Resource" uid="uid://mm8l7277obwj" path="res://resources/last_checkpoint.tres" id="19_cnf01"]
+[ext_resource type="PackedScene" uid="uid://kkrsyjqqsie6" path="res://prefabs/event_trigger.tscn" id="23_l3ixd"]
 [ext_resource type="Resource" uid="uid://cpshgebigpcom" path="res://resources/thoughts/meow.tres" id="24_8isj6"]
 [ext_resource type="PackedScene" uid="uid://clg0uguj2n21v" path="res://prefabs/Scene Prefabs/scene_note.tscn" id="25_sbrwg"]
 [ext_resource type="Resource" uid="uid://b2q3agdc7eyfd" path="res://resources/notes/death.tres" id="26_e7wky"]
@@ -73,7 +74,7 @@ agent_radius = 1.0
 script = ExtResource("1_xanii")
 
 [node name="Player" parent="." unique_id=2039338456 instance=ExtResource("1_ahihw")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -79.927734, 1.6258812, -7.5417986)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 16.762894, 1.6258812, -20.796001)
 SOBER_WALK_SPEED = 7.5
 CROUCH_SPEED_MULTIPLIER = 0.3
 crouching_noise_volume = 1.5
@@ -1616,6 +1617,13 @@ use_collision = true
 collision_layer = 2
 size = Vector3(13.801056, 1, 61.5437)
 
+[node name="floor2" type="CSGBox3D" parent="Location10/Geometry" unique_id=26424730]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.044094, -0.031039238, -9.7335205)
+material_override = SubResource("StandardMaterial3D_13hkq")
+use_collision = true
+collision_layer = 2
+size = Vector3(13.801056, 1, 61.5437)
+
 [node name="wall1" type="CSGBox3D" parent="Location10/Geometry" unique_id=720951927]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2708817, 2, 20.965523)
 material_override = SubResource("StandardMaterial3D_13hkq")
@@ -1629,6 +1637,34 @@ material_override = SubResource("StandardMaterial3D_13hkq")
 use_collision = true
 collision_layer = 4
 size = Vector3(10.236816, 5, 1)
+
+[node name="wall7" type="CSGBox3D" parent="Location10/Geometry" unique_id=579878598]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.52165, 2, -34.078903)
+material_override = SubResource("StandardMaterial3D_13hkq")
+use_collision = true
+collision_layer = 4
+size = Vector3(13.744873, 5, 1)
+
+[node name="wall16" type="CSGBox3D" parent="Location10/Geometry" unique_id=1951430847]
+transform = Transform3D(-4.3711395e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711395e-08, 6.343321, 2, -31.30006)
+material_override = SubResource("StandardMaterial3D_13hkq")
+use_collision = true
+collision_layer = 4
+size = Vector3(19.38794, 5, 1)
+
+[node name="wall10" type="CSGBox3D" parent="Location10/Geometry" unique_id=635672567]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.275681, 2, -27.3854)
+material_override = SubResource("StandardMaterial3D_13hkq")
+use_collision = true
+collision_layer = 4
+size = Vector3(10.236816, 5, 1)
+
+[node name="wall14" type="CSGBox3D" parent="Location10/Geometry" unique_id=1777958858]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8798313, 2, -27.48638)
+material_override = SubResource("StandardMaterial3D_13hkq")
+use_collision = true
+collision_layer = 4
+size = Vector3(4.677002, 5, 1)
 
 [node name="wall4" type="CSGBox3D" parent="Location10/Geometry" unique_id=1421901850]
 transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, -4.842415, 2, 0.4024943)
@@ -1706,7 +1742,9 @@ size = Vector3(8.762573, 5, 1)
 [node name="DoubleDoor4" parent="Location10/Geometry" unique_id=340185522 instance=ExtResource("8_vcjj7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4178581, 2.425858, -29.89865)
 isDisposable = true
-move_distance = 0.2
+move_distance = 3.0
+open_duration = 2.0
+is_final_door = true
 
 [node name="wall18" type="CSGBox3D" parent="Location10/Geometry" unique_id=1073201483]
 transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 1.4827003, 2, -25.094095)
@@ -1714,6 +1752,13 @@ material_override = SubResource("StandardMaterial3D_jik7h")
 use_collision = true
 collision_layer = 4
 size = Vector3(5.2230835, 5, 1)
+
+[node name="Event Trigger" parent="Location10/Geometry" unique_id=1351867159 instance=ExtResource("23_l3ixd")]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 2.080368, 0.46896076, -31.51944)
+event_delay = 0.75
+
+[node name="CollisionShape3D" parent="Location10/Geometry/Event Trigger" index="0" unique_id=422333525]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7631226, 0.81640625, 0.42823792)
 
 [node name="Light" type="Node3D" parent="Location10" unique_id=1484724433]
 
@@ -1873,7 +1918,7 @@ clue_to_gather = ExtResource("29_85qxo")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.822685, 1.5168858, -8.049377)
 clue_to_gather = ExtResource("30_a22ly")
 
-[node name="Clue Trigger" parent="." unique_id=1351867159 instance=ExtResource("31_hdlg5")]
+[node name="Clue Trigger" parent="." unique_id=1798010163 instance=ExtResource("31_hdlg5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.46901, 0.93438864, -9.095495)
 trigger_clue = ExtResource("32_rf5c3")
 
@@ -1944,6 +1989,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7888974, -0.30792236)
 [editable path="Location5/Geometry/StaticBody3D2"]
 [editable path="Location5/Geometry/StaticBody3D3"]
 [editable path="Location5/Geometry/StaticBody3D4"]
+[editable path="Location10/Geometry/Event Trigger"]
 [editable path="Location10/Restart Trigger"]
 [editable path="Clue Trigger"]
 [editable path="Clue Trigger2"]

@@ -7,18 +7,25 @@ var isInteracting: bool = false
 @export var open_duration:= 1.0
 @export var first_door: Node3D
 @export var second_door: Node3D
+@export var is_final_door: bool = false;
 @onready var nav_region: NavigationRegion3D = get_parent() as NavigationRegion3D
 
+var interacted: bool = false;
+
+func _ready() -> void:
+	if(is_final_door):
+		EventBus.close_final_door.connect(close_door);
 
 func player_interact():
 	if (!isInteracting):
 		isInteracting = true
-		if (isDisposable && isOpened): return
-		else: switch_open()
+		if (isDisposable && interacted): return
+		else: 
+			interacted = true;
+			switch_open()
 
 func switch_open():
 	if (isInteracting):
-		var start_pos = global_position
 		var first_door_start_local_pos_z = first_door.position.z
 		var second_door_start_local_pos_z = second_door.position.z
 		var start_time = Time.get_ticks_msec()
@@ -37,3 +44,8 @@ func switch_open():
 		isInteracting = false
 		if (nav_region != null):
 			nav_region.bake_navigation_mesh(true)
+
+func close_door():
+	if(!isOpened): return;
+	isInteracting = true;
+	switch_open();
