@@ -1,6 +1,8 @@
-[gd_scene format=3 uid="uid://mainmenu"]
+[gd_scene format=3 uid="uid://bs1a32ei6y25u"]
 
 [ext_resource type="Script" uid="uid://d2t00or5xmtit" path="res://scripts/MainMenu.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://df6gi0w1863l1" path="res://scenes/test_scenes/PJ_build_1_scene.tscn" id="2_ow34m"]
+[ext_resource type="PackedScene" uid="uid://gld2pf7nmd7u" path="res://prefabs/ui/controls_panel.tscn" id="3_2wh52"]
 [ext_resource type="Material" uid="uid://d0d1kdro15sym" path="res://vignette/vignetteMat.tres" id="3_vignette"]
 
 [node name="MainMenu" type="Control" unique_id=2009846015]
@@ -11,6 +13,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1")
+game_scene = ExtResource("2_ow34m")
 
 [node name="Background" type="ColorRect" parent="." unique_id=1260393015]
 layout_mode = 1
@@ -69,7 +72,7 @@ alignment = 1
 custom_minimum_size = Vector2(300, 48)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.9, 0.06, 0.06, 1)
-text = "START"
+text = "ZACZNIJ GRĘ"
 
 [node name="CreditsButton" type="Button" parent="VBoxContainer" unique_id=902068886]
 custom_minimum_size = Vector2(300, 48)
@@ -77,17 +80,24 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.9, 0.06, 0.06, 1)
 text = "CREDITS"
 
+[node name="ControlsButton" type="Button" parent="VBoxContainer" unique_id=436714771]
+custom_minimum_size = Vector2(300, 48)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.06, 0.06, 1)
+text = "KONTROLKI"
+
 [node name="ExitButton" type="Button" parent="VBoxContainer" unique_id=1123870328]
 custom_minimum_size = Vector2(300, 48)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.9, 0.06, 0.06, 1)
-text = "EXIT"
+text = "WYJDŹ"
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1078367602]
 autoplay = true
 
 [node name="CreditsPanel" type="Panel" parent="." unique_id=1477795856]
 visible = false
+custom_minimum_size = Vector2(600, 400)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -100,7 +110,6 @@ offset_right = 220.0
 offset_bottom = 120.0
 grow_horizontal = 2
 grow_vertical = 2
-custom_minimum_size = Vector2(600, 400)
 
 [node name="VBox" type="VBoxContainer" parent="CreditsPanel" unique_id=1279660939]
 layout_mode = 1
@@ -115,23 +124,52 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="CreditsPanel/VBox" unique_id=1904246391]
-layout_mode = 2
 custom_minimum_size = Vector2(560, 320)
+layout_mode = 2
 
 [node name="CreditsVBox" type="VBoxContainer" parent="CreditsPanel/VBox/ScrollContainer" unique_id=595769189]
 layout_mode = 2
 size_flags_vertical = 2
 
 [node name="CreditsLabel" type="Label" parent="CreditsPanel/VBox/ScrollContainer/CreditsVBox" unique_id=48658839]
+custom_minimum_size = Vector2(400, 600)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
-bbcode_enabled = true
-autowrap = true
-custom_minimum_size = Vector2(400, 600)
-text = "[center][b]Game Designer[/b]\nName\n\n[b]Game Programmer[/b]\nName\n\n[b]Level Designer[/b]\nName\n\n[b]Lead Writer/Writer[/b]\nName\n\n[b]3D Artist[/b]\nName\n\n[b]3D Animator[/b]\nName\n\n[b]2D Artist[/b]\nName\n\n[b]Concept Artist[/b]\nName\n\n[b]Sound Designer / Music Designer[/b]\nName[/center]"
+text = "[center][b]Game Designer[/b]
+Maciej Tuleja
+
+[b]Game Programmer[/b]
+Piotr Jurczyk
+
+[b]Level Designer[/b]
+Oleksandr Shevchenko
+
+[b]Lead Writer/Writer[/b]
+Maria Tumidajewicz
+
+[b]3D Artist[/b]
+Antonina Niewiadomska
+
+[b]3D Animator[/b]
+Joanna Jurczyk
+
+[b]2D Artist[/b]
+Maria Tumidajewicz
+
+[b]Concept Artist[/b]
+Zuza 
+Mateusz Szabłowski
+
+[b]Sound Designer / Music Designer[/b]
+Błażej Wiliński[/center]"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CloseButton" type="Button" parent="CreditsPanel/VBox" unique_id=138795080]
 layout_mode = 2
 text = "CLOSE"
+
+[node name="ControlsPanel" parent="." unique_id=1667803061 instance=ExtResource("3_2wh52")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
