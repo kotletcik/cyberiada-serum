@@ -10,6 +10,8 @@ static var instance: UIManager;
 @export var thought_path_ui: Resource;
 @export var esc_menu: CanvasLayer;
 @export var game_over_screen: CanvasLayer;
+@export var bad_ending_screen: CanvasLayer;
+@export var good_ending_screen: CanvasLayer;
 var game_over_controls: Control;
 var controls_menu: Control;
 
@@ -72,6 +74,12 @@ func _ready() -> void:
 		game_over_screen.remove_child(game_over_controls);
 		remove_child(game_over_screen);
 
+		remove_child(bad_ending_screen);
+		remove_child(good_ending_screen);
+
+
+		EventBus.bad_ending.connect(show_bad_ending_screen);
+		EventBus.good_ending.connect(show_good_ending_screen);
 		# Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED); 
 		# Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN); 
 		process_mode = Node.PROCESS_MODE_ALWAYS;
@@ -79,6 +87,21 @@ func _ready() -> void:
 	else:
 		print("More than one UIManager exists!!!");
 		queue_free();
+
+func show_bad_ending_screen():
+	GameManager.instance.is_game_over = true;
+	GameManager.instance.pause_game();
+	cursor_locked_menu = false;
+	update_cursor();
+	add_child(bad_ending_screen);
+
+func show_good_ending_screen():
+	await get_tree().create_timer(5.0, false).timeout;
+	GameManager.instance.is_game_over = true;
+	GameManager.instance.pause_game();
+	cursor_locked_menu = false;
+	update_cursor();
+	add_child(good_ending_screen);
 
 func _process(_delta: float) -> void:
 	# if(Input.is_action_just_pressed("ui_cancel") && is_note_ui_active):

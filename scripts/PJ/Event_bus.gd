@@ -8,12 +8,14 @@ signal shells_appear
 signal clue_gathered(clue: Clue)
 signal close_final_door()
 signal bad_ending()
+signal good_ending()
 
 enum triggers
 {
 	None,
 	CloseFinalDoor,
-	BadEnding
+	BadEnding,
+	GoodEnding
 }
 
 func _ready():
@@ -43,6 +45,8 @@ func call_event(trigger: triggers):
 			close_final_door.emit();
 		triggers.BadEnding:
 			bad_ending.emit();
+		triggers.GoodEnding:
+			good_ending.emit();
 		triggers.None:
 			return;
 	
