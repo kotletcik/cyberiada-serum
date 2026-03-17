@@ -142,19 +142,19 @@ func _process(delta: float) -> void:
 	if(serum_level < 0): serum_level = 0;
 	if(invisibility_timer > 0):
 		invisibility_timer -= delta;
+
 		if(invisibility_diming_timer > 0):
 			invisibility_diming_timer -= delta;
 			if(invisibility_diming_timer < 0):
 				invisibility_jumpscare_timer = settings.invisibility_jumpscare_time;
 				EventBus.shells_appear.emit();
-				print("jumpscare started");
 		else:
 			invisibility_jumpscare_timer -= delta;
 			if(invisibility_jumpscare_timer < 0):
 				EventBus.shells_disappear.emit();
 				var invisibility_time = 1 - (invisibility_timer/settings.serum_invisibility_time);
 				invisibility_diming_timer = invisibility_diming_max_timer * settings.invisibility_diming_time_curve.sample(invisibility_time);
-				print("jumpscare ended");
+		
 		if(invisibility_timer <= 0):
 			EventBus.shells_appear.emit();
 			invisibility_jumpscare_timer = 0;
