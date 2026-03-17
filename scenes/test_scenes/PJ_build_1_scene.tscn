@@ -68,6 +68,12 @@ polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(0, 3, 2), PackedInt32Arr
 geometry_parsed_geometry_type = 1
 agent_radius = 1.0
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_l3ixd"]
+size = Vector3(0.8930054, 2.6328125, 7.4286804)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3at83"]
+size = Vector3(3.3517761, 2.6328125, 7.4286804)
+
 [sub_resource type="BoxMesh" id="BoxMesh_lfu3u"]
 
 [node name="Main_scene" type="Node3D" unique_id=649139474]
@@ -1758,7 +1764,17 @@ transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 2.08
 event_delay = 0.75
 
 [node name="CollisionShape3D" parent="Location10/Geometry/Event Trigger" index="0" unique_id=422333525]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7631226, 0.81640625, 0.42823792)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.053497314, 0.81640625, 0.42823792)
+shape = SubResource("BoxShape3D_l3ixd")
+
+[node name="Event Trigger2" parent="Location10/Geometry" unique_id=1822403889 instance=ExtResource("23_l3ixd")]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 3.4123764, 0.46896076, -31.51944)
+event_delay = 0.75
+trigger_event = 3
+
+[node name="CollisionShape3D" parent="Location10/Geometry/Event Trigger2" index="0" unique_id=422333525]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1758881, 0.81640625, 0.42823792)
+shape = SubResource("BoxShape3D_3at83")
 
 [node name="Light" type="Node3D" parent="Location10" unique_id=1484724433]
 
@@ -1994,6 +2010,7 @@ event_on_pickup = 2
 [editable path="Location5/Geometry/StaticBody3D3"]
 [editable path="Location5/Geometry/StaticBody3D4"]
 [editable path="Location10/Geometry/Event Trigger"]
+[editable path="Location10/Geometry/Event Trigger2"]
 [editable path="Location10/Restart Trigger"]
 [editable path="Clue Trigger"]
 [editable path="Clue Trigger2"]
