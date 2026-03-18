@@ -5,6 +5,20 @@ extends Control
 var dragged_clue: Clue = null;
 var dragged_thought: ThoughtUI = null;
 
+var last_line_pos: Vector2 = Vector2(0,0);
+
+func _draw() -> void:
+
+	for i in range(0, UIManager.instance.thought_uis_count):
+		if(!UIManager.instance.instanciated_thought_uis[i].is_on_thought_path): continue;
+		if(last_line_pos == Vector2(0,0)): 
+			last_line_pos = UIManager.instance.instanciated_thought_uis[i].position + UIManager.instance.instanciated_thought_uis[i].size/2;
+			continue;
+		var current_line_pos = UIManager.instance.instanciated_thought_uis[i].position + UIManager.instance.instanciated_thought_uis[i].size/2;
+		draw_line(last_line_pos, current_line_pos, Color.WHITE, 2.0, true);
+		last_line_pos = current_line_pos;	
+	last_line_pos = Vector2(0,0);
+
 func _can_drop_data(_at_position: Vector2, _data: Variant) -> bool:
 	return true;
 
