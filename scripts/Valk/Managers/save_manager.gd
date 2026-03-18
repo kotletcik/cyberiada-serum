@@ -74,6 +74,7 @@ func save_checkpoint() -> void:
 
 func save_into_resource(save_resource: Save) -> void:
 	save_resource.last_player_pos = player.global_position;
+	save_resource.last_player_rot = player.global_rotation;
 	save_resource.last_serum_level = PsycheManager.instance.serum_level;
 	save_resource.last_fog_fade_level = PsycheManager.instance.fog_fade_level;
 	save_resource.last_invisibility_timer = PsycheManager.instance.invisibility_timer;
@@ -112,12 +113,15 @@ func save_into_resource(save_resource: Save) -> void:
 		save_resource.last_gathered_clues[i] = PalaceManager.instance.gathered_clues[i];
 
 	save_resource.last_shell_positions.clear();
+	save_resource.last_shell_rotations.clear();
 	var all_shells = get_tree().get_nodes_in_group("Shell");
 	save_resource.last_shell_positions.resize(all_shells.size());
+	save_resource.last_shell_rotations.resize(all_shells.size());
 	for i in range(0, all_shells.size()):
 		var node_3d: Node3D = all_shells[i];
 		# node_3d.set_meta("id", i);
 		save_resource.last_shell_positions[i] = node_3d.global_position;
+		save_resource.last_shell_rotations[i] = node_3d.global_rotation;
 
 	save_resource.is_player_crouching = player.is_crouching;
 	save_resource.checkpoint_exists = true;
@@ -125,6 +129,7 @@ func save_into_resource(save_resource: Save) -> void:
 func load_from_resource(load_resource: Save) -> void:
 	if(!load_resource.checkpoint_exists): return;
 	player.global_position = load_resource.last_player_pos;
+	player.global_rotation = load_resource.last_player_rot;
 	PsycheManager.instance.serum_level = load_resource.last_serum_level;
 	PsycheManager.instance.fog_fade_level = load_resource.last_fog_fade_level;
 	PsycheManager.instance.invisibility_timer = load_resource.last_invisibility_timer;
@@ -175,6 +180,7 @@ func load_from_resource(load_resource: Save) -> void:
 	var all_shells = get_tree().get_nodes_in_group("Shell");
 	for i in range(0, load_resource.last_shell_positions.size()):
 		all_shells[i].global_position = load_resource.last_shell_positions[i];
+		all_shells[i].global_rotation = load_resource.last_shell_rotations[i];
 
 	if(load_resource.is_player_crouching):
 		player.crouch();
