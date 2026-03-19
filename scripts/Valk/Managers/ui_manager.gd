@@ -252,6 +252,9 @@ func update_mind_palace_ui():
 		else:
 			return;
 
+	var thought_path_title: Label = mind_palace_ui.get_node("Panel2/Title");
+	thought_path_title.text = chosen_thought_path.name;
+
 	for i in range(0, chosen_thought_path.required_clues.size()):
 		if(!chosen_thought_path.is_clue_realized[i]): break;
 		var thought_ui_instance = thought_ui.instantiate();
