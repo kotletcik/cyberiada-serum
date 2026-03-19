@@ -11,6 +11,9 @@
 [sub_resource type="LabelSettings" id="LabelSettings_wtjxn"]
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_811im"]
+font_size = 64
+
 [sub_resource type="LabelSettings" id="LabelSettings_cnf01"]
 font_size = 32
 
@@ -115,6 +118,28 @@ offset_right = -649.0
 offset_bottom = 318.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Panel2" type="Panel" parent="MindPalace" unique_id=1840883303]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.49500003
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -577.0
+offset_top = -425.60004
+offset_right = 579.0
+offset_bottom = -339.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="MindPalace/Panel2" unique_id=740614476]
+layout_mode = 0
+offset_right = 1156.0
+offset_bottom = 94.0
+text = "Cat Meow"
+label_settings = SubResource("LabelSettings_811im")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Inventory" type="Panel" parent="MindPalace" unique_id=314904803]
 anchors_preset = -1

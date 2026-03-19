@@ -84,7 +84,8 @@ text = "CREDITS"
 custom_minimum_size = Vector2(300, 48)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.9, 0.06, 0.06, 1)
-text = "KONTROLKI"
+text = "KONTROLKI
+OBOWIĄZKOWO WEJŚĆ"
 
 [node name="ExitButton" type="Button" parent="VBoxContainer" unique_id=1123870328]
 custom_minimum_size = Vector2(300, 48)
