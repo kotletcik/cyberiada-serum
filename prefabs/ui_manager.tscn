@@ -33,7 +33,6 @@ bad_ending_screen = NodePath("Bad Ending")
 good_ending_screen = NodePath("Good Ending")
 black_transition = NodePath("Black Transition")
 transition_speed = 5.0
-main_scene = ExtResource("4_wtjxn")
 metadata/_custom_type_script = "uid://k7qr63sybur6"
 
 [node name="NoteUI" parent="." unique_id=1191746793 instance=ExtResource("4_1dmpx")]

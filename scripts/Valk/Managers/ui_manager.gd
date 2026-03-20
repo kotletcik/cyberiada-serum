@@ -42,7 +42,7 @@ var transitioned: bool = false;
 var transition_to_main_menu_started: bool = false;
 @export var main_menu_transition_speed: float = 1.0;
 
-@export var main_scene: PackedScene;
+# @export var main_scene: PackedScene;
 
 func _ready() -> void:
 	if(instance == null):
@@ -122,7 +122,7 @@ func _process(delta: float) -> void:
 	if(transition_to_main_menu_started):
 		black_transition.get_node("ColorRect").color.a += (1/main_menu_transition_speed) * delta;
 		if(black_transition.get_node("ColorRect").color.a >= 1.0):
-			print(get_tree().change_scene_to_file(main_scene.resource_path));
+			print(get_tree().change_scene_to_file("res://scenes/MainMenu.tscn"));
 	if(!transitioned):
 		black_transition.get_node("ColorRect").color.a -= (1/transition_speed) * delta;
 		if(black_transition.get_node("ColorRect").color.a < 0):

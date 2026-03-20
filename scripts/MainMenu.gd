@@ -11,7 +11,7 @@ extends Control
 @onready var controls_close_button: Button = $ControlsPanel/Close
 @onready var black_transition: ColorRect = $BlackTransition
 
-@export var game_scene: PackedScene;
+# @export var game_scene: PackedScene;
 
 var _credits_tween = null
 
@@ -40,7 +40,7 @@ func _process(delta: float) -> void:
 		black_transition.color.a += (1/transition_speed) * delta;
 		if(black_transition.color.a > 1):
 			request_ready();
-			print(get_tree().change_scene_to_file(game_scene.resource_path));
+			print(get_tree().change_scene_to_file("res://scenes/test_scenes/PJ_build_1_scene.tscn"));
 		
 
 func _on_controls_pressed():

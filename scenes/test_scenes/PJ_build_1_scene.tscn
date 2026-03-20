@@ -118,7 +118,6 @@ metadata/_custom_type_script = "uid://bj28ubqcmsltd"
 
 [node name="UIManager" parent="." unique_id=798929640 instance=ExtResource("13_rf5c3")]
 transition_speed = 1.0
-main_scene = ExtResource("14_3at83")
 
 [node name="SaveManager" type="Node" parent="." unique_id=1313784305]
 script = ExtResource("17_njve1")
