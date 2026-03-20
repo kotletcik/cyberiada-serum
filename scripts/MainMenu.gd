@@ -36,7 +36,6 @@ func _on_start_pressed():
 	transition_started = true;
 
 func _process(delta: float) -> void:
-	print(transition_started);
 	if(transition_started):
 		black_transition.color.a += (1/transition_speed) * delta;
 		if(black_transition.color.a > 1):

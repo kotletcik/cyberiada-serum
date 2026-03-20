@@ -18,11 +18,12 @@ enum triggers
 	GoodEnding
 }
 
-func _ready():
-	get_tree().scene_changed.connect(_on_scene_changed)
+# func _ready():
+# 	get_tree().scene_changed.connect(_on_scene_changed)
 
-func _on_scene_changed():
-	reset_signal_subscribers()
+# func _on_scene_changed():
+# 	print("scene changed");
+# 	reset_signal_subscribers()
 
 func reset_signal_subscribers():
 	_disconnect_all("sound_emitted_by_player")
@@ -38,7 +39,8 @@ func reset_signal_subscribers():
 func _disconnect_all(signal_name: String):
 	var connections = get_signal_connection_list(signal_name)
 	for c in connections:
-		disconnect(signal_name, c.callable)
+		if(is_connected(signal_name, c.callable)):
+			disconnect(signal_name, c.callable)
 
 func call_event(trigger: triggers):
 	match trigger:
