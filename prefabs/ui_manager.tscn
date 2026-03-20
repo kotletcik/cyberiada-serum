@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://drcpcwf6f8sgw" path="res://prefabs/ui/thought_ui.tscn" id="2_5x7yg"]
 [ext_resource type="PackedScene" uid="uid://bya7074yvflm6" path="res://prefabs/ui/thought_path_button.tscn" id="3_bpt2d"]
 [ext_resource type="PackedScene" uid="uid://d1i2hyd827vx1" path="res://prefabs/ui/note_ui.tscn" id="4_1dmpx"]
-[ext_resource type="PackedScene" uid="uid://bs1a32ei6y25u" path="res://scenes/MainMenu.tscn" id="4_wtjxn"]
 [ext_resource type="Script" uid="uid://bw0o64kaou276" path="res://scripts/Valk/palace_ui_controller.gd" id="5_6hyqm"]
 [ext_resource type="PackedScene" uid="uid://gld2pf7nmd7u" path="res://prefabs/ui/controls_panel.tscn" id="6_msfjg"]
 
