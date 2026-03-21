@@ -19,6 +19,7 @@ func _ready() -> void:
 	pass 
 
 func add_gathered_clue(new_clue: Clue):
+	if(new_clue == null): return;
 	# print(new_clue.name);
 	gathered_clues[first_free_index] = new_clue;
 	first_free_index += 1;

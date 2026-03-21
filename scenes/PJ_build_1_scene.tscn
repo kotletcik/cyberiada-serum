@@ -860,6 +860,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11294556, -0.01115036, -42
 [node name="Serum" parent="Location5/Serums" unique_id=1088674212 instance=ExtResource("9_3rc8y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2887459, 1.4475479, 3.5996933)
 
+[node name="Serum2" parent="Location5/Serums" unique_id=1981606988 instance=ExtResource("9_3rc8y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9226303, 0.9963851, 34.7693)
+
+[node name="Rocks" type="Node3D" parent="Location5" unique_id=1173578646]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11294556, -0.01115036, -42.314934)
+
+[node name="Rock" parent="Location5/Rocks" unique_id=1988284777 instance=ExtResource("10_abvy7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.720009, 0.9361949, 34.79627)
+
 [node name="ShellNavRegion" type="NavigationRegion3D" parent="Location5" unique_id=932864056]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.312, -0.054, -18.033504)
 navigation_mesh = SubResource("NavigationMesh_eqt5g")
@@ -1396,7 +1405,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.82379, 1.0094061, 6.025719
 [node name="Rock" parent="Location7/Rocks" unique_id=114084900 instance=ExtResource("10_abvy7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.421093, 1.0600457, -6.887949)
 
-[node name="Rock2" parent="Location7/Rocks" unique_id=1988284777 instance=ExtResource("10_abvy7")]
+[node name="Rock2" parent="Location7/Rocks" unique_id=1727288202 instance=ExtResource("10_abvy7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7954712, 1.0600457, -8.375059)
 
 [node name="Location8" type="Node3D" parent="." unique_id=1985786230]
