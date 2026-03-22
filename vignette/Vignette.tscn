@@ -1,24 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://cq7n16gqbc6eo"]
+[gd_scene format=3 uid="uid://cq7n16gqbc6eo"]
 
 [ext_resource type="Material" uid="uid://bh18nrwwf8tde" path="res://materials/shaderMat.tres" id="1_b51g5"]
 [ext_resource type="Material" uid="uid://d0d1kdro15sym" path="res://vignette/vignetteMat.tres" id="1_x85kb"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_3ef5t"]
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1197102906]
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=487072741]
 texture_repeat = 1
 material = ExtResource("1_x85kb")
 offset_top = -64.0
-offset_right = 1503.0
-offset_bottom = 733.0
+offset_right = 1920.0
+offset_bottom = 1016.0
 texture = SubResource("CanvasTexture_3ef5t")
 
-[node name="TextureRect2" type="TextureRect" parent="."]
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1419656160]
 texture_repeat = 1
 material = ExtResource("1_b51g5")
 offset_top = -64.0
-offset_right = 1503.0
-offset_bottom = 733.0
+offset_right = 1920.0
+offset_bottom = 1016.0
 texture = SubResource("CanvasTexture_3ef5t")

@@ -9,6 +9,7 @@ func _ready() -> void:
 	if(instance == null):
 		instance = self;
 		itemCount.resize(ITEM_TYPE.ENUM_LENGTH);
+		add_item(ITEM_TYPE.SERUM, 10);
 	else:
 		print("More than one InventoryManager exists!!!");
 

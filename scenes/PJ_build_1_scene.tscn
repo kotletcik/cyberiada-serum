@@ -20,22 +20,17 @@
 [ext_resource type="PackedScene" uid="uid://dfiw1ws6ojtp8" path="res://prefabs/PatrolPoint.tscn" id="12_uyulh"]
 [ext_resource type="PackedScene" uid="uid://blsbgq16qsq5d" path="res://prefabs/ui_manager.tscn" id="13_rf5c3"]
 [ext_resource type="PackedScene" uid="uid://dug2gg4ldjhoc" path="res://prefabs/Mutation_navigation.tscn" id="14_uyulh"]
-[ext_resource type="PackedScene" uid="uid://bl7pr1jrqx1d8" path="res://prefabs/restart_trigger.tscn" id="15_lfu3u"]
-[ext_resource type="PackedScene" uid="uid://bkmfixym7ftg7" path="res://prefabs/Scene Prefabs/scene_clue.tscn" id="16_m1rxk"]
+[ext_resource type="PackedScene" uid="uid://bl7pr1jrqx1d8" path="res://prefabs/triggers/restart_trigger.tscn" id="15_lfu3u"]
 [ext_resource type="Script" uid="uid://bvpanlcy3bc06" path="res://scripts/Valk/Managers/save_manager.gd" id="17_njve1"]
 [ext_resource type="Resource" uid="uid://mm8l7277obwj" path="res://resources/last_checkpoint.tres" id="19_cnf01"]
-[ext_resource type="PackedScene" uid="uid://kkrsyjqqsie6" path="res://prefabs/event_trigger.tscn" id="23_l3ixd"]
-[ext_resource type="Resource" uid="uid://cpshgebigpcom" path="res://resources/thoughts/meow.tres" id="24_8isj6"]
+[ext_resource type="PackedScene" uid="uid://kkrsyjqqsie6" path="res://prefabs/triggers/event_trigger.tscn" id="23_l3ixd"]
 [ext_resource type="PackedScene" uid="uid://clg0uguj2n21v" path="res://prefabs/Scene Prefabs/scene_note.tscn" id="25_sbrwg"]
 [ext_resource type="Resource" uid="uid://b2q3agdc7eyfd" path="res://resources/notes/death.tres" id="26_e7wky"]
 [ext_resource type="Resource" uid="uid://chbvik850k7tu" path="res://resources/thoughts/cat_heaven.tres" id="27_wmpl2"]
-[ext_resource type="Resource" uid="uid://dwbrn5l1ernyw" path="res://resources/thoughts/Hello.tres" id="28_77tn1"]
-[ext_resource type="Resource" uid="uid://beopfd6yqk0so" path="res://resources/thoughts/TimeToDie.tres" id="29_85qxo"]
-[ext_resource type="Resource" uid="uid://cuerh7w08uco4" path="res://resources/thoughts/Gun.tres" id="30_a22ly"]
-[ext_resource type="PackedScene" uid="uid://5jpcyg1fb8pf" path="res://prefabs/clue_trigger.tscn" id="31_hdlg5"]
+[ext_resource type="PackedScene" uid="uid://5jpcyg1fb8pf" path="res://prefabs/triggers/clue_trigger.tscn" id="31_hdlg5"]
 [ext_resource type="Resource" uid="uid://c3dxhs7itgyy6" path="res://resources/thoughts/forgor.tres" id="32_rf5c3"]
-[ext_resource type="PackedScene" uid="uid://cwpnmj2jjqjcg" path="res://prefabs/checkpoint_trigger.tscn" id="37_l3ixd"]
-[ext_resource type="Script" uid="uid://bc2ji67pooap7" path="res://scripts/Valk/save_trigger.gd" id="38_3at83"]
+[ext_resource type="PackedScene" uid="uid://cwpnmj2jjqjcg" path="res://prefabs/triggers/checkpoint_trigger.tscn" id="37_l3ixd"]
+[ext_resource type="Script" uid="uid://bc2ji67pooap7" path="res://scripts/Valk/Scene Triggers/save_trigger.gd" id="38_3at83"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13hkq"]
 albedo_color = Color(0.27450982, 0.27450982, 0.27450982, 1)
@@ -94,7 +89,7 @@ size = Vector3(3.3517761, 2.6328125, 7.4286804)
 script = ExtResource("1_xanii")
 
 [node name="Player" parent="." unique_id=2039338456 instance=ExtResource("1_ahihw")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -78.946396, 1.6258812, 0.7133322)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -90.238304, 1.6258812, -39.03375)
 SOBER_WALK_SPEED = 7.5
 CROUCH_SPEED_MULTIPLIER = 0.3
 crouching_noise_volume = 1.5
@@ -2001,10 +1996,6 @@ omni_range = 30.271
 [node name="Serums" type="Node3D" parent="Location11" unique_id=125768624]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11294556, -0.01115036, -42.314934)
 
-[node name="Scene Clue" parent="." unique_id=1221183155 instance=ExtResource("16_m1rxk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.50851, 0.9459995, -7.776057)
-clue_to_gather = ExtResource("24_8isj6")
-
 [node name="Scene Note" parent="." unique_id=1944761136 instance=ExtResource("25_sbrwg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92.43784, 1.1121733, -2.2847242)
 
@@ -2013,31 +2004,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.74183, 1.4227071, -35.413
 note_to_hold = ExtResource("26_e7wky")
 clue_to_gather = ExtResource("27_wmpl2")
 
-[node name="Scene Clue2" parent="." unique_id=1655479736 instance=ExtResource("16_m1rxk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.18837, 0.94599974, 0.75311613)
-clue_to_gather = ExtResource("27_wmpl2")
-disappear_if_duplicate_detected = true
-
-[node name="Scene Clue3" parent="." unique_id=1301789329 instance=ExtResource("16_m1rxk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.977463, 0.946, 0.871675)
-clue_to_gather = ExtResource("28_77tn1")
-
-[node name="Scene Clue4" parent="." unique_id=824333246 instance=ExtResource("16_m1rxk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.588627, 1.4679356, -30.451876)
-clue_to_gather = ExtResource("29_85qxo")
-
-[node name="Scene Clue5" parent="." unique_id=318058014 instance=ExtResource("16_m1rxk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.822685, 1.5168858, -8.049377)
-clue_to_gather = ExtResource("30_a22ly")
-
 [node name="Clue Trigger" parent="." unique_id=1798010163 instance=ExtResource("31_hdlg5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.46901, 0.93438864, -9.095495)
 trigger_clue = ExtResource("32_rf5c3")
-
-[node name="Scene Clue6" parent="." unique_id=1881452790 instance=ExtResource("16_m1rxk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.57197, 1.5168839, -7.972666)
-clue_to_gather = ExtResource("29_85qxo")
-disappear_if_duplicate_detected = true
 
 [node name="Serum" parent="." unique_id=782537107 instance=ExtResource("9_3rc8y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.158737, 1.5168862, -8.095255)
@@ -2088,7 +2057,7 @@ script = ExtResource("38_3at83")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7888974, -0.30792236)
 
 [node name="Checkpoint Trigger4" parent="." unique_id=1413528973 instance=ExtResource("37_l3ixd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.456825, 0.44707966, 0.5804119)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.93912, 0.44707966, 0.5804119)
 script = ExtResource("38_3at83")
 
 [node name="CollisionShape3D" parent="Checkpoint Trigger4" index="0" unique_id=1228957436]

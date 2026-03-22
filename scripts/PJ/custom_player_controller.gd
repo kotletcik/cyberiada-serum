@@ -104,7 +104,7 @@ func _physics_process(delta: float) -> void:
 		velocity.z = lerp(velocity.z, 0.0, delta * 7.0)
 
 
-	t_bob += delta * velocity.length() * float(is_on_floor())
+	t_bob += delta * velocity.length();# * float(is_on_floor())
 	camera.transform.origin = camera_base_offset + _headbob(t_bob)
 
 	# zastosowanie ruchu

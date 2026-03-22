@@ -19,8 +19,7 @@
 [ext_resource type="Resource" uid="uid://cught0y7spfwy" path="res://resources/thought_paths/second_test_path.tres" id="7_n1lhp"]
 [ext_resource type="PackedScene" uid="uid://d02kasr2lce4t" path="res://prefabs/Mobs/Mutation.tscn" id="8_40r5k"]
 [ext_resource type="Resource" uid="uid://wncbvvg6xpva" path="res://resources/thought_paths/trigger_path.tres" id="8_p128x"]
-[ext_resource type="PackedScene" uid="uid://bl7pr1jrqx1d8" path="res://prefabs/restart_trigger.tscn" id="9_b4wx3"]
-[ext_resource type="PackedScene" uid="uid://bicg3xk5h40ss" path="res://prefabs/interact_test.tscn" id="13_51aie"]
+[ext_resource type="PackedScene" uid="uid://bl7pr1jrqx1d8" path="res://prefabs/triggers/restart_trigger.tscn" id="9_b4wx3"]
 [ext_resource type="PackedScene" uid="uid://blsbgq16qsq5d" path="res://prefabs/ui_manager.tscn" id="16_n1lhp"]
 [ext_resource type="Script" uid="uid://bvpanlcy3bc06" path="res://scripts/Valk/Managers/save_manager.gd" id="16_yi4xk"]
 [ext_resource type="Resource" uid="uid://mm8l7277obwj" path="res://resources/last_checkpoint.tres" id="17_bnfbb"]
@@ -308,9 +307,6 @@ metadata/_custom_type_script = "uid://coysphqpo5g2l"
 [node name="Shell" parent="." unique_id=1427820130 instance=ExtResource("3_81ya1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.843849, 1.4558756, -18.730312)
 
-[node name="State_machine" parent="Shell" index="6" unique_id=593020358 node_paths=PackedStringArray("initial_state")]
-initial_state = NodePath("Patrol")
-
 [node name="Serums" type="Node" parent="." unique_id=1170967438]
 
 [node name="Serum" parent="Serums" unique_id=361347800 instance=ExtResource("3_t4e8a")]
@@ -369,9 +365,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7255268, 0, -21.429012)
 [node name="Shell2" parent="." unique_id=1832136921 instance=ExtResource("3_81ya1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.196171, 1.524102, -18.641739)
 
-[node name="State_machine" parent="Shell2" index="6" unique_id=593020358 node_paths=PackedStringArray("initial_state")]
-initial_state = NodePath("Patrol")
-
 [node name="Restart Trigger" parent="." unique_id=1712831958 instance=ExtResource("9_b4wx3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.758549, 1.7260493, -28.211353)
 
@@ -384,9 +377,6 @@ transform = Transform3D(0.915, 0, 0, 0, 0.915, 0, 0, 0, 0.915, -2.500076, -9.788
 [node name="CollisionShape3D" parent="Fall Trigger" index="0"]
 transform = Transform3D(1.0000004, 0, 0, 0, 1.0000004, 0, 0, 0, 1.0000004, 9.780758, -1.1772451, 12.281864)
 shape = SubResource("BoxShape3D_k4afo")
-
-[node name="Interact_Test" parent="." unique_id=6908372 instance=ExtResource("13_51aie")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0654225, -1.213522, -21.457884)
 
 [node name="NavigationRegion3D2" type="NavigationRegion3D" parent="." unique_id=1379126559]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2681098, 0)
