@@ -89,7 +89,7 @@ size = Vector3(3.3517761, 2.6328125, 7.4286804)
 script = ExtResource("1_xanii")
 
 [node name="Player" parent="." unique_id=2039338456 instance=ExtResource("1_ahihw")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -90.238304, 1.6258812, -39.03375)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -48.704353, 1.6258812, -17.109865)
 SOBER_WALK_SPEED = 7.5
 CROUCH_SPEED_MULTIPLIER = 0.3
 crouching_noise_volume = 1.5
@@ -1300,7 +1300,6 @@ size = Vector3(1.6557617, 0.72821045, 2)
 
 [node name="Door" parent="Location7/ShellNavRegion" unique_id=1465195681 instance=ExtResource("10_vcjj7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.395542, 2.2790785, 6.1647377)
-move_distance = 3.0
 
 [node name="wall4" type="CSGBox3D" parent="Location7/ShellNavRegion" unique_id=1242843683]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9.5, 2, 8.458733)

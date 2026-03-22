@@ -9,7 +9,7 @@ var update_target_pos_timer: float = 1.0
 var target: Node3D
 # var is_active: bool = true nieuzywany?
 var timer
-var rotation_speed = 10.0
+var rotation_speed = 15.0
 
 func _ready() -> void:
 	mob = get_parent()
@@ -17,7 +17,7 @@ func _ready() -> void:
 	
 func _physics_process(delta: float):
 	var destination = get_next_path_position()
-	if(destination == mob.global_position): return; 
+	if((destination - mob.global_position).length() < 1): return; 
 	var local_destination = destination - mob.global_position
 
 	var direction = local_destination.normalized()
@@ -26,9 +26,9 @@ func _physics_process(delta: float):
 	# var next_position = get_next_path_position()
 	# var offset = destination - mob.global_position
 
-	if direction_flat.length() > 0.001 && local_destination.length() > 0.9:
+	if direction_flat.length() != 0 && local_destination.length() > 1:
 		var target_yaw = atan2(-direction_flat.x, -direction_flat.z)
-		mob.rotation.y = lerp_angle(mob.rotation.y, target_yaw, rotation_speed * delta)
+		mob.rotation.y = lerp_angle(mob.rotation.y, target_yaw , rotation_speed * delta)
 
 	var _y_vel = mob.velocity.y
 	var acc_coeff = 1
