@@ -31,13 +31,18 @@ var crouch_check_sphere: RID;
 @export var player_capsule: CapsuleShape3D
 @export_flags_3d_physics var crouch_check_collision_mask: int
 @export var crouch_check_y: float = 0.5;
+@export var crouch_check_radius: float = 0.67;
 
 var is_crouching = false;
-var player_height:float = 2;
+@export var normal_player_height: float = 2;
+@export var crouch_player_height: float = 2;
+@export var normal_camera_y: float = 0.36;
+@export var crouch_camera_y: float = 0.36;
+
 
 func _enter_tree() -> void:
 	crouch_check_sphere = PhysicsServer3D.sphere_shape_create();
-	PhysicsServer3D.shape_set_data(crouch_check_sphere, player_capsule.radius);
+	PhysicsServer3D.shape_set_data(crouch_check_sphere, crouch_check_radius);
 
 func _exit_tree() -> void:
 	PhysicsServer3D.free_rid(crouch_check_sphere);
@@ -51,10 +56,11 @@ func _ready() -> void:
 	# Przechwycenie kursora myszy dla obrotu kamery
 	# Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	# Zachowaj oryginalną lokalną pozycję kamery aby bobbing jej nie nadpisywał
-	if camera:
-		camera_base_offset = camera.transform.origin
+	if !camera: print("NO CAMERA DETECTED!!!")
+	camera_base_offset = camera.transform.origin
 
 func _physics_process(delta: float) -> void:
+	# DebugDraw3D.draw_sphere(global_position + Vector3(0, crouch_check_y, 0), crouch_check_radius);
 	if(UIManager.instance.is_in_esc_menu || !UIManager.instance.is_in_game): return;
 	# zmiana szybkości w przyszłości by była tutaj
 	move_speed = SOBER_WALK_SPEED; 
@@ -80,19 +86,16 @@ func _physics_process(delta: float) -> void:
 	# Kierunek ruchu oparty o obrót głowy (yaw) zamiast obracania całego ciała
 	# Docelowe zachowanie FPS: W (move_forward) zawsze porusza w kierunku patrzenia poziomo (yaw kamery), ignorujemy pitch.
 	var direction := Vector3.ZERO
-	if head:
-		var head_basis: Basis = transform.basis
-		var forward: Vector3 = -head_basis.z
-		var right: Vector3 = head_basis.x
+	if !head: print("No head node found!!!");
+	var head_basis: Basis = transform.basis
+	var forward: Vector3 = -head_basis.z
+	var right: Vector3 = head_basis.x
 		# Input: input_dir.z dodatnie przy S, ujemne przy W; invertujemy aby W dawało +forward
-		var move_vec: Vector3 = right * input_dir.x + forward * (-input_dir.z)
-		move_vec.y = 0.0
-		if move_vec != Vector3.ZERO:
-			direction = move_vec.normalized()
-	else:
-		print("No head node found!!!")
-
-	# Ustawienie prędkości poziomej z lekkim wygładzaniem gdy brak inputu
+	var move_vec: Vector3 = right * input_dir.x + forward * (-input_dir.z)
+	move_vec.y = 0.0
+	if move_vec != Vector3.ZERO:
+		direction = move_vec.normalized()
+		
 	if input_dir != Vector3.ZERO:
 		velocity.x = direction.x * move_speed
 		velocity.z = direction.z * move_speed
@@ -100,12 +103,9 @@ func _physics_process(delta: float) -> void:
 		velocity.x = lerp(velocity.x, 0.0, delta * 7.0)
 		velocity.z = lerp(velocity.z, 0.0, delta * 7.0)
 
-	
-	
-	# Bobbing (dodawany do bazowego offsetu zamiast nadpisywać)
-	t_bob += delta * velocity.length() * float(is_on_floor())
-	if camera:
-		camera.transform.origin = camera_base_offset + _headbob(t_bob)
+
+	t_bob += delta * velocity.length();# * float(is_on_floor())
+	camera.transform.origin = camera_base_offset + _headbob(t_bob)
 
 	# zastosowanie ruchu
 	move_and_slide()
@@ -122,14 +122,11 @@ func _input(event):
 			EventBus.sound_emitted_by_player.emit(sound_pos, noise)
 
 func _unhandled_input(event):
-	# Ruch myszy steruje obrotem
 	if(UIManager.instance.is_in_esc_menu || !UIManager.instance.is_in_game): return;
 	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * SENSITIVITY)
-		if camera:
-			camera.rotate_x(-event.relative.y * SENSITIVITY)
-			# Ograniczenie pitch aby nie przekręcić głowy
-			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+		camera.rotate_x(-event.relative.y * SENSITIVITY)
+		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO
@@ -138,11 +135,13 @@ func _headbob(time) -> Vector3:
 	return pos
 
 func crouch() -> void:
-	player_capsule.height = player_height/2; # trzeba zmieniac height CapsuleShape, a nie scale node'a bo to tworzy bugi
+	player_capsule.height = crouch_player_height; # trzeba zmieniac height CapsuleShape, a nie scale node'a bo to tworzy bugi
+	head.position.y = crouch_camera_y;
 	is_crouching = true;
-
+	
 func uncrouch() -> void:
-	player_capsule.height = player_height;
+	player_capsule.height = normal_player_height;
+	head.position.y = normal_camera_y;
 	is_crouching = false;
 
 func space_for_uncrouch() -> bool:  
@@ -154,4 +153,5 @@ func space_for_uncrouch() -> bool:
 	params.transform.origin = global_position + Vector3(0, crouch_check_y, 0);
 
 	var results = get_world_3d().direct_space_state.intersect_shape(params, 32);
+	# print(results.size());
 	return results.size() == 0;

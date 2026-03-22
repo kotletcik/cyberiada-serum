@@ -60,13 +60,15 @@ script = ExtResource("6_ajbgq")
 script = ExtResource("9_jt8f1")
 shell_mesh = NodePath("../MeshInstance3D")
 
-[node name="State_machine" parent="." unique_id=593020358 node_paths=PackedStringArray("mob", "nav_agent") instance=ExtResource("5_e6lbg")]
+[node name="State_machine" parent="." unique_id=593020358 node_paths=PackedStringArray("initial_state", "mob", "nav_agent") instance=ExtResource("5_e6lbg")]
+initial_state = NodePath("Patrol")
 mob = NodePath("..")
 nav_agent = NodePath("../NavigationAgent3D")
 
 [node name="Wander" parent="State_machine" index="0" unique_id=1270087543]
 move_speed = 5.0
 acceleration = 5.0
+model_color = Color(1, 0.7542504, 0.7685351, 1)
 
 [node name="Follow_player" parent="State_machine" index="1" unique_id=228265934]
 move_speed = 5.0
@@ -93,6 +95,7 @@ script = ExtResource("7_ayt5m")
 empty_target = NodePath("empty_target")
 move_speed = 1.0
 acceleration = 5.0
+state_type = 6
 metadata/_custom_type_script = "uid://foywhiftl87x"
 
 [node name="empty_target" type="Node3D" parent="State_machine/Patrol" unique_id=571049646]

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Save" format=3 uid="uid://mm8l7277obwj"]
 
-[ext_resource type="Script" uid="uid://x0dkfgs4yv0x" path="res://scripts/Valk/save.gd" id="1_242sh"]
+[ext_resource type="Script" uid="uid://x0dkfgs4yv0x" path="res://scripts/Valk/Resource Types/save.gd" id="1_242sh"]
 
 [resource]
 script = ExtResource("1_242sh")

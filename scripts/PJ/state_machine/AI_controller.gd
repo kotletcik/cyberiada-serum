@@ -7,7 +7,7 @@ extends NavigationAgent3D
 var move_speed : float = 2.0
 var update_target_pos_timer: float = 1.0
 var target: Node3D
-var is_active: bool = true
+# var is_active: bool = true nieuzywany?
 var timer
 var rotation_speed = 10.0
 
@@ -19,14 +19,17 @@ func _physics_process(delta: float):
 	var destination = get_next_path_position()
 	if(destination == mob.global_position): return; 
 	var local_destination = destination - mob.global_position
+
 	var direction = local_destination.normalized()
 	var direction_flat = Vector3(direction.x, 0, direction.z).normalized()
 
-	var next_position = get_next_path_position()
-	var offset = next_position - mob.global_position
-	if direction_flat.length() > 0.001 && offset.length() > 0.9:
+	# var next_position = get_next_path_position()
+	# var offset = destination - mob.global_position
+
+	if direction_flat.length() > 0.001 && local_destination.length() > 0.9:
 		var target_yaw = atan2(-direction_flat.x, -direction_flat.z)
 		mob.rotation.y = lerp_angle(mob.rotation.y, target_yaw, rotation_speed * delta)
+
 	var _y_vel = mob.velocity.y
 	var acc_coeff = 1
 	var forward = -mob.transform.basis.z
@@ -37,7 +40,11 @@ func _physics_process(delta: float):
 			acc_coeff = -10
 		mob.velocity = (mob.velocity.length() + acc_coeff * acceleration * delta) * -mob.transform.basis.z
 		
-	else: mob.velocity = -mob.transform.basis.z * move_speed
+	else: mob.velocity = forward * move_speed
+
+	# if(local_destination.length() < 0.9):
+	# 	mob.velocity *= 0.1;
+
 	mob.velocity.y = _y_vel
 	if is_navigation_finished():
 		velocity.x = 0
@@ -55,8 +62,8 @@ func update_target_pos_every(_update_target_pos_timer: float):
 		set_target_position(target.position)
 	timer = get_tree().create_timer(_update_target_pos_timer)
 	await timer.timeout
-	if is_active:
-		update_target_pos_every(update_target_pos_timer)
+	# if is_active:
+	update_target_pos_every(update_target_pos_timer)
 		
-func update_target():
+func update_target(): #nieuzywany?
 	timer.stop()

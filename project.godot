@@ -100,6 +100,10 @@ Crouch={
 3d_physics/layer_6="Throwable Rock"
 3d_physics/layer_7="Collectables"
 
+[physics]
+
+3d/physics_engine="Jolt Physics"
+
 [rendering]
 
 lights_and_shadows/directional_shadow/soft_shadow_filter_quality=5

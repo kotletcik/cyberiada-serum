@@ -225,7 +225,6 @@ func show_mind_palace_ui():
 	update_cursor();
 
 func update_mind_palace_ui():
-
 	rocks_label.text = str(InventoryManager.instance.itemCount[ITEM_TYPE.ROCK]) + "x Kamieni";
 	serum_label.text = str(InventoryManager.instance.itemCount[ITEM_TYPE.SERUM]) + "x Serum";
 

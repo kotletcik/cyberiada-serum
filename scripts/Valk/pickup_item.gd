@@ -3,6 +3,7 @@ extends StaticBody3D
 
 @export var group_name: String;
 @export var event_on_pickup: EventBus.triggers = EventBus.triggers.None;
+@export var clue_on_pickup: Clue = null;
 var is_disabled: bool = false;
 
 func _ready() -> void:

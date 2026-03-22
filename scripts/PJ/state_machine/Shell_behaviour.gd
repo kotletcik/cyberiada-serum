@@ -30,104 +30,130 @@ func _process(delta: float) -> void:
 func Check_conditions(delta: float) -> void:
 	var current = state_machine.current_state.state_type
 	match current:
-		STATE_TYPES.Follow_player:
+		State.types.Follow_player:
 			if ((self.global_position) - (GameManager.instance.player.global_position)).length() < attack_range:
-				change_state_by_name(current, STATE_TYPES.Attack)
-			elif timer > 0:
-				timer-=delta
+				change_state_by_name(State.types.Attack)
+				return;
+			if timer > 0:
+				timer -= delta
+			elif(!is_player_in_sight() || !player_is_on_region() || PsycheManager.instance.invisibility_timer > 0):
+				change_state_by_name(State.types.Searching)
 			else:
-				change_state_by_name(current, STATE_TYPES.Searching)
-			if(PsycheManager.instance.invisibility_timer > 0):
-				change_state_by_name(current,STATE_TYPES.Patrol)
-			if (!player_is_on_region()):
-				change_state_by_name(current,STATE_TYPES.Patrol)
-		STATE_TYPES.Searching:
+				timer = follow_state_duration
+
+			# if(PsycheManager.instance.invisibility_timer > 0):
+			# 	change_state_by_name(State.types.Patrol)
+			# if (!player_is_on_region()):
+			# 	change_state_by_name(State.types.Patrol)
+		State.types.Searching:
 			if timer > 0:
 				timer -= delta
 				if (is_player_in_sight() && player_is_on_region()):
 					if (PsycheManager.instance.invisibility_timer <= 0): 
-						change_state_by_name(current,STATE_TYPES.Scream);
+						change_state_by_name(State.types.Scream);
 			else:
-				change_state_by_name(current, STATE_TYPES.Patrol)
-		STATE_TYPES.Follow_sound:
+				change_state_by_name(State.types.Patrol)
+		State.types.Follow_sound:
 			if (is_player_in_sight() && player_is_on_region()):
 				if (PsycheManager.instance.invisibility_timer <= 0): 
-					change_state_by_name(current, STATE_TYPES.Scream);
+					change_state_by_name(State.types.Scream);
 			elif ((self.global_position) - (sound_target.global_position)).length() < attack_range:
-				change_state_by_name(current, STATE_TYPES.Searching)
+				change_state_by_name(State.types.Searching)
 			elif timer > 0: timer -= delta
 			elif timer < 0:
-				change_state_by_name(current, STATE_TYPES.Searching)
+				change_state_by_name(State.types.Searching)
 			else:
-				change_state_by_name(current,STATE_TYPES.Patrol)
-		STATE_TYPES.Wander:
+				change_state_by_name(State.types.Patrol)
+		State.types.Wander:
 			if (is_player_in_sight() && player_is_on_region()):
 				if (PsycheManager.instance.invisibility_timer <= 0): 
-					change_state_by_name(current, STATE_TYPES.Scream);
-		STATE_TYPES.Patrol:
+					change_state_by_name(State.types.Scream);
+		State.types.Patrol:
 			if (is_player_in_sight() && player_is_on_region()):
 				if (PsycheManager.instance.invisibility_timer <= 0): 
-					change_state_by_name(current, STATE_TYPES.Scream);
-		STATE_TYPES.Scream:
+					change_state_by_name(State.types.Scream);
+		State.types.Scream:
 			if timer > 0:
-				timer-=delta
-			else: change_state_by_name(current, STATE_TYPES.Follow_player);
+				timer -= delta
+			else: change_state_by_name(State.types.Follow_player);
 		
 
 func Enter_state(state: int):
 	match state:
-		STATE_TYPES.Follow_player:
+		State.types.Follow_player:
 			timer = follow_state_duration
-		STATE_TYPES.Searching:
-			EventBus.connect("sound_emitted_by_player", _is_heard_a_sound)
+		State.types.Searching:
+			EventBus.connect("sound_emitted_by_player", _on_heard_a_sound)
 			timer = searching_time
-		STATE_TYPES.Wander:
-			timer=wander_time
-			EventBus.connect("sound_emitted_by_player", _is_heard_a_sound)
-		STATE_TYPES.Follow_sound:
+			print("Doing reset for searching timer");
+		State.types.Wander:
+			timer = wander_time
+			EventBus.connect("sound_emitted_by_player", _on_heard_a_sound)
+		State.types.Follow_sound:
 			timer = follow_state_duration
-			# Valk: dodałem aby potwór szedł do najnowszego dzwięku
-			EventBus.connect("sound_emitted_by_player", _is_heard_a_sound)
-		STATE_TYPES.Patrol:
+			EventBus.connect("sound_emitted_by_player", _on_heard_a_sound)
+		State.types.Patrol:
 			timer = patrol_time
-			EventBus.connect("sound_emitted_by_player", _is_heard_a_sound)
-		STATE_TYPES.Scream:
+			EventBus.connect("sound_emitted_by_player", _on_heard_a_sound)
+		State.types.Scream:
 			timer = scream_time
 
 func Exit_state(state: int):
 	match state:
-		STATE_TYPES.Searching:
-			EventBus.disconnect("sound_emitted_by_player", _is_heard_a_sound)
-		STATE_TYPES.Wander:
-			EventBus.disconnect("sound_emitted_by_player", _is_heard_a_sound)
-		STATE_TYPES.Follow_sound:
-			EventBus.disconnect("sound_emitted_by_player", _is_heard_a_sound)
-		STATE_TYPES.Patrol:
-			EventBus.connect("sound_emitted_by_player", _is_heard_a_sound)
+		State.types.Searching:
+			EventBus.disconnect("sound_emitted_by_player", _on_heard_a_sound)
+		State.types.Wander:
+			EventBus.disconnect("sound_emitted_by_player", _on_heard_a_sound)
+		State.types.Follow_sound:
+			EventBus.disconnect("sound_emitted_by_player", _on_heard_a_sound)
+		State.types.Patrol:
+			EventBus.connect("sound_emitted_by_player", _on_heard_a_sound)
 
 func player_is_on_region() -> bool:
 	var map_rid = nav_agent.get_navigation_map()
 	var closest_point = NavigationServer3D.map_get_closest_point(map_rid, GameManager.instance.player.global_position)
 	var distance = GameManager.instance.player.global_position.distance_to(closest_point)
-	if distance < 1:
-		return true
-	else:
-		print ("player is not on region")
-		return false
+	# if distance < 1:
+	# 	return true
+	# else:
+	# 	print ("player is not on region")
+	# 	return false
+	return true if distance < 1 else false;
 
-func _is_heard_a_sound(sound_pos: Vector3, volume: float):
-	if ((sound_pos - state_machine.mob.global_position).length() < hearing_range * volume 
-	&& state_machine.current_state.state_type != STATE_TYPES.Follow_player
-	&& state_machine.current_state.state_type != STATE_TYPES.Scream):
-		change_state_to_follow_sound(sound_pos)
-		print("3")
+func _on_heard_a_sound(sound_pos: Vector3, volume: float):
+	var current_state: int = state_machine.current_state.state_type;
+	var sound_distance: float = (sound_pos - state_machine.mob.global_position).length();
+	if (sound_distance < hearing_range * volume && current_state != State.types.Follow_player && current_state != State.types.Scream):
+		state_machine.target = sound_pos
+		state_machine.transit_to_state(state_machine.current_state, State.types.Follow_sound)
+		# print("3")
 
-func change_state_to_follow_sound(sound_pos: Vector3):
-	state_machine.target = sound_pos
-	change_state_to(state_machine.current_state, STATE_TYPES.Follow_sound)
+# func change_state_to_follow_sound(sound_pos: Vector3):
+# 	state_machine.target = sound_pos
+# 	# change_state_to(state_machine.current_state, State.types.Follow_sound)
+# 	state_machine.transit_to_state(state_machine.current_state, State.types.Follow_sound)
 
-func change_state_to(current_state: State, _new_state: int):
-	state_machine.transit_to_state(current_state, _new_state)
+# func change_state_to(current_state: State, _new_state: int):
+# 	state_machine.transit_to_state(current_state, _new_state)
 
-func change_state_by_name(current_state: int, _new_state: int):
-	state_machine.transit_to_state_by_name(current_state, _new_state)
+func change_state_by_name(new_state: int):
+	var current_state: int = state_machine.current_state.state_type;
+	# match new_state:
+	# 	0:
+	# 		print("Doing Wandering");
+	# 	1:
+	# 		print("Doing Following player");
+	# 	2:
+	# 		print("Doing Following sound");
+	# 	3:
+	# 		print("Doing Searching" + str(current_state) + str(timer));
+	# 	4:
+	# 		print("Doing Attacking");
+	# 	5:
+	# 		print("Doing Debuff??");
+	# 	6:
+	# 		print("Doing Patrol" + str(current_state) + str(timer));
+	# 	7:
+	# 		print("Doing Screaming");
+		
+	state_machine.transit_to_state_by_name(current_state, new_state)

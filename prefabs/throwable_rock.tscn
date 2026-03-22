@@ -69,6 +69,7 @@ material = SubResource("StandardMaterial3D_ix58x")
 collision_layer = 32
 collision_mask = 47
 script = ExtResource("1_tbn3g")
+destroy_time = 60.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1652705227]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
