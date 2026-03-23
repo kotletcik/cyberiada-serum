@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Note" format=3 uid="uid://0clrfc6yrxg1"]
+
+[ext_resource type="Script" uid="uid://db4xf6hpks04h" path="res://scripts/Valk/Resource Types/note.gd" id="1_gl5i1"]
+
+[resource]
+script = ExtResource("1_gl5i1")
+title = "Death Note"
+content = "Kompletny chaos tutaj wybuchł 
+Wszędzie grasują shelle. Nie da się przed nimi uciec, ale - co było do przewidzenia - naszych pacjentow pod wpływem serumu nie dotykają. W normalnych warunkach byśmy to zbadali... Możliwe, że gdybyśmy sami zużyli serum to moglibyśmy byc \"niewidzialni\" dla nich
+Mają szczególnie dobry słuch, ale wzrok nie aż tak dobry. Dlatego lepiej po cichutku się poruszać"
+metadata/_custom_type_script = "uid://db4xf6hpks04h"

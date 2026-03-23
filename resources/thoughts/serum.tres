@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Clue" format=3 uid="uid://emdxa24gcxrb"]
+
+[ext_resource type="Script" uid="uid://q760mct2evav" path="res://scripts/Valk/Resource Types/clue.gd" id="1_guuqj"]
+
+[resource]
+script = ExtResource("1_guuqj")
+name = "Serum"
+description = "To dla tej substancji miałam operacje. Słyszałam jak naukowcy mówili, że za dużo to nie zdrowo"
+ui_pos = Vector2(32, 30)
+metadata/_custom_type_script = "uid://q760mct2evav"

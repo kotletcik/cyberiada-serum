@@ -41,10 +41,11 @@ current = true
 [node name="PlayerInteractions" type="Node3D" parent="Head/Camera3D" unique_id=1702588162]
 script = ExtResource("2_3li8b")
 serum = ExtResource("3_0dfmc")
+interaction_range = 5.0
 interaction_mask = 239
 
 [node name="Rock Throw Position" type="Node3D" parent="Head/Camera3D" unique_id=1675000720]
-transform = Transform3D(0.99415094, 0.018753894, 0.10635862, 0, 0.98480785, -0.1736482, -0.107999355, 0.17263252, 0.97904766, 0.5736686, 0, 0)
+transform = Transform3D(0.99415094, 0.018753894, 0.10635862, 0, 0.98480785, -0.1736482, -0.107999355, 0.17263252, 0.97904766, 0.040209025, -0.1694467, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2006764769]
 shape = SubResource("CapsuleShape3D_v6fml")

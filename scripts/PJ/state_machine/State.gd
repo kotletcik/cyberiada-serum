@@ -27,7 +27,7 @@ func Enter():
 	state_is_active = true	
 	state_machine.nav_agent.move_speed = move_speed
 	state_machine.nav_agent.acceleration = acceleration
-	#change_color(model_color)
+	change_color(model_color)
 	
 #Wywoływany zawsze przy przełączeniu z tego state	
 func Exit():

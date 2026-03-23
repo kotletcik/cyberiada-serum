@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Clue" format=3 uid="uid://beopfd6yqk0so"]
+
+[ext_resource type="Script" uid="uid://q760mct2evav" path="res://scripts/Valk/Resource Types/clue.gd" id="1_xqo0v"]
+
+[resource]
+script = ExtResource("1_xqo0v")
+name = "Użyj Serum"
+description = "Albo mogę użyć tego serum i ryzykować uzależnieniem"
+ui_pos = Vector2(704, 180)
+metadata/_custom_type_script = "uid://q760mct2evav"

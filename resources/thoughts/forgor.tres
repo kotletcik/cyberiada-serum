@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="Clue" format=3 uid="uid://c3dxhs7itgyy6"]
-
-[ext_resource type="Script" uid="uid://q760mct2evav" path="res://scripts/Valk/Resource Types/clue.gd" id="1_knonc"]
-
-[resource]
-script = ExtResource("1_knonc")
-name = "forgor"
-description = "i forgor everything"
-metadata/_custom_type_script = "uid://q760mct2evav"

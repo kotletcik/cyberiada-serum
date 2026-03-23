@@ -44,6 +44,13 @@ func remove_all_clues():
 	gathered_clues = [null];
 	first_free_index = 0;
 
+func is_clue_realized(checked_clue: Clue):
+	for i in range(0, thought_paths.size()):
+		for j in range(0, thought_paths[i].required_clues.size()):
+			if(thought_paths[i].required_clues[j] == checked_clue): 
+				return thought_paths[i].is_clue_realized[j];
+	return false;
+
 func is_correct_thought(checked_clue: Clue, chosen_clue: Clue) -> bool:
 	for i in range(0, thought_paths.size()):
 		for j in range(0, thought_paths[i].required_clues.size()):

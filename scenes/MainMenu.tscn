@@ -77,26 +77,26 @@ alignment = 1
 [node name="StartButton" type="Button" parent="VBoxContainer" unique_id=1307733477]
 custom_minimum_size = Vector2(300, 48)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.9, 0.06, 0.06, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "ZACZNIJ GRĘ"
 
 [node name="CreditsButton" type="Button" parent="VBoxContainer" unique_id=902068886]
 custom_minimum_size = Vector2(300, 48)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.9, 0.06, 0.06, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "CREDITS"
 
 [node name="ControlsButton" type="Button" parent="VBoxContainer" unique_id=436714771]
 custom_minimum_size = Vector2(300, 48)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.9, 0.06, 0.06, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "KONTROLKI
 OBOWIĄZKOWO WEJŚĆ"
 
 [node name="ExitButton" type="Button" parent="VBoxContainer" unique_id=1123870328]
 custom_minimum_size = Vector2(300, 48)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.9, 0.06, 0.06, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "WYJDŹ"
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1078367602]

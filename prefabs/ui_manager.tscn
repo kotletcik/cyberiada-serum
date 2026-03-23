@@ -19,6 +19,12 @@ font_size = 32
 [sub_resource type="LabelSettings" id="LabelSettings_usnsq"]
 font_size = 24
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_msfjg"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wtjxn"]
+bg_color = Color(0, 0, 0, 1)
+
 [node name="UIManager" type="Node" unique_id=798929640 node_paths=PackedStringArray("note_ui", "added_thought_notif", "mind_palace_ui", "esc_menu", "game_over_screen", "bad_ending_screen", "good_ending_screen", "black_transition")]
 script = ExtResource("1_4asm2")
 note_ui = NodePath("NoteUI")
@@ -252,12 +258,12 @@ grow_vertical = 2
 
 [node name="GameOver" type="RichTextLabel" parent="Game Over/Panel" unique_id=854070857]
 layout_mode = 0
-offset_left = 541.0
+offset_left = 259.0
 offset_top = 267.0
-offset_right = 1451.0
+offset_right = 1787.0
 offset_bottom = 579.0
 theme_override_font_sizes/normal_font_size = 128
-text = "Skill issue!!!!!!!"
+text = "Spróbuj jeszcze raz!!!!!!!"
 
 [node name="Checkpoint" type="Button" parent="Game Over/Panel" unique_id=1711027278]
 layout_mode = 0
@@ -487,16 +493,16 @@ offset_right = 956.0
 offset_bottom = 540.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_msfjg")
 
 [node name="GameOver" type="RichTextLabel" parent="Bad Ending/Panel" unique_id=53104543]
 layout_mode = 0
-offset_left = 541.0
+offset_left = 359.0
 offset_top = 201.0
-offset_right = 1451.0
+offset_right = 1683.0
 offset_bottom = 1006.0
 theme_override_font_sizes/normal_font_size = 128
-text = "Skill issue!!!!!!!
-Uzależniłeś/aś sie od serum lololololol"
+text = "Przeszedłeś alfę, ale musiałeś się przy tym uzależnić od serum"
 horizontal_alignment = 1
 
 [node name="MainMenu" type="Button" parent="Bad Ending/Panel" unique_id=2007954657]
@@ -521,6 +527,7 @@ offset_right = 956.0
 offset_bottom = 540.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wtjxn")
 
 [node name="GameOver" type="RichTextLabel" parent="Good Ending/Panel" unique_id=224770172]
 layout_mode = 0
@@ -529,8 +536,7 @@ offset_top = 201.0
 offset_right = 1587.0
 offset_bottom = 1006.0
 theme_override_font_sizes/normal_font_size = 128
-text = "Brawooo!!!!!!!
-Nie jestes zbrainrotowany/a lol"
+text = "Udało ci się przejść alfę bez uzależnienia się"
 horizontal_alignment = 1
 
 [node name="MainMenu" type="Button" parent="Good Ending/Panel" unique_id=372326746]

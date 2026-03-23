@@ -31,8 +31,13 @@ func _process(delta: float) -> void:
 func Check_conditions(delta: float) -> void:
 	var current = state_machine.current_state.state_type
 	match current:
+		State.types.Attack:
+			if ((self.global_position) - (GameManager.instance.player.global_position)).length() > attack_range:
+				change_state_by_name(State.types.Follow_player);
+			if(!is_player_in_sight() || !player_is_on_region() || PsycheManager.instance.invisibility_timer > 0):
+				change_state_by_name(State.types.Searching)
 		State.types.Follow_player:
-			if ((self.global_position) - (GameManager.instance.player.global_position)).length() < attack_range:
+			if ((self.global_position) - (GameManager.instance.player.global_position)).length() <= attack_range:
 				change_state_by_name(State.types.Attack)
 				return;
 			if timer > 0:
@@ -108,7 +113,7 @@ func Exit_state(state: int):
 		State.types.Follow_sound:
 			EventBus.disconnect("sound_emitted_by_player", _on_heard_a_sound)
 		State.types.Patrol:
-			EventBus.connect("sound_emitted_by_player", _on_heard_a_sound)
+			EventBus.disconnect("sound_emitted_by_player", _on_heard_a_sound)
 
 func player_is_on_region() -> bool:
 	var map_rid = nav_agent.get_navigation_map()

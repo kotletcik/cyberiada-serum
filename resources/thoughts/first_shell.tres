@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Clue" format=3 uid="uid://dwbrn5l1ernyw"]
+
+[ext_resource type="Script" uid="uid://q760mct2evav" path="res://scripts/Valk/Resource Types/clue.gd" id="1_bdtty"]
+
+[resource]
+script = ExtResource("1_bdtty")
+name = "Słyszę Shella"
+description = "Słyszę jakąś istotę - prawdopodobnie to shell"
+ui_pos = Vector2(480, 32)
+metadata/_custom_type_script = "uid://q760mct2evav"

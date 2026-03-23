@@ -112,6 +112,7 @@ func go_to_main_menu():
 	EventBus.reset_signal_subscribers();
 
 func show_bad_ending_screen():
+	PsycheManager.instance.set_vignette_parameters(0, Color.ALICE_BLUE, 0);
 	GameManager.instance.is_game_over = true;
 	GameManager.instance.pause_game();
 	cursor_locked_menu = false;
@@ -120,6 +121,7 @@ func show_bad_ending_screen():
 
 func show_good_ending_screen():
 	await get_tree().create_timer(5.0, false).timeout;
+	PsycheManager.instance.set_vignette_parameters(0, Color.ALICE_BLUE, 0);
 	GameManager.instance.is_game_over = true;
 	GameManager.instance.pause_game();
 	cursor_locked_menu = false;
@@ -234,7 +236,7 @@ func update_mind_palace_ui():
 		mind_palace_ui.get_node("ThoughtPaths").add_child(thought_path_ui_instance);
 		thought_path_ui_instance.text = PalaceManager.instance.thought_paths[i].name;
 		thought_path_ui_instance.pressed.connect(choose_thought_path.bind(PalaceManager.instance.thought_paths[i]));
-		thought_path_ui_instance.position = Vector2(0, 720 - i * 96);
+		thought_path_ui_instance.position = Vector2(32, 540 - i * 96);
 		instanciated_thought_path_uis[thought_path_uis_count] = thought_path_ui_instance;
 		thought_path_uis_count += 1;
 		if(instanciated_thought_path_uis.size() == thought_path_uis_count):

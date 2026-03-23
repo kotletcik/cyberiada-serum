@@ -7,7 +7,7 @@
 [ext_resource type="AnimationLibrary" uid="uid://c8y1lkise7b5r" path="res://addons/KayKit_Character_Animations_1.0/Animations/gltf/Rig_Large/Rig_Large_Simulation.glb" id="5_7e2mx"]
 [ext_resource type="PackedScene" uid="uid://bxerqeybhhs0c" path="res://prefabs/Mobs/state_machine.tscn" id="5_e6lbg"]
 [ext_resource type="Script" uid="uid://b7oh0gjgvjexb" path="res://scripts/PJ/state_machine/AI_controller.gd" id="6_ajbgq"]
-[ext_resource type="Script" uid="uid://dntly0y7t12o6" path="res://prefabs/Mobs/movement_animator.gd" id="6_opuvl"]
+[ext_resource type="Script" path="res://prefabs/Mobs/movement_animator.gd" id="6_opuvl"]
 [ext_resource type="Script" uid="uid://dkukaamdo4acb" path="res://scripts/PJ/state_machine/Shell_behaviour.gd" id="6_raqt8"]
 [ext_resource type="Script" uid="uid://ws43rxsp8qki" path="res://scripts/PJ/state_machine/States/Patrol.gd" id="7_ayt5m"]
 [ext_resource type="Script" uid="uid://cch3iwxpn7a6u" path="res://scripts/PJ/state_machine/States/Scream.gd" id="7_lqxc7"]
@@ -46,6 +46,7 @@ state_machine = NodePath("State_machine")
 
 [node name="Skin" parent="." unique_id=1644313155 instance=ExtResource("2_ukenm")]
 transform = Transform3D(-0.5, 0, 4.371139e-08, 0, 0.5, 0, -4.371139e-08, 0, -0.5, 0, -0.9252626, 0)
+visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Skin" unique_id=203633144]
 libraries/Rig_Large_General = ExtResource("3_opuvl")
@@ -57,13 +58,13 @@ walking_animation_name = "Rig_Large_MovementBasic/Walking_A"
 running_animation_name = "Rig_Large_MovementBasic/Running_A"
 
 [node name="State_machine_Behaviour#DebugLines" type="MeshInstance3D" parent="." unique_id=533354744]
+visible = false
 skeleton = NodePath("../../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=58911616]
 shape = SubResource("CapsuleShape3D_lj2st")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1510776867]
-visible = false
 mesh = SubResource("CapsuleMesh_ajbgq")
 surface_material_override/0 = SubResource("StandardMaterial3D_re4yq")
 
@@ -89,7 +90,7 @@ acceleration = 5.0
 model_color = Color(1, 0.7542504, 0.7685351, 1)
 
 [node name="Follow_player" parent="State_machine" index="1" unique_id=228265934]
-move_speed = 5.0
+move_speed = 10.0
 acceleration = 5.0
 state_type = 1
 
@@ -103,6 +104,9 @@ follow_target = NodePath("Empty_target")
 acceleration = 5.0
 state_type = 2
 
+[node name="MeshInstance3D" parent="State_machine/Follow_sound/Empty_target" parent_id_path=PackedInt32Array(593020358, 1642078660) index="0" unique_id=1853946824]
+visible = false
+
 [node name="Searching" parent="State_machine" index="4" unique_id=1226388208]
 move_speed = 5.0
 acceleration = 5.0
@@ -111,6 +115,7 @@ state_type = 3
 [node name="Patrol" type="Node" parent="State_machine" unique_id=1952931126 node_paths=PackedStringArray("empty_target")]
 script = ExtResource("7_ayt5m")
 empty_target = NodePath("empty_target")
+patrol_point_waiting_time = 1.0
 move_speed = 1.0
 acceleration = 5.0
 state_type = 6
@@ -130,10 +135,10 @@ metadata/_custom_type_script = "uid://foywhiftl87x"
 
 [node name="Eyes" type="MeshInstance3D" parent="." unique_id=1218871193]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4183241, -0.47043222)
-visible = false
 mesh = SubResource("BoxMesh_raqt8")
 
 [node name="DebugLines" type="MeshInstance3D" parent="." unique_id=2138520060]
+visible = false
 
 [node name="GPUParticles3D" parent="." unique_id=207648955 instance=ExtResource("8_6f62q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95233065, 0)

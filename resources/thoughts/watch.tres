@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Clue" format=3 uid="uid://dt7dtcb4bds7m"]
+
+[ext_resource type="Script" uid="uid://q760mct2evav" path="res://scripts/Valk/Resource Types/clue.gd" id="1_1ix42"]
+
+[resource]
+script = ExtResource("1_1ix42")
+name = "Nadzór???"
+description = "Powinnam być pod nadzorem. Coś się stało... Powinnam byc ostrożna wychodząc"
+ui_pos = Vector2(256, 28)
+metadata/_custom_type_script = "uid://q760mct2evav"

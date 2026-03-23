@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://gld2pf7nmd7u"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_cnf01"]
-font_size = 32
-
 [sub_resource type="LabelSettings" id="LabelSettings_usnsq"]
 font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_cnf01"]
+font_size = 32
 
 [node name="ControlsPanel" type="Panel" unique_id=1667803061]
 anchors_preset = 8
@@ -28,6 +28,15 @@ offset_bottom = 113.0
 theme_override_font_sizes/font_size = 32
 text = "X
 "
+
+[node name="Label3" type="Label" parent="." unique_id=1158626028]
+layout_mode = 0
+offset_left = 593.0
+offset_top = 525.0
+offset_right = 733.0
+offset_bottom = 596.0
+text = "Mind Palace"
+label_settings = SubResource("LabelSettings_usnsq")
 
 [node name="WSAD" type="Panel" parent="." unique_id=1973194214]
 layout_mode = 0
@@ -188,9 +197,13 @@ vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="WSAD5" unique_id=817780546]
 layout_mode = 0
-offset_left = 201.0
-offset_top = 8.0
-offset_right = 341.0
-offset_bottom = 79.0
-text = "Mind Palace"
+offset_left = -355.0
+offset_top = 74.0
+offset_right = 1198.0
+offset_bottom = 293.0
+text = "Mind Palace polega na tym, że trzeba łączyć ze sobą wskazówki, aby postać coś odkryła. 
+Robi się to przesuwając wskazówki z obszaru \"Zebrane Wskazówki\" na wskazówki w głównym panelu.
+Główny panel wyświetla wskazówki z wybranej przez siebie ścieżce wskazówek.
+Ścieżkę wskazówek można wybrać obok głównego panelu
+Czasami dodane wskazówki automatycznie się łączą z poprzednimi i nie trzeba nic wykonywać"
 label_settings = SubResource("LabelSettings_usnsq")
