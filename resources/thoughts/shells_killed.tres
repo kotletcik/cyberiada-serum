@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Clue" format=3 uid="uid://faycirwdm856"]
+
+[ext_resource type="Script" uid="uid://q760mct2evav" path="res://scripts/Valk/Resource Types/clue.gd" id="1_qsf2o"]
+
+[resource]
+script = ExtResource("1_qsf2o")
+name = "Niebezpieczeństwo"
+description = "To shelle tutaj stworzył chaos. Muszę ich unikać"
+ui_pos = Vector2(480, 30)
+metadata/_custom_type_script = "uid://q760mct2evav"

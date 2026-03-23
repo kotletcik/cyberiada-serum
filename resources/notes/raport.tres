@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Note" format=3 uid="uid://b2q3agdc7eyfd"]
+
+[ext_resource type="Script" uid="uid://db4xf6hpks04h" path="res://scripts/Valk/Resource Types/note.gd" id="1_pu21l"]
+
+[resource]
+script = ExtResource("1_pu21l")
+title = "Raport"
+content = "Pacjent nr 46920 został poddany operacji i teraz czeka ją 7 dni śpiączki. 
+Możliwe niepożądane efekty serum po zbudzeniu, dlatego
+powinna być pod nadzorem"
+metadata/_custom_type_script = "uid://db4xf6hpks04h"

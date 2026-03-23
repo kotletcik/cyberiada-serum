@@ -18,6 +18,7 @@ func _physics_process(delta: float) -> void:
 		add_child(rock_instance);
 		rock_instance.global_position = throw_position.global_position;
 		throw_rock(rock_instance);
+		InventoryManager.instance.remove_item(ITEM_TYPE.ROCK, 1);
 	
 func throw_rock(rock: RigidBody3D):
 

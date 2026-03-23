@@ -19,7 +19,7 @@ func Update (delta: float):
 	if (patrol_points.is_empty()): return;
 
 	var point_distance = (state_machine.mob.global_position - patrol_points[current_target_pos].global_position).length();
-	if(point_distance <= 1 && !is_Staying):
+	if(point_distance <= 1.5 && !is_Staying):
 		timer = patrol_point_waiting_time
 		#while (state_machine.nav_agent.move_speed > 0):
 			#state_machine.nav_agent.move_speed -= state_machine.mob.acceleration * delta * -state_machine.mob.transform.basis.z

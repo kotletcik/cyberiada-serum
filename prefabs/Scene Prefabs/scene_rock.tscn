@@ -7,7 +7,13 @@
 [sub_resource type="BoxMesh" id="BoxMesh_nxxrq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yy7vx"]
-albedo_color = Color(0.1661382, 0.16298771, 0.050084077, 1)
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_es7b4"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dnybw"]
+albedo_color = Color(0, 0, 0, 1)
 
 [node name="Rock" type="StaticBody3D" unique_id=1988284777]
 collision_layer = 64
@@ -18,5 +24,15 @@ group_name = "Rock"
 shape = SubResource("BoxShape3D_t4e8a")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=473172102]
+visible = false
 mesh = SubResource("BoxMesh_nxxrq")
 surface_material_override/0 = SubResource("StandardMaterial3D_yy7vx")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=906956085]
+material = SubResource("StandardMaterial3D_es7b4")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D" unique_id=206153210]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4050293, 0.4189453, 0)
+operation = 2
+size = Vector3(0.1899414, 0.16210938, 1)
+material = SubResource("StandardMaterial3D_dnybw")

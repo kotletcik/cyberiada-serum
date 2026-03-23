@@ -33,6 +33,8 @@ var overtake_dir: Vector3;
 
 var mutation_spawn_timer: float
 
+var ending: float = false;
+
 func register_serum(node: Node3D, pos: Vector3) -> void:
 	serums[first_free_index] = node;
 	serum_positions[first_free_index] = pos;
@@ -62,9 +64,17 @@ func _ready() -> void:
 		saturation_texture.material.set_shader_parameter("saturation", settings.normal_saturation);
 		serum_level = settings.serum_start_level;
 		fog_fade_level = settings.fog_fade_start_level;
+		EventBus.close_final_door.connect(bad_ending);
 	else:
 		print("More than one PsycheManager exists!!!");
 	pass 
+
+func bad_ending() -> void:
+	ending = true;
+	if(serum_level > settings.serum_overdose_level && serum_level < settings.serum_critical_level):
+		overtake_timer = 0;
+	if(serum_level > settings.serum_critical_level):
+		craving_timer = 0;
 
 func find_closest_serum_pos() -> Vector3:
 	var min_index: int = -1;
@@ -108,6 +118,12 @@ func find_closest_serum_with_fov(fov: float) -> Node3D:
 func _physics_process(delta: float) -> void:
 	if(serum_level > settings.serum_overdose_level && serum_level < settings.serum_critical_level):
 		overtake_timer -= delta;
+		var closest_serum: Node3D = find_closest_serum_with_fov(settings.craving_serum_fov); # vs find_closest_serum()
+		if(closest_serum != null): 
+			var closest_serum_pos: Vector3 = closest_serum.global_position;
+			var distance_sqr = (closest_serum_pos - player.global_position).length_squared();
+			if(distance_sqr < settings.craving_serum_take_radius*settings.craving_serum_take_radius):
+				pickup_serum(closest_serum);
 		if(overtake_timer < 0):
 			player.global_translate(overtake_dir * settings.overtake_player_force * delta);
 			if(overtake_timer < -settings.overtake_duration):
@@ -129,15 +145,21 @@ func _physics_process(delta: float) -> void:
 
 			var distance_sqr = (closest_serum_pos - player.global_position).length_squared();
 			if(distance_sqr < settings.craving_serum_take_radius*settings.craving_serum_take_radius):
-				unregister_serum(closest_serum);
-				var pickup_item = closest_serum as PickupItem;
-				EventBus.call_event(pickup_item.event_on_pickup);
-				PalaceManager.instance.add_gathered_clue(pickup_item.clue_on_pickup);
-				closest_serum.queue_free();
-				take_serum();	
+				pickup_serum(closest_serum);
 			if(craving_timer <= -settings.craving_duration):
 				craving_timer = randf_range(settings.min_craving_timer, settings.max_craving_timer);
 
+
+func pickup_serum(serum: Node3D) -> void:
+		unregister_serum(serum);
+		var pickup_item = serum as PickupItem;
+		EventBus.call_event(pickup_item.event_on_pickup);
+		if(pickup_item.event_on_pickup == EventBus.triggers.BadEnding): serum.queue_free(); return;
+		PalaceManager.instance.add_gathered_clue(pickup_item.clue_on_pickup);
+		if(pickup_item.does_clue_automatically_unlock):
+			PalaceManager.instance.create_thought(pickup_item.clue_on_pickup);
+		serum.queue_free();
+		take_serum();	
 
 func _process(delta: float) -> void:
 	serum_level -= settings.serum_drop_rate * delta;
@@ -171,8 +193,8 @@ func _process(delta: float) -> void:
 	fog_fade_level -= settings.fog_fade_drop_rate * delta;
 	if(fog_fade_level < 0): fog_fade_level = 0;
 
-	if(Input.is_key_pressed(KEY_P)):
-		craving_timer = randf_range(settings.min_craving_timer, settings.max_craving_timer);
+	# if(Input.is_key_pressed(KEY_P)):
+	# 	craving_timer = randf_range(settings.min_craving_timer, settings.max_craving_timer);
 
 	if(environment.fog_density < settings.normal_fog_density):
 		environment.fog_density += delta * settings.serum_to_normal_fog_speed;
@@ -204,6 +226,7 @@ func take_serum():
 	elif(serum_level < settings.serum_critical_level):
 		mutation_spawn_timer = randf_range(settings.min_mutation_spawn_timer, settings.max_mutation_spawn_timer)
 		overtake_timer = randf_range(settings.min_overtake_timer, settings.max_overtake_timer);
+		if(ending): overtake_timer = 0;
 		overtake_dir = Vector3(randf_range(-1, 1), 0 , randf_range(-1, 1)).normalized();
 		saturation_texture.material.set_shader_parameter("saturation", settings.overdose_saturation);
 		set_vignette_parameters(settings.serum_overdose_vignette_intensity, 
@@ -211,6 +234,7 @@ func take_serum():
 	else:
 		overtake_timer = 0;
 		craving_timer = randf_range(settings.min_craving_timer, settings.max_craving_timer);
+		if(ending): craving_timer = 0;
 		saturation_texture.material.set_shader_parameter("saturation", settings.critical_saturation);
 		set_vignette_parameters(settings.serum_critical_vignette_intensity, 
 				settings.serum_critical_vignette_color, settings.serum_critical_vignette_radius);

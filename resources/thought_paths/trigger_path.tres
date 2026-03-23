@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="ThoughtPath" format=3 uid="uid://wncbvvg6xpva"]
 
 [ext_resource type="Script" uid="uid://q760mct2evav" path="res://scripts/Valk/Resource Types/clue.gd" id="1_us72l"]
-[ext_resource type="Resource" uid="uid://c3dxhs7itgyy6" path="res://resources/thoughts/forgor.tres" id="2_77wu0"]
+[ext_resource type="Resource" uid="uid://emdxa24gcxrb" path="res://resources/thoughts/serum.tres" id="2_77wu0"]
 [ext_resource type="Script" uid="uid://b3e6n7nbttp0c" path="res://scripts/Valk/Resource Types/thought_path.gd" id="2_ub42a"]
-[ext_resource type="Resource" uid="uid://b4lyqlncafmig" path="res://resources/thoughts/fuck_yeah.tres" id="3_77wu0"]
+[ext_resource type="Resource" uid="uid://y0ypx6kg0p7" path="res://resources/thoughts/serum_invisibility.tres" id="3_77wu0"]
 
 [resource]
 script = ExtResource("2_ub42a")
-name = "Forgor"
+name = "Serum"
 required_clues = Array[ExtResource("1_us72l")]([ExtResource("2_77wu0"), ExtResource("3_77wu0")])
 metadata/_custom_type_script = "uid://b3e6n7nbttp0c"

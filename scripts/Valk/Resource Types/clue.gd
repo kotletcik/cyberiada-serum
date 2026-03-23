@@ -13,5 +13,5 @@ enum triggers
 @export var clues_to_gather: Array[Clue];
 @export var does_automatically_unlock: Array[bool];
 
-@export var trigger_method_name: String;
+# @export var trigger_method_name: String;
 @export var clue_trigger: triggers;

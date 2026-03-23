@@ -15,7 +15,7 @@
 [ext_resource type="Script" uid="uid://bi0gwyc0asmon" path="res://scripts/PJ/state_machine/States/Debuff.gd" id="8_dsl82"]
 [ext_resource type="AnimationLibrary" uid="uid://5pr3g1cjsskn" path="res://addons/KayKit_Character_Animations_1.0/Animations/gltf/Rig_Medium/Rig_Medium_Special.glb" id="9_g5sxh"]
 [ext_resource type="Script" uid="uid://b7oh0gjgvjexb" path="res://scripts/PJ/state_machine/AI_controller.gd" id="9_ja7dw"]
-[ext_resource type="Script" uid="uid://dntly0y7t12o6" path="res://prefabs/Mobs/movement_animator.gd" id="10_dtayl"]
+[ext_resource type="Script" path="res://prefabs/Mobs/movement_animator.gd" id="10_dtayl"]
 [ext_resource type="Script" uid="uid://b7ydidx4polw6" path="res://scripts/Valk/shell_disappearance.gd" id="10_syqnj"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lj2st"]
@@ -46,6 +46,7 @@ state_machine = NodePath("State_machine")
 
 [node name="Mannequin_Medium" parent="." unique_id=481450390 instance=ExtResource("2_3dcch")]
 transform = Transform3D(-0.67, 0, -1.0116719e-07, 0, 0.67, 0, 1.0116719e-07, 0, -0.67, 0, -0.72847795, 0)
+visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Mannequin_Medium" unique_id=1675668380]
 libraries/Rig_Medium_CombatMelee = ExtResource("3_c8o25")
@@ -64,7 +65,6 @@ running_animation_name = "Rig_Medium_MovementBasic/Walking_C"
 shape = SubResource("CapsuleShape3D_lj2st")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2065801198]
-visible = false
 mesh = SubResource("CapsuleMesh_ajbgq")
 surface_material_override/0 = SubResource("StandardMaterial3D_re4yq")
 
@@ -112,7 +112,6 @@ shell_mesh = NodePath("../MeshInstance3D")
 
 [node name="Eyes" type="MeshInstance3D" parent="." unique_id=440282314]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4183241, -0.26205605)
-visible = false
 mesh = SubResource("BoxMesh_3x212")
 
 [node name="DebugLines" type="MeshInstance3D" parent="." unique_id=607784869]

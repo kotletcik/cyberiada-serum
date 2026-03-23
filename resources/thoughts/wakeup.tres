@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Clue" format=3 uid="uid://cpshgebigpcom"]
+
+[ext_resource type="Script" uid="uid://q760mct2evav" path="res://scripts/Valk/Resource Types/clue.gd" id="1_33evg"]
+
+[resource]
+script = ExtResource("1_33evg")
+name = "Pobudka"
+description = "Już się obudziłam, ale gdzie się wszyscy podziali???"
+ui_pos = Vector2(32, 36)
+metadata/_custom_type_script = "uid://q760mct2evav"

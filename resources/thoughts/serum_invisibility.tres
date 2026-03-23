@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Clue" format=3 uid="uid://y0ypx6kg0p7"]
+
+[ext_resource type="Script" uid="uid://q760mct2evav" path="res://scripts/Valk/Resource Types/clue.gd" id="1_lbnfy"]
+
+[resource]
+script = ExtResource("1_lbnfy")
+name = "Niewidzialność"
+description = "Serum powoduje, że jesteśmy niewidzialni dla shelli? Ciekawe"
+ui_pos = Vector2(256, 31)
+metadata/_custom_type_script = "uid://q760mct2evav"

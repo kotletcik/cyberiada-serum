@@ -1,13 +1,15 @@
 [gd_resource type="Resource" script_class="ThoughtPath" format=3 uid="uid://cop13c5am162g"]
 
 [ext_resource type="Script" uid="uid://q760mct2evav" path="res://scripts/Valk/Resource Types/clue.gd" id="1_sv7fu"]
-[ext_resource type="Resource" uid="uid://dwbrn5l1ernyw" path="res://resources/thoughts/Hello.tres" id="2_3eoet"]
+[ext_resource type="Resource" uid="uid://cuerh7w08uco4" path="res://resources/thoughts/what_is_shell.tres" id="2_2tlgf"]
 [ext_resource type="Script" uid="uid://b3e6n7nbttp0c" path="res://scripts/Valk/Resource Types/thought_path.gd" id="2_w77fc"]
-[ext_resource type="Resource" uid="uid://beopfd6yqk0so" path="res://resources/thoughts/TimeToDie.tres" id="3_vsf20"]
-[ext_resource type="Resource" uid="uid://cuerh7w08uco4" path="res://resources/thoughts/Gun.tres" id="4_vsf20"]
+[ext_resource type="Resource" uid="uid://dwbrn5l1ernyw" path="res://resources/thoughts/first_shell.tres" id="3_b6f40"]
+[ext_resource type="Resource" uid="uid://cb4rs16k73lop" path="res://resources/thoughts/crouch.tres" id="3_njq6q"]
+[ext_resource type="Resource" uid="uid://beopfd6yqk0so" path="res://resources/thoughts/use_serum.tres" id="4_2tlgf"]
+[ext_resource type="Resource" uid="uid://chbvik850k7tu" path="res://resources/thoughts/kamien.tres" id="5_h0705"]
 
 [resource]
 script = ExtResource("2_w77fc")
-name = "I Live"
-required_clues = Array[ExtResource("1_sv7fu")]([ExtResource("2_3eoet"), ExtResource("3_vsf20"), ExtResource("4_vsf20")])
+name = "Shell"
+required_clues = Array[ExtResource("1_sv7fu")]([ExtResource("2_2tlgf"), ExtResource("3_njq6q"), ExtResource("3_b6f40"), ExtResource("5_h0705"), ExtResource("4_2tlgf")])
 metadata/_custom_type_script = "uid://b3e6n7nbttp0c"

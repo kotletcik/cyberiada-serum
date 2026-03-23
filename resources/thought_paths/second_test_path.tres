@@ -2,13 +2,12 @@
 
 [ext_resource type="Script" uid="uid://q760mct2evav" path="res://scripts/Valk/Resource Types/clue.gd" id="1_iiuqw"]
 [ext_resource type="Script" uid="uid://b3e6n7nbttp0c" path="res://scripts/Valk/Resource Types/thought_path.gd" id="2_6e27h"]
-[ext_resource type="Resource" uid="uid://dt7dtcb4bds7m" path="res://resources/thoughts/cat.tres" id="2_vxc38"]
-[ext_resource type="Resource" uid="uid://cpshgebigpcom" path="res://resources/thoughts/meow.tres" id="3_xko24"]
-[ext_resource type="Resource" uid="uid://emdxa24gcxrb" path="res://resources/thoughts/where.tres" id="4_7k7qr"]
-[ext_resource type="Resource" uid="uid://chbvik850k7tu" path="res://resources/thoughts/cat_heaven.tres" id="5_f7c7i"]
+[ext_resource type="Resource" uid="uid://cpshgebigpcom" path="res://resources/thoughts/wakeup.tres" id="2_7k7qr"]
+[ext_resource type="Resource" uid="uid://dt7dtcb4bds7m" path="res://resources/thoughts/watch.tres" id="3_f7c7i"]
+[ext_resource type="Resource" uid="uid://faycirwdm856" path="res://resources/thoughts/shells_killed.tres" id="5_7k7qr"]
 
 [resource]
 script = ExtResource("2_6e27h")
-name = "Cat Meow"
-required_clues = Array[ExtResource("1_iiuqw")]([ExtResource("3_xko24"), ExtResource("2_vxc38"), ExtResource("4_7k7qr"), ExtResource("5_f7c7i")])
+name = "Pobudka"
+required_clues = Array[ExtResource("1_iiuqw")]([ExtResource("2_7k7qr"), ExtResource("3_f7c7i"), ExtResource("5_7k7qr")])
 metadata/_custom_type_script = "uid://b3e6n7nbttp0c"

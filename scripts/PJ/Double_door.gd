@@ -9,6 +9,7 @@ var isInteracting: bool = false
 @export var second_door: Node3D
 @export var is_final_door: bool = false;
 @onready var nav_region: NavigationRegion3D = get_parent() as NavigationRegion3D
+@export var unlock_if_clue_realized: Clue;
 
 var interacted: bool = false;
 
@@ -17,6 +18,8 @@ func _ready() -> void:
 		EventBus.close_final_door.connect(close_door);
 
 func player_interact():
+	if(unlock_if_clue_realized != null):
+		if(!PalaceManager.instance.is_clue_realized(unlock_if_clue_realized)): return;
 	if (!isInteracting):
 		isInteracting = true
 		if (isDisposable && interacted): return
