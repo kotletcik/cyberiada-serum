@@ -34,7 +34,6 @@ func _ready():
 	EventBus.connect("game_restarted", transit_to_initial_state)
 	EventBus.connect("level_changed", transit_to_initial_state)
 
-#aktualizuje process current_state
 func _process(delta):
 	if current_state:
 		current_state.Update(delta)
@@ -43,14 +42,12 @@ func _physics_process(delta):
 	if current_state:
 		current_state.Physics_Update(delta)
 
+func transit_to_state(_state: State, new_state_type: int):
+	if _state != current_state: push_error("Doing _state != current_state in State_machine"); return
 
-#zmiana state'u czyli wył. current state i wł new state
-func transit_to_state(_state:State, new_state_type: int):
-	if _state != current_state:
-		return
 	var _new_state = states.get(new_state_type)
-	if !_new_state:
-		return
+	if !_new_state: push_error("Doing _new_state not found in State_machine"); return
+
 	if current_state:
 		current_state.Exit()
 		behaviour.Exit_state(current_state.state_type)
@@ -59,9 +56,9 @@ func transit_to_state(_state:State, new_state_type: int):
 	behaviour.Enter_state(_new_state.state_type)
 	current_state = _new_state
 	
+func transit_to_state_by_name(_state: int, _new_state: int):
+	transit_to_state(states.get(_state), _new_state)
+
 #funckja dla sygnałów
 func transit_to_initial_state(empty_arg):
 	transit_to_state(current_state, initial_state.state_type)
-	
-func transit_to_state_by_name(_state: int, _new_state: int):
-	transit_to_state(states.get(_state), _new_state)

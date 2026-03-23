@@ -107,8 +107,16 @@ func find_closest_serum_with_fov(fov: float) -> Node3D:
 
 func _physics_process(delta: float) -> void:
 	if(serum_level > settings.serum_overdose_level && serum_level < settings.serum_critical_level):
+		overtake_timer -= delta;
+		if(overtake_timer < 0):
+			player.global_translate(overtake_dir * settings.overtake_player_force * delta);
+			if(overtake_timer < -settings.overtake_duration):
+				overtake_timer = randf_range(settings.min_overtake_timer, settings.max_overtake_timer);
+				overtake_dir = Vector3(randf_range(-1, 1), 0 , randf_range(-1, 1)).normalized();
+
+	if(serum_level > settings.serum_critical_level):
 		# print("works");
-		# print(craving_timer);
+		print(craving_timer);
 		craving_timer -= delta;
 		if(craving_timer < 0):
 			var closest_serum: Node3D = find_closest_serum_with_fov(settings.craving_serum_fov); # vs find_closest_serum()
@@ -122,18 +130,13 @@ func _physics_process(delta: float) -> void:
 			var distance_sqr = (closest_serum_pos - player.global_position).length_squared();
 			if(distance_sqr < settings.craving_serum_take_radius*settings.craving_serum_take_radius):
 				unregister_serum(closest_serum);
+				var pickup_item = closest_serum as PickupItem;
+				EventBus.call_event(pickup_item.event_on_pickup);
+				PalaceManager.instance.add_gathered_clue(pickup_item.clue_on_pickup);
 				closest_serum.queue_free();
 				take_serum();	
 			if(craving_timer <= -settings.craving_duration):
 				craving_timer = randf_range(settings.min_craving_timer, settings.max_craving_timer);
-
-	if(serum_level > settings.serum_critical_level):
-		overtake_timer -= delta;
-		if(overtake_timer < 0):
-			player.global_translate(overtake_dir * settings.overtake_player_force * delta);
-			if(overtake_timer < -settings.overtake_duration):
-				overtake_timer = randf_range(settings.min_overtake_timer, settings.max_overtake_timer);
-				overtake_dir = Vector3(randf_range(-1, 1), 0 , randf_range(-1, 1)).normalized();
 
 
 func _process(delta: float) -> void:

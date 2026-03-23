@@ -6,7 +6,7 @@ func Update(_delta: float):
 	scream()
 
 func scream():
-	#animacja i dźwięk krzyku
+	state_machine.mob.animator.play("Rig_Large_Simulation/Flexing")
 	pass
 	
 	

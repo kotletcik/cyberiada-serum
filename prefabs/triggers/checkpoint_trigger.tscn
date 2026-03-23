@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cwpnmj2jjqjcg"]
 
-[ext_resource type="Script" uid="uid://c3vodqyuptu4f" path="res://scripts/Valk/restart_trigger.gd" id="1_hafmg"]
+[ext_resource type="Script" uid="uid://c3vodqyuptu4f" path="res://scripts/Valk/Scene Triggers/restart_trigger.gd" id="1_hafmg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_id4pr"]
 size = Vector3(1, 1, 4.9329834)
