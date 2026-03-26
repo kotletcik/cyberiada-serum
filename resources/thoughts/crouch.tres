@@ -7,4 +7,5 @@ script = ExtResource("1_18pgv")
 name = "Kucanie"
 description = "Widocznie powinnam kucać by shelle mnie nie wykryły"
 ui_pos = Vector2(256, 30)
+required_for_realization = false
 metadata/_custom_type_script = "uid://q760mct2evav"

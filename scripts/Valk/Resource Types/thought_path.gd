@@ -12,4 +12,6 @@ func initialize() -> void:
 
 func is_unlocked() -> bool:
     if(required_clues.size() <= 0 || is_clue_realized.size() <= 0): return false;
-    return is_clue_realized[0];
+    for i in range(0, required_clues.size()):
+        if(is_clue_realized[i]): return true;
+    return false;

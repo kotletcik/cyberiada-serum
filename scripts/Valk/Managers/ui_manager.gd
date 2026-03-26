@@ -230,6 +230,12 @@ func update_mind_palace_ui():
 	rocks_label.text = str(InventoryManager.instance.itemCount[ITEM_TYPE.ROCK]) + "x Kamieni";
 	serum_label.text = str(InventoryManager.instance.itemCount[ITEM_TYPE.SERUM]) + "x Serum";
 
+	if(chosen_thought_path == null):
+		for i in range(0, PalaceManager.instance.thought_paths.size()):
+			if(PalaceManager.instance.thought_paths[i].is_unlocked()):
+				chosen_thought_path = PalaceManager.instance.thought_paths[i];
+				break;
+
 	for i in range(0, PalaceManager.instance.thought_paths.size()):
 		if(!PalaceManager.instance.thought_paths[i].is_unlocked()): continue;
 		var thought_path_ui_instance = thought_path_ui.instantiate();
@@ -237,10 +243,17 @@ func update_mind_palace_ui():
 		thought_path_ui_instance.text = PalaceManager.instance.thought_paths[i].name;
 		thought_path_ui_instance.pressed.connect(choose_thought_path.bind(PalaceManager.instance.thought_paths[i]));
 		thought_path_ui_instance.position = Vector2(32, 540 - i * 96);
+		if(PalaceManager.instance.thought_paths[i] == chosen_thought_path):
+			var style: StyleBox = thought_path_ui_instance.get_theme_stylebox("normal").duplicate();
+			style.set_bg_color(Color.WHITE);
+			thought_path_ui_instance.add_theme_stylebox_override("normal", style);
+			thought_path_ui_instance.add_theme_color_override("font_color", Color.BLACK);
+
 		instanciated_thought_path_uis[thought_path_uis_count] = thought_path_ui_instance;
 		thought_path_uis_count += 1;
 		if(instanciated_thought_path_uis.size() == thought_path_uis_count):
 			instanciated_thought_path_uis.resize(thought_path_uis_count * 2);
+
 
 	for i in range(0, PalaceManager.instance.first_free_index):
 		# print("spawning thought ui");
@@ -253,17 +266,13 @@ func update_mind_palace_ui():
 		if(instanciated_thought_uis.size() == thought_uis_count):
 			instanciated_thought_uis.resize(thought_uis_count * 2);
 
-	if(chosen_thought_path == null): 
-		if(thought_path_uis_count > 0):
-			chosen_thought_path = PalaceManager.instance.thought_paths[0];
-		else:
-			return;
+	if(chosen_thought_path == null): return;
 
 	var thought_path_title: Label = mind_palace_ui.get_node("Panel2/Title");
 	thought_path_title.text = chosen_thought_path.name;
 
 	for i in range(0, chosen_thought_path.required_clues.size()):
-		if(!chosen_thought_path.is_clue_realized[i]): break;
+		if(!chosen_thought_path.is_clue_realized[i]): continue;
 		var thought_ui_instance = thought_ui.instantiate();
 		mind_palace_ui.get_node("Panel").add_child(thought_ui_instance);
 		var current_clue: Clue = chosen_thought_path.required_clues[i];

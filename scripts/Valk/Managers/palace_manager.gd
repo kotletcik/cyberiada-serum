@@ -28,6 +28,7 @@ func add_gathered_clue(new_clue: Clue):
 		gathered_clues.resize(first_free_index * 2);
 	UIManager.instance.show_added_thought_notif(new_clue, 5.0);
 	if(is_first_thought(new_clue)): create_thought(new_clue);
+	# if(new_clue.automatically_unlock_path): create_thought(new_clue);
 	# if(does_automatically_unlock(new_clue)): create_thought(new_clue);
 	EventBus.clue_gathered.emit(new_clue);
 
@@ -57,7 +58,7 @@ func is_correct_thought(checked_clue: Clue, chosen_clue: Clue) -> bool:
 			if(thought_paths[i].required_clues[j] == checked_clue && thought_paths[i].is_clue_realized[j]):
 				var index: int = j + 1;
 				for k in range(0, index):
-					if(!thought_paths[i].is_clue_realized[k]): return false;
+					if(!thought_paths[i].is_clue_realized[k] && thought_paths[i].required_for_realization[k]): return false;
 				if(index >= thought_paths[i].required_clues.size() || thought_paths[i].is_clue_realized[index]): return false;
 				if(thought_paths[i].required_clues[index] == chosen_clue): return true;
 	return false;

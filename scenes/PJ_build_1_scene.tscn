@@ -42,14 +42,6 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13hkq"]
 albedo_color = Color(0.27450982, 0.27450982, 0.27450982, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_j12l6"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uyulh"]
-albedo_color = Color(0.1584723, 0.15847233, 0.1584723, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_lfu3u"]
-size = Vector3(221.4159, 1, 263.3108)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jik7h"]
 albedo_color = Color(0.27450982, 0.27450982, 0.27450982, 1)
 
@@ -164,25 +156,12 @@ use_collision = true
 collision_layer = 2
 size = Vector3(500, 1.1, 500)
 
-[node name="floor2" type="CSGBox3D" parent="." unique_id=535322235]
+[node name="Celling" type="CSGBox3D" parent="." unique_id=535322235]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12173462, 5.031295, 0.5328655)
 material_override = SubResource("StandardMaterial3D_13hkq")
 use_collision = true
 collision_layer = 2
 size = Vector3(500, 1.1, 500)
-
-[node name="Ceiling" type="MeshInstance3D" parent="." unique_id=1733152512]
-transform = Transform3D(520, 0, 0, 0, 1, 0, 0, 0, 520, -0.897, 4.8946533, 0.384)
-visible = false
-mesh = SubResource("BoxMesh_j12l6")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_uyulh")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Ceiling" unique_id=2021668075]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ceiling/StaticBody3D" unique_id=2064699416]
-transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 1, -82.165695, 0, -35.662716)
-shape = SubResource("BoxShape3D_lfu3u")
 
 [node name="Start Location" type="Node3D" parent="." unique_id=944735480]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.642136, 0, -48.332222)

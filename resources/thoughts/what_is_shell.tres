@@ -10,6 +10,7 @@ script = ExtResource("1_8wiib")
 name = "Shell?"
 description = "Co to Shell???"
 ui_pos = Vector2(32, 31)
+required_for_realization = false
 clues_to_gather = Array[ExtResource("1_8wiib")]([ExtResource("2_0l265"), ExtResource("3_mlsht"), ExtResource("4_106pk")])
 does_automatically_unlock = Array[bool]([false, true, false])
 metadata/_custom_type_script = "uid://q760mct2evav"

@@ -28,10 +28,11 @@ func _get_drag_data(at_position: Vector2) -> Variant:
 	if(dragged_thought.is_on_thought_path): return;
 	dragged_clue = dragged_thought.thought_clue;
 
-	var preview: Control = thought_ui_scene.instantiate();
+	var preview: ThoughtUI = thought_ui_scene.instantiate();
 	dragged_thought.visible = false;
 	preview.get_node("TitleText").text = dragged_thought.get_node("TitleText").text;
 	preview.get_node("DescText").text = dragged_thought.get_node("DescText").text;
+	preview.set_is_reverse(true);
 
 	var c: Control = Control.new();
 	c.add_child(preview);
