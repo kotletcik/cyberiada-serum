@@ -10,7 +10,7 @@ enum triggers
 @export var name: String;
 @export var description: String;
 @export var ui_pos: Vector2;
-@export var automatically_unlock_path: bool = false;
+# @export var automatically_unlock_path: bool = false;
 @export var required_for_realization: bool = true;
 
 # @export var trigger_method_name: String;

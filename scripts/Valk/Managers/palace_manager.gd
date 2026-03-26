@@ -29,7 +29,6 @@ func add_gathered_clue(new_clue: Clue):
 	UIManager.instance.show_added_thought_notif(new_clue, 5.0);
 	if(is_first_thought(new_clue)): create_thought(new_clue);
 	# if(new_clue.automatically_unlock_path): create_thought(new_clue);
-	# if(does_automatically_unlock(new_clue)): create_thought(new_clue);
 	EventBus.clue_gathered.emit(new_clue);
 
 func remove_gathered_clue(clue_to_remove: Clue):
