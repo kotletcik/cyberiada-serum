@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://dug2gg4ldjhoc" path="res://prefabs/Mutation_navigation.tscn" id="14_uyulh"]
 [ext_resource type="PackedScene" uid="uid://bl7pr1jrqx1d8" path="res://prefabs/triggers/restart_trigger.tscn" id="15_lfu3u"]
 [ext_resource type="Script" uid="uid://bvpanlcy3bc06" path="res://scripts/Valk/Managers/save_manager.gd" id="17_njve1"]
+[ext_resource type="PackedScene" uid="uid://dkvjla8fgr5tp" path="res://prefabs/Dresser.tscn" id="18_4h7xs"]
 [ext_resource type="Resource" uid="uid://emdxa24gcxrb" path="res://resources/thoughts/serum.tres" id="18_bd5a3"]
 [ext_resource type="Resource" uid="uid://mm8l7277obwj" path="res://resources/last_checkpoint.tres" id="19_cnf01"]
 [ext_resource type="Resource" uid="uid://beopfd6yqk0so" path="res://resources/thoughts/use_serum.tres" id="20_j12l6"]
@@ -113,7 +114,7 @@ size = Vector3(0.4, 0.2, 0.2)
 script = ExtResource("1_xanii")
 
 [node name="Player" parent="." unique_id=2039338456 instance=ExtResource("1_ahihw")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -90.28173, 1.6258812, -39.03134)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -48.197662, 1.6258812, -21.149292)
 SOBER_WALK_SPEED = 6.9
 CROUCH_SPEED_MULTIPLIER = 0.3
 crouching_noise_volume = 1.5
@@ -158,6 +159,7 @@ size = Vector3(500, 1.1, 500)
 
 [node name="Celling" type="CSGBox3D" parent="." unique_id=535322235]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12173462, 5.031295, 0.5328655)
+visible = false
 material_override = SubResource("StandardMaterial3D_13hkq")
 use_collision = true
 collision_layer = 2
@@ -271,6 +273,9 @@ material_override = SubResource("StandardMaterial3D_jik7h")
 use_collision = true
 collision_layer = 4
 size = Vector3(1.4688797, 0.4507904, 1.9843903)
+
+[node name="StaticBody3D" parent="Start Location/Geometry" unique_id=967773588 instance=ExtResource("18_4h7xs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.71466255, 6.783882)
 
 [node name="Light" type="Node3D" parent="Start Location" unique_id=779494551]
 

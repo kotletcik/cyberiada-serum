@@ -7,7 +7,7 @@
 [ext_resource type="AnimationLibrary" uid="uid://c8y1lkise7b5r" path="res://addons/KayKit_Character_Animations_1.0/Animations/gltf/Rig_Large/Rig_Large_Simulation.glb" id="5_7e2mx"]
 [ext_resource type="PackedScene" uid="uid://bxerqeybhhs0c" path="res://prefabs/Mobs/state_machine.tscn" id="5_e6lbg"]
 [ext_resource type="Script" uid="uid://b7oh0gjgvjexb" path="res://scripts/PJ/state_machine/AI_controller.gd" id="6_ajbgq"]
-[ext_resource type="Script" path="res://prefabs/Mobs/movement_animator.gd" id="6_opuvl"]
+[ext_resource type="Script" uid="uid://dntly0y7t12o6" path="res://prefabs/Mobs/movement_animator.gd" id="6_opuvl"]
 [ext_resource type="Script" uid="uid://dkukaamdo4acb" path="res://scripts/PJ/state_machine/Shell_behaviour.gd" id="6_raqt8"]
 [ext_resource type="Script" uid="uid://ws43rxsp8qki" path="res://scripts/PJ/state_machine/States/Patrol.gd" id="7_ayt5m"]
 [ext_resource type="Script" uid="uid://cch3iwxpn7a6u" path="res://scripts/PJ/state_machine/States/Scream.gd" id="7_lqxc7"]
@@ -41,12 +41,12 @@ size = Vector3(0.4, 0.2, 0.2)
 collision_layer = 8
 collision_mask = 7
 script = ExtResource("6_raqt8")
+follow_sound_state_duration = 5.0
 sound_target = NodePath("State_machine/Wander/empty_target")
 state_machine = NodePath("State_machine")
 
 [node name="Skin" parent="." unique_id=1644313155 instance=ExtResource("2_ukenm")]
 transform = Transform3D(-0.5, 0, 4.371139e-08, 0, 0.5, 0, -4.371139e-08, 0, -0.5, 0, -0.9252626, 0)
-visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Skin" unique_id=203633144]
 libraries/Rig_Large_General = ExtResource("3_opuvl")
@@ -65,6 +65,7 @@ skeleton = NodePath("../../..")
 shape = SubResource("CapsuleShape3D_lj2st")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1510776867]
+visible = false
 mesh = SubResource("CapsuleMesh_ajbgq")
 surface_material_override/0 = SubResource("StandardMaterial3D_re4yq")
 
@@ -135,6 +136,7 @@ metadata/_custom_type_script = "uid://foywhiftl87x"
 
 [node name="Eyes" type="MeshInstance3D" parent="." unique_id=1218871193]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4183241, -0.47043222)
+visible = false
 mesh = SubResource("BoxMesh_raqt8")
 
 [node name="DebugLines" type="MeshInstance3D" parent="." unique_id=2138520060]

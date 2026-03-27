@@ -1,0 +1,257 @@
+[gd_scene format=3 uid="uid://dkvjla8fgr5tp"]
+
+[ext_resource type="Script" uid="uid://c66vv1yiekulm" path="res://scripts/PJ/door.gd" id="1_vo2pd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qqrry"]
+size = Vector3(0.45, 0.15, 0.03)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2l60k"]
+size = Vector3(0.45, 0.15, 0.03)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_poson"]
+albedo_color = Color(0.7417984, 0.7867048, 0.97661155, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k8hxv"]
+size = Vector3(0.5, 0.15, 0.03)
+
+[sub_resource type="BoxMesh" id="BoxMesh_l5ov4"]
+size = Vector3(0.5, 0.15, 0.03)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_66akp"]
+size = Vector3(0.5, 0.15, 0.03)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3nlnk"]
+size = Vector3(0.5, 0.15, 0.03)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a1cot"]
+size = Vector3(0.5, 0.15, 0.03)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wtw5s"]
+size = Vector3(0.5, 0.15, 0.03)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6fbjx"]
+size = Vector3(0.5, 0.45, 0.03)
+
+[sub_resource type="BoxMesh" id="BoxMesh_k8hxv"]
+size = Vector3(0.5, 0.45, 0.03)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w656f"]
+size = Vector3(0.5, 0.6, 0.03)
+
+[sub_resource type="BoxMesh" id="BoxMesh_drmnt"]
+size = Vector3(0.5, 0.6, 0.03)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e6kdk"]
+size = Vector3(0.5, 0.6, 0.03)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lerjn"]
+size = Vector3(0.5, 0.6, 0.03)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tbjoa"]
+size = Vector3(0.5, 0.6, 0.03)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ifsrx"]
+size = Vector3(0.5, 0.6, 0.03)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v60px"]
+size = Vector3(0.5, 0.5, 0.03)
+
+[sub_resource type="BoxMesh" id="BoxMesh_q8we0"]
+size = Vector3(0.5, 0.5, 0.03)
+
+[node name="StaticBody3D" type="StaticBody3D" unique_id=967773588]
+
+[node name="Drawer" type="StaticBody3D" parent="." unique_id=217114237]
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25220573)
+collision_layer = 4
+collision_mask = 17
+script = ExtResource("1_vo2pd")
+move_distance = 0.4
+open_duration = 1.5
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Drawer" unique_id=1762227497]
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25220573)
+shape = SubResource("BoxShape3D_qqrry")
+
+[node name="DoorVisuals" type="MeshInstance3D" parent="Drawer/CollisionShape3D2" unique_id=197626909]
+mesh = SubResource("BoxMesh_2l60k")
+skeleton = NodePath("../../../CollisionShape3D7")
+surface_material_override/0 = SubResource("StandardMaterial3D_poson")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Drawer" unique_id=1855480172]
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.24452084)
+shape = SubResource("BoxShape3D_k8hxv")
+
+[node name="DoorVisuals" type="MeshInstance3D" parent="Drawer/CollisionShape3D3" unique_id=422022116]
+mesh = SubResource("BoxMesh_l5ov4")
+skeleton = NodePath("../../../CollisionShape3D7")
+surface_material_override/0 = SubResource("StandardMaterial3D_poson")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Drawer" unique_id=2041597272]
+transform = Transform3D(-4.3711385e-08, 0, 1, 0, 1, 0, -0.9999999, 0, -4.371139e-08, -0.20892194, 0, -0.00025510788)
+shape = SubResource("BoxShape3D_66akp")
+
+[node name="DoorVisuals" type="MeshInstance3D" parent="Drawer/CollisionShape3D4" unique_id=934777843]
+mesh = SubResource("BoxMesh_3nlnk")
+skeleton = NodePath("../../../CollisionShape3D7")
+surface_material_override/0 = SubResource("StandardMaterial3D_poson")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Drawer" unique_id=680279611]
+transform = Transform3D(-4.3711385e-08, 0, 1, 0, 1, 0, -0.9999999, 0, -4.371139e-08, 0.21023858, 0, -0.00025510788)
+shape = SubResource("BoxShape3D_a1cot")
+
+[node name="DoorVisuals" type="MeshInstance3D" parent="Drawer/CollisionShape3D5" unique_id=1234765078]
+mesh = SubResource("BoxMesh_wtw5s")
+skeleton = NodePath("../../../CollisionShape3D7")
+surface_material_override/0 = SubResource("StandardMaterial3D_poson")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="Drawer" unique_id=949574108]
+transform = Transform3D(-4.3711385e-08, -1.0000001, 0, 0, 0, 1.0000001, -0.9999999, 4.3711392e-08, 0, 0, -0.04983756, 0.005590856)
+shape = SubResource("BoxShape3D_6fbjx")
+
+[node name="DoorVisuals" type="MeshInstance3D" parent="Drawer/CollisionShape3D6" unique_id=1523919395]
+mesh = SubResource("BoxMesh_k8hxv")
+skeleton = NodePath("../../../CollisionShape3D7")
+surface_material_override/0 = SubResource("StandardMaterial3D_poson")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="." unique_id=1285491771]
+transform = Transform3D(-4.3711385e-08, 0, 1, 0, 1, 0, -0.9999999, 0, -4.371139e-08, 0.2522456, 0.1822266, -0.27283353)
+shape = SubResource("BoxShape3D_w656f")
+
+[node name="DoorVisuals" type="MeshInstance3D" parent="CollisionShape3D7" unique_id=990883252]
+mesh = SubResource("BoxMesh_drmnt")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_poson")
+
+[node name="Drawer2" type="StaticBody3D" parent="." unique_id=1873198914]
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17855823, -0.25220573)
+collision_layer = 4
+collision_mask = 17
+script = ExtResource("1_vo2pd")
+move_distance = 0.4
+open_duration = 1.5
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Drawer2" unique_id=1793310763]
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25220573)
+shape = SubResource("BoxShape3D_qqrry")
+
+[node name="DoorVisuals" type="MeshInstance3D" parent="Drawer2/CollisionShape3D2" unique_id=491454424]
+mesh = SubResource("BoxMesh_2l60k")
+skeleton = NodePath("../../../CollisionShape3D7")
+surface_material_override/0 = SubResource("StandardMaterial3D_poson")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Drawer2" unique_id=722299495]
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.24452084)
+shape = SubResource("BoxShape3D_k8hxv")
+
+[node name="DoorVisuals" type="MeshInstance3D" parent="Drawer2/CollisionShape3D3" unique_id=1458321497]
+mesh = SubResource("BoxMesh_l5ov4")
+skeleton = NodePath("../../../CollisionShape3D7")
+surface_material_override/0 = SubResource("StandardMaterial3D_poson")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Drawer2" unique_id=1278722309]
+transform = Transform3D(-4.3711385e-08, 0, 1, 0, 1, 0, -0.9999999, 0, -4.371139e-08, -0.20892194, 0, -0.00025510788)
+shape = SubResource("BoxShape3D_66akp")
+
+[node name="DoorVisuals" type="MeshInstance3D" parent="Drawer2/CollisionShape3D4" unique_id=1650581103]
+mesh = SubResource("BoxMesh_3nlnk")
+skeleton = NodePath("../../../CollisionShape3D7")
+surface_material_override/0 = SubResource("StandardMaterial3D_poson")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Drawer2" unique_id=570869779]
+transform = Transform3D(-4.3711385e-08, 0, 1, 0, 1, 0, -0.9999999, 0, -4.371139e-08, 0.21023858, 0, -0.00025510788)
+shape = SubResource("BoxShape3D_a1cot")
+
+[node name="DoorVisuals" type="MeshInstance3D" parent="Drawer2/CollisionShape3D5" unique_id=592435001]
+mesh = SubResource("BoxMesh_wtw5s")
+skeleton = NodePath("../../../CollisionShape3D7")
+surface_material_override/0 = SubResource("StandardMaterial3D_poson")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="Drawer2" unique_id=1222544733]
+transform = Transform3D(-4.3711385e-08, -1.0000001, 0, 0, 0, 1.0000001, -0.9999999, 4.3711392e-08, 0, 0, -0.04983756, 0.005590856)
+shape = SubResource("BoxShape3D_6fbjx")
+
+[node name="DoorVisuals" type="MeshInstance3D" parent="Drawer2/CollisionShape3D6" unique_id=1674514803]
+mesh = SubResource("BoxMesh_k8hxv")
+skeleton = NodePath("../../../CollisionShape3D7")
+surface_material_override/0 = SubResource("StandardMaterial3D_poson")
+
+[node name="Drawer3" type="StaticBody3D" parent="." unique_id=1493558584]
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3609985, -0.25220573)
+collision_layer = 4
+collision_mask = 17
+script = ExtResource("1_vo2pd")
+move_distance = 0.4
+open_duration = 1.5
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Drawer3" unique_id=1986737234]
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25220573)
+shape = SubResource("BoxShape3D_qqrry")
+
+[node name="DoorVisuals" type="MeshInstance3D" parent="Drawer3/CollisionShape3D2" unique_id=924024977]
+mesh = SubResource("BoxMesh_2l60k")
+skeleton = NodePath("../../../CollisionShape3D7")
+surface_material_override/0 = SubResource("StandardMaterial3D_poson")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Drawer3" unique_id=1572409305]
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.24452084)
+shape = SubResource("BoxShape3D_k8hxv")
+
+[node name="DoorVisuals" type="MeshInstance3D" parent="Drawer3/CollisionShape3D3" unique_id=1030089219]
+mesh = SubResource("BoxMesh_l5ov4")
+skeleton = NodePath("../../../CollisionShape3D7")
+surface_material_override/0 = SubResource("StandardMaterial3D_poson")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Drawer3" unique_id=1588441714]
+transform = Transform3D(-4.3711385e-08, 0, 1, 0, 1, 0, -0.9999999, 0, -4.371139e-08, -0.20892194, 0, -0.00025510788)
+shape = SubResource("BoxShape3D_66akp")
+
+[node name="DoorVisuals" type="MeshInstance3D" parent="Drawer3/CollisionShape3D4" unique_id=13658799]
+mesh = SubResource("BoxMesh_3nlnk")
+skeleton = NodePath("../../../CollisionShape3D7")
+surface_material_override/0 = SubResource("StandardMaterial3D_poson")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Drawer3" unique_id=348997582]
+transform = Transform3D(-4.3711385e-08, 0, 1, 0, 1, 0, -0.9999999, 0, -4.371139e-08, 0.21023858, 0, -0.00025510788)
+shape = SubResource("BoxShape3D_a1cot")
+
+[node name="DoorVisuals" type="MeshInstance3D" parent="Drawer3/CollisionShape3D5" unique_id=427756191]
+mesh = SubResource("BoxMesh_wtw5s")
+skeleton = NodePath("../../../CollisionShape3D7")
+surface_material_override/0 = SubResource("StandardMaterial3D_poson")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="Drawer3" unique_id=1581988705]
+transform = Transform3D(-4.3711385e-08, -1.0000001, 0, 0, 0, 1.0000001, -0.9999999, 4.3711392e-08, 0, 0, -0.04983756, 0.005590856)
+shape = SubResource("BoxShape3D_6fbjx")
+
+[node name="DoorVisuals" type="MeshInstance3D" parent="Drawer3/CollisionShape3D6" unique_id=2000865341]
+mesh = SubResource("BoxMesh_k8hxv")
+skeleton = NodePath("../../../CollisionShape3D7")
+surface_material_override/0 = SubResource("StandardMaterial3D_poson")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="." unique_id=1228130777]
+transform = Transform3D(-4.3711385e-08, 0, 1, 0, 1, 0, -0.9999999, 0, -4.371139e-08, -0.25232804, 0.1822266, -0.27283353)
+shape = SubResource("BoxShape3D_e6kdk")
+
+[node name="DoorVisuals" type="MeshInstance3D" parent="CollisionShape3D8" unique_id=382069476]
+mesh = SubResource("BoxMesh_lerjn")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_poson")
+
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="." unique_id=950051849]
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 1, -0.004336804, 0.1822266, -0.5079406)
+shape = SubResource("BoxShape3D_tbjoa")
+
+[node name="DoorVisuals" type="MeshInstance3D" parent="CollisionShape3D9" unique_id=1325343811]
+mesh = SubResource("BoxMesh_ifsrx")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_poson")
+
+[node name="CollisionShape3D10" type="CollisionShape3D" parent="." unique_id=1525635781]
+transform = Transform3D(1.9106853e-15, 1, -4.371139e-08, 4.3711385e-08, -4.371139e-08, -1, -0.9999999, 0, -4.371139e-08, -0.0070667565, 0.45338637, -0.27283353)
+shape = SubResource("BoxShape3D_v60px")
+
+[node name="DoorVisuals" type="MeshInstance3D" parent="CollisionShape3D10" unique_id=1554435605]
+mesh = SubResource("BoxMesh_q8we0")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_poson")
