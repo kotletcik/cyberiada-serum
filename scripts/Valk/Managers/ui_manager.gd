@@ -245,12 +245,12 @@ func update_mind_palace_ui():
 		thought_path_ui_instance.position = Vector2(32, 540 - i * 96);
 		if(PalaceManager.instance.thought_paths[i] == chosen_thought_path):
 			var style: StyleBox = thought_path_ui_instance.get_theme_stylebox("normal").duplicate();
-			style.set_bg_color(Color.WHITE);
+			style.set_bg_color(Color(0.9, 0.9, 0.9));
 			thought_path_ui_instance.add_theme_stylebox_override("normal", style);
 			thought_path_ui_instance.add_theme_color_override("font_hover_color", Color.BLACK);
 
 			var style_hover: StyleBox = thought_path_ui_instance.get_theme_stylebox("hover").duplicate();
-			style_hover.set_bg_color(Color(0.8,0.8, 0.8));
+			style_hover.set_bg_color(Color.WHITE);
 			thought_path_ui_instance.add_theme_stylebox_override("hover", style_hover);
 			thought_path_ui_instance.add_theme_color_override("font_color", Color.BLACK);
 

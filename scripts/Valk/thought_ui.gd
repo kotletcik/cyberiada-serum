@@ -26,7 +26,7 @@ func set_is_reverse(value: bool) -> void:
 	is_reversed = value;
 	if(is_reversed):
 		var style: StyleBox = get_theme_stylebox("panel").duplicate();
-		style.set_bg_color(Color(0.2, 0.2, 0.2));
+		style.set_bg_color(Color(0.1, 0.1, 0.1));
 		add_theme_stylebox_override("panel", style);
 
 		# get_node("DescText").add_theme_color_override("default_color", Color.BLACK);

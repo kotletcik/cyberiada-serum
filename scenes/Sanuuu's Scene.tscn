@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://crieh6p2wex26"]
+
+[ext_resource type="PackedScene" uid="uid://dg433bvfg6cvt" path="res://prefabs/PlayerValk.tscn" id="1_wqkun"]
+[ext_resource type="Script" uid="uid://s47j5s0f3fdy" path="res://scripts/Valk/Managers/psyche_manager.gd" id="2_qxe8w"]
+[ext_resource type="Resource" uid="uid://brv8sbdh27gef" path="res://resources/settings/test_psyche_manager_settings.tres" id="3_bd751"]
+[ext_resource type="PackedScene" uid="uid://d02kasr2lce4t" path="res://prefabs/Mobs/Mutation.tscn" id="4_fx35l"]
+[ext_resource type="PackedScene" uid="uid://blsbgq16qsq5d" path="res://prefabs/ui_manager.tscn" id="5_kucs5"]
+[ext_resource type="Script" uid="uid://c681q57ewat6f" path="res://scripts/Valk/Managers/game_manager.gd" id="6_5x26y"]
+[ext_resource type="Script" uid="uid://coysphqpo5g2l" path="res://scripts/Valk/Managers/inventory_manager.gd" id="7_t6nxi"]
+[ext_resource type="Script" uid="uid://bj28ubqcmsltd" path="res://scripts/Valk/Managers/palace_manager.gd" id="8_b0m6d"]
+[ext_resource type="Script" uid="uid://b3e6n7nbttp0c" path="res://scripts/Valk/Resource Types/thought_path.gd" id="9_f5q0v"]
+[ext_resource type="Resource" uid="uid://cught0y7spfwy" path="res://resources/thought_paths/second_test_path.tres" id="10_6626w"]
+[ext_resource type="Resource" uid="uid://wncbvvg6xpva" path="res://resources/thought_paths/trigger_path.tres" id="11_q7k8i"]
+[ext_resource type="Resource" uid="uid://cop13c5am162g" path="res://resources/thought_paths/test_clue_path.tres" id="12_dsa41"]
+[ext_resource type="Script" uid="uid://bvpanlcy3bc06" path="res://scripts/Valk/Managers/save_manager.gd" id="13_hh28x"]
+[ext_resource type="Resource" uid="uid://mm8l7277obwj" path="res://resources/last_checkpoint.tres" id="14_deoyr"]
+[ext_resource type="AudioStream" uid="uid://dw3p28ug7xoyi" path="res://assets/sounds/krok.WAV" id="15_qxe8w"]
+[ext_resource type="AudioStream" uid="uid://daof4anq0ja1i" path="res://assets/sounds/krok_loop.WAV" id="16_bd751"]
+[ext_resource type="Script" uid="uid://ya4ornwqbccw" path="res://scripts/Sanuuu/sound_test.gd" id="17_fx35l"]
+[ext_resource type="AudioStream" uid="uid://2xly1f7cdc8y" path="res://assets/sounds/throw_hit.wav" id="18_kucs5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wqkun"]
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bd751"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t4e8a"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_nxxrq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4hjr6"]
+albedo_color = Color(0.24313726, 1, 1, 1)
+
+[node name="Sanuuu\'sScene" type="Node3D" unique_id=1569069588]
+
+[node name="Player" parent="." unique_id=767105809 instance=ExtResource("1_wqkun")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -48.197662, 1.6258812, -21.149292)
+SOBER_WALK_SPEED = 6.9
+CROUCH_SPEED_MULTIPLIER = 0.3
+crouching_noise_volume = 1.5
+walking_noise_volume = 3.0
+crouch_check_y = 0.845
+crouch_check_radius = 0.5
+
+[node name="PsycheManager" type="Node" parent="." unique_id=1136912872 node_paths=PackedStringArray("player")]
+script = ExtResource("2_qxe8w")
+player = NodePath("../Player")
+settings = ExtResource("3_bd751")
+mutation = ExtResource("4_fx35l")
+metadata/_custom_type_script = "uid://s47j5s0f3fdy"
+
+[node name="UIManager" parent="." unique_id=798929640 instance=ExtResource("5_kucs5")]
+
+[node name="GameManager" type="Node" parent="." unique_id=352175328]
+script = ExtResource("6_5x26y")
+metadata/_custom_type_script = "uid://s47j5s0f3fdy"
+
+[node name="InventoryManager" type="Node" parent="." unique_id=1854412405]
+script = ExtResource("7_t6nxi")
+metadata/_custom_type_script = "uid://coysphqpo5g2l"
+
+[node name="PalaceManager" type="Node" parent="." unique_id=1209854694]
+script = ExtResource("8_b0m6d")
+thought_paths = Array[ExtResource("9_f5q0v")]([ExtResource("10_6626w"), ExtResource("11_q7k8i"), ExtResource("12_dsa41")])
+metadata/_custom_type_script = "uid://bj28ubqcmsltd"
+
+[node name="SaveManager" type="Node" parent="." unique_id=770996001]
+script = ExtResource("13_hh28x")
+last_checkpoint = ExtResource("14_deoyr")
+metadata/_custom_type_script = "uid://bvpanlcy3bc06"
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=713366521]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.898106, 0.76010656, -20.897017)
+material_override = SubResource("StandardMaterial3D_wqkun")
+use_collision = true
+size = Vector3(15.536621, 1, 17.11206)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1376888982]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, -41, 0, 0)
+light_energy = 16.0
+light_indirect_energy = 16.0
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1549691647]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.46898, 1.6749032, -21)
+stream = ExtResource("15_qxe8w")
+autoplay = true
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="AudioStreamPlayer3D" unique_id=125891530]
+mesh = SubResource("BoxMesh_bd751")
+skeleton = NodePath("../../AudioStreamPlayer3D2")
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="." unique_id=2022461091]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54, 1.6749032, -18.25028)
+stream = ExtResource("16_bd751")
+autoplay = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="AudioStreamPlayer3D2" unique_id=172406709]
+mesh = SubResource("BoxMesh_bd751")
+
+[node name="Sound Test z doczepionym skryptem" type="StaticBody3D" parent="." unique_id=1221183155]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.405422, 1.7601061, -23.698334)
+script = ExtResource("17_fx35l")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sound Test z doczepionym skryptem" unique_id=1586073657]
+shape = SubResource("BoxShape3D_t4e8a")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Sound Test z doczepionym skryptem" unique_id=791104458]
+mesh = SubResource("BoxMesh_nxxrq")
+surface_material_override/0 = SubResource("StandardMaterial3D_4hjr6")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Sound Test z doczepionym skryptem" unique_id=2024638832]
+stream = ExtResource("18_kucs5")
