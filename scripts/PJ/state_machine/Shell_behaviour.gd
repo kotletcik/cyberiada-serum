@@ -62,7 +62,6 @@ func Check_conditions(delta: float) -> void:
 		State.types.Follow_sound:
 			var temp: Vector3 = (self.global_position) - (sound_target.global_position)
 			temp.y = 0;
-			print(temp.length());
 			if (is_player_in_sight() && player_is_on_region()):
 				if (PsycheManager.instance.invisibility_timer <= 0): 
 					change_state_by_name(State.types.Scream);

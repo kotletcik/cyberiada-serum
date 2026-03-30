@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://byx5g30qau87a"]
+
+[ext_resource type="Script" uid="uid://dj53js5ssnx8d" path="res://scripts/Valk/pickup_item.gd" id="1_hxlt5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t4e8a"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nxxrq"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4hjr6"]
+
+[node name="Serum" type="StaticBody3D" unique_id=1185205921]
+collision_layer = 64
+script = ExtResource("1_hxlt5")
+group_name = "Serum"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1517536549]
+shape = SubResource("BoxShape3D_t4e8a")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1649528630]
+mesh = SubResource("BoxMesh_nxxrq")
+surface_material_override/0 = SubResource("StandardMaterial3D_4hjr6")

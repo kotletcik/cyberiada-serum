@@ -7,6 +7,7 @@ var isInteracting: bool = false
 @export var open_duration:= 1.0
 @onready var nav_region: NavigationRegion3D = get_parent() as NavigationRegion3D
 
+
 func player_interact():
 	if (!isInteracting):
 		isInteracting = true

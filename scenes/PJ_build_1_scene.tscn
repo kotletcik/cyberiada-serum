@@ -11,18 +11,18 @@
 [ext_resource type="Script" uid="uid://b3e6n7nbttp0c" path="res://scripts/Valk/Resource Types/thought_path.gd" id="6_8isj6"]
 [ext_resource type="Resource" uid="uid://cught0y7spfwy" path="res://resources/thought_paths/second_test_path.tres" id="7_sbrwg"]
 [ext_resource type="Resource" uid="uid://cop13c5am162g" path="res://resources/thought_paths/test_clue_path.tres" id="8_g76yq"]
-[ext_resource type="PackedScene" uid="uid://doimrejwy0736" path="res://prefabs/Double_door.tscn" id="8_vcjj7"]
+[ext_resource type="PackedScene" uid="uid://doimrejwy0736" path="res://prefabs/Scene Prefabs/Interior/Double_door.tscn" id="8_vcjj7"]
 [ext_resource type="PackedScene" uid="uid://ce6h2fmee74sw" path="res://prefabs/Scene Prefabs/scene_serum.tscn" id="9_3rc8y"]
 [ext_resource type="Resource" uid="uid://wncbvvg6xpva" path="res://resources/thought_paths/trigger_path.tres" id="9_e7wky"]
 [ext_resource type="PackedScene" uid="uid://bieh4iknld2hn" path="res://prefabs/Scene Prefabs/scene_rock.tscn" id="10_abvy7"]
-[ext_resource type="PackedScene" uid="uid://bw8wddlntpkih" path="res://prefabs/Door.tscn" id="10_vcjj7"]
+[ext_resource type="PackedScene" uid="uid://bw8wddlntpkih" path="res://prefabs/Scene Prefabs/Interior/Door.tscn" id="10_vcjj7"]
 [ext_resource type="PackedScene" uid="uid://dqoenfwxbkoli" path="res://prefabs/Mobs/Shell.tscn" id="11_01gpf"]
-[ext_resource type="PackedScene" uid="uid://dfiw1ws6ojtp8" path="res://prefabs/PatrolPoint.tscn" id="12_uyulh"]
+[ext_resource type="PackedScene" uid="uid://dfiw1ws6ojtp8" path="res://prefabs/Scene Prefabs/Markers/PatrolPoint.tscn" id="12_uyulh"]
 [ext_resource type="PackedScene" uid="uid://blsbgq16qsq5d" path="res://prefabs/ui_manager.tscn" id="13_rf5c3"]
-[ext_resource type="PackedScene" uid="uid://dug2gg4ldjhoc" path="res://prefabs/Mutation_navigation.tscn" id="14_uyulh"]
+[ext_resource type="PackedScene" uid="uid://dug2gg4ldjhoc" path="res://prefabs/Scene Prefabs/Interior/Mutation_nav_floor.tscn" id="14_uyulh"]
 [ext_resource type="PackedScene" uid="uid://bl7pr1jrqx1d8" path="res://prefabs/triggers/restart_trigger.tscn" id="15_lfu3u"]
 [ext_resource type="Script" uid="uid://bvpanlcy3bc06" path="res://scripts/Valk/Managers/save_manager.gd" id="17_njve1"]
-[ext_resource type="PackedScene" uid="uid://dkvjla8fgr5tp" path="res://prefabs/Dresser.tscn" id="18_4h7xs"]
+[ext_resource type="PackedScene" uid="uid://dkvjla8fgr5tp" path="res://prefabs/Scene Prefabs/Interior/Dresser.tscn" id="18_4h7xs"]
 [ext_resource type="Resource" uid="uid://emdxa24gcxrb" path="res://resources/thoughts/serum.tres" id="18_bd5a3"]
 [ext_resource type="Resource" uid="uid://mm8l7277obwj" path="res://resources/last_checkpoint.tres" id="19_cnf01"]
 [ext_resource type="Resource" uid="uid://beopfd6yqk0so" path="res://resources/thoughts/use_serum.tres" id="20_j12l6"]
@@ -114,7 +114,7 @@ size = Vector3(0.4, 0.2, 0.2)
 script = ExtResource("1_xanii")
 
 [node name="Player" parent="." unique_id=2039338456 instance=ExtResource("1_ahihw")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -48.197662, 1.6258812, -21.149292)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -88.79094, 1.6258812, -39.240444)
 SOBER_WALK_SPEED = 6.9
 CROUCH_SPEED_MULTIPLIER = 0.3
 crouching_noise_volume = 1.5

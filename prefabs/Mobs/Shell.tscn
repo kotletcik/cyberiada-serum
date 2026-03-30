@@ -5,9 +5,9 @@
 [ext_resource type="AnimationLibrary" uid="uid://iy5871tg82i6" path="res://addons/KayKit_Character_Animations_1.0/Animations/gltf/Rig_Large/Rig_Large_General.glb" id="3_opuvl"]
 [ext_resource type="AnimationLibrary" uid="uid://drtl0aynkbn2u" path="res://addons/KayKit_Character_Animations_1.0/Animations/gltf/Rig_Large/Rig_Large_MovementBasic.glb" id="4_rsf4w"]
 [ext_resource type="AnimationLibrary" uid="uid://c8y1lkise7b5r" path="res://addons/KayKit_Character_Animations_1.0/Animations/gltf/Rig_Large/Rig_Large_Simulation.glb" id="5_7e2mx"]
-[ext_resource type="PackedScene" uid="uid://bxerqeybhhs0c" path="res://prefabs/Mobs/state_machine.tscn" id="5_e6lbg"]
-[ext_resource type="Script" uid="uid://b7oh0gjgvjexb" path="res://scripts/PJ/state_machine/AI_controller.gd" id="6_ajbgq"]
-[ext_resource type="Script" uid="uid://dntly0y7t12o6" path="res://prefabs/Mobs/movement_animator.gd" id="6_opuvl"]
+[ext_resource type="PackedScene" uid="uid://bxerqeybhhs0c" path="res://prefabs/Mobs/State_machine.tscn" id="5_e6lbg"]
+[ext_resource type="Script" uid="uid://b7oh0gjgvjexb" path="res://scripts/PJ/state_machine/Enemy_movement.gd" id="6_ajbgq"]
+[ext_resource type="Script" uid="uid://dntly0y7t12o6" path="res://scripts/PJ/movement_animator.gd" id="6_opuvl"]
 [ext_resource type="Script" uid="uid://dkukaamdo4acb" path="res://scripts/PJ/state_machine/Shell_behaviour.gd" id="6_raqt8"]
 [ext_resource type="Script" uid="uid://ws43rxsp8qki" path="res://scripts/PJ/state_machine/States/Patrol.gd" id="7_ayt5m"]
 [ext_resource type="Script" uid="uid://cch3iwxpn7a6u" path="res://scripts/PJ/state_machine/States/Scream.gd" id="7_lqxc7"]
@@ -72,6 +72,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_re4yq")
 _body = NodePath("..")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=5614037]
+avoidance_enabled = true
 debug_path_custom_color = Color(0.95686275, 0.13333334, 0.23137255, 1)
 script = ExtResource("6_ajbgq")
 
