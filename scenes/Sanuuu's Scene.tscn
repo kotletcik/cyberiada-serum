@@ -108,5 +108,5 @@ shape = SubResource("BoxShape3D_t4e8a")
 mesh = SubResource("BoxMesh_nxxrq")
 surface_material_override/0 = SubResource("StandardMaterial3D_4hjr6")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Sound Test z doczepionym skryptem" unique_id=2024638832]
+[node name="AudioTest" type="AudioStreamPlayer3D" parent="Sound Test z doczepionym skryptem" unique_id=2024638832]
 stream = ExtResource("18_kucs5")

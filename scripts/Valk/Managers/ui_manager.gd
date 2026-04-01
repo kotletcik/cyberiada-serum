@@ -8,6 +8,7 @@ static var instance: UIManager;
 @export var mind_palace_ui: CanvasLayer;
 @export var thought_ui: Resource;
 @export var thought_path_ui: Resource;
+@export var notes_ui: CanvasLayer;
 @export var esc_menu: CanvasLayer;
 @export var game_over_screen: CanvasLayer;
 @export var bad_ending_screen: CanvasLayer;
@@ -32,6 +33,7 @@ var is_in_esc_menu: bool = false;
 var is_in_game: bool = true;
 
 var chosen_thought_path: ThoughtPath = null;
+var chosen_note: Note = null;
 
 var rocks_label: Label
 var serum_label: Label
@@ -288,7 +290,7 @@ func update_mind_palace_ui():
 			instanciated_thought_uis.resize(thought_uis_count * 2);
 
 func clear_mind_palace_ui():
-	for i in range(thought_uis_count - 1, -1, -1): #-1 bo koniec jest exlusive wiec idzie do 0
+	for i in range(thought_uis_count - 1, -1, -1):
 		instanciated_thought_uis[i].queue_free();
 		# print("destroyed thought ui");
 	instanciated_thought_uis = [null];
@@ -300,17 +302,46 @@ func clear_mind_palace_ui():
 	instanciated_thought_path_uis = [null];
 	thought_path_uis_count = 0;
 
-func choose_thought_path(path: ThoughtPath):
-	chosen_thought_path = path;
-	clear_mind_palace_ui();
-	update_mind_palace_ui();
-
 func hide_mind_palace_ui():
 	is_in_game = true;
 	remove_child(mind_palace_ui);
 	clear_mind_palace_ui();
 	cursor_locked_game = true;
 	update_cursor();
+
+func show_notes_ui():
+	is_in_game = false;
+	add_child(notes_ui);
+	update_notes_ui();
+	cursor_locked_game = false;
+	update_cursor();
+
+func update_notes_ui():
+	pass
+
+func clear_notes_ui():
+	for i in range(thought_path_uis_count - 1, -1, -1):
+		instanciated_thought_path_uis[i].queue_free();
+	instanciated_thought_path_uis = [null];
+	thought_path_uis_count = 0;
+
+func hide_notes_ui():
+	is_in_game = true;
+	remove_child(notes_ui);
+	clear_notes_ui();
+	cursor_locked_game = true;
+	update_cursor();
+
+func choose_thought_path(path: ThoughtPath):
+	chosen_thought_path = path;
+	clear_mind_palace_ui();
+	update_mind_palace_ui();
+
+func choose_note_ui(note: Note):
+	chosen_note = note;
+	clear_notes_ui();
+	update_notes_ui();
+
 
 func show_note_ui(note_content: String) -> void:
 	is_note_ui_active = true;
