@@ -3,15 +3,20 @@
 [ext_resource type="Script" uid="uid://k7qr63sybur6" path="res://scripts/Valk/Managers/ui_manager.gd" id="1_4asm2"]
 [ext_resource type="PackedScene" uid="uid://drcpcwf6f8sgw" path="res://prefabs/ui/thought_ui.tscn" id="2_5x7yg"]
 [ext_resource type="PackedScene" uid="uid://bya7074yvflm6" path="res://prefabs/ui/thought_path_button.tscn" id="3_bpt2d"]
-[ext_resource type="PackedScene" uid="uid://d1i2hyd827vx1" path="res://prefabs/ui/note_ui.tscn" id="4_1dmpx"]
 [ext_resource type="Script" uid="uid://bw0o64kaou276" path="res://scripts/Valk/palace_ui_controller.gd" id="5_6hyqm"]
 [ext_resource type="PackedScene" uid="uid://gld2pf7nmd7u" path="res://prefabs/ui/controls_panel.tscn" id="6_msfjg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wtjxn"]
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_811im"]
+bg_color = Color(1, 1, 1, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_811im"]
 font_size = 64
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ixb54"]
+bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_cnf01"]
 font_size = 32
@@ -25,21 +30,19 @@ bg_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wtjxn"]
 bg_color = Color(0, 0, 0, 1)
 
-[node name="UIManager" type="Node" unique_id=798929640 node_paths=PackedStringArray("note_ui", "added_thought_notif", "mind_palace_ui", "esc_menu", "game_over_screen", "bad_ending_screen", "good_ending_screen", "black_transition")]
+[node name="UIManager" type="Node" unique_id=798929640 node_paths=PackedStringArray("added_thought_notif", "mind_palace_ui", "notes_ui", "esc_menu", "game_over_screen", "bad_ending_screen", "good_ending_screen", "black_transition")]
 script = ExtResource("1_4asm2")
-note_ui = NodePath("NoteUI")
 added_thought_notif = NodePath("AddedThoughtNotif")
 mind_palace_ui = NodePath("MindPalace")
 thought_ui = ExtResource("2_5x7yg")
 thought_path_ui = ExtResource("3_bpt2d")
+notes_ui = NodePath("NotesUI")
 esc_menu = NodePath("EscMenu")
 game_over_screen = NodePath("Game Over")
 bad_ending_screen = NodePath("Bad Ending")
 good_ending_screen = NodePath("Good Ending")
 black_transition = NodePath("Black Transition")
 metadata/_custom_type_script = "uid://k7qr63sybur6"
-
-[node name="NoteUI" parent="." unique_id=1191746793 instance=ExtResource("4_1dmpx")]
 
 [node name="AddedThoughtNotif" type="CanvasLayer" parent="." unique_id=1916351234]
 
@@ -116,11 +119,30 @@ anchor_top = 0.49500003
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -915.0
-offset_top = -323.60004
+offset_top = -406.60004
 offset_right = -649.0
-offset_bottom = 318.0
+offset_bottom = 464.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Button" type="Button" parent="MindPalace/ThoughtPaths" unique_id=1465277804]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -71.0
+offset_right = 130.0
+offset_bottom = -23.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 0.5019608)
+theme_override_styles/disabled = SubResource("StyleBoxFlat_811im")
+disabled = true
+text = "Mind Palace"
+
+[node name="Button2" type="Button" parent="MindPalace/ThoughtPaths" unique_id=132574780]
+layout_mode = 0
+offset_left = 130.0
+offset_top = -71.0
+offset_right = 258.0
+offset_bottom = -23.0
+text = "Notatki"
 
 [node name="Panel2" type="Panel" parent="MindPalace" unique_id=1840883303]
 anchors_preset = -1
@@ -183,6 +205,123 @@ offset_right = 257.0
 offset_bottom = 133.0
 text = "10x Serum"
 vertical_alignment = 1
+
+[node name="NotesUI" type="CanvasLayer" parent="." unique_id=1986339857]
+
+[node name="ThoughtPaths" type="Panel" parent="NotesUI" unique_id=847349048]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.49500003
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -915.0
+offset_top = -406.60004
+offset_right = -649.0
+offset_bottom = 464.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="NotesUI/ThoughtPaths" unique_id=1892961697]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -71.0
+offset_right = 130.0
+offset_bottom = -23.0
+text = "Mind Palace"
+
+[node name="Button2" type="Button" parent="NotesUI/ThoughtPaths" unique_id=1494277307]
+layout_mode = 0
+offset_left = 130.0
+offset_top = -71.0
+offset_right = 258.0
+offset_bottom = -23.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 0.5019608)
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ixb54")
+disabled = true
+text = "Notatki"
+
+[node name="Panel2" type="Panel" parent="NotesUI" unique_id=1644473811]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.49500003
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -577.0
+offset_top = -425.60004
+offset_right = 579.0
+offset_bottom = -339.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="NotesUI/Panel2" unique_id=1936629460]
+layout_mode = 0
+offset_right = 1156.0
+offset_bottom = 94.0
+text = "Cat Meow"
+label_settings = SubResource("LabelSettings_811im")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Inventory" type="Panel" parent="NotesUI" unique_id=331612028]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.49500003
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 650.0
+offset_top = 357.39996
+offset_right = 916.0
+offset_bottom = 489.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="NotesUI/Inventory" unique_id=244147557]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 1.0
+offset_right = 260.0
+offset_bottom = 49.0
+text = "Mam:"
+vertical_alignment = 1
+
+[node name="Rock" type="Label" parent="NotesUI/Inventory" unique_id=312103329]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 36.0
+offset_right = 257.0
+offset_bottom = 84.0
+text = "10x Rocks"
+vertical_alignment = 1
+
+[node name="Serum" type="Label" parent="NotesUI/Inventory" unique_id=549090650]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 85.0
+offset_right = 257.0
+offset_bottom = 133.0
+text = "10x Serum"
+vertical_alignment = 1
+
+[node name="CurrentNoteUI" type="CanvasLayer" parent="NotesUI" unique_id=1224800612]
+
+[node name="ColorRect" type="ColorRect" parent="NotesUI/CurrentNoteUI" unique_id=1803338481]
+offset_left = 706.0
+offset_top = 280.0
+offset_right = 1230.0
+offset_bottom = 920.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="NotesUI/CurrentNoteUI" unique_id=1012787536]
+anchors_preset = -1
+anchor_left = 0.52900004
+anchor_top = 0.53400004
+anchor_right = 0.52900004
+anchor_bottom = 0.53400004
+offset_left = -293.68005
+offset_top = -270.72003
+offset_right = 192.31995
+offset_bottom = 310.27997
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Meow Meow Meow"
 
 [node name="EscMenu" type="CanvasLayer" parent="." unique_id=1388220282]
 

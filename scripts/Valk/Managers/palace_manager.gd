@@ -8,6 +8,9 @@ var first_free_index: int = 0;
 
 @export var thought_paths: Array[ThoughtPath] = [null];
 
+var gathered_notes: Array[Note] = [null];
+var first_note_free_index: int = 0;
+
 
 func _ready() -> void:
 	if(instance == null):
@@ -17,6 +20,35 @@ func _ready() -> void:
 	else:
 		print("More than one PalaceManager exists!!!");
 	pass 
+
+func get_note_index(note: Note):
+	for i in range(0, first_note_free_index):
+		if(gathered_notes[i] == note):
+			return i;
+	return -1;
+
+
+func get_thought_path_index(thought_path: ThoughtPath):
+	for i in range(0, thought_paths.size()):
+		if(thought_paths[i] == thought_path):
+			return i;
+	return -1;
+
+func is_note_gathered(note: Note):
+	for i in range(0, first_note_free_index):
+		if(gathered_notes[i] == note):
+			return true;
+	return false;
+
+func gather_note(new_note: Note):
+	if(new_note == null): return;
+	if(!is_note_gathered(new_note)):
+		gathered_notes[first_note_free_index] = new_note;
+		first_note_free_index += 1;
+		if(gathered_notes.size() == first_note_free_index):
+			gathered_notes.resize(first_note_free_index * 2);
+	UIManager.instance.choose_note_ui(new_note);
+	UIManager.instance.show_notes_ui();
 
 func add_gathered_clue(new_clue: Clue):
 	if(new_clue == null): return;
