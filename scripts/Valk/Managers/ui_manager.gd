@@ -45,6 +45,7 @@ var transitioned: bool = false;
 var transition_to_main_menu_started: bool = false;
 @export var main_menu_transition_speed: float = 1.0;
 
+var was_note_ui_last_opened: bool = false;
 # @export var main_scene: PackedScene;
 
 func _ready() -> void:
@@ -150,9 +151,17 @@ func _process(delta: float) -> void:
 			transitioned = true;
 
 	if(Input.is_action_just_pressed("Mind Palace") && !is_in_esc_menu):
-		if(is_mind_palace_ui_active): hide_mind_palace_ui();
-		elif(is_notes_ui_active): hide_notes_ui();
-		else: show_mind_palace_ui();
+		if(is_mind_palace_ui_active): 
+			was_note_ui_last_opened = false;
+			hide_mind_palace_ui();
+		elif(is_notes_ui_active): 
+			was_note_ui_last_opened = true;
+			hide_notes_ui();
+		else: 
+			if(was_note_ui_last_opened):
+				show_notes_ui();
+			else:
+				show_mind_palace_ui();
 	
 	if(Input.is_action_just_pressed("Switch UI Panel Left")):
 		if(is_mind_palace_ui_active):
@@ -201,9 +210,11 @@ func switch_to_lower_ui_path():
 		if(index == -1): return;
 		index -= 1;
 		if(index == -1):
-			for i in range(PalaceManager.instance.thought_paths.size() - 1, -1, -1):
-				if(PalaceManager.instance.thought_paths[i].is_unlocked()):
-					index = i;
+			index = PalaceManager.instance.thought_paths.size() - 1;
+		for i in range(index, -1, -1):
+			if(PalaceManager.instance.thought_paths[i].is_unlocked()):
+				index = i;
+				break;
 		choose_thought_path(PalaceManager.instance.thought_paths[index]);
 	elif(is_notes_ui_active):
 		index = PalaceManager.instance.get_note_index(chosen_note);
@@ -221,6 +232,15 @@ func switch_to_higher_ui_path():
 		index += 1;
 		if(index == PalaceManager.instance.thought_paths.size()):
 			index = 0;
+		for i in range(index, PalaceManager.instance.thought_paths.size() - 1):
+			if(PalaceManager.instance.thought_paths[i].is_unlocked()):
+				index = i;
+				break;
+		if(!PalaceManager.instance.thought_paths[index].is_unlocked()):
+			for i in range(0, PalaceManager.instance.thought_paths.size() - 1):
+				if(PalaceManager.instance.thought_paths[i].is_unlocked()):
+					index = i;
+					break;
 		choose_thought_path(PalaceManager.instance.thought_paths[index]);
 	elif(is_notes_ui_active):
 		index = PalaceManager.instance.get_note_index(chosen_note);
@@ -313,7 +333,7 @@ func update_mind_palace_ui():
 		mind_palace_ui.get_node("ThoughtPaths").add_child(thought_path_ui_instance);
 		thought_path_ui_instance.text = PalaceManager.instance.thought_paths[i].name;
 		thought_path_ui_instance.pressed.connect(choose_thought_path.bind(PalaceManager.instance.thought_paths[i]));
-		thought_path_ui_instance.position = Vector2(32, 540 - i * 96);
+		thought_path_ui_instance.position = Vector2(32, 768 - i * 96);
 		if(PalaceManager.instance.thought_paths[i] == chosen_thought_path):
 			var style: StyleBox = thought_path_ui_instance.get_theme_stylebox("normal").duplicate();
 			style.set_bg_color(Color(0.9, 0.9, 0.9));
@@ -335,7 +355,7 @@ func update_mind_palace_ui():
 		var thought_ui_instance = thought_ui.instantiate();
 		mind_palace_ui.get_node("Panel").add_child(thought_ui_instance);
 		var current_clue: Clue = PalaceManager.instance.gathered_clues[i];
-		thought_ui_instance.set_thought_ui_instance(current_clue.name, current_clue.description, 240 + i * 240, 540, current_clue, false);
+		thought_ui_instance.set_thought_ui_instance(current_clue.name, current_clue.description, 32 + i * 192, 608, current_clue, false);
 		instanciated_thought_uis[thought_uis_count] = thought_ui_instance;
 		thought_uis_count += 1;
 		if(instanciated_thought_uis.size() == thought_uis_count):
@@ -387,12 +407,15 @@ func show_notes_ui():
 	is_notes_ui_active = true;
 
 func update_notes_ui():
+	notes_ui.get_node("Inventory/Rock").text = str(InventoryManager.instance.itemCount[ITEM_TYPE.ROCK]) + "x Kamieni";
+	notes_ui.get_node("Inventory/Serum").text = str(InventoryManager.instance.itemCount[ITEM_TYPE.SERUM]) + "x Serum";
+
 	for i in range(0, PalaceManager.instance.first_note_free_index):
 		var thought_path_ui_instance = thought_path_ui.instantiate();
 		notes_ui.get_node("ThoughtPaths").add_child(thought_path_ui_instance);
 		thought_path_ui_instance.text = PalaceManager.instance.gathered_notes[i].title;
 		thought_path_ui_instance.pressed.connect(choose_note_ui.bind(PalaceManager.instance.gathered_notes[i]));
-		thought_path_ui_instance.position = Vector2(32, 540 - i * 96);
+		thought_path_ui_instance.position = Vector2(32, 768 - i * 96);
 		if(PalaceManager.instance.gathered_notes[i] == chosen_note):
 			var style: StyleBox = thought_path_ui_instance.get_theme_stylebox("normal").duplicate();
 			style.set_bg_color(Color(0.9, 0.9, 0.9));
@@ -409,7 +432,11 @@ func update_notes_ui():
 		if(instanciated_thought_path_uis.size() == thought_path_uis_count):
 			instanciated_thought_path_uis.resize(thought_path_uis_count * 2);
 	
-	if(chosen_note == null): return;
+	if(chosen_note == null): 
+		notes_ui.get_node("CurrentNoteUI").visible = false;
+		notes_ui.get_node("Panel2/Title").text = "Nie zebrano żadnej notatki"
+		return;
+	notes_ui.get_node("CurrentNoteUI").visible = true;
 	notes_ui.get_node("CurrentNoteUI/RichTextLabel").text = chosen_note.content;
 
 	var note_title: Label = notes_ui.get_node("Panel2/Title");
