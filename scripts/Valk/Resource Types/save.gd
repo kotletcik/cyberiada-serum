@@ -20,3 +20,6 @@ var last_shell_positions: Array[Vector3];
 var last_shell_rotations: Array[Vector3];
 
 var is_player_crouching: bool;
+
+var serum_count: int;
+var rock_count: int;

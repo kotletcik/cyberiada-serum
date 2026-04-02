@@ -124,6 +124,8 @@ func save_into_resource(save_resource: Save) -> void:
 		save_resource.last_shell_rotations[i] = node_3d.global_rotation;
 
 	save_resource.is_player_crouching = player.is_crouching;
+	save_resource.serum_count = InventoryManager.instance.itemCount[ITEM_TYPE.SERUM];
+	save_resource.rock_count = InventoryManager.instance.itemCount[ITEM_TYPE.ROCK];
 	save_resource.checkpoint_exists = true;
 
 func load_from_resource(load_resource: Save) -> void:
@@ -184,6 +186,11 @@ func load_from_resource(load_resource: Save) -> void:
 
 	if(load_resource.is_player_crouching):
 		player.crouch();
+	
+	InventoryManager.instance.clear_item(ITEM_TYPE.SERUM);
+	InventoryManager.instance.clear_item(ITEM_TYPE.ROCK);
+	InventoryManager.instance.add_item(ITEM_TYPE.SERUM, load_resource.serum_count);
+	InventoryManager.instance.add_item(ITEM_TYPE.ROCK, load_resource.rock_count);
 
 	print(load_resource.last_serum_level);
 

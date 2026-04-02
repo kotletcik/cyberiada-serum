@@ -20,11 +20,15 @@ func _process(_delta: float) -> void:
 			print("serum count:", itemCount[ITEM_TYPE.SERUM]);
 			PsycheManager.instance.take_serum();		
 
-func add_item(index: int, count: int) -> void:
+func clear_item(index: int):
+	if(index < 0 || index >= ITEM_TYPE.ENUM_LENGTH): return;
+	itemCount[index] = 0;
+
+func add_item(index: int, count: int):
 	if(index < 0 || index >= ITEM_TYPE.ENUM_LENGTH): return;
 	itemCount[index] += count;
 
-func remove_item(index: int, count: int) -> void:
+func remove_item(index: int, count: int):
 	if(index < 0 || index >= ITEM_TYPE.ENUM_LENGTH): return;
 	itemCount[index] -= count;
 
