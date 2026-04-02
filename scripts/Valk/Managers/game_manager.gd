@@ -14,7 +14,6 @@ func _ready() -> void:
 		print("More than one GameManager exists!!!");
 		queue_free();
 		
-
 func game_over() -> void:
 	is_game_over = true;
 	pause_game();
