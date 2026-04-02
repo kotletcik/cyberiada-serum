@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://dg433bvfg6cvt"]
 
-[ext_resource type="Script" uid="uid://67dqw2stjnr6" path="res://scripts/PJ/custom_player_controller.gd" id="1_v6fml"]
+[ext_resource type="Script" uid="uid://67dqw2stjnr6" path="res://scripts/PJ/Custom_player_controller.gd" id="1_v6fml"]
 [ext_resource type="Script" uid="uid://dvgoa1d8j20dg" path="res://scripts/Valk/player_interactions.gd" id="2_3li8b"]
 [ext_resource type="PackedScene" uid="uid://ce6h2fmee74sw" path="res://prefabs/Scene Prefabs/scene_serum.tscn" id="3_0dfmc"]
 [ext_resource type="PackedScene" uid="uid://cq7n16gqbc6eo" path="res://vignette/Vignette.tscn" id="3_abpoc"]
 [ext_resource type="PackedScene" uid="uid://b4512qioi3g1i" path="res://prefabs/Gravity.tscn" id="5_uxk6a"]
 [ext_resource type="Script" uid="uid://chqddn3tlmas8" path="res://scripts/Valk/throw_rocks.gd" id="6_moip8"]
 [ext_resource type="PackedScene" uid="uid://bl467r2v4j413" path="res://prefabs/throwable_rock.tscn" id="7_52ka2"]
-[ext_resource type="Script" uid="uid://2qft4tmq65a0" path="res://scripts/PJ/noise_maker.gd" id="8_pb500"]
+[ext_resource type="Script" uid="uid://2qft4tmq65a0" path="res://scripts/PJ/Walking_noise_maker.gd" id="8_pb500"]
 [ext_resource type="PackedScene" uid="uid://6tgemnaldm0g" path="res://prefabs/ui/player_hud.tscn" id="9_d4q5a"]
 [ext_resource type="PackedScene" uid="uid://cqmv7mxht6o6m" path="res://prefabs/gpu_particles_3d.tscn" id="10_3psvy"]
 

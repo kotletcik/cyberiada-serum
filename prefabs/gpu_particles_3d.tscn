@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cqmv7mxht6o6m"]
 
-[ext_resource type="Script" uid="uid://jnurfjwf8w7c" path="res://scripts/PJ/walking_particles.gd" id="1_55nes"]
+[ext_resource type="Script" uid="uid://jnurfjwf8w7c" path="res://scripts/PJ/Walking_particles.gd" id="1_55nes"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lq87k"]
 vertex_color_use_as_albedo = true

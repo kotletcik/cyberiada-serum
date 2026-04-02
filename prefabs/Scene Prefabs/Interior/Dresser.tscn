@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dkvjla8fgr5tp"]
 
-[ext_resource type="Script" uid="uid://c66vv1yiekulm" path="res://scripts/PJ/door.gd" id="1_vo2pd"]
+[ext_resource type="Script" uid="uid://c66vv1yiekulm" path="res://scripts/PJ/Interactable_movement.gd" id="1_vo2pd"]
+[ext_resource type="Script" uid="uid://breenio45u3ni" path="res://scripts/PJ/dresser_item_manager.gd" id="1_w656f"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qqrry"]
 size = Vector3(0.45, 0.15, 0.03)
@@ -59,7 +60,8 @@ size = Vector3(0.5, 0.5, 0.03)
 [sub_resource type="BoxMesh" id="BoxMesh_q8we0"]
 size = Vector3(0.5, 0.5, 0.03)
 
-[node name="StaticBody3D" type="StaticBody3D" unique_id=967773588]
+[node name="Dresser" type="Node3D" unique_id=964086235]
+script = ExtResource("1_w656f")
 
 [node name="Drawer" type="StaticBody3D" parent="." unique_id=217114237]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25220573)
@@ -75,16 +77,16 @@ shape = SubResource("BoxShape3D_qqrry")
 
 [node name="DoorVisuals" type="MeshInstance3D" parent="Drawer/CollisionShape3D2" unique_id=197626909]
 mesh = SubResource("BoxMesh_2l60k")
-skeleton = NodePath("../../../CollisionShape3D7")
+skeleton = NodePath("../../../Case/Right")
 surface_material_override/0 = SubResource("StandardMaterial3D_poson")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="Drawer" unique_id=1855480172]
+[node name="Front" type="CollisionShape3D" parent="Drawer" unique_id=1855480172]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.24452084)
 shape = SubResource("BoxShape3D_k8hxv")
 
-[node name="DoorVisuals" type="MeshInstance3D" parent="Drawer/CollisionShape3D3" unique_id=422022116]
+[node name="DoorVisuals" type="MeshInstance3D" parent="Drawer/Front" unique_id=422022116]
 mesh = SubResource("BoxMesh_l5ov4")
-skeleton = NodePath("../../../CollisionShape3D7")
+skeleton = NodePath("../../../Case/Right")
 surface_material_override/0 = SubResource("StandardMaterial3D_poson")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="Drawer" unique_id=2041597272]
@@ -93,7 +95,7 @@ shape = SubResource("BoxShape3D_66akp")
 
 [node name="DoorVisuals" type="MeshInstance3D" parent="Drawer/CollisionShape3D4" unique_id=934777843]
 mesh = SubResource("BoxMesh_3nlnk")
-skeleton = NodePath("../../../CollisionShape3D7")
+skeleton = NodePath("../../../Case/Right")
 surface_material_override/0 = SubResource("StandardMaterial3D_poson")
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="Drawer" unique_id=680279611]
@@ -102,7 +104,7 @@ shape = SubResource("BoxShape3D_a1cot")
 
 [node name="DoorVisuals" type="MeshInstance3D" parent="Drawer/CollisionShape3D5" unique_id=1234765078]
 mesh = SubResource("BoxMesh_wtw5s")
-skeleton = NodePath("../../../CollisionShape3D7")
+skeleton = NodePath("../../../Case/Right")
 surface_material_override/0 = SubResource("StandardMaterial3D_poson")
 
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="Drawer" unique_id=949574108]
@@ -111,17 +113,17 @@ shape = SubResource("BoxShape3D_6fbjx")
 
 [node name="DoorVisuals" type="MeshInstance3D" parent="Drawer/CollisionShape3D6" unique_id=1523919395]
 mesh = SubResource("BoxMesh_k8hxv")
-skeleton = NodePath("../../../CollisionShape3D7")
+skeleton = NodePath("../../../Case/Right")
 surface_material_override/0 = SubResource("StandardMaterial3D_poson")
 
-[node name="CollisionShape3D7" type="CollisionShape3D" parent="." unique_id=1285491771]
-transform = Transform3D(-4.3711385e-08, 0, 1, 0, 1, 0, -0.9999999, 0, -4.371139e-08, 0.2522456, 0.1822266, -0.27283353)
-shape = SubResource("BoxShape3D_w656f")
+[node name="Marker3D" type="Marker3D" parent="Drawer" unique_id=1680253725]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.11671075)
 
-[node name="DoorVisuals" type="MeshInstance3D" parent="CollisionShape3D7" unique_id=990883252]
-mesh = SubResource("BoxMesh_drmnt")
-skeleton = NodePath("../../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_poson")
+[node name="Marker3D2" type="Marker3D" parent="Drawer" unique_id=1907251183]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -0.121616915, 0, -0.004991889)
+
+[node name="Marker3D3" type="Marker3D" parent="Drawer" unique_id=1981522599]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 0.07825447, 0, -0.07333338)
 
 [node name="Drawer2" type="StaticBody3D" parent="." unique_id=1873198914]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17855823, -0.25220573)
@@ -137,16 +139,16 @@ shape = SubResource("BoxShape3D_qqrry")
 
 [node name="DoorVisuals" type="MeshInstance3D" parent="Drawer2/CollisionShape3D2" unique_id=491454424]
 mesh = SubResource("BoxMesh_2l60k")
-skeleton = NodePath("../../../CollisionShape3D7")
+skeleton = NodePath("../../../Case/Right")
 surface_material_override/0 = SubResource("StandardMaterial3D_poson")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="Drawer2" unique_id=722299495]
+[node name="Front" type="CollisionShape3D" parent="Drawer2" unique_id=722299495]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.24452084)
 shape = SubResource("BoxShape3D_k8hxv")
 
-[node name="DoorVisuals" type="MeshInstance3D" parent="Drawer2/CollisionShape3D3" unique_id=1458321497]
+[node name="DoorVisuals" type="MeshInstance3D" parent="Drawer2/Front" unique_id=1458321497]
 mesh = SubResource("BoxMesh_l5ov4")
-skeleton = NodePath("../../../CollisionShape3D7")
+skeleton = NodePath("../../../Case/Right")
 surface_material_override/0 = SubResource("StandardMaterial3D_poson")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="Drawer2" unique_id=1278722309]
@@ -155,7 +157,7 @@ shape = SubResource("BoxShape3D_66akp")
 
 [node name="DoorVisuals" type="MeshInstance3D" parent="Drawer2/CollisionShape3D4" unique_id=1650581103]
 mesh = SubResource("BoxMesh_3nlnk")
-skeleton = NodePath("../../../CollisionShape3D7")
+skeleton = NodePath("../../../Case/Right")
 surface_material_override/0 = SubResource("StandardMaterial3D_poson")
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="Drawer2" unique_id=570869779]
@@ -164,7 +166,7 @@ shape = SubResource("BoxShape3D_a1cot")
 
 [node name="DoorVisuals" type="MeshInstance3D" parent="Drawer2/CollisionShape3D5" unique_id=592435001]
 mesh = SubResource("BoxMesh_wtw5s")
-skeleton = NodePath("../../../CollisionShape3D7")
+skeleton = NodePath("../../../Case/Right")
 surface_material_override/0 = SubResource("StandardMaterial3D_poson")
 
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="Drawer2" unique_id=1222544733]
@@ -173,8 +175,17 @@ shape = SubResource("BoxShape3D_6fbjx")
 
 [node name="DoorVisuals" type="MeshInstance3D" parent="Drawer2/CollisionShape3D6" unique_id=1674514803]
 mesh = SubResource("BoxMesh_k8hxv")
-skeleton = NodePath("../../../CollisionShape3D7")
+skeleton = NodePath("../../../Case/Right")
 surface_material_override/0 = SubResource("StandardMaterial3D_poson")
+
+[node name="Marker3D" type="Marker3D" parent="Drawer2" unique_id=284840199]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -0.10704107, 0, 0.12951112)
+
+[node name="Marker3D2" type="Marker3D" parent="Drawer2" unique_id=1387157288]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 0.091509305, 0, 0.11912362)
+
+[node name="Marker3D3" type="Marker3D" parent="Drawer2" unique_id=522844687]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -0.01978735, 0, -0.07074928)
 
 [node name="Drawer3" type="StaticBody3D" parent="." unique_id=1493558584]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3609985, -0.25220573)
@@ -190,7 +201,7 @@ shape = SubResource("BoxShape3D_qqrry")
 
 [node name="DoorVisuals" type="MeshInstance3D" parent="Drawer3/CollisionShape3D2" unique_id=924024977]
 mesh = SubResource("BoxMesh_2l60k")
-skeleton = NodePath("../../../CollisionShape3D7")
+skeleton = NodePath("../../../Case/Right")
 surface_material_override/0 = SubResource("StandardMaterial3D_poson")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Drawer3" unique_id=1572409305]
@@ -199,7 +210,7 @@ shape = SubResource("BoxShape3D_k8hxv")
 
 [node name="DoorVisuals" type="MeshInstance3D" parent="Drawer3/CollisionShape3D3" unique_id=1030089219]
 mesh = SubResource("BoxMesh_l5ov4")
-skeleton = NodePath("../../../CollisionShape3D7")
+skeleton = NodePath("../../../Case/Right")
 surface_material_override/0 = SubResource("StandardMaterial3D_poson")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="Drawer3" unique_id=1588441714]
@@ -208,7 +219,7 @@ shape = SubResource("BoxShape3D_66akp")
 
 [node name="DoorVisuals" type="MeshInstance3D" parent="Drawer3/CollisionShape3D4" unique_id=13658799]
 mesh = SubResource("BoxMesh_3nlnk")
-skeleton = NodePath("../../../CollisionShape3D7")
+skeleton = NodePath("../../../Case/Right")
 surface_material_override/0 = SubResource("StandardMaterial3D_poson")
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="Drawer3" unique_id=348997582]
@@ -217,7 +228,7 @@ shape = SubResource("BoxShape3D_a1cot")
 
 [node name="DoorVisuals" type="MeshInstance3D" parent="Drawer3/CollisionShape3D5" unique_id=427756191]
 mesh = SubResource("BoxMesh_wtw5s")
-skeleton = NodePath("../../../CollisionShape3D7")
+skeleton = NodePath("../../../Case/Right")
 surface_material_override/0 = SubResource("StandardMaterial3D_poson")
 
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="Drawer3" unique_id=1581988705]
@@ -226,32 +237,52 @@ shape = SubResource("BoxShape3D_6fbjx")
 
 [node name="DoorVisuals" type="MeshInstance3D" parent="Drawer3/CollisionShape3D6" unique_id=2000865341]
 mesh = SubResource("BoxMesh_k8hxv")
-skeleton = NodePath("../../../CollisionShape3D7")
+skeleton = NodePath("../../../Case/Right")
 surface_material_override/0 = SubResource("StandardMaterial3D_poson")
 
-[node name="CollisionShape3D8" type="CollisionShape3D" parent="." unique_id=1228130777]
+[node name="Marker3D" type="Marker3D" parent="Drawer3" unique_id=1811844637]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -0.050574936, 0, 0.1466662)
+
+[node name="Marker3D2" type="Marker3D" parent="Drawer3" unique_id=698611863]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 0.092149116, 0, -0.07576528)
+
+[node name="Marker3D3" type="Marker3D" parent="Drawer3" unique_id=623951249]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -0.114131644, 0, -0.0635702)
+
+[node name="Case" type="StaticBody3D" parent="." unique_id=1817974358]
+
+[node name="Right" type="CollisionShape3D" parent="Case" unique_id=1285491771]
+transform = Transform3D(-4.3711385e-08, 0, 1, 0, 1, 0, -0.9999999, 0, -4.371139e-08, 0.2522456, 0.1822266, -0.27283353)
+shape = SubResource("BoxShape3D_w656f")
+
+[node name="DoorVisuals" type="MeshInstance3D" parent="Case/Right" unique_id=990883252]
+mesh = SubResource("BoxMesh_drmnt")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_poson")
+
+[node name="Left" type="CollisionShape3D" parent="Case" unique_id=1228130777]
 transform = Transform3D(-4.3711385e-08, 0, 1, 0, 1, 0, -0.9999999, 0, -4.371139e-08, -0.25232804, 0.1822266, -0.27283353)
 shape = SubResource("BoxShape3D_e6kdk")
 
-[node name="DoorVisuals" type="MeshInstance3D" parent="CollisionShape3D8" unique_id=382069476]
+[node name="DoorVisuals" type="MeshInstance3D" parent="Case/Left" unique_id=382069476]
 mesh = SubResource("BoxMesh_lerjn")
-skeleton = NodePath("../../..")
+skeleton = NodePath("../../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_poson")
 
-[node name="CollisionShape3D9" type="CollisionShape3D" parent="." unique_id=950051849]
+[node name="Back" type="CollisionShape3D" parent="Case" unique_id=950051849]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 1, -0.004336804, 0.1822266, -0.5079406)
 shape = SubResource("BoxShape3D_tbjoa")
 
-[node name="DoorVisuals" type="MeshInstance3D" parent="CollisionShape3D9" unique_id=1325343811]
+[node name="DoorVisuals" type="MeshInstance3D" parent="Case/Back" unique_id=1325343811]
 mesh = SubResource("BoxMesh_ifsrx")
-skeleton = NodePath("../../..")
+skeleton = NodePath("../../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_poson")
 
-[node name="CollisionShape3D10" type="CollisionShape3D" parent="." unique_id=1525635781]
+[node name="Up" type="CollisionShape3D" parent="Case" unique_id=1525635781]
 transform = Transform3D(1.9106853e-15, 1, -4.371139e-08, 4.3711385e-08, -4.371139e-08, -1, -0.9999999, 0, -4.371139e-08, -0.0070667565, 0.45338637, -0.27283353)
 shape = SubResource("BoxShape3D_v60px")
 
-[node name="DoorVisuals" type="MeshInstance3D" parent="CollisionShape3D10" unique_id=1554435605]
+[node name="DoorVisuals" type="MeshInstance3D" parent="Case/Up" unique_id=1554435605]
 mesh = SubResource("BoxMesh_q8we0")
-skeleton = NodePath("../../..")
+skeleton = NodePath("../../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_poson")

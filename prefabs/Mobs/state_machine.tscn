@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://cxanx1emdbq8r" path="res://scripts/PJ/state_machine/States/Wander.gd" id="2_xerc2"]
 [ext_resource type="Script" uid="uid://cosu5u4u5tn61" path="res://scripts/PJ/state_machine/States/Follow_player.gd" id="3_8cm82"]
 [ext_resource type="Script" uid="uid://cc74fqip5mv6y" path="res://scripts/PJ/state_machine/States/Attack.gd" id="4_0aqfu"]
-[ext_resource type="Script" uid="uid://bm34qfrf1h2m1" path="res://scripts/PJ/state_machine/States/follow_sound.gd" id="5_vivqa"]
-[ext_resource type="Script" uid="uid://bthija1821lvr" path="res://scripts/PJ/state_machine/States/searching_player.gd" id="6_ghmv1"]
+[ext_resource type="Script" uid="uid://bm34qfrf1h2m1" path="res://scripts/PJ/state_machine/States/Follow_sound.gd" id="5_vivqa"]
+[ext_resource type="Script" uid="uid://bthija1821lvr" path="res://scripts/PJ/state_machine/States/Searching_player.gd" id="6_ghmv1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lqxc7"]
 albedo_color = Color(1, 0, 0, 1)

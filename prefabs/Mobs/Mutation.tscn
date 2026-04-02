@@ -14,8 +14,8 @@
 [ext_resource type="AnimationLibrary" uid="uid://dvluillq1bfu5" path="res://addons/KayKit_Character_Animations_1.0/Animations/gltf/Rig_Medium/Rig_Medium_Simulation.glb" id="8_0kw6b"]
 [ext_resource type="Script" uid="uid://bi0gwyc0asmon" path="res://scripts/PJ/state_machine/States/Debuff.gd" id="8_dsl82"]
 [ext_resource type="AnimationLibrary" uid="uid://5pr3g1cjsskn" path="res://addons/KayKit_Character_Animations_1.0/Animations/gltf/Rig_Medium/Rig_Medium_Special.glb" id="9_g5sxh"]
-[ext_resource type="Script" uid="uid://b7oh0gjgvjexb" path="res://scripts/PJ/state_machine/AI_controller.gd" id="9_ja7dw"]
-[ext_resource type="Script" uid="uid://dntly0y7t12o6" path="res://prefabs/Mobs/movement_animator.gd" id="10_dtayl"]
+[ext_resource type="Script" uid="uid://b7oh0gjgvjexb" path="res://scripts/PJ/state_machine/Enemy_movement.gd" id="9_ja7dw"]
+[ext_resource type="Script" uid="uid://dntly0y7t12o6" path="res://scripts/PJ/movement_animator.gd" id="10_dtayl"]
 [ext_resource type="Script" uid="uid://b7ydidx4polw6" path="res://scripts/Valk/shell_disappearance.gd" id="10_syqnj"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lj2st"]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bw8wddlntpkih"]
 
-[ext_resource type="Script" uid="uid://c66vv1yiekulm" path="res://scripts/PJ/door.gd" id="1_poson"]
+[ext_resource type="Script" uid="uid://c66vv1yiekulm" path="res://scripts/PJ/Interactable_movement.gd" id="1_poson"]
 [ext_resource type="Script" uid="uid://bt68h58dlhhgv" path="res://scripts/Valk/Tools/door_visuals.gd" id="2_82ivq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_82ivq"]
