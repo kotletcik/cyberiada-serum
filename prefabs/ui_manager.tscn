@@ -90,22 +90,21 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -576.0
 offset_top = -324.0
-offset_right = 575.0
-offset_bottom = 324.0
+offset_right = 576.0
+offset_bottom = 444.0
 script = ExtResource("5_6hyqm")
 thought_ui_scene = ExtResource("2_5x7yg")
 
 [node name="ColorRect" type="ColorRect" parent="MindPalace/Panel" unique_id=1714148622]
 layout_mode = 0
-offset_left = 204.0
-offset_top = 484.0
-offset_right = 1145.0
-offset_bottom = 700.0
+offset_top = 552.0
+offset_right = 1152.0
+offset_bottom = 768.0
 mouse_filter = 2
 
 [node name="Label" type="Label" parent="MindPalace/Panel/ColorRect" unique_id=1481435375]
 layout_mode = 0
-offset_right = 942.0
+offset_right = 1152.0
 offset_bottom = 66.0
 text = "Zebrane wskazówki"
 label_settings = SubResource("LabelSettings_wtjxn")
@@ -131,7 +130,7 @@ offset_left = 2.0
 offset_top = -71.0
 offset_right = 130.0
 offset_bottom = -23.0
-theme_override_colors/font_disabled_color = Color(0, 0, 0, 0.5019608)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_styles/disabled = SubResource("StyleBoxFlat_811im")
 disabled = true
 text = "Mind Palace"
@@ -235,7 +234,7 @@ offset_left = 130.0
 offset_top = -71.0
 offset_right = 258.0
 offset_bottom = -23.0
-theme_override_colors/font_disabled_color = Color(0, 0, 0, 0.5019608)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_styles/disabled = SubResource("StyleBoxFlat_ixb54")
 disabled = true
 text = "Notatki"

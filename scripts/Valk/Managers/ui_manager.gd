@@ -201,9 +201,11 @@ func switch_to_lower_ui_path():
 		if(index == -1): return;
 		index -= 1;
 		if(index == -1):
-			for i in range(PalaceManager.instance.thought_paths.size() - 1, -1, -1):
-				if(PalaceManager.instance.thought_paths[i].is_unlocked()):
-					index = i;
+			index = PalaceManager.instance.thought_paths.size() - 1;
+		for i in range(index, -1, -1):
+			if(PalaceManager.instance.thought_paths[i].is_unlocked()):
+				index = i;
+				break;
 		choose_thought_path(PalaceManager.instance.thought_paths[index]);
 	elif(is_notes_ui_active):
 		index = PalaceManager.instance.get_note_index(chosen_note);
@@ -221,6 +223,15 @@ func switch_to_higher_ui_path():
 		index += 1;
 		if(index == PalaceManager.instance.thought_paths.size()):
 			index = 0;
+		for i in range(index, PalaceManager.instance.thought_paths.size() - 1):
+			if(PalaceManager.instance.thought_paths[i].is_unlocked()):
+				index = i;
+				break;
+		if(!PalaceManager.instance.thought_paths[index].is_unlocked()):
+			for i in range(0, PalaceManager.instance.thought_paths.size() - 1):
+				if(PalaceManager.instance.thought_paths[i].is_unlocked()):
+					index = i;
+					break;
 		choose_thought_path(PalaceManager.instance.thought_paths[index]);
 	elif(is_notes_ui_active):
 		index = PalaceManager.instance.get_note_index(chosen_note);
@@ -335,7 +346,7 @@ func update_mind_palace_ui():
 		var thought_ui_instance = thought_ui.instantiate();
 		mind_palace_ui.get_node("Panel").add_child(thought_ui_instance);
 		var current_clue: Clue = PalaceManager.instance.gathered_clues[i];
-		thought_ui_instance.set_thought_ui_instance(current_clue.name, current_clue.description, 240 + i * 240, 540, current_clue, false);
+		thought_ui_instance.set_thought_ui_instance(current_clue.name, current_clue.description, 32 + i * 192, 608, current_clue, false);
 		instanciated_thought_uis[thought_uis_count] = thought_ui_instance;
 		thought_uis_count += 1;
 		if(instanciated_thought_uis.size() == thought_uis_count):
