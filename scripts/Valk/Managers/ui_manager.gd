@@ -45,6 +45,7 @@ var transitioned: bool = false;
 var transition_to_main_menu_started: bool = false;
 @export var main_menu_transition_speed: float = 1.0;
 
+var was_note_ui_last_opened: bool = false;
 # @export var main_scene: PackedScene;
 
 func _ready() -> void:
@@ -150,9 +151,17 @@ func _process(delta: float) -> void:
 			transitioned = true;
 
 	if(Input.is_action_just_pressed("Mind Palace") && !is_in_esc_menu):
-		if(is_mind_palace_ui_active): hide_mind_palace_ui();
-		elif(is_notes_ui_active): hide_notes_ui();
-		else: show_mind_palace_ui();
+		if(is_mind_palace_ui_active): 
+			was_note_ui_last_opened = false;
+			hide_mind_palace_ui();
+		elif(is_notes_ui_active): 
+			was_note_ui_last_opened = true;
+			hide_notes_ui();
+		else: 
+			if(was_note_ui_last_opened):
+				show_notes_ui();
+			else:
+				show_mind_palace_ui();
 	
 	if(Input.is_action_just_pressed("Switch UI Panel Left")):
 		if(is_mind_palace_ui_active):
