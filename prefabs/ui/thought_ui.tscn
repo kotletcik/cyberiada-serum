@@ -5,6 +5,9 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1u3ig"]
 bg_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4tfn1"]
+bg_color = Color(1, 1, 1, 1)
+
 [node name="ThoughtUI" type="Panel" unique_id=1039864838]
 anchors_preset = -1
 anchor_left = 0.5
@@ -15,7 +18,7 @@ offset_left = -82.0
 offset_top = -58.992004
 offset_right = 98.0
 offset_bottom = 80.007996
-mouse_filter = 2
+mouse_filter = 1
 mouse_behavior_recursive = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_1u3ig")
 script = ExtResource("1_suoro")
@@ -41,3 +44,15 @@ offset_right = -5.0
 offset_bottom = -4.328003
 text = "Meow Meow"
 scroll_active = false
+
+[node name="Button" type="Button" parent="." unique_id=1959663617]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 144.672
+offset_right = 171.0
+offset_bottom = 175.672
+mouse_behavior_recursive = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_4tfn1")
+text = "Przejdź do notatki: Meow"

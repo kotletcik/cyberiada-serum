@@ -8,11 +8,15 @@ var is_reversed: bool = false;
 var titleLabel: RichTextLabel;
 var descLabel: RichTextLabel;
 
+var note_button: Button;
+
 func _ready() -> void:
 	titleLabel = get_node("TitleText");
 	descLabel = get_node("DescText");
+	note_button = get_node("Button");
+	note_button.visible = false;
 
-func set_thought_ui_instance(title: String, desc: String, x_pos: int, y_pos: int, clue: Clue, is_on_path: bool):
+func set_thought_ui_instance(title: String, desc: String, x_pos: int, y_pos: int, clue: Clue, is_on_path: bool, connected_note: Note):
 	titleLabel.text = title;
 	descLabel.text = desc;
 	position.x = x_pos;
@@ -21,6 +25,15 @@ func set_thought_ui_instance(title: String, desc: String, x_pos: int, y_pos: int
 		position = clue.ui_pos;
 	thought_clue = clue;
 	is_on_thought_path = is_on_path;
+	if(connected_note == null): return
+	note_button.text = "Przejdź do notatki: " + str(connected_note.title);
+	note_button.pressed.connect(go_to_note.bind(connected_note));
+	note_button.visible = true;
+
+func go_to_note(note: Note):
+	print("meow");
+	UIManager.instance.choose_note_ui(note);
+	UIManager.instance.switch_to_notes_ui_panel();
 
 func set_is_reverse(value: bool) -> void:
 	is_reversed = value;

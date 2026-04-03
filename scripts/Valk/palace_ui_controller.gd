@@ -8,7 +8,6 @@ var dragged_thought: ThoughtUI = null;
 var last_line_pos: Vector2 = Vector2(0,0);
 
 func _draw() -> void:
-
 	for i in range(0, UIManager.instance.thought_uis_count):
 		if(!UIManager.instance.instanciated_thought_uis[i].is_on_thought_path): continue;
 		if(last_line_pos == Vector2(0,0)): 
