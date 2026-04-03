@@ -355,7 +355,7 @@ func update_mind_palace_ui():
 		var thought_ui_instance = thought_ui.instantiate();
 		mind_palace_ui.get_node("Panel").add_child(thought_ui_instance);
 		var current_clue: Clue = PalaceManager.instance.gathered_clues[i];
-		thought_ui_instance.set_thought_ui_instance(current_clue.name, current_clue.description, 32 + i * 192, 608, current_clue, false);
+		thought_ui_instance.set_thought_ui_instance(current_clue.name, current_clue.description, 32 + i * 192, 608, current_clue, false, current_clue.connected_note);
 		instanciated_thought_uis[thought_uis_count] = thought_ui_instance;
 		thought_uis_count += 1;
 		if(instanciated_thought_uis.size() == thought_uis_count):
@@ -371,7 +371,7 @@ func update_mind_palace_ui():
 		var thought_ui_instance = thought_ui.instantiate();
 		mind_palace_ui.get_node("Panel").add_child(thought_ui_instance);
 		var current_clue: Clue = chosen_thought_path.required_clues[i];
-		thought_ui_instance.set_thought_ui_instance(current_clue.name, current_clue.description, 0, 0, current_clue, true);
+		thought_ui_instance.set_thought_ui_instance(current_clue.name, current_clue.description, 0, 0, current_clue, true, current_clue.connected_note);
 		instanciated_thought_uis[thought_uis_count] = thought_ui_instance;
 		thought_uis_count += 1;
 		if(instanciated_thought_uis.size() == thought_uis_count):
