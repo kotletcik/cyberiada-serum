@@ -34,4 +34,5 @@ func change_required_for_realization(value: bool):
     ResourceSaver.save(set_clue);
 
 func open_in_inspector():
+    if(set_clue == null): return;
     EditorInterface.get_inspector().edit(set_clue);
