@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 EventBus="*res://scripts/PJ/Event_bus.gd"
+EditorEventBus="*uid://dh2ir3fht06a1"
 
 [debug_draw_3d]
 

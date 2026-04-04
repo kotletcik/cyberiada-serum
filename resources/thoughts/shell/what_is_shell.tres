@@ -13,5 +13,4 @@ ui_pos = Vector2(32, 31)
 automatically_unlock = true
 required_for_realization = false
 clues_to_gather = Array[ExtResource("1_8wiib")]([ExtResource("2_0l265"), ExtResource("3_mlsht"), ExtResource("4_106pk")])
-does_automatically_unlock = Array[bool]([false, true, false])
 metadata/_custom_type_script = "uid://q760mct2evav"

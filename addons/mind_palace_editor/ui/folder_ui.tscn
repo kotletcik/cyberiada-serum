@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://chpa0xmgh2stw"]
+
+[ext_resource type="Script" uid="uid://cawad0tf6hctg" path="res://addons/mind_palace_editor/editor_folder_ui.gd" id="1_bbj1f"]
+
+[node name="FolderUI" type="Button" unique_id=1919071793]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1856.0
+offset_bottom = -1048.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Folder
+"
+script = ExtResource("1_bbj1f")
