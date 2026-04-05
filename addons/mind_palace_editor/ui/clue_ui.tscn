@@ -6,7 +6,7 @@
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1408.0
+offset_right = -1152.0
 offset_bottom = -1048.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -39,9 +39,31 @@ text = "Required For Realization"
 
 [node name="Button" type="Button" parent="." unique_id=57474871]
 layout_mode = 0
-offset_left = 392.0
+offset_left = 506.0
 offset_top = 2.0
-offset_right = 440.0
+offset_right = 554.0
 offset_bottom = 30.0
 theme_override_font_sizes/font_size = 12
 text = "Open"
+
+[node name="LineEdit" type="LineEdit" parent="." unique_id=538504071]
+layout_mode = 0
+offset_left = 401.0
+offset_right = 454.375
+offset_bottom = 31.0
+theme_override_font_sizes/font_size = 12
+placeholder_text = "x"
+max_length = 3
+emoji_menu_enabled = false
+flat = true
+
+[node name="LineEdit2" type="LineEdit" parent="." unique_id=1106544442]
+layout_mode = 0
+offset_left = 461.0
+offset_right = 514.375
+offset_bottom = 31.0
+theme_override_font_sizes/font_size = 12
+placeholder_text = "y"
+max_length = 3
+emoji_menu_enabled = false
+flat = true

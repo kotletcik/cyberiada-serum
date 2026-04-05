@@ -19,6 +19,8 @@ func set_clue_ui_instance(clue: Clue, index: int):
     get_node("CheckBox2").button_pressed = clue.required_for_realization;
     get_node("CheckBox2").toggled.connect(change_required_for_realization);
     get_node("Button").pressed.connect(open_in_inspector);
+    get_node("LineEdit").text = str(int(clue.ui_pos.x));
+    get_node("LineEdit2").text = str(int(clue.ui_pos.y));
     setting_instance = false;
 
 func change_automatically_unlock(value: bool):
