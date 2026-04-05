@@ -1,8 +1,6 @@
 @tool
 extends EditorPlugin
 
-
-# A class member to hold the dock during the plugin life cycle.
 var dock
 var clue_ui
 var clue_ui_start_y_pos = 32;
@@ -18,9 +16,9 @@ var first_free_index: int = 0;
 var folder_ui_instances: Array[EditorFolderUI] = [null];
 var first_folder_free_index: int = 0;
 
-var root_path = "res://resources/thoughts/";
+var root_path = "res://resources/thought_paths/";
 
-var current_folder = "shell";
+var current_thought_path = null;
 
 var is_loading = false;
 
@@ -47,11 +45,11 @@ func create_field(clue: Clue):
 	y_pos += 32;
 	index += 1;
 
-func create_folder_ui(name: String):
+func create_folder_ui(path: ThoughtPath):
 	var folder_ui_instance = folder_ui.instantiate();
 	var button = folder_ui_instance as EditorFolderUI;
 
-	button.set_folder_ui_instance(name, change_current_folder);
+	button.set_folder_ui_instance(path, change_current_folder);
 	dock.get_node("PluginUI/HBoxContainer").add_child(folder_ui_instance);
 
 	folder_ui_instances[first_folder_free_index] = folder_ui_instance;
@@ -59,44 +57,38 @@ func create_folder_ui(name: String):
 	if(first_folder_free_index == folder_ui_instances.size()):
 		folder_ui_instances.resize(first_folder_free_index * 2);
 
-func change_current_folder(folder: String):
-	current_folder = folder
-	update_plugin_ui("change_current_folder");
+func change_current_folder(path: ThoughtPath):
+	current_thought_path = path
+	update_plugin_ui("change_current_thought_path");
 
 func update_folders_ui():
+	if(is_loading): return;
+	var files = DirAccess.get_files_at(root_path);
 
+	is_loading = true;
 
-	# var dir = DirAccess.open(root_path)
-	# if dir:
-	# 	dir.list_dir_begin()
-	# 	var file_name = dir.get_next()
-	# 	while file_name != "":
-	# 		if dir.current_is_dir():
-	# 			# print("Found directory: " + file_name)
-	# 			create_folder_ui(file_name);
-	# 		else:
-	# 			pass
-	# 			# print("Found file: " + file_name)
-	# 		file_name = dir.get_next()
-	# else:
-	# 	print("An error occurred when trying to access the path.")
-
-	var directories = DirAccess.get_directories_at(root_path);
-	# print("file names:");
-	# for i in range(0, files.size()):
-	# 	print("	" + files[i]);
-
-	var length = directories.size();
+	var thoughts_paths: Array[ThoughtPath] = [null];
+	var length = files.size();
+	thoughts_paths.resize(length);
 	for i in range(0, length):
-		create_folder_ui(directories[i]);
+		var thought_path: ThoughtPath = ResourceLoader.load(root_path + files[i]);
+		thoughts_paths[i] = thought_path;
 
+	is_loading = false;
+
+	for i in range(0, length):
+		create_folder_ui(thoughts_paths[i]);
+
+	if(current_thought_path == null && length > 0):
+		current_thought_path = thoughts_paths[0];
+	
 	var dock_control = dock as Control
 	var width = dock_control.size.x;
-	print(width);
+	# print(width);
 	dock.get_node("PluginUI/HBoxContainer").size.x = width;
 
 func update_plugin_ui(caller: String):
-	print(caller);
+	# print(caller);
 	y_pos = clue_ui_start_y_pos;
 	# print("plugin ui updated");
 	clear_plugin_ui();
@@ -107,46 +99,11 @@ func update_content_ui():
 	if(is_loading): return;
 	# print("	UPDATING CONTENT UI");
 	index = 0;
-
-	# var dir = DirAccess.open(root_path + current_folder)
-	# if dir:
-	# 	dir.list_dir_begin()
-	# 	var file_name = dir.get_next()
-	# 	while file_name != "":
-	# 		if dir.current_is_dir():
-	# 			pass
-	# 			# print("Found directory: " + file_name)
-	# 		else:
-	# 			# print("Found file: " + file_name)
-	# 			print(ResourceLoader.exists(root_path + current_folder + "/" + file_name))
-	# 			var clue: Clue = ResourceLoader.load(root_path + current_folder + "/" + file_name, "", 0);
-	# 			create_field(clue);
-	# 		file_name = dir.get_next()
-	# else:
-	# 	print("An error occurred when trying to access the path.")
-
-	var clues: Array[Clue] = [null];
-	is_loading = true;
-	var files = DirAccess.get_files_at(root_path + current_folder);
-	# print("file names:");
-	# for i in range(0, files.size()):
-	# 	print("	" + files[i]);
-
-	var length = files.size();
-	clues.resize(length);
-	for i in range(0, length):
-		# print("index: " + str(i));
-		# print("file exists: " + str(ResourceLoader.exists(root_path + current_folder + "/" + files[i])));
-		var clue: Clue = ResourceLoader.load(root_path + current_folder + "/" + files[i]);
-		# if(clue == null): continue;
-		# print("creating field: " + str(i));
-		clues[i] = clue;
-	is_loading = false;
-	for i in range(0, length):
-		create_field(clues[i]);
+	for i in range(0, current_thought_path.required_clues.size()):
+		create_field(current_thought_path.required_clues[i]);
 
 func refresh_content_ui():
-	print("signal refresh");
+	# print("signal refresh");
 	for i in range(first_free_index - 1, -1, -1):
 		clue_ui_instances[i].queue_free();
 	clue_ui_instances = [null];
@@ -167,10 +124,6 @@ func clear_plugin_ui():
 	first_folder_free_index = 0;
 
 func _enter_tree():
-	# Initialization of the plugin goes here.
-	# Load the dock scene and instantiate it.
-
-	# Create the dock and add the loaded scene to it.
 	dock = EditorDock.new()
 	dock.title = "Mind Palace Editor"
 	var plugin_ui = preload("res://addons/mind_palace_editor/ui/plugin_ui.tscn").instantiate() as Control;
@@ -180,10 +133,7 @@ func _enter_tree():
 	folder_ui = preload("res://addons/mind_palace_editor/ui/folder_ui.tscn");
 	update_plugin_ui("enter_tree");
 
-	# Note that LEFT_UL means the left of the editor, upper-left dock.
 	dock.default_slot = EditorDock.DOCK_SLOT_LEFT_UL
-
-	# Allow the dock to be on the left or right of the editor, and to be made floating.
 	dock.available_layouts = EditorDock.DOCK_LAYOUT_VERTICAL | EditorDock.DOCK_LAYOUT_FLOATING
 
 	add_dock(dock)
@@ -192,8 +142,5 @@ func _enter_tree():
     
 func _exit_tree():
 	EditorEventBus.mind_palace_editor_refresh.disconnect(refresh_content_ui);
-	# Clean-up of the plugin goes here.
-	# Remove the dock.
 	remove_dock(dock)
-	# Erase the control from the memory.
 	dock.queue_free()
