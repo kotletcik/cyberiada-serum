@@ -10,7 +10,11 @@ enum triggers
 
 @export var name: String;
 @export var description: String;
-@export var ui_pos: Vector2;
+@export var ui_pos: Vector2 :
+    set(value): 
+        ui_pos = value;
+        EditorEventBus.mind_palace_editor_refresh.emit();
+
 @export var automatically_unlock: bool = false : 
     set(value): 
         automatically_unlock = value;
