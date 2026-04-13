@@ -114,7 +114,7 @@ size = Vector3(0.4, 0.2, 0.2)
 script = ExtResource("1_xanii")
 
 [node name="Player" parent="." unique_id=2039338456 instance=ExtResource("1_ahihw")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -88.79094, 1.6258812, -39.240444)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -49.265984, 1.6258812, -20.323168)
 SOBER_WALK_SPEED = 6.9
 CROUCH_SPEED_MULTIPLIER = 0.3
 crouching_noise_volume = 1.5
@@ -1223,6 +1223,7 @@ follow_sound_state_duration = 10.0
 hearing_range = 16.0
 patrol_time = 5.2
 patrol_points = [NodePath("../ShellPatrolPoints/PatrolPoint1"), NodePath("../ShellPatrolPoints/PatrolPoint2"), NodePath("../ShellPatrolPoints/PatrolPoint3"), NodePath("../ShellPatrolPoints/PatrolPoint2")]
+test_mode_is_active = true
 player_sight_range = 16.0
 
 [node name="Shell2" parent="Location7" unique_id=659024240 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
