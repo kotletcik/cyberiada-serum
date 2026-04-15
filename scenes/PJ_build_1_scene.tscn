@@ -39,6 +39,7 @@
 [ext_resource type="Resource" uid="uid://dwbrn5l1ernyw" path="res://resources/thoughts/shell/first_shell.tres" id="34_0plmr"]
 [ext_resource type="PackedScene" uid="uid://cwpnmj2jjqjcg" path="res://prefabs/triggers/checkpoint_trigger.tscn" id="37_l3ixd"]
 [ext_resource type="Script" uid="uid://bc2ji67pooap7" path="res://scripts/Valk/Scene Triggers/save_trigger.gd" id="38_3at83"]
+[ext_resource type="PackedScene" uid="uid://disyay20hbkli" path="res://assets/models/Pudełko otwarte.fbx" id="40_jumma"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13hkq"]
 albedo_color = Color(0.27450982, 0.27450982, 0.27450982, 1)
@@ -882,7 +883,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2887459, 1.4475479, 3.5996
 [node name="Serum2" parent="Location5/Serums" unique_id=1981606988 instance=ExtResource("9_3rc8y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9226303, 0.9963851, 34.7693)
 clue_on_pickup = ExtResource("20_j12l6")
-does_clue_automatically_unlock = true
 
 [node name="Rocks" type="Node3D" parent="Location5" unique_id=1173578646]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11294556, -0.01115036, -42.314934)
@@ -890,7 +890,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11294556, -0.01115036, -42
 [node name="Rock" parent="Location5/Rocks" unique_id=1988284777 instance=ExtResource("10_abvy7")]
 transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, -7.720009, 0.9361949, 34.796272)
 clue_on_pickup = ExtResource("21_eqt5g")
-does_clue_automatically_unlock = true
 
 [node name="ShellNavRegion" type="NavigationRegion3D" parent="Location5" unique_id=932864056]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.312, -0.054, -18.033504)
@@ -2150,7 +2149,6 @@ trigger_clue = ExtResource("29_p7nqx")
 [node name="Clue Trigger3" parent="." unique_id=1933737285 instance=ExtResource("31_hdlg5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.855705, 1.0125238, -0.8497658)
 trigger_clue = ExtResource("34_0plmr")
-does_clue_automatically_unlock = true
 
 [node name="CollisionShape3D" parent="Clue Trigger3" index="0" unique_id=422333525]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2967072, 0, 0)
@@ -2287,6 +2285,12 @@ light_energy = 16.0
 spot_range = 4.024
 spot_attenuation = 0.01
 spot_angle = 23.439608
+
+[node name="Pudełko otwarte" parent="." unique_id=130765637 instance=ExtResource("40_jumma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.620514, 0.4460001, 12.600686)
+
+[node name="Pudełko otwarte2" parent="." unique_id=99030861 instance=ExtResource("40_jumma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.720848, 0.44599998, 13.702424)
 
 [editable path="Location5/ShellNavRegion/Geometry/StaticBody3D"]
 [editable path="Location5/ShellNavRegion/Geometry/StaticBody3D2"]
