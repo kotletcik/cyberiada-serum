@@ -21,6 +21,7 @@ class_name Shell_behaviour
 @export var patrol_points: Array[Node3D] = []
 @export_group("scream")
 @export var scream_time: float = 1.0
+@export var test_mode_is_active = false
 	
 func _ready() -> void:
 	add_to_group("Shell");
@@ -30,11 +31,13 @@ func _process(delta: float) -> void:
 
 func Check_conditions(delta: float) -> void:
 	var current = state_machine.current_state.state_type
+	var is_player_in_sight = is_player_in_sight()
+	var player_is_on_region = player_is_on_region()
 	match current:
 		State.types.Attack:
 			if ((self.global_position) - (GameManager.instance.player.global_position)).length() > attack_range:
 				change_state_by_name(State.types.Follow_player);
-			if(!is_player_in_sight() || !player_is_on_region() || PsycheManager.instance.invisibility_timer > 0):
+			if(!is_player_in_sight || !player_is_on_region || PsycheManager.instance.invisibility_timer > 0):
 				change_state_by_name(State.types.Searching)
 		State.types.Follow_player:
 			if ((self.global_position) - (GameManager.instance.player.global_position)).length() <= attack_range:
@@ -42,19 +45,19 @@ func Check_conditions(delta: float) -> void:
 				return;
 			if timer > 0:
 				timer -= delta
-			elif(!is_player_in_sight() || !player_is_on_region() || PsycheManager.instance.invisibility_timer > 0):
+			elif(!is_player_in_sight || !player_is_on_region || PsycheManager.instance.invisibility_timer > 0):
 				change_state_by_name(State.types.Searching)
 			else:
 				timer = follow_state_duration
 
 			# if(PsycheManager.instance.invisibility_timer > 0):
 			# 	change_state_by_name(State.types.Patrol)
-			# if (!player_is_on_region()):
+			# if (!player_is_on_region):
 			# 	change_state_by_name(State.types.Patrol)
 		State.types.Searching:
 			if timer > 0:
 				timer -= delta
-				if (is_player_in_sight() && player_is_on_region()):
+				if (is_player_in_sight && player_is_on_region):
 					if (PsycheManager.instance.invisibility_timer <= 0): 
 						change_state_by_name(State.types.Scream);
 			else:
@@ -62,7 +65,7 @@ func Check_conditions(delta: float) -> void:
 		State.types.Follow_sound:
 			var temp: Vector3 = (self.global_position) - (sound_target.global_position)
 			temp.y = 0;
-			if (is_player_in_sight() && player_is_on_region()):
+			if (is_player_in_sight && player_is_on_region):
 				if (PsycheManager.instance.invisibility_timer <= 0): 
 					change_state_by_name(State.types.Scream);
 			elif (temp.length() < 1.5):
@@ -73,11 +76,11 @@ func Check_conditions(delta: float) -> void:
 			else:
 				change_state_by_name(State.types.Patrol)
 		State.types.Wander:
-			if (is_player_in_sight() && player_is_on_region()):
+			if (is_player_in_sight && player_is_on_region):
 				if (PsycheManager.instance.invisibility_timer <= 0): 
 					change_state_by_name(State.types.Scream);
 		State.types.Patrol:
-			if (is_player_in_sight() && player_is_on_region()):
+			if (is_player_in_sight && player_is_on_region):
 				if (PsycheManager.instance.invisibility_timer <= 0): 
 					change_state_by_name(State.types.Scream);
 		State.types.Scream:
@@ -120,6 +123,8 @@ func Exit_state(state: int):
 func player_is_on_region() -> bool:
 	var map_rid = nav_agent.get_navigation_map()
 	var closest_point = NavigationServer3D.map_get_closest_point(map_rid, GameManager.instance.player.global_position)
+	if (test_mode_is_active):
+		print(closest_point)
 	var distance = GameManager.instance.player.global_position.distance_to(closest_point)
 	# if distance < 1:
 	# 	return true
