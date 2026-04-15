@@ -36,8 +36,8 @@ size = Vector3(0.5, 0.45, 0.03)
 size = Vector3(0.5, 0.45, 0.03)
 
 [node name="Drawer" type="StaticBody3D" unique_id=217114237]
-collision_layer = 4
-collision_mask = 17
+collision_layer = 128
+collision_mask = 0
 script = ExtResource("1_2l60k")
 move_distance = 0.5
 
