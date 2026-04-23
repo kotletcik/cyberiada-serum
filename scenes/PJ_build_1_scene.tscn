@@ -35,6 +35,7 @@
 [ext_resource type="Resource" uid="uid://dt7dtcb4bds7m" path="res://resources/thoughts/wakeup/watch.tres" id="27_p7nqx"]
 [ext_resource type="Resource" uid="uid://inlb87ae3v2h" path="res://resources/notes/test_not.tres" id="28_314lw"]
 [ext_resource type="Resource" uid="uid://cpshgebigpcom" path="res://resources/thoughts/wakeup/wakeup.tres" id="29_p7nqx"]
+[ext_resource type="Material" uid="uid://btanaporc8div" path="res://materials/test_material.tres" id="31_gbmb2"]
 [ext_resource type="PackedScene" uid="uid://5jpcyg1fb8pf" path="res://prefabs/triggers/clue_trigger.tscn" id="31_hdlg5"]
 [ext_resource type="Resource" uid="uid://dwbrn5l1ernyw" path="res://resources/thoughts/shell/first_shell.tres" id="34_0plmr"]
 [ext_resource type="PackedScene" uid="uid://cwpnmj2jjqjcg" path="res://prefabs/triggers/checkpoint_trigger.tscn" id="37_l3ixd"]
@@ -159,7 +160,6 @@ size = Vector3(500, 1.1, 500)
 
 [node name="Celling" type="CSGBox3D" parent="." unique_id=535322235]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12173462, 5.031295, 0.5328655)
-visible = false
 material_override = SubResource("StandardMaterial3D_13hkq")
 use_collision = true
 collision_layer = 2
@@ -727,7 +727,7 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -77.
 
 [node name="floor" type="CSGBox3D" parent="Location4/Geometry" unique_id=1527311062]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.019905, -0.054899216, -9.824783)
-material_override = SubResource("StandardMaterial3D_13hkq")
+material_override = ExtResource("31_gbmb2")
 use_collision = true
 collision_layer = 2
 size = Vector3(6.0569, 1, 62.78366)
@@ -839,12 +839,13 @@ light_size = 0.42
 omni_range = 30.271
 
 [node name="SpotLight3D6" type="SpotLight3D" parent="Location4/Light" unique_id=1321666586]
-transform = Transform3D(-0.34215382, 0.34784216, -0.87288976, -0.63466287, 0.5994867, 0.48766658, 0.6929168, 0.72084767, 0.01564576, -0.53523254, 3.2598324, -8.296335)
+transform = Transform3D(-0.08976794, 0.99258435, 0.081963964, -0.992338, -0.096152514, 0.07758702, 0.0848927, -0.07437113, 0.99361074, 2.4648361, 3.2598324, 7.9758186)
 light_energy = 10.998
 light_indirect_energy = 4.081
 light_volumetric_fog_energy = 1.593
 light_specular = 0.473
-spot_range = 8.705
+spot_range = 41.789032
+spot_angle = 90.0
 
 [node name="SpotLight3D7" type="SpotLight3D" parent="Location4/Light" unique_id=634184605]
 transform = Transform3D(-0.34215385, 0.3478422, -0.8728898, -0.6346629, 0.59948677, 0.48766652, 0.69291687, 0.7208477, 0.015645823, -0.5352249, 3.2598324, 14.688869)
@@ -860,7 +861,8 @@ light_energy = 10.998
 light_indirect_energy = 4.081
 light_volumetric_fog_energy = 1.593
 light_specular = 0.473
-spot_range = 8.705
+spot_range = 122.788
+spot_angle = 90.0
 
 [node name="SpotLight3D9" type="SpotLight3D" parent="Location4/Light" unique_id=1433937967]
 transform = Transform3D(-0.34215385, 0.3478422, -0.8728898, -0.6346629, 0.59948677, 0.48766652, 0.69291687, 0.7208477, 0.015645824, -0.5352249, 3.2598324, 3.5010262)
@@ -869,6 +871,7 @@ light_indirect_energy = 4.081
 light_volumetric_fog_energy = 1.593
 light_specular = 0.473
 spot_range = 8.705
+spot_angle = 90.0
 
 [node name="SpotLight3D10" type="SpotLight3D" parent="Location4/Light" unique_id=1588766836]
 transform = Transform3D(0.22453189, -0.93303514, 0.28112438, 0.93113947, 0.29049376, 0.22043747, -0.28734076, 0.21227075, 0.934011, 3.472763, 2.6636162, -24.66084)
@@ -877,6 +880,7 @@ light_indirect_energy = 4.081
 light_volumetric_fog_energy = 1.593
 light_specular = 0.473
 spot_range = 8.705
+spot_angle = 90.0
 
 [node name="SpotLight3D11" type="SpotLight3D" parent="Location4/Light" unique_id=1495638022]
 transform = Transform3D(-0.6676964, -0.09061424, 0.7388983, 0.6943986, 0.28193513, 0.66205984, -0.2683134, 0.9551448, -0.1253247, 1.2118454, 3.2598324, -30.271336)
@@ -892,7 +896,8 @@ light_energy = 10.998
 light_indirect_energy = 4.081
 light_volumetric_fog_energy = 1.593
 light_specular = 0.473
-spot_range = 8.705
+spot_range = 86.279
+spot_angle = 90.0
 
 [node name="Serums" type="Node3D" parent="Location4" unique_id=66677286]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11294556, -0.01115036, -42.314934)
@@ -1010,7 +1015,7 @@ open_duration = 2.0
 
 [node name="CorridorFloor" type="CSGBox3D" parent="Location5/ShellNavRegion" unique_id=645064917]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.428502)
-material_override = SubResource("StandardMaterial3D_13hkq")
+material_override = ExtResource("31_gbmb2")
 use_collision = true
 collision_layer = 2
 size = Vector3(26.919067, 1, 62.539307)
@@ -1654,7 +1659,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.762419, 0, -9.209772)
 
 [node name="floor" type="CSGBox3D" parent="Location8/Geometry" unique_id=1418568356]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0215454, -0.052919388, -0.3363037)
-material_override = SubResource("StandardMaterial3D_13hkq")
+material_override = ExtResource("31_gbmb2")
 use_collision = true
 collision_layer = 2
 size = Vector3(20.346558, 1, 6.6428223)

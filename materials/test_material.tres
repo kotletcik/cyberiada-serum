@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://btanaporc8div"]
+
+[ext_resource type="Texture2D" uid="uid://b80x6ci3rnnc7" path="res://assets/textures/IMG_0573.PNG" id="1_nyi00"]
+
+[resource]
+diffuse_mode = 3
+albedo_texture = ExtResource("1_nyi00")
+metallic = 1.0
+metallic_specular = 1.0

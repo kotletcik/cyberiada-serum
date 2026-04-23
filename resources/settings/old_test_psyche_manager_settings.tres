@@ -1,15 +1,16 @@
-[gd_resource type="Resource" script_class="PsycheManagerSettings" format=3 uid="uid://brv8sbdh27gef"]
+[gd_resource type="Resource" script_class="PsycheManagerSettings" format=3 uid="uid://b64dntlcp2rps"]
 
-[ext_resource type="Script" uid="uid://2un3wiyrn4h7" path="res://scripts/Valk/Resource Types/psyche_manager_settings.gd" id="1_jmpin"]
+[ext_resource type="Script" uid="uid://2un3wiyrn4h7" path="res://scripts/Valk/Resource Types/psyche_manager_settings.gd" id="1_e8dvx"]
 
 [sub_resource type="Curve" id="Curve_jmpin"]
 _data = [Vector2(0.16887537, 1), 0.0, 0.0, 0, 0, Vector2(0.6244627, 0.40864068), -3.6874907, -3.6874907, 0, 0, Vector2(0.96543694, 0.03883481), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [resource]
-script = ExtResource("1_jmpin")
+script = ExtResource("1_e8dvx")
 serum_drop_rate = 0.1
-normal_fog_density = 0.01
+normal_fog_density = 0.3
+serum_fog_density = 0.01
 serum_take_amount = 25.0
 serum_overdose_level = 60.0
 serum_critical_level = 90.0
