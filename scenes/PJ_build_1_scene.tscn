@@ -233,9 +233,7 @@ collision_layer = 4
 size = Vector3(5, 5, 1)
 
 [node name="DoubleDoor" parent="Start Location/Geometry" unique_id=1301287337 instance=ExtResource("8_vcjj7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.777817, 2.425858, 9.925629)
-move_distance = 3.0
-open_duration = 2.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.777817, 2.425858, 10.257927)
 unlock_if_clue_realized = ExtResource("27_p7nqx")
 
 [node name="interior2" type="CSGBox3D" parent="Start Location/Geometry" unique_id=1999219356]
@@ -375,7 +373,6 @@ size = Vector3(16.114258, 0.5352783, 1.0467529)
 [node name="DoubleDoor" parent="Location2/Geometry" unique_id=337999096 instance=ExtResource("8_vcjj7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.777817, 2.425858, 3.8614159)
 move_distance = 0.2
-open_duration = 2.0
 
 [node name="Serums" type="Node3D" parent="Location2" unique_id=1625402857]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38609314, 0, -7.1479225)
@@ -476,7 +473,6 @@ size = Vector3(5, 5, 1)
 [node name="DoubleDoor" parent="Location12/Geometry" unique_id=366128883 instance=ExtResource("8_vcjj7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.777817, 2.425858, 3.8614159)
 move_distance = 0.2
-open_duration = 2.0
 
 [node name="Serums" type="Node3D" parent="Location12" unique_id=1258781746]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38609314, 0, -7.1479225)
@@ -583,8 +579,6 @@ size = Vector3(16.114258, 0.15637207, 2)
 
 [node name="DoubleDoor" parent="Location3/Geometry" unique_id=150333987 instance=ExtResource("8_vcjj7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.777817, 2.425858, -2.3159332)
-move_distance = 3.0
-open_duration = 2.0
 
 [node name="interior2" type="CSGBox3D" parent="Location3/Geometry" unique_id=1496496889]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.851265, 0.77189064, -5.5463405)
@@ -790,7 +784,6 @@ size = Vector3(4.17894, 5, 1)
 [node name="DoubleDoor3" parent="Location4/Geometry" unique_id=1054655516 instance=ExtResource("8_vcjj7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6597824, 2.425858, -29.898643)
 move_distance = 0.2
-open_duration = 3.0
 
 [node name="wall5" type="CSGBox3D" parent="Location4/Geometry" unique_id=653276502]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.7043076, 2, -40.4805)
@@ -1010,7 +1003,6 @@ navigation_mesh = SubResource("NavigationMesh_eqt5g")
 [node name="DoubleDoor5" parent="Location5/ShellNavRegion" unique_id=873209906 instance=ExtResource("8_vcjj7")]
 transform = Transform3D(-4.3711395e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711395e-08, 9.729862, 2.479858, -0.918025)
 move_distance = 2.7
-open_duration = 2.0
 
 [node name="CorridorFloor" type="CSGBox3D" parent="Location5/ShellNavRegion" unique_id=645064917]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.428502)
@@ -1191,12 +1183,10 @@ size = Vector3(3.536911, 5, 1)
 [node name="DoubleDoor4" parent="Location5/ShellNavRegion/Geometry" unique_id=1364728457 instance=ExtResource("8_vcjj7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4178581, 2.425858, -28.547535)
 move_distance = 3.0
-open_duration = 2.0
 
 [node name="DoubleDoor5" parent="Location5/ShellNavRegion/Geometry" unique_id=2081276960 instance=ExtResource("8_vcjj7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4178581, 2.425858, -36.89865)
 move_distance = 0.0
-open_duration = 0.0
 
 [node name="wall16" type="CSGBox3D" parent="Location5/ShellNavRegion/Geometry" unique_id=179364746]
 transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 1.4795952, 0.0075757504, -19.750336)
@@ -1701,7 +1691,6 @@ size = Vector3(16.114258, 0.5352783, 1.0467529)
 [node name="DoubleDoor" parent="Location8/Geometry" unique_id=899084263 instance=ExtResource("8_vcjj7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.777817, 2.425858, -0.37438202)
 move_distance = 3.0
-open_duration = 2.0
 
 [node name="Serums" type="Node3D" parent="Location8" unique_id=1265635382]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38609314, 0, -7.1479225)
@@ -2197,14 +2186,10 @@ size = Vector3(5.658432, 5, 1)
 [node name="DoubleDoor4" parent="Location10/ShellNavRegion/Geometry" unique_id=340185522 instance=ExtResource("8_vcjj7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4178581, 2.425858, -32.759293)
 move_distance = 3.0
-open_duration = 2.0
-is_final_door = true
 
 [node name="DoubleDoor5" parent="Location10/ShellNavRegion/Geometry" unique_id=1977353845 instance=ExtResource("8_vcjj7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.644478, 2.425858, -32.759293)
 move_distance = 3.0
-open_duration = 2.0
-is_final_door = true
 
 [node name="wall18" type="CSGBox3D" parent="Location10/ShellNavRegion/Geometry" unique_id=1073201483]
 transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 1.4827003, 2, -26.337374)
