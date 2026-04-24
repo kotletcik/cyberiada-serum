@@ -60,8 +60,7 @@ func switch_open():
 		if (nav_region != null):
 			nav_region.bake_navigation_mesh(true)
 
-		# if(!isOpened && is_lift_door):
-			
+		# if(!isOpened && is_lift_door):	
 
 
 func close_door():
