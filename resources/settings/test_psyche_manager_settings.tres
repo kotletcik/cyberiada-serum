@@ -6,21 +6,23 @@
 _data = [Vector2(0.16887537, 1), 0.0, 0.0, 0, 0, Vector2(0.6244627, 0.40864068), -3.6874907, -3.6874907, 0, 0, Vector2(0.96543694, 0.03883481), 0.0, 0.0, 0, 0]
 point_count = 3
 
+[sub_resource type="Curve" id="Curve_71n1v"]
+_data = [Vector2(0.08603896, 0), 0.0, 0.0, 0, 0, Vector2(0.86525977, 0.08420706), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
 [resource]
 script = ExtResource("1_jmpin")
 serum_drop_rate = 0.1
-normal_fog_density = 0.01
 serum_take_amount = 25.0
 serum_overdose_level = 60.0
 serum_critical_level = 90.0
-serum_to_normal_fog_speed = 0.005
 serum_invisibility_time = 10.0
 invisibility_jumpscare_time = 0.1
 invisibility_diming_time = 3.5
 invisibility_diming_time_curve = SubResource("Curve_jmpin")
-fog_fade_drop_rate = 0.5
-fog_fade_start_level = 10.0
-fog_fade_addiction_addition = 10.0
+normal_contrast_level = 1.25
+serum_contrast_level = 0.75
+serum_to_normal_contrast_curve = SubResource("Curve_71n1v")
 min_overtake_timer = 1.0
 max_overtake_timer = 2.0
 overtake_duration = 1.5
@@ -31,9 +33,6 @@ craving_duration = 10.0
 craving_player_force = 2.5
 craving_serum_take_radius = 1.5
 craving_serum_fov = 90.0
-min_mutation_spawn_timer = 1.0
-max_mutation_spawn_timer = 2.0
-max_mutation_spawn_range = 15.0
 serum_to_normal_saturation_speed = 0.05
 normal_saturation = 1.0
 overdose_saturation = 0.5

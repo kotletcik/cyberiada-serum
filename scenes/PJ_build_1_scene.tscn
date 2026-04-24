@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://s47j5s0f3fdy" path="res://scripts/Valk/Managers/psyche_manager.gd" id="2_bq4fy"]
 [ext_resource type="Resource" uid="uid://brv8sbdh27gef" path="res://resources/settings/test_psyche_manager_settings.tres" id="3_rf5c3"]
 [ext_resource type="Script" uid="uid://c681q57ewat6f" path="res://scripts/Valk/Managers/game_manager.gd" id="3_u6map"]
-[ext_resource type="PackedScene" uid="uid://d02kasr2lce4t" path="res://prefabs/Mobs/Mutation.tscn" id="4_rf5c3"]
 [ext_resource type="Script" uid="uid://coysphqpo5g2l" path="res://scripts/Valk/Managers/inventory_manager.gd" id="4_vcjj7"]
 [ext_resource type="Script" uid="uid://bj28ubqcmsltd" path="res://scripts/Valk/Managers/palace_manager.gd" id="5_7uhkk"]
 [ext_resource type="Script" uid="uid://b3e6n7nbttp0c" path="res://scripts/Valk/Resource Types/thought_path.gd" id="6_8isj6"]
@@ -128,7 +127,6 @@ crouch_check_radius = 0.5
 script = ExtResource("2_bq4fy")
 player = NodePath("../Player")
 settings = ExtResource("3_rf5c3")
-mutation = ExtResource("4_rf5c3")
 metadata/_custom_type_script = "uid://s47j5s0f3fdy"
 
 [node name="UIManager" parent="." unique_id=798929640 instance=ExtResource("13_rf5c3")]
@@ -160,6 +158,7 @@ size = Vector3(500, 1.1, 500)
 
 [node name="Celling" type="CSGBox3D" parent="." unique_id=535322235]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12173462, 5.031295, 0.5328655)
+visible = false
 material_override = SubResource("StandardMaterial3D_13hkq")
 use_collision = true
 collision_layer = 2

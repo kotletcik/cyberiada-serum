@@ -8,14 +8,12 @@ var fog_fade_level: float;
 @export var player: Node3D;
 
 @export var settings: PsycheManagerSettings = null;
-@export var mutation: Resource;
 
 @onready var camera: Camera3D = $"../Player/Head/Camera3D";
 @onready var vignette_texture: TextureRect = $"../Player/CanvasLayer/TextureRect";
 @onready var saturation_texture: TextureRect = $"../Player/CanvasLayer/TextureRect2";
 @onready var base_camera_fov: float = camera.fov;
 @onready var environment: Environment = camera.environment;
-
 
 var serum_positions: Array[Vector3] = [Vector3.ZERO];
 var serums: Array[Node3D] = [null];
@@ -30,8 +28,6 @@ var invisibility_jumpscare_timer: float = 0;
 var craving_timer: float;
 var overtake_timer: float;
 var overtake_dir: Vector3;
-
-var mutation_spawn_timer: float
 
 var ending: float = false;
 
@@ -58,12 +54,14 @@ func _ready() -> void:
 		base_camera_fov = camera.fov;
 		environment = camera.environment;
 		print("Camera FOV: ", camera.fov);
-		environment.fog_density = settings.normal_fog_density;
+		environment.adjustment_contrast = settings.normal_contrast_level;
+		environment.ssil_enabled = true;
+		environment.sdfgi_enabled = true;
+		environment.glow_enabled = true;
 		camera  = player.get_child(0).get_child(0);
 		vignette_texture.material.set_shader_parameter("intensity", 0);
 		saturation_texture.material.set_shader_parameter("saturation", settings.normal_saturation);
 		serum_level = settings.serum_start_level;
-		fog_fade_level = settings.fog_fade_start_level;
 		EventBus.close_final_door.connect(bad_ending);
 	else:
 		print("More than one PsycheManager exists!!!");
@@ -76,35 +74,37 @@ func bad_ending() -> void:
 	if(serum_level > settings.serum_critical_level):
 		craving_timer = 0;
 
-func find_closest_serum_pos() -> Vector3:
-	var min_index: int = -1;
-	var min_dist: float;
-	var player_pos: Vector3 = camera.global_position;
-	for i in range(0, first_free_index):
-		var subtracted_vector: Vector3 = serum_positions[i] - player_pos;
-		var distance_sqr = subtracted_vector.length_squared();
-		if(min_index == -1 || distance_sqr < min_dist):
-			min_index = i;
-			min_dist = distance_sqr;
-	return serum_positions[min_index] if min_index != -1 else Vector3.ZERO;
+# func find_closest_serum_pos() -> Vector3:
+# 	var min_index: int = -1;
+# 	var min_dist: float;
+# 	var player_pos: Vector3 = camera.global_position;
+# 	for i in range(0, first_free_index):
+# 		var subtracted_vector: Vector3 = serum_positions[i] - player_pos;
+# 		var distance_sqr = subtracted_vector.length_squared();
+# 		if(min_index == -1 || distance_sqr < min_dist):
+# 			min_index = i;
+# 			min_dist = distance_sqr;
+# 	return serum_positions[min_index] if min_index != -1 else Vector3.ZERO;
 
-func find_closest_serum() -> Node3D:
-	var min_index: int = -1;
-	var min_dist: float;
-	var player_pos: Vector3 = camera.global_position;
-	for i in range(0, first_free_index):
-		var subtracted_vector: Vector3 = serum_positions[i] - player_pos;
-		var distance_sqr = subtracted_vector.length_squared();
-		if(min_index == -1 || distance_sqr < min_dist):
-			min_index = i;
-			min_dist = distance_sqr;
-	return serums[min_index] if min_index != -1 else null;
+# func find_closest_serum() -> Node3D:
+# 	var min_index: int = -1;
+# 	var min_dist: float;
+# 	var player_pos: Vector3 = camera.global_position;
+# 	for i in range(0, first_free_index):
+# 		var subtracted_vector: Vector3 = serum_positions[i] - player_pos;
+# 		var distance_sqr = subtracted_vector.length_squared();
+# 		if(min_index == -1 || distance_sqr < min_dist):
+# 			min_index = i;
+# 			min_dist = distance_sqr;
+# 	return serums[min_index] if min_index != -1 else null;
 
 func find_closest_serum_with_fov(fov: float) -> Node3D:
 	var min_index: int = -1;
 	var min_dist: float;
 	var player_pos: Vector3 = camera.global_position;
 	for i in range(0, first_free_index):
+		var pickup_item = serums[i] as PickupItem
+		if(pickup_item.is_disabled): return;
 		var subtracted_vector: Vector3 = serum_positions[i] - player_pos;
 		var direction = subtracted_vector.normalized();
 		var dot: float = -player.global_basis.z.dot(direction);
@@ -184,20 +184,17 @@ func _process(delta: float) -> void:
 			EventBus.shells_appear.emit();
 			invisibility_jumpscare_timer = 0;
 			invisibility_diming_timer = 0;
-	
-	if(serum_level > settings.serum_overdose_level && serum_level < settings.serum_critical_level):
-		mutation_spawn_timer -= delta;
-		if(mutation_spawn_timer <= 0):
-			spawn_mutation(); #funkcja resetuje timer
 
-	fog_fade_level -= settings.fog_fade_drop_rate * delta;
-	if(fog_fade_level < 0): fog_fade_level = 0;
-
-	# if(Input.is_key_pressed(KEY_P)):
-	# 	craving_timer = randf_range(settings.min_craving_timer, settings.max_craving_timer);
-
-	if(environment.fog_density < settings.normal_fog_density):
-		environment.fog_density += delta * settings.serum_to_normal_fog_speed;
+	if(environment.adjustment_contrast < 1.25):
+		var invisibility_time = 1 - (invisibility_timer/settings.serum_invisibility_time);
+		environment.adjustment_contrast += delta * settings.serum_to_normal_contrast_curve.sample(invisibility_time);
+		environment.ssil_enabled = false;
+		environment.sdfgi_enabled = false;
+		environment.glow_enabled = false;
+	else:
+		environment.ssil_enabled = true;
+		environment.sdfgi_enabled = true;
+		environment.glow_enabled = true;
 
 	var vignette_intensity: float = vignette_texture.material.get_shader_parameter("intensity");
 	if(vignette_intensity > 0):
@@ -214,17 +211,12 @@ func take_serum():
 	if(invisibility_timer > 0): EventBus.shells_disappear.emit();
 	invisibility_diming_max_timer = settings.invisibility_diming_time;
 	invisibility_jumpscare_timer = settings.invisibility_jumpscare_time;
-
-	print("fog fade level: ", fog_fade_level, " / serum level: ", serum_level);
 	
-	if(serum_level >= fog_fade_level):
-		environment.fog_density = settings.serum_fog_density;
-		fog_fade_level += settings.fog_fade_addiction_addition;
+	environment.adjustment_contrast = settings.serum_contrast_level;
 	if(serum_level < settings.serum_overdose_level):
 		set_vignette_parameters(settings.serum_vignette_intensity, 
 				settings.serum_vignette_color, settings.serum_vignette_radius);
 	elif(serum_level < settings.serum_critical_level):
-		mutation_spawn_timer = randf_range(settings.min_mutation_spawn_timer, settings.max_mutation_spawn_timer)
 		overtake_timer = randf_range(settings.min_overtake_timer, settings.max_overtake_timer);
 		if(ending): overtake_timer = 0;
 		overtake_dir = Vector3(randf_range(-1, 1), 0 , randf_range(-1, 1)).normalized();
@@ -239,24 +231,11 @@ func take_serum():
 		set_vignette_parameters(settings.serum_critical_vignette_intensity, 
 				settings.serum_critical_vignette_color, settings.serum_critical_vignette_radius);
 
-func spawn_mutation() -> void:
-	var spawn_points = get_tree().get_nodes_in_group("Mutation Spawn Point");
-	for i in range(0, spawn_points.size()):
-		var spawn_pos: Vector3 = spawn_points[i].global_position;
-		var distance: float = (spawn_pos - player.global_position).length();
-		if(distance > settings.max_mutation_spawn_range): continue;
-		if(distance < settings.min_mutation_spawn_range): continue;
-		var mutation_instance = mutation.instantiate();
-		get_tree().get_current_scene().add_child(mutation_instance);
-		mutation_instance.global_position = spawn_pos;
-		mutation_spawn_timer = randf_range(settings.min_mutation_spawn_timer, settings.max_mutation_spawn_timer)
-		return;
 
 func restart_timers() -> void:
 	craving_timer = randf_range(settings.min_craving_timer, settings.max_craving_timer);
 	overtake_timer = randf_range(settings.min_overtake_timer, settings.max_overtake_timer);
 	overtake_dir = Vector3(randf_range(-1, 1), 0 , randf_range(-1, 1)).normalized();
-	mutation_spawn_timer = randf_range(settings.min_mutation_spawn_timer, settings.max_mutation_spawn_timer)
 
 func set_vignette_parameters(intensity: float, color: Color, radius: float) -> void:
 	vignette_texture.material.set_shader_parameter("intensity", intensity);
