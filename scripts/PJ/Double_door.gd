@@ -33,7 +33,8 @@ func start_lift():
 	EventBus.call_event(lift_start_event);
 	if(lift_end_node == null): return;
 	GameManager.instance.player.global_position = lift_end_node.global_position;
-	UIManager.instance.start_transition_to_white(5.0, Callable());
+	GameManager.instance.player.global_rotation = lift_end_node.global_rotation;
+	UIManager.instance.start_transition_to_white(5.0, Callable(), false);
 
 func _process(delta: float) -> void:
 	if(!is_lift_door): return;
@@ -50,7 +51,7 @@ func _process(delta: float) -> void:
 		EventBus.call_event(lift_door_close_event);
 		lift_close_call_started = true;
 	if(is_player_inside && !lift_call_started):
-		UIManager.instance.start_transition_to_black(5.0, start_lift);
+		UIManager.instance.start_transition_to_black(5.0, start_lift, false);
 
 func player_interact():
 	if(unlock_if_clue_realized != null):

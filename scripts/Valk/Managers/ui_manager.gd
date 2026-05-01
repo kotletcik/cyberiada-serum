@@ -43,6 +43,8 @@ var serum_label: Label
 
 @export var main_menu_transition_speed: float = 1.0;
 
+var transition_in_pause_mode: bool = false;
+
 var transition_to_black_active: bool = false;
 var transition_to_black_speed: float = 1.0;
 var transition_to_black_call: Callable;
@@ -128,15 +130,14 @@ func _ready() -> void:
 		EventBus.good_ending.connect(show_good_ending_screen);
 		process_mode = Node.PROCESS_MODE_ALWAYS;
 		update_cursor();
-		start_transition_to_white(main_menu_transition_speed, Callable());
+		start_transition_to_white(main_menu_transition_speed, Callable(), false);
 	else:
 		print("More than one UIManager exists!!!");
 		queue_free();
 
 func go_to_main_menu():
-	add_child(black_transition)
 	black_transition.get_node("ColorRect").color.a = 0;
-	start_transition_to_black(main_menu_transition_speed, load_main_menu);
+	start_transition_to_black(main_menu_transition_speed, load_main_menu, true);
 	EventBus.reset_signal_subscribers();
 
 func show_bad_ending_screen():
@@ -155,15 +156,17 @@ func show_good_ending_screen():
 	update_cursor();
 	add_child(good_ending_screen);
 
-func start_transition_to_black(speed: float, transition_call: Callable) -> void:
+func start_transition_to_black(speed: float, transition_call: Callable, in_pause: bool) -> void:
 	transition_to_black_speed = speed;
 	transition_to_black_active = true;
 	transition_to_black_call = transition_call;
+	transition_in_pause_mode = in_pause;
 
-func start_transition_to_white(speed: float, transition_call: Callable) -> void:
+func start_transition_to_white(speed: float, transition_call: Callable, in_pause: bool) -> void:
 	transition_to_white_speed = speed;
 	transition_to_white_active = true;
 	transition_to_white_call = transition_call;
+	transition_in_pause_mode = in_pause;
 
 func load_main_menu():
 	GameManager.instance.unpause_game();
@@ -171,13 +174,13 @@ func load_main_menu():
 
 func _process(delta: float) -> void:
 
-	if(!get_tree().paused):
+	if(!get_tree().paused || transition_in_pause_mode):
 		if(transition_to_black_active):
 			black_transition.get_node("ColorRect").color.a += (1/transition_to_black_speed) * delta;
 			if(black_transition.get_node("ColorRect").color.a >= 1.0):
 				if(!transition_to_black_call.is_null()): transition_to_black_call.call();
 				transition_to_black_active = false;
-	
+
 		if(transition_to_white_active):
 			black_transition.get_node("ColorRect").color.a -= (1/transition_to_white_speed) * delta;
 			if(black_transition.get_node("ColorRect").color.a < 0):
