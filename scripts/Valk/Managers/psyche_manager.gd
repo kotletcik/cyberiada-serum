@@ -62,7 +62,7 @@ func _ready() -> void:
 		vignette_texture.material.set_shader_parameter("intensity", 0);
 		saturation_texture.material.set_shader_parameter("saturation", settings.normal_saturation);
 		serum_level = settings.serum_start_level;
-		EventBus.close_final_door.connect(bad_ending);
+		EventBus.final_door_closed.connect(bad_ending);
 	else:
 		print("More than one PsycheManager exists!!!");
 	pass 

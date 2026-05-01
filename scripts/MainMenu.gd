@@ -18,6 +18,7 @@ var _credits_tween = null
 # var transitioned: bool = false;
 var transition_started: bool = false;
 @export var transition_speed: float = 1.0;
+@export var build_mode: bool = false;
 
 func _ready():
 	start_button.pressed.connect(_on_start_pressed);
@@ -29,6 +30,8 @@ func _ready():
 	# transitioned = false;
 	transition_started = false;
 	remove_child(black_transition);
+	if(!build_mode):
+		_on_start_pressed();
 
 func _on_start_pressed():
 	add_child(black_transition);
