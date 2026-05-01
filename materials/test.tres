@@ -1,0 +1,28 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://p72yfo6r1cm"]
+
+[ext_resource type="Shader" uid="uid://cwssmc662kra8" path="res://shaders/marysiowy_shader.tres" id="1_1ft0u"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1ft0u"]
+load_path = "res://.godot/imported/kafelki_pekniete_albedo.png-30d187cb8b4b3cf23d9cba36aef68602.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dtams"]
+load_path = "res://.godot/imported/kafelki_pekniete_albedo.png-30d187cb8b4b3cf23d9cba36aef68602.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_t4k0e"]
+load_path = "res://.godot/imported/prubnykafel_orm.png-5df6791ff821f7f2f40432b3bbef2ad3.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_oxv71"]
+load_path = "res://.godot/imported/kafelki_pekniete_normal.png-96cac37d8e386edc9cacd700e1be45a1.s3tc.ctex"
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_1ft0u")
+shader_parameter/scale = 11.075
+shader_parameter/offset = -0.125
+shader_parameter/Albedo = SubResource("CompressedTexture2D_1ft0u")
+shader_parameter/Albedo2 = SubResource("CompressedTexture2D_dtams")
+shader_parameter/MetallicRoughness = SubResource("CompressedTexture2D_t4k0e")
+shader_parameter/Normal = SubResource("CompressedTexture2D_oxv71")
+shader_parameter/triplanar_scale = Vector3(1, 1, 1)
+shader_parameter/triplanar_offset = Vector3(0, 0, 0)
+shader_parameter/triplanar_sharpness = 0.5

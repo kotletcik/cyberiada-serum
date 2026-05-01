@@ -32,9 +32,11 @@
 [ext_resource type="Resource" uid="uid://dt7dtcb4bds7m" path="res://resources/thoughts/wakeup/watch.tres" id="27_p7nqx"]
 [ext_resource type="Resource" uid="uid://inlb87ae3v2h" path="res://resources/notes/test_not.tres" id="28_314lw"]
 [ext_resource type="Resource" uid="uid://cpshgebigpcom" path="res://resources/thoughts/wakeup/wakeup.tres" id="29_p7nqx"]
+[ext_resource type="Material" uid="uid://p72yfo6r1cm" path="res://materials/test.tres" id="29_xmgvw"]
 [ext_resource type="Texture2D" uid="uid://c0npdy8j254ac" path="res://level_design.png" id="31_4h7xs"]
 [ext_resource type="Material" uid="uid://btanaporc8div" path="res://materials/test_material.tres" id="31_gbmb2"]
 [ext_resource type="PackedScene" uid="uid://5jpcyg1fb8pf" path="res://prefabs/triggers/clue_trigger.tscn" id="31_hdlg5"]
+[ext_resource type="Material" uid="uid://dw5ltmc0aga72" path="res://materials/kafelki_pekniete.tres" id="32_ba0om"]
 [ext_resource type="Resource" uid="uid://dwbrn5l1ernyw" path="res://resources/thoughts/shell/first_shell.tres" id="34_0plmr"]
 [ext_resource type="PackedScene" uid="uid://cwpnmj2jjqjcg" path="res://prefabs/triggers/checkpoint_trigger.tscn" id="37_l3ixd"]
 [ext_resource type="Script" uid="uid://bc2ji67pooap7" path="res://scripts/Valk/Scene Triggers/save_trigger.gd" id="38_3at83"]
@@ -163,7 +165,7 @@ last_checkpoint = ExtResource("19_cnf01")
 metadata/_custom_type_script = "uid://bvpanlcy3bc06"
 
 [node name="floor" type="CSGBox3D" parent="." unique_id=587062996]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12173462, -1.0557508, 0.5328655)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.68852234, -0.9554548, 0.8739605)
 material_override = SubResource("StandardMaterial3D_13hkq")
 use_collision = true
 collision_layer = 2
@@ -1266,8 +1268,8 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -45.
 [node name="Geometry" type="Node3D" parent="Location6" unique_id=462425304]
 
 [node name="floor" type="CSGBox3D" parent="Location6/Geometry" unique_id=277451659]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.745907, -0.14322281, -1.6282959)
-material_override = SubResource("StandardMaterial3D_13hkq")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.720074, -0.09120941, -1.5876579)
+material_override = ExtResource("29_xmgvw")
 use_collision = true
 collision_layer = 2
 size = Vector3(58.16858, 1, 7.625244)
@@ -1653,8 +1655,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.762419, 0, -9.209772)
 [node name="Geometry" type="Node3D" parent="Location8" unique_id=310697269]
 
 [node name="floor" type="CSGBox3D" parent="Location8/Geometry" unique_id=1418568356]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0215454, -0.052919388, -0.3363037)
-material_override = ExtResource("31_gbmb2")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.167, -0.053, -0.336)
+material_override = ExtResource("32_ba0om")
+custom_aabb = AABB(-0.495, 0, 0, 0, 0, 0)
 use_collision = true
 collision_layer = 2
 size = Vector3(20.346558, 1, 6.6428223)
@@ -1703,7 +1706,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38609314, 0, -7.1479225)
 [node name="Light" type="Node3D" parent="Location8" unique_id=994161017]
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Location8/Light" unique_id=747925174]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.848045, 2.516183, 1.2377739)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.848045, 2.5503483, 1.2087708)
 light_energy = 6.489
 light_indirect_energy = 2.465
 light_volumetric_fog_energy = 1.33
