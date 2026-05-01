@@ -73,6 +73,9 @@ _body = NodePath("..")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=5614037]
 avoidance_enabled = true
+height = 3.0
+radius = 2.0
+debug_enabled = true
 debug_path_custom_color = Color(0.95686275, 0.13333334, 0.23137255, 1)
 script = ExtResource("6_ajbgq")
 
