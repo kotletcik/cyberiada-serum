@@ -467,22 +467,6 @@ func choose_note_ui(note: Note):
 	clear_notes_ui();
 	update_notes_ui();
 
-
-# func show_note_ui(note_content: String) -> void:
-# 	is_note_ui_active = true;
-# 	is_in_game = false;
-# 	add_child(note_ui);
-# 	note_ui.get_node("RichTextLabel").text = note_content;
-# 	cursor_locked_game = false;
-# 	update_cursor();
-
-# func hide_note_ui() -> void:
-# 	is_note_ui_active = false;
-# 	is_in_game = true;
-# 	remove_child(note_ui);
-# 	cursor_locked_game = true;
-# 	update_cursor();
-
 func update_cursor() -> void:
 	if(!cursor_locked_game || !cursor_locked_menu):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE);
