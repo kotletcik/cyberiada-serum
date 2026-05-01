@@ -689,4 +689,6 @@ text = "Wróć do głównego menu"
 [node name="ColorRect" type="ColorRect" parent="Black Transition" unique_id=460921685]
 offset_right = 1920.0
 offset_bottom = 1080.0
+mouse_filter = 2
+mouse_behavior_recursive = 1
 color = Color(0, 0, 0, 1)

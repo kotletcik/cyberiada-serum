@@ -39,14 +39,25 @@ var chosen_note: Note = null;
 var rocks_label: Label
 var serum_label: Label
 
-var transitioned: bool = false;
 @export var transition_speed: float = 1.0;
 
-var transition_to_main_menu_started: bool = false;
 @export var main_menu_transition_speed: float = 1.0;
+
+var transition_to_black_active: bool = false;
+var transition_to_black_speed: float = 1.0;
+var transition_to_black_call: Callable;
+
+var transition_to_white_active: bool = false;
+var transition_to_white_speed: float = 1.0;
+var transition_to_white_call: Callable;
 
 var was_note_ui_last_opened: bool = false;
 # @export var main_scene: PackedScene;
+
+func set_esc_menu_button(path: NodePath, ui_call: Callable):
+	var button: Button = esc_menu.get_node(path);
+	if(!ui_call.is_null()): button.pressed.connect(ui_call);
+	button.process_mode = Node.PROCESS_MODE_ALWAYS;
 
 func _ready() -> void:
 	if(instance == null):
@@ -64,22 +75,29 @@ func _ready() -> void:
 		mind_palace_ui_button.pressed.connect(switch_to_mind_palace_ui_panel);
 		remove_child(notes_ui);
 
-		var button: Button = esc_menu.get_node("Panel/Resume");
-		button.pressed.connect(resume_game);
-		button.process_mode = Node.PROCESS_MODE_ALWAYS;
-		var button2: Button = esc_menu.get_node("Panel/Checkpoint");
-		button2.pressed.connect(reload_last_checkpoint);
-		button2.process_mode = Node.PROCESS_MODE_ALWAYS;
-		var button3: Button = esc_menu.get_node("Panel/Controls");
-		button3.pressed.connect(show_controls);
-		button3.process_mode = Node.PROCESS_MODE_ALWAYS;
+
+		# var button: Button = esc_menu.get_node("Panel/Resume");
+		# button.pressed.connect(resume_game);
+		# button.process_mode = Node.PROCESS_MODE_ALWAYS;
+		set_esc_menu_button("Panel/Resume", resume_game);
+		# var button2: Button = esc_menu.get_node("Panel/Checkpoint");
+		# button2.pressed.connect(reload_last_checkpoint);
+		# button2.process_mode = Node.PROCESS_MODE_ALWAYS;
+		set_esc_menu_button("Panel/Checkpoint", reload_last_checkpoint);
+		# var button3: Button = esc_menu.get_node("Panel/Controls");
+		# button3.pressed.connect(show_controls);
+		# button3.process_mode = Node.PROCESS_MODE_ALWAYS;
+		set_esc_menu_button("Panel/Controls", show_controls);
+		# controls_menu = esc_menu.get_node("ControlsPanel");
+		# var button4: Button = controls_menu.get_node("Close");
+		# button4.pressed.connect(hide_controls);
+		# button4.process_mode = Node.PROCESS_MODE_ALWAYS;
+		set_esc_menu_button("ControlsPanel/Close", hide_controls);
+		# var button9: Button = esc_menu.get_node("Panel/MainMenu");
+		# button9.pressed.connect(go_to_main_menu);
+		# button9.process_mode = Node.PROCESS_MODE_ALWAYS;
+		set_esc_menu_button("Panel/MainMenu", go_to_main_menu);
 		controls_menu = esc_menu.get_node("ControlsPanel");
-		var button4: Button = controls_menu.get_node("Close");
-		button4.pressed.connect(hide_controls);
-		button4.process_mode = Node.PROCESS_MODE_ALWAYS;
-		var button9: Button = esc_menu.get_node("Panel/MainMenu");
-		button9.pressed.connect(go_to_main_menu);
-		button9.process_mode = Node.PROCESS_MODE_ALWAYS;
 		esc_menu.remove_child(controls_menu);
 		remove_child(esc_menu);
 
@@ -110,7 +128,7 @@ func _ready() -> void:
 		EventBus.good_ending.connect(show_good_ending_screen);
 		process_mode = Node.PROCESS_MODE_ALWAYS;
 		update_cursor();
-		transition_to_main_menu_started = false;
+		start_transition_to_white(main_menu_transition_speed, Callable());
 	else:
 		print("More than one UIManager exists!!!");
 		queue_free();
@@ -118,7 +136,7 @@ func _ready() -> void:
 func go_to_main_menu():
 	add_child(black_transition)
 	black_transition.get_node("ColorRect").color.a = 0;
-	transition_to_main_menu_started = true;
+	start_transition_to_black(main_menu_transition_speed, load_main_menu);
 	EventBus.reset_signal_subscribers();
 
 func show_bad_ending_screen():
@@ -130,7 +148,6 @@ func show_bad_ending_screen():
 	add_child(bad_ending_screen);
 
 func show_good_ending_screen():
-	await get_tree().create_timer(5.0, false).timeout;
 	PsycheManager.instance.set_vignette_parameters(0, Color.ALICE_BLUE, 0);
 	GameManager.instance.is_game_over = true;
 	GameManager.instance.pause_game();
@@ -138,17 +155,34 @@ func show_good_ending_screen():
 	update_cursor();
 	add_child(good_ending_screen);
 
+func start_transition_to_black(speed: float, transition_call: Callable) -> void:
+	transition_to_black_speed = speed;
+	transition_to_black_active = true;
+	transition_to_black_call = transition_call;
+
+func start_transition_to_white(speed: float, transition_call: Callable) -> void:
+	transition_to_white_speed = speed;
+	transition_to_white_active = true;
+	transition_to_white_call = transition_call;
+
+func load_main_menu():
+	GameManager.instance.unpause_game();
+	print(get_tree().change_scene_to_file("res://scenes/MainMenu.tscn"));
+
 func _process(delta: float) -> void:
-	if(transition_to_main_menu_started):
-		black_transition.get_node("ColorRect").color.a += (1/main_menu_transition_speed) * delta;
-		if(black_transition.get_node("ColorRect").color.a >= 1.0):
-			GameManager.instance.unpause_game();
-			print(get_tree().change_scene_to_file("res://scenes/MainMenu.tscn"));
-	if(!transitioned):
-		black_transition.get_node("ColorRect").color.a -= (1/transition_speed) * delta;
-		if(black_transition.get_node("ColorRect").color.a < 0):
-			remove_child(black_transition);
-			transitioned = true;
+
+	if(!get_tree().paused):
+		if(transition_to_black_active):
+			black_transition.get_node("ColorRect").color.a += (1/transition_to_black_speed) * delta;
+			if(black_transition.get_node("ColorRect").color.a >= 1.0):
+				if(!transition_to_black_call.is_null()): transition_to_black_call.call();
+				transition_to_black_active = false;
+	
+		if(transition_to_white_active):
+			black_transition.get_node("ColorRect").color.a -= (1/transition_to_white_speed) * delta;
+			if(black_transition.get_node("ColorRect").color.a < 0):
+				if(!transition_to_white_call.is_null()): transition_to_white_call.call();
+				transition_to_white_active = false;
 
 	if(Input.is_action_just_pressed("Mind Palace") && !is_in_esc_menu):
 		if(is_mind_palace_ui_active): 
