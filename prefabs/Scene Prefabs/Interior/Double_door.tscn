@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://doimrejwy0736"]
 
 [ext_resource type="Script" uid="uid://caduj0tup337b" path="res://scripts/PJ/Double_door.gd" id="1_8e36d"]
-[ext_resource type="Material" path="res://textures/drzwi/drzwi.tres" id="2_136df"]
+[ext_resource type="Material" uid="uid://c8lvy3d54np1h" path="res://textures/drzwi/drzwi.tres" id="2_136df"]
 [ext_resource type="Texture2D" uid="uid://dy5w1k0n7b4ao" path="res://textures/drzwi/drzwi_albedo.png" id="3_a4xdr"]
 [ext_resource type="Texture2D" uid="uid://ctr0a5r5j5mjd" path="res://textures/drzwi/drzwi_orm.png" id="4_n42tj"]
 [ext_resource type="Texture2D" uid="uid://b4uhjv2ssfmeh" path="res://textures/drzwi/drzwi_normal.png" id="5_jwx1m"]
@@ -56,3 +56,11 @@ transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_f2rxo")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_s1w7s")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=687307485]
+transform = Transform3D(0.9865338, -0.105161496, 0.12526815, -0.01751606, 0.6935617, 0.7201844, -0.16261683, -0.71268046, 0.68237996, 0.64936066, 1.8964967, 2.7067573)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=961143091]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.43193758, 1.8454638, 2.4304507)
+light_energy = 16.0
+light_indirect_energy = 16.0

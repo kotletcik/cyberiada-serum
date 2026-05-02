@@ -42,6 +42,7 @@
 [ext_resource type="Script" uid="uid://bc2ji67pooap7" path="res://scripts/Valk/Scene Triggers/save_trigger.gd" id="38_3at83"]
 [ext_resource type="PackedScene" uid="uid://disyay20hbkli" path="res://assets/models/Pudełko otwarte.fbx" id="40_jumma"]
 [ext_resource type="PackedScene" uid="uid://dp8ptyamp3mvi" path="res://prefabs/Scene Prefabs/Interior/Transformator.tscn" id="42_xmgvw"]
+[ext_resource type="PackedScene" uid="uid://fy3m0tlxgfik" path="res://prefabs/Scene Prefabs/Interior/emergency_button.tscn" id="42_xmgvw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13hkq"]
 albedo_color = Color(0.27450982, 0.27450982, 0.27450982, 1)
@@ -130,8 +131,6 @@ SOBER_WALK_SPEED = 6.9
 CROUCH_SPEED_MULTIPLIER = 0.3
 crouching_noise_volume = 1.5
 walking_noise_volume = 3.0
-crouch_check_y = 0.845
-crouch_check_radius = 0.5
 
 [node name="PsycheManager" type="Node" parent="." unique_id=410702270 node_paths=PackedStringArray("player")]
 script = ExtResource("2_bq4fy")
@@ -2188,12 +2187,13 @@ size = Vector3(5.658432, 5, 1)
 [node name="DoubleDoor4" parent="Location10/ShellNavRegion/Geometry" unique_id=340185522 node_paths=PackedStringArray("lift_end_node") instance=ExtResource("8_vcjj7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4178581, 2.425858, -32.759293)
 isDisposable = true
+move_duration = 5.0
 is_lift_door = true
 lift_end_node = NodePath("../../../../Location14/Level2StartPoint")
 
 [node name="DoubleDoor5" parent="Location10/ShellNavRegion/Geometry" unique_id=1977353845 instance=ExtResource("8_vcjj7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.644478, 2.425858, -32.759293)
-move_distance = 0.0
+is_door_locked = true
 
 [node name="wall18" type="CSGBox3D" parent="Location10/ShellNavRegion/Geometry" unique_id=1073201483]
 transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 1.4827003, 2, -26.337374)
@@ -2803,6 +2803,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.720848, 0.44599998, 13.70
 [node name="Transformator" parent="." unique_id=324287953 instance=ExtResource("42_xmgvw")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6.2871685, 2.0135221, 3.685447)
 turned_off_timer = 15.0
+[node name="EmergencyButton" parent="." unique_id=2049750870 node_paths=PackedStringArray("linked_door") instance=ExtResource("42_xmgvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.121607, 3.1803846, -18.657057)
+linked_door = NodePath("../Location10/ShellNavRegion/Geometry/DoubleDoor5")
 
 [editable path="Location5/ShellNavRegion/Geometry/StaticBody3D"]
 [editable path="Location5/ShellNavRegion/Geometry/StaticBody3D2"]

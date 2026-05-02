@@ -192,8 +192,8 @@ func _process(delta: float) -> void:
 		environment.sdfgi_enabled = false;
 		environment.glow_enabled = false;
 	else:
-		environment.ssil_enabled = true;
-		environment.sdfgi_enabled = true;
+		environment.ssil_enabled = false;
+		environment.sdfgi_enabled = false;
 		environment.glow_enabled = true;
 
 	var vignette_intensity: float = vignette_texture.material.get_shader_parameter("intensity");
