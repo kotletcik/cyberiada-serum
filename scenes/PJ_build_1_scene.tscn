@@ -24,19 +24,23 @@
 [ext_resource type="Resource" uid="uid://emdxa24gcxrb" path="res://resources/thoughts/serum/serum.tres" id="18_bd5a3"]
 [ext_resource type="Resource" uid="uid://mm8l7277obwj" path="res://resources/last_checkpoint.tres" id="19_cnf01"]
 [ext_resource type="Resource" uid="uid://beopfd6yqk0so" path="res://resources/thoughts/shell/use_serum.tres" id="20_j12l6"]
+[ext_resource type="Material" path="res://textures/beton/beton.tres" id="20_scj3o"]
 [ext_resource type="Resource" uid="uid://chbvik850k7tu" path="res://resources/thoughts/shell/kamien.tres" id="21_eqt5g"]
 [ext_resource type="Resource" uid="uid://0clrfc6yrxg1" path="res://resources/notes/smierc.tres" id="24_8fi71"]
 [ext_resource type="PackedScene" uid="uid://clg0uguj2n21v" path="res://prefabs/Scene Prefabs/scene_note.tscn" id="25_sbrwg"]
+[ext_resource type="Texture2D" uid="uid://cfmpxovcb10tl" path="res://textures/beton/beton_albedo.png" id="26_0ljpd"]
 [ext_resource type="Resource" uid="uid://cuerh7w08uco4" path="res://resources/thoughts/shell/what_is_shell.tres" id="26_0plmr"]
 [ext_resource type="Resource" uid="uid://b2q3agdc7eyfd" path="res://resources/notes/raport.tres" id="26_e7wky"]
 [ext_resource type="Resource" uid="uid://dt7dtcb4bds7m" path="res://resources/thoughts/wakeup/watch.tres" id="27_p7nqx"]
 [ext_resource type="Resource" uid="uid://inlb87ae3v2h" path="res://resources/notes/test_not.tres" id="28_314lw"]
 [ext_resource type="Material" uid="uid://cmri8y4naac10" path="res://materials/metal_z_wypukloscami.tres" id="29_gbmb2"]
 [ext_resource type="Resource" uid="uid://cpshgebigpcom" path="res://resources/thoughts/wakeup/wakeup.tres" id="29_p7nqx"]
+[ext_resource type="Material" uid="uid://boblir86ikxs1" path="res://materials/plytki_metalowe_z_wypuklosciami.tres" id="30_ba0om"]
 [ext_resource type="Texture2D" uid="uid://c0npdy8j254ac" path="res://level_design.png" id="31_4h7xs"]
 [ext_resource type="Material" uid="uid://btanaporc8div" path="res://materials/test_material.tres" id="31_gbmb2"]
 [ext_resource type="PackedScene" uid="uid://5jpcyg1fb8pf" path="res://prefabs/triggers/clue_trigger.tscn" id="31_hdlg5"]
 [ext_resource type="Material" uid="uid://dw5ltmc0aga72" path="res://materials/kafelki_pekniete.tres" id="32_ba0om"]
+[ext_resource type="Material" path="res://textures/drewno/drewno.tres" id="32_mqcy5"]
 [ext_resource type="Resource" uid="uid://dwbrn5l1ernyw" path="res://resources/thoughts/shell/first_shell.tres" id="34_0plmr"]
 [ext_resource type="PackedScene" uid="uid://cwpnmj2jjqjcg" path="res://prefabs/triggers/checkpoint_trigger.tscn" id="37_l3ixd"]
 [ext_resource type="Script" uid="uid://bc2ji67pooap7" path="res://scripts/Valk/Scene Triggers/save_trigger.gd" id="38_3at83"]
@@ -66,14 +70,35 @@ size = Vector3(0.5, 2.213745, 1.5)
 [sub_resource type="BoxShape3D" id="BoxShape3D_4h7xs"]
 size = Vector3(0.5, 2.1738281, 1.5)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d5a61"]
+albedo_texture = ExtResource("26_0ljpd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gndwu"]
+albedo_texture = ExtResource("26_0ljpd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2wj1c"]
+albedo_texture = ExtResource("26_0ljpd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cidjx"]
+albedo_texture = ExtResource("26_0ljpd")
+
 [sub_resource type="NavigationMesh" id="NavigationMesh_lfu3u"]
 vertices = PackedVector3Array(-4.5, 1, 7.8400517, -4.5, 1, 6.5900517, -6, 1, 6.5900517, -9, 1, 7.8400517, -6.75, 1, 5.8400517, -6.75, 1, -7.9099483, -9, 1, -7.9099483, -3, 1, 6.5900517, 3, 1, 7.8400517, -0.75, 1, 6.5900517, 3.5, 1, -7.9099483, 2.75, 1, -7.9099483, 2.75, 1, 5.8400517, -2.25, 1, -7.9099483, -2.25, 1, 5.8400517, -1.5, 1, 5.8400517, -1.5, 1, -7.9099483, 2, 1, 6.5900517, 7.5, 1, 5.5900517, 7.5, 1, 7.8400517, 8, 1, 7.8400517, 8, 1, -7.9099483)
 polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 3), PackedInt32Array(4, 2, 3), PackedInt32Array(0, 1, 7), PackedInt32Array(7, 9, 0), PackedInt32Array(0, 9, 8), PackedInt32Array(11, 10, 12), PackedInt32Array(12, 10, 8), PackedInt32Array(16, 15, 13), PackedInt32Array(13, 15, 14), PackedInt32Array(17, 12, 8), PackedInt32Array(9, 17, 8), PackedInt32Array(15, 9, 14), PackedInt32Array(14, 9, 7), PackedInt32Array(19, 18, 20), PackedInt32Array(20, 18, 21)]
 geometry_parsed_geometry_type = 1
 agent_radius = 1.0
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vkxoh"]
+albedo_texture = ExtResource("26_0ljpd")
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_gbmb2"]
 size = Vector3(0.5, 3.9634361, 2.8554077)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bt5wu"]
+albedo_texture = ExtResource("26_0ljpd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ipoun"]
+albedo_texture = ExtResource("26_0ljpd")
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_m1rxk"]
 vertices = PackedVector3Array(-5.25, 1, -6.256919, -4.25, 1, -6.256919, -4.25, 1, -7.756919, -6, 1, -5.506919, -9, 1, -7.756919, -9, 1, 0.2430811, -6, 1, 0.2430811, -3.5, 1, -6.256919, -2.75, 1, -0.006918907, -1, 1, 0.2430811, -1, 1, -0.5069189, -2.75, 1, -5.506919, -0.25, 1, -1.2569189, 3.25, 1, -7.756919, 1.5, 1, -1.2569189, 2.25, 1, -0.5069189, 2.25, 1, 7.993081, 3.25, 1, 7.993081, 8, 1, -5.256919, 8, 1, -7.756919, 6.5, 1, -7.756919, 6.75, 1, -4.506919, 6.25, 1, 4.493081, 6.75, 1, 7.993081, -3.5, 1, 1.2430811, -1, 1, 7.993081, -5.25, 1, 1.2430811, -9, 1, 7.993081)
@@ -454,14 +479,14 @@ size = Vector3(20, 5, 1)
 
 [node name="wall3" type="CSGBox3D" parent="Location12/Geometry" unique_id=283131718]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.893959, 2, -7.442585)
-material_override = SubResource("StandardMaterial3D_13hkq")
+material_override = ExtResource("20_scj3o")
 use_collision = true
 collision_layer = 4
 size = Vector3(18.093262, 5, 1)
 
 [node name="wall4" type="CSGBox3D" parent="Location12/Geometry" unique_id=1388743729]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -12.694424, 2, 4.646595)
-material_override = SubResource("StandardMaterial3D_13hkq")
+material_override = ExtResource("20_scj3o")
 use_collision = true
 collision_layer = 4
 size = Vector3(31.00769, 5, 1)
@@ -1040,21 +1065,21 @@ size = Vector3(1.8881836, 5, 0.71191406)
 
 [node name="wall19" type="CSGBox3D" parent="Location5/ShellNavRegion/Geometry" unique_id=1357387956]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.3785515, 2, -19.013203)
-material_override = SubResource("StandardMaterial3D_13hkq")
+material_override = ExtResource("20_scj3o")
 use_collision = true
 collision_layer = 4
 size = Vector3(5.0625, 5, 1)
 
 [node name="wall3" type="CSGBox3D" parent="Location5/ShellNavRegion/Geometry" unique_id=584167521]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03426361, 2, -40.59563)
-material_override = SubResource("StandardMaterial3D_13hkq")
+material_override = ExtResource("20_scj3o")
 use_collision = true
 collision_layer = 4
 size = Vector3(10.236816, 5, 1)
 
 [node name="wall20" type="CSGBox3D" parent="Location5/ShellNavRegion/Geometry" unique_id=1842712867]
 transform = Transform3D(-4.3711395e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711395e-08, 1.5168228, 2, -42.531548)
-material_override = SubResource("StandardMaterial3D_13hkq")
+material_override = ExtResource("20_scj3o")
 use_collision = true
 collision_layer = 4
 size = Vector3(6.36499, 5, 1)
@@ -1068,14 +1093,14 @@ size = Vector3(28.540775, 5, 1)
 
 [node name="wall8" type="CSGBox3D" parent="Location5/ShellNavRegion/Geometry" unique_id=1587786660]
 transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 1.4828911, 2, 10.005016)
-material_override = SubResource("StandardMaterial3D_jik7h")
+material_override = ExtResource("20_scj3o")
 use_collision = true
 collision_layer = 4
 size = Vector3(10.212173, 5, 1)
 
 [node name="wall9" type="CSGBox3D" parent="Location5/ShellNavRegion/Geometry" unique_id=1122825612]
 transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 1.461544, 2, -8.029243)
-material_override = SubResource("StandardMaterial3D_jik7h")
+material_override = ExtResource("20_scj3o")
 use_collision = true
 collision_layer = 4
 size = Vector3(21.157082, 5, 1)
@@ -1131,7 +1156,7 @@ size = Vector3(18.516985, 5, 1)
 
 [node name="wall14" type="CSGBox3D" parent="Location5/ShellNavRegion/Geometry" unique_id=978305462]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.67878, 2, -18.772558)
-material_override = SubResource("StandardMaterial3D_13hkq")
+material_override = ExtResource("20_scj3o")
 use_collision = true
 collision_layer = 4
 size = Vector3(18.712297, 5, 1)
@@ -1185,7 +1210,7 @@ skeleton = NodePath("../../../../..")
 
 [node name="wall15" type="CSGBox3D" parent="Location5/ShellNavRegion/Geometry" unique_id=57716231]
 transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 1.3798294, 2, -32.71601)
-material_override = SubResource("StandardMaterial3D_jik7h")
+material_override = SubResource("StandardMaterial3D_d5a61")
 use_collision = true
 collision_layer = 4
 size = Vector3(3.536911, 5, 1)
@@ -1199,21 +1224,21 @@ move_distance = 0.0
 
 [node name="wall16" type="CSGBox3D" parent="Location5/ShellNavRegion/Geometry" unique_id=179364746]
 transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 1.4795952, 0.0075757504, -19.750336)
-material_override = SubResource("StandardMaterial3D_jik7h")
+material_override = SubResource("StandardMaterial3D_gndwu")
 use_collision = true
 collision_layer = 4
 size = Vector3(8.762573, 2.5291748, 1)
 
 [node name="wall17" type="CSGBox3D" parent="Location5/ShellNavRegion/Geometry" unique_id=2001336939]
 transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 1.4795952, 3.6098628, -20.562073)
-material_override = SubResource("StandardMaterial3D_jik7h")
+material_override = SubResource("StandardMaterial3D_2wj1c")
 use_collision = true
 collision_layer = 4
 size = Vector3(10.386047, 1.7593079, 1)
 
 [node name="wall18" type="CSGBox3D" parent="Location5/ShellNavRegion/Geometry" unique_id=1128236702]
 transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 1.4827003, 2, -25.095932)
-material_override = SubResource("StandardMaterial3D_jik7h")
+material_override = SubResource("StandardMaterial3D_cidjx")
 use_collision = true
 collision_layer = 4
 size = Vector3(2.0450134, 5, 1)
@@ -1270,21 +1295,29 @@ size = Vector3(58.16858, 1, 7.802002)
 
 [node name="wall1" type="CSGBox3D" parent="Location6/Geometry" unique_id=1935906129]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9507217, 2, 1.8374195)
-material_override = SubResource("StandardMaterial3D_13hkq")
+material_override = ExtResource("20_scj3o")
 use_collision = true
 collision_layer = 4
 size = Vector3(20.160645, 5, 1)
 
-[node name="wall5" type="CSGBox3D" parent="Location6/Geometry" unique_id=205400160]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.60146, 2, 1.8374157)
-material_override = SubResource("StandardMaterial3D_13hkq")
+[node name="wall1" type="CSGBox3D" parent="Location6/Geometry/wall1" unique_id=1416361934]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.110996, 0.10943556, -0.10516548)
+material_override = ExtResource("30_ba0om")
 use_collision = true
 collision_layer = 4
-size = Vector3(20.160645, 5, 1)
+size = Vector3(19.70581, 5, 1)
+
+[node name="wall5" type="CSGBox3D" parent="Location6/Geometry" unique_id=205400160]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.525967, 2.0933537, 1.7597132)
+material_override = ExtResource("20_scj3o")
+use_collision = true
+collision_layer = 4
+size = Vector3(19.171387, 5, 1)
+material = ExtResource("30_ba0om")
 
 [node name="wall2" type="CSGBox3D" parent="Location6/Geometry" unique_id=283522182]
 transform = Transform3D(-4.371138e-08, 0, 1, 0, 1, 0, -1, 0, -4.371138e-08, -14.614216, 1.4468803, 9.502891)
-material_override = SubResource("StandardMaterial3D_13hkq")
+material_override = ExtResource("20_scj3o")
 use_collision = true
 collision_layer = 4
 size = Vector3(14.618164, 5, 1)
@@ -1298,7 +1331,7 @@ size = Vector3(14.618164, 5, 1)
 
 [node name="wall3" type="CSGBox3D" parent="Location6/Geometry" unique_id=1504206429]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.374424, 2, -5.2791977)
-material_override = SubResource("StandardMaterial3D_13hkq")
+material_override = ExtResource("20_scj3o")
 use_collision = true
 collision_layer = 4
 size = Vector3(59.0542, 5, 1)
@@ -1392,28 +1425,29 @@ patrol_points = [NodePath("../ShellPatrolPoints/PatrolPoint1"), NodePath("../She
 navigation_mesh = SubResource("NavigationMesh_lfu3u")
 
 [node name="floor" type="CSGBox3D" parent="Location7/ShellNavRegion" unique_id=930730176]
-material_override = SubResource("StandardMaterial3D_13hkq")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07487488, 0, -0.02026844)
+material_override = ExtResource("32_ba0om")
 use_collision = true
 collision_layer = 2
 size = Vector3(20, 1, 20)
 
 [node name="wall1" type="CSGBox3D" parent="Location7/ShellNavRegion" unique_id=304042539]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 9.5)
-material_override = SubResource("StandardMaterial3D_13hkq")
+material_override = ExtResource("20_scj3o")
 use_collision = true
 collision_layer = 4
 size = Vector3(20, 5, 1)
 
 [node name="wall2" type="CSGBox3D" parent="Location7/ShellNavRegion" unique_id=276707411]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9.5, 2, -2.5839844)
-material_override = SubResource("StandardMaterial3D_13hkq")
+material_override = SubResource("StandardMaterial3D_vkxoh")
 use_collision = true
 collision_layer = 4
 size = Vector3(14.832031, 5, 1)
 
 [node name="wall3" type="CSGBox3D" parent="Location7/ShellNavRegion" unique_id=2045116824]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -9.5)
-material_override = SubResource("StandardMaterial3D_13hkq")
+material_override = ExtResource("20_scj3o")
 use_collision = true
 collision_layer = 4
 size = Vector3(20, 5, 1)
@@ -1422,7 +1456,7 @@ size = Vector3(20, 5, 1)
 
 [node name="interior4" type="CSGBox3D" parent="Location7/ShellNavRegion/Shelf" unique_id=29503712]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.589302, 0.77189064, -2.206894)
-material_override = SubResource("StandardMaterial3D_jik7h")
+material_override = ExtResource("29_gbmb2")
 use_collision = true
 collision_layer = 4
 size = Vector3(15.532715, 0.5805664, 2)
@@ -1434,7 +1468,7 @@ size = Vector3(2.0302124, 1, 2.6073608)
 
 [node name="interior9" type="CSGBox3D" parent="Location7/ShellNavRegion/Shelf" unique_id=889175529]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.4201927, 1.743727, -2.3823605)
-material_override = SubResource("StandardMaterial3D_jik7h")
+material_override = ExtResource("29_gbmb2")
 use_collision = true
 collision_layer = 4
 size = Vector3(15.555176, 0.20288086, 2)
@@ -1446,7 +1480,7 @@ size = Vector3(2.0302124, 1, 1.5145264)
 
 [node name="interior10" type="CSGBox3D" parent="Location7/ShellNavRegion/Shelf" unique_id=1744233150]
 transform = Transform3D(1.9106855e-15, -1, -4.371139e-08, -4.371139e-08, -4.371139e-08, 1, -1, 0, -4.371139e-08, -4.4201927, 1.8101332, -2.3823605)
-material_override = SubResource("StandardMaterial3D_jik7h")
+material_override = ExtResource("29_gbmb2")
 use_collision = true
 collision_layer = 4
 size = Vector3(15.555176, 0.20288086, 2.1328125)
@@ -1458,7 +1492,7 @@ size = Vector3(2.0302124, 1, 1.5145264)
 
 [node name="interior12" type="CSGBox3D" parent="Location7/ShellNavRegion/Shelf" unique_id=929891115]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.4201927, 2.8169038, -2.4451046)
-material_override = SubResource("StandardMaterial3D_jik7h")
+material_override = ExtResource("30_ba0om")
 use_collision = true
 collision_layer = 4
 size = Vector3(15.4296875, 0.20288086, 2)
@@ -1467,8 +1501,8 @@ size = Vector3(15.4296875, 0.20288086, 2)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1549473, 0, 0)
 
 [node name="interior4" type="CSGBox3D" parent="Location7/ShellNavRegion/Shelf2" unique_id=2093538324]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.589302, 0.77189064, -2.236435)
-material_override = SubResource("StandardMaterial3D_jik7h")
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.654, 0.772, -2.236)
+material_override = ExtResource("29_gbmb2")
 use_collision = true
 collision_layer = 4
 size = Vector3(15.473633, 0.5805664, 2)
@@ -1492,35 +1526,35 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.724012, 0, 0)
 
 [node name="interior4" type="CSGBox3D" parent="Location7/ShellNavRegion/Shelf3" unique_id=304261767]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.311161, 0.77189064, -0.6089573)
-material_override = SubResource("StandardMaterial3D_jik7h")
+material_override = ExtResource("29_gbmb2")
 use_collision = true
 collision_layer = 4
 size = Vector3(12.131836, 0.5805664, 2)
 
 [node name="interior9" type="CSGBox3D" parent="Location7/ShellNavRegion/Shelf3" unique_id=828200816]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.1420536, 1.743727, -2.2297382)
-material_override = SubResource("StandardMaterial3D_jik7h")
+material_override = ExtResource("29_gbmb2")
 use_collision = true
 collision_layer = 4
 size = Vector3(15, 0.20288086, 2)
 
 [node name="interior12" type="CSGBox3D" parent="Location7/ShellNavRegion/Shelf3" unique_id=1404609370]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.1420536, 2.8169038, -2.2297382)
-material_override = SubResource("StandardMaterial3D_jik7h")
+material_override = ExtResource("29_gbmb2")
 use_collision = true
 collision_layer = 4
 size = Vector3(15, 0.20288086, 2)
 
 [node name="interior5" type="CSGBox3D" parent="Location7/ShellNavRegion/Shelf3" unique_id=2084866250]
 transform = Transform3D(0.06027177, 0.1230627, 0.99056697, 0.4356961, 0.8896022, -0.13702963, -0.89807373, 0.43984517, -3.9256047e-08, -4.311161, 2.5340366, 7.404561)
-material_override = SubResource("StandardMaterial3D_jik7h")
+material_override = ExtResource("32_mqcy5")
 use_collision = true
 collision_layer = 4
 size = Vector3(1.84375, 4.1048584, 2)
 
 [node name="interior6" type="CSGBox3D" parent="Location7/ShellNavRegion/Shelf3" unique_id=1447235043]
 transform = Transform3D(0.060271766, 0.123062685, 0.99056697, -0.07171297, 0.9903406, -0.118671164, -0.9956027, -0.06388399, 0.06851477, -4.5737133, 1.1537682, 8.840306)
-material_override = SubResource("StandardMaterial3D_jik7h")
+material_override = ExtResource("32_mqcy5")
 use_collision = true
 collision_layer = 4
 size = Vector3(1.6557617, 0.72821045, 2)
@@ -1538,14 +1572,14 @@ transform = Transform3D(0.5, 0, 0, 0, 3.9634361, 0, 0, 0, 2.8554077, 0, 0, 0)
 
 [node name="wall4" type="CSGBox3D" parent="Location7/ShellNavRegion" unique_id=1242843683]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9.5, 2, 8.458733)
-material_override = SubResource("StandardMaterial3D_13hkq")
+material_override = SubResource("StandardMaterial3D_bt5wu")
 use_collision = true
 collision_layer = 4
 size = Vector3(1.7329102, 5, 1)
 
 [node name="wall5" type="CSGBox3D" parent="Location7/ShellNavRegion" unique_id=145446289]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9.5, 4.38752, 6.2419014)
-material_override = SubResource("StandardMaterial3D_13hkq")
+material_override = SubResource("StandardMaterial3D_ipoun")
 use_collision = true
 collision_layer = 4
 size = Vector3(2.9990845, 0.22496033, 1)
@@ -1658,14 +1692,14 @@ size = Vector3(20.346558, 1, 6.6428223)
 
 [node name="wall1" type="CSGBox3D" parent="Location8/Geometry" unique_id=1001988342]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.847328, 2, 2.2746658)
-material_override = SubResource("StandardMaterial3D_13hkq")
+material_override = ExtResource("20_scj3o")
 use_collision = true
 collision_layer = 4
 size = Vector3(20, 5, 1)
 
 [node name="wall3" type="CSGBox3D" parent="Location8/Geometry" unique_id=1645535306]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.847328, 2, -3.1593761)
-material_override = SubResource("StandardMaterial3D_13hkq")
+material_override = ExtResource("20_scj3o")
 use_collision = true
 collision_layer = 4
 size = Vector3(20, 5, 1)
@@ -1679,7 +1713,7 @@ size = Vector3(13.376343, 5, 1)
 
 [node name="wall8" type="CSGBox3D" parent="Location8/Geometry" unique_id=1591143133]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.75, 2, -3.820385)
-material_override = SubResource("StandardMaterial3D_jik7h")
+material_override = ExtResource("20_scj3o")
 use_collision = true
 collision_layer = 4
 size = Vector3(2.8190918, 5, 1)
@@ -1765,7 +1799,7 @@ size = Vector3(15.648499, 5, 1)
 
 [node name="wall3" type="CSGBox3D" parent="Location9/ShellNavRegion" unique_id=340315502]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -9.500001)
-material_override = SubResource("StandardMaterial3D_13hkq")
+material_override = ExtResource("20_scj3o")
 use_collision = true
 collision_layer = 4
 size = Vector3(20, 5, 1)
