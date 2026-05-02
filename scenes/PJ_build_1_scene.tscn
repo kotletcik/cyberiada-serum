@@ -41,8 +41,8 @@
 [ext_resource type="PackedScene" uid="uid://cwpnmj2jjqjcg" path="res://prefabs/triggers/checkpoint_trigger.tscn" id="37_l3ixd"]
 [ext_resource type="Script" uid="uid://bc2ji67pooap7" path="res://scripts/Valk/Scene Triggers/save_trigger.gd" id="38_3at83"]
 [ext_resource type="PackedScene" uid="uid://disyay20hbkli" path="res://assets/models/Pudełko otwarte.fbx" id="40_jumma"]
-[ext_resource type="PackedScene" uid="uid://dp8ptyamp3mvi" path="res://prefabs/Scene Prefabs/Interior/Transformator.tscn" id="42_xmgvw"]
 [ext_resource type="PackedScene" uid="uid://fy3m0tlxgfik" path="res://prefabs/Scene Prefabs/Interior/emergency_button.tscn" id="42_xmgvw"]
+[ext_resource type="PackedScene" uid="uid://dp8ptyamp3mvi" path="res://prefabs/Scene Prefabs/Interior/Transformator.tscn" id="43_ba0om"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13hkq"]
 albedo_color = Color(0.27450982, 0.27450982, 0.27450982, 1)
@@ -2802,10 +2802,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.720848, 0.44599998, 13.70
 
 [node name="Transformator" parent="." unique_id=324287953 instance=ExtResource("42_xmgvw")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6.2871685, 2.0135221, 3.685447)
-turned_off_timer = 15.0
+
 [node name="EmergencyButton" parent="." unique_id=2049750870 node_paths=PackedStringArray("linked_door") instance=ExtResource("42_xmgvw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.121607, 3.1803846, -18.657057)
 linked_door = NodePath("../Location10/ShellNavRegion/Geometry/DoubleDoor5")
+
+[node name="Transformator2" parent="." unique_id=1321966541 instance=ExtResource("43_ba0om")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6.314497, 2.044613, 3.43159)
+collision_mask = 33
 
 [editable path="Location5/ShellNavRegion/Geometry/StaticBody3D"]
 [editable path="Location5/ShellNavRegion/Geometry/StaticBody3D2"]

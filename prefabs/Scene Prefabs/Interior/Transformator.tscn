@@ -14,10 +14,11 @@ material = SubResource("StandardMaterial3D_847bj")
 size = Vector3(2, 3, 1)
 
 [node name="Transformator" type="StaticBody3D" unique_id=324287953 node_paths=PackedStringArray("animator")]
+collision_layer = 128
 script = ExtResource("1_847bj")
 animator = NodePath("GPUParticles3D")
-turned_on_timer = 10.0
-turned_off_timer = 10.0
+is_activating_by_rock = true
+is_activating_by_player_interaction = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1370385071]
 shape = SubResource("BoxShape3D_qipyy")
