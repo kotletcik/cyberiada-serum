@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dp8ptyamp3mvi"]
+
+[ext_resource type="Script" uid="uid://dc7ujf1sgyfnl" path="res://scripts/PJ/transformator.gd" id="1_847bj"]
+[ext_resource type="PackedScene" uid="uid://cqmv7mxht6o6m" path="res://prefabs/gpu_particles_3d.tscn" id="2_qipyy"]
+[ext_resource type="Script" uid="uid://c3mwcvldgam25" path="res://scripts/PJ/particles_timer.gd" id="3_dt32q"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qipyy"]
+size = Vector3(2, 3, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_847bj"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_dt32q"]
+material = SubResource("StandardMaterial3D_847bj")
+size = Vector3(2, 3, 1)
+
+[node name="Transformator" type="StaticBody3D" unique_id=324287953 node_paths=PackedStringArray("animator")]
+script = ExtResource("1_847bj")
+animator = NodePath("GPUParticles3D")
+turned_on_timer = 10.0
+turned_off_timer = 10.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1370385071]
+shape = SubResource("BoxShape3D_qipyy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1991477561]
+mesh = SubResource("BoxMesh_dt32q")
+
+[node name="GPUParticles3D" parent="." unique_id=207648955 instance=ExtResource("2_qipyy")]
+transform = Transform3D(1, 0, 0, 0, -0.25881904, -0.9659258, 0, 0.9659258, -0.25881904, 0, 0, 0.5143218)
+script = ExtResource("3_dt32q")
+interval_time = 1.0

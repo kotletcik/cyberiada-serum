@@ -21,7 +21,7 @@ class_name Shell_behaviour
 @export_group("scream")
 @export var scream_time: float = 1.0
 @export var test_mode_is_active = false
-	
+
 func _ready() -> void:
 	add_to_group("Shell");
 
@@ -95,7 +95,7 @@ func Enter_state(state: int):
 		State.types.Searching:
 			EventBus.connect("sound_emitted_by_player", on_heard_a_sound)
 			timer = searching_time
-			print("Doing reset for searching timer");
+			#print("Doing reset for searching timer");
 		State.types.Wander:
 			timer = wander_time
 			EventBus.connect("sound_emitted_by_player", on_heard_a_sound)
