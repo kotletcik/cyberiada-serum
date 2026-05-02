@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://doimrejwy0736"]
 
 [ext_resource type="Script" uid="uid://caduj0tup337b" path="res://scripts/PJ/Double_door.gd" id="1_8e36d"]
+[ext_resource type="Material" path="res://textures/drzwi/drzwi.tres" id="2_136df"]
+[ext_resource type="Texture2D" uid="uid://dy5w1k0n7b4ao" path="res://textures/drzwi/drzwi_albedo.png" id="3_a4xdr"]
+[ext_resource type="Texture2D" uid="uid://ctr0a5r5j5mjd" path="res://textures/drzwi/drzwi_orm.png" id="4_n42tj"]
+[ext_resource type="Texture2D" uid="uid://b4uhjv2ssfmeh" path="res://textures/drzwi/drzwi_normal.png" id="5_jwx1m"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2685s"]
 size = Vector3(0.5, 4, 2.5)
@@ -12,8 +16,19 @@ albedo_color = Color(0.5001009, 0.41530854, 0.44614214, 1)
 material = SubResource("StandardMaterial3D_otuf4")
 size = Vector3(0.5, 4, 2.5)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_poson"]
-albedo_color = Color(0.82205325, 0.90787274, 0.9828926, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s1w7s"]
+albedo_texture = ExtResource("3_a4xdr")
+metallic = 0.41
+metallic_texture = ExtResource("4_n42tj")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("4_n42tj")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_scale = 10.0
+normal_texture = ExtResource("5_jwx1m")
+uv1_scale = Vector3(0.225, 0.225, 0.225)
+uv1_offset = Vector3(-0.03, 0.455, 0.395)
+uv1_triplanar = true
 
 [node name="DoubleDoor" type="StaticBody3D" unique_id=1301287337 node_paths=PackedStringArray("first_door", "second_door")]
 collision_layer = 4
@@ -30,7 +45,7 @@ shape = SubResource("BoxShape3D_2685s")
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_f2rxo")
 skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_poson")
+surface_material_override/0 = ExtResource("2_136df")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=8162409]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.24)
@@ -40,4 +55,4 @@ shape = SubResource("BoxShape3D_2685s")
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_f2rxo")
 skeleton = NodePath("../../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_poson")
+surface_material_override/0 = SubResource("StandardMaterial3D_s1w7s")

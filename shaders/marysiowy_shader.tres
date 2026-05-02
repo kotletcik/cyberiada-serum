@@ -70,7 +70,6 @@ texture_type = 1
 texture_repeat = 1
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_efjaa"]
-load_path = "res://.godot/imported/prubnykafel_normal.png-0f48119a778574815fc22ce68609a014.s3tc.ctex"
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_7vnd5"]
 output_port_for_preview = 0

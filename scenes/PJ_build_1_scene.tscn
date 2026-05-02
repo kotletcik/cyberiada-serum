@@ -31,8 +31,8 @@
 [ext_resource type="Resource" uid="uid://b2q3agdc7eyfd" path="res://resources/notes/raport.tres" id="26_e7wky"]
 [ext_resource type="Resource" uid="uid://dt7dtcb4bds7m" path="res://resources/thoughts/wakeup/watch.tres" id="27_p7nqx"]
 [ext_resource type="Resource" uid="uid://inlb87ae3v2h" path="res://resources/notes/test_not.tres" id="28_314lw"]
+[ext_resource type="Material" uid="uid://cmri8y4naac10" path="res://materials/metal_z_wypukloscami.tres" id="29_gbmb2"]
 [ext_resource type="Resource" uid="uid://cpshgebigpcom" path="res://resources/thoughts/wakeup/wakeup.tres" id="29_p7nqx"]
-[ext_resource type="Material" uid="uid://cdodfp57ptfnc" path="res://materials/test.tres" id="29_xmgvw"]
 [ext_resource type="Texture2D" uid="uid://c0npdy8j254ac" path="res://level_design.png" id="31_4h7xs"]
 [ext_resource type="Material" uid="uid://btanaporc8div" path="res://materials/test_material.tres" id="31_gbmb2"]
 [ext_resource type="PackedScene" uid="uid://5jpcyg1fb8pf" path="res://prefabs/triggers/clue_trigger.tscn" id="31_hdlg5"]
@@ -159,7 +159,7 @@ last_checkpoint = ExtResource("19_cnf01")
 metadata/_custom_type_script = "uid://bvpanlcy3bc06"
 
 [node name="floor" type="CSGBox3D" parent="." unique_id=587062996]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.68852234, -0.9554548, 0.8739605)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.133818, -3.9610357, 1.1245747)
 material_override = SubResource("StandardMaterial3D_13hkq")
 use_collision = true
 collision_layer = 2
@@ -1262,11 +1262,11 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -45.
 [node name="Geometry" type="Node3D" parent="Location6" unique_id=462425304]
 
 [node name="floor" type="CSGBox3D" parent="Location6/Geometry" unique_id=277451659]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.720074, -0.09120941, -1.5876579)
-material_override = ExtResource("29_xmgvw")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.72007, -0.09120941, -1.499279)
+material_override = ExtResource("29_gbmb2")
 use_collision = true
 collision_layer = 2
-size = Vector3(58.16858, 1, 7.625244)
+size = Vector3(58.16858, 1, 7.802002)
 
 [node name="wall1" type="CSGBox3D" parent="Location6/Geometry" unique_id=1935906129]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9507217, 2, 1.8374195)
