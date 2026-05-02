@@ -11,8 +11,32 @@
 [ext_resource type="Script" uid="uid://dkukaamdo4acb" path="res://scripts/PJ/state_machine/Shell_behaviour.gd" id="6_raqt8"]
 [ext_resource type="Script" uid="uid://ws43rxsp8qki" path="res://scripts/PJ/state_machine/States/Patrol.gd" id="7_ayt5m"]
 [ext_resource type="Script" uid="uid://cch3iwxpn7a6u" path="res://scripts/PJ/state_machine/States/Scream.gd" id="7_lqxc7"]
+[ext_resource type="AnimationNodeBlendSpace1D" uid="uid://bc2y71tjqhgpl" path="res://assets/shell_animation_states/new_animation_node_blend_space_1d.tres" id="7_rsf4w"]
 [ext_resource type="PackedScene" uid="uid://cqmv7mxht6o6m" path="res://prefabs/gpu_particles_3d.tscn" id="8_6f62q"]
 [ext_resource type="Script" uid="uid://b7ydidx4polw6" path="res://scripts/Valk/shell_disappearance.gd" id="9_jt8f1"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7e2mx"]
+animation = &"Rig_Large_Simulation/Flexing"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7805i"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gs4m8"]
+advance_mode = 2
+advance_expression = "is_screaming"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ranhc"]
+advance_mode = 2
+advance_expression = "!is_screaming"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_elech"]
+states/End/position = Vector2(631.2, 106.4)
+states/Rig_Large_Simulation_Flexing/node = SubResource("AnimationNodeAnimation_7e2mx")
+states/Rig_Large_Simulation_Flexing/position = Vector2(375.6, 168)
+states/Run/node = ExtResource("7_rsf4w")
+states/Run/position = Vector2(346.80002, 43.999996)
+transitions = ["Start", "Run", SubResource("AnimationNodeStateMachineTransition_7805i"), "Run", "Rig_Large_Simulation_Flexing", SubResource("AnimationNodeStateMachineTransition_gs4m8"), "Rig_Large_Simulation_Flexing", "Run", SubResource("AnimationNodeStateMachineTransition_ranhc")]
+graph_offset = Vector2(-45.7824, 0)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lj2st"]
 
@@ -47,7 +71,7 @@ state_machine = NodePath("State_machine")
 [node name="Skin" parent="." unique_id=1644313155 instance=ExtResource("2_ukenm")]
 transform = Transform3D(-0.5, 0, 4.371139e-08, 0, 0.5, 0, -4.371139e-08, 0, -0.5, 0, -0.9252626, 0)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Skin" unique_id=203633144]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Skin" unique_id=203633144 node_paths=PackedStringArray("animation_tree")]
 libraries/Rig_Large_General = ExtResource("3_opuvl")
 libraries/Rig_Large_MovementBasic = ExtResource("4_rsf4w")
 libraries/Rig_Large_Simulation = ExtResource("5_7e2mx")
@@ -55,6 +79,12 @@ script = ExtResource("6_opuvl")
 idle_animation_name = "Rig_Large_General/Idle_A"
 walking_animation_name = "Rig_Large_MovementBasic/Walking_A"
 running_animation_name = "Rig_Large_MovementBasic/Running_A"
+animation_tree = NodePath("../AnimationTree")
+
+[node name="AnimationTree" type="AnimationTree" parent="Skin" unique_id=966168152]
+tree_root = SubResource("AnimationNodeStateMachine_elech")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Run/blend_position = 0.0
 
 [node name="State_machine_Behaviour#DebugLines" type="MeshInstance3D" parent="." unique_id=533354744]
 visible = false

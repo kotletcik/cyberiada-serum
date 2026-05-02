@@ -7,6 +7,7 @@ func Update(_delta: float):
 
 func scream():
 	state_machine.mob.animator.play("Rig_Large_Simulation/Flexing")
+	
 	pass
 	
 	
