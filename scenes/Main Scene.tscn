@@ -65,7 +65,14 @@ visible = false
 texture = ExtResource("2_ccebf")
 
 [node name="floor1" type="CSGMesh3D" parent="Level1" unique_id=1064392878]
-transform = Transform3D(12.198709, 0, 0, 0, -0.38416436, 6.6410627e-07, 0, -3.3584723e-08, -7.59649, -21.955215, -0.24072075, -5.7682877)
+transform = Transform3D(14.336594, 0, 0, 0, -0.38416436, 1.0728251e-06, 0, -3.3584723e-08, -12.2716875, 2.4534302, -0.24072075, -2.4957361)
+use_collision = true
+collision_layer = 2
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="floor13" type="CSGMesh3D" parent="Level1" unique_id=12532990]
+transform = Transform3D(12.198709, 0, 0, 0, -0.38416436, 6.6410627e-07, 0, -3.3584723e-08, -7.59649, -23.081715, -0.24072075, -5.7682877)
 use_collision = true
 collision_layer = 2
 mesh = SubResource("BoxMesh_oibo5")
@@ -291,6 +298,20 @@ material = SubResource("StandardMaterial3D_pm7s6")
 
 [node name="wall18" type="CSGMesh3D" parent="Level1" unique_id=1898952945]
 transform = Transform3D(-1.1914717e-08, -1.8044047e-07, -9.643881, 0, -2.0639982, 8.430948e-07, -0.272577, -6.7782854e-15, 4.215474e-07, -47.54139, 4.5713005, 16.728424)
+use_collision = true
+collision_layer = 4
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="wall53" type="CSGMesh3D" parent="Level1" unique_id=1870834465]
+transform = Transform3D(-1.1914717e-08, -1.8044047e-07, -9.643881, 0, -2.0639982, 8.430948e-07, -0.272577, -6.7782854e-15, 4.215474e-07, -58.28911, 4.5713005, 16.728424)
+use_collision = true
+collision_layer = 4
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="wall54" type="CSGMesh3D" parent="Level1" unique_id=2074850476]
+transform = Transform3D(-1.1914717e-08, -1.8044047e-07, -9.643881, 0, -2.0639982, 8.430948e-07, -0.272577, -6.7782854e-15, 4.215474e-07, -58.28911, 4.5713005, 4.8574743)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_oibo5")
