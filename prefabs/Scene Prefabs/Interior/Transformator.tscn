@@ -15,6 +15,7 @@ size = Vector3(2, 3, 1)
 
 [node name="Transformator" type="StaticBody3D" unique_id=324287953 node_paths=PackedStringArray("animator")]
 collision_layer = 128
+collision_mask = 33
 script = ExtResource("1_847bj")
 animator = NodePath("GPUParticles3D")
 is_activating_by_rock = true
