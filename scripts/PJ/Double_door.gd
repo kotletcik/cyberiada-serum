@@ -1,4 +1,5 @@
 extends Node3D
+class_name DoubleDoor
 
 var isOpened: bool = false
 var isMoving: bool = false
@@ -14,6 +15,7 @@ var lift_close_call_started: bool = false;
 @export var lift_door_close_event: EventBus.triggers = EventBus.triggers.None;
 # @export var is_final_door: bool = false;
 @onready var nav_region: NavigationRegion3D = get_parent() as NavigationRegion3D
+@export var is_door_locked: bool = false;
 
 var interacted: bool = false;
 
@@ -52,8 +54,10 @@ func _process(delta: float) -> void:
 		lift_close_call_started = true;
 	if(is_player_inside && !lift_call_started):
 		UIManager.instance.start_transition_to_black(5.0, start_lift, false);
+		lift_call_started = true;
 
 func player_interact():
+	if(is_door_locked): return;
 	if(unlock_if_clue_realized != null):
 		if(!PalaceManager.instance.is_clue_realized(unlock_if_clue_realized)): return;
 	
@@ -90,6 +94,6 @@ func switch_open():
 		nav_region.bake_navigation_mesh(true)
 
 
-func close_door():
-	if(!isOpened): return;
-	switch_open()
+# func close_door():
+# 	if(!isOpened): return;
+# 	switch_open()
