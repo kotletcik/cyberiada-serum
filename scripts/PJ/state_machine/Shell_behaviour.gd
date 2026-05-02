@@ -21,6 +21,7 @@ class_name Shell_behaviour
 @export_group("scream")
 @export var scream_time: float = 1.0
 @export var test_mode_is_active = false
+var is_screaming
 
 func _ready() -> void:
 	add_to_group("Shell");
@@ -107,6 +108,7 @@ func Enter_state(state: int):
 			EventBus.connect("sound_emitted_by_player", on_heard_a_sound)
 		State.types.Scream:
 			timer = scream_time
+			is_screaming = true
 
 func Exit_state(state: int):
 	match state:
@@ -118,6 +120,8 @@ func Exit_state(state: int):
 			EventBus.disconnect("sound_emitted_by_player", on_heard_a_sound)
 		State.types.Patrol:
 			EventBus.disconnect("sound_emitted_by_player", on_heard_a_sound)
+		State.types.Scream:
+			is_screaming = false
 
 func player_is_on_region() -> bool:
 	var map_rid = nav_agent.get_navigation_map()
