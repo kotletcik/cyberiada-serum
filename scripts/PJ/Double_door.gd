@@ -23,6 +23,20 @@ var lift_call_started: bool = false;
 @export var lift_start_event: EventBus.triggers = EventBus.triggers.None;
 @export var lift_end_node: Node3D = null;
 
+var invisible: bool = false;
+
+func turn_invisible() -> void:
+	visible = false;
+	get_node("CollisionShape3D").disabled = true;
+	get_node("CollisionShape3D2").disabled = true;
+	invisible = true;
+
+func turn_visible() -> void:
+	visible = true;
+	get_node("CollisionShape3D").disabled = false;
+	get_node("CollisionShape3D2").disabled = false;
+	invisible = false;
+
 func _ready() -> void:
 	isOpened = is_open_on_start;
 	if(is_open_on_start):
@@ -40,6 +54,7 @@ func start_lift():
 
 func _process(delta: float) -> void:
 	if(!is_lift_door): return;
+	if(invisible): return;
 	var is_player_in_front: bool = false;
 	var subtracted_vector: Vector3 = first_door.global_position - GameManager.instance.player.global_position;
 	var direction = subtracted_vector.normalized();
@@ -76,7 +91,7 @@ func switch_open():
 	var second_door_final_local_pos_z = second_door.position.z - move_distance if !isOpened else second_door.position.z + move_distance;
 	var start_time = Time.get_ticks_msec()
 	
-	while(abs(first_door.position.z - first_door_final_local_pos_z) > 0.01):
+	while(abs(first_door.position.z - first_door_final_local_pos_z) > 0.1):
 		var now = Time.get_ticks_msec()
 		var delta = (now - start_time) / 1000.0
 		var opened_bool_coeff: = 1 if !isOpened else -1;
