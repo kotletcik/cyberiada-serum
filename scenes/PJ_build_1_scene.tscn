@@ -1406,14 +1406,14 @@ size = Vector3(1.6557617, 0.72821045, 2)
 [node name="Location7" type="Node3D" parent="." unique_id=1190777787]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.057377, 0, -15.342804)
 
-[node name="Shell" parent="Location7" unique_id=713974963 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
+[node name="Shell" parent="Location7" unique_id=1992373891 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6056662, 1.4558756, 5.8289146)
 follow_state_duration = 1.0
 hearing_range = 16.0
 patrol_time = 5.2
 patrol_points = [NodePath("../ShellPatrolPoints/PatrolPoint1"), NodePath("../ShellPatrolPoints/PatrolPoint2"), NodePath("../ShellPatrolPoints/PatrolPoint3"), NodePath("../ShellPatrolPoints/PatrolPoint2")]
 
-[node name="Shell2" parent="Location7" unique_id=199045445 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
+[node name="Shell2" parent="Location7" unique_id=945879773 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4587593, 1.4558756, 5.8289146)
 follow_state_duration = 1.0
 hearing_range = 16.0
@@ -1767,7 +1767,7 @@ spot_range = 8.705
 [node name="Location9" type="Node3D" parent="." unique_id=1443309715]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3121138, 0, -4.3173733)
 
-[node name="Shell" parent="Location9" unique_id=886064347 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
+[node name="Shell" parent="Location9" unique_id=846101904 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6056662, 1.4558756, 5.8289146)
 test_mode = true
 hearing_range = 16.0
@@ -2247,7 +2247,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.753912, 1.0424604, 12.27761
 [node name="OmniLight3D" type="OmniLight3D" parent="Location10/ShellNavRegion" unique_id=420804771]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.083115, 1.2641665, 21.79506)
 
-[node name="Shell" parent="Location10" unique_id=2012752500 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
+[node name="Shell" parent="Location10" unique_id=167450878 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6356068, 1.4558756, -13.183457)
 hearing_range = 16.0
 patrol_time = 1.0
@@ -2757,13 +2757,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.753912, 1.0424604, 12.27761
 [node name="OmniLight3D" type="OmniLight3D" parent="Location14/ShellNavRegion" unique_id=926147062]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.083115, 1.2641665, 21.79506)
 
-[node name="Shell" parent="Location14" unique_id=925124696 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
+[node name="Shell" parent="Location14" unique_id=25262275 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.896347, 0.59397864, -13.183456)
 hearing_range = 16.0
 patrol_time = 1.0
 patrol_points = [NodePath("../ShellNavRegion/Patrol Points/Patrol Point 1"), NodePath("../ShellNavRegion/Patrol Points/Patrol Point 2")]
 
-[node name="Shell2" parent="Location14" unique_id=893901755 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
+[node name="Shell2" parent="Location14" unique_id=80240976 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.8963547, 0.59397864, -38.268543)
 hearing_range = 16.0
 patrol_time = 1.0

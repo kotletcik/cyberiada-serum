@@ -43,15 +43,16 @@ advance_mode = 2
 advance_expression = "!is_attacking"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_elech"]
-states/End/position = Vector2(631.2, 106.4)
+states/End/position = Vector2(596.2, 134)
 states/Rig_Large_General_Hit_A/node = SubResource("AnimationNodeAnimation_rsf4w")
-states/Rig_Large_General_Hit_A/position = Vector2(574.2176, 33.999996)
+states/Rig_Large_General_Hit_A/position = Vector2(527.2176, 54.999996)
 states/Rig_Large_Simulation_Flexing/node = SubResource("AnimationNodeAnimation_7e2mx")
-states/Rig_Large_Simulation_Flexing/position = Vector2(376.6, 168)
+states/Rig_Large_Simulation_Flexing/position = Vector2(349.80002, 134)
 states/Run/node = ExtResource("7_rsf4w")
 states/Run/position = Vector2(349.80002, 54.999996)
+states/Start/position = Vector2(238, 54.999996)
 transitions = ["Start", "Run", SubResource("AnimationNodeStateMachineTransition_7805i"), "Run", "Rig_Large_Simulation_Flexing", SubResource("AnimationNodeStateMachineTransition_gs4m8"), "Rig_Large_Simulation_Flexing", "Run", SubResource("AnimationNodeStateMachineTransition_ranhc"), "Run", "Rig_Large_General_Hit_A", SubResource("AnimationNodeStateMachineTransition_7e2mx"), "Rig_Large_General_Hit_A", "Run", SubResource("AnimationNodeStateMachineTransition_elech")]
-graph_offset = Vector2(-45.7824, 0)
+graph_offset = Vector2(8.21759, -25)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lj2st"]
 
@@ -84,7 +85,7 @@ animator = NodePath("shell_boned_flipped/AnimationPlayer")
 sound_target = NodePath("State_machine/Follow_sound/Empty_target")
 state_machine = NodePath("State_machine")
 
-[node name="shell_boned_flipped" parent="." unique_id=1689652120 instance=ExtResource("2_7805i")]
+[node name="shell_boned_flipped" parent="." unique_id=62765794 instance=ExtResource("2_7805i")]
 transform = Transform3D(-0.14, 0, -1.2239188e-08, 0, 0.14, 0, 1.2239188e-08, 0, -0.14, 0, -1, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="shell_boned_flipped" unique_id=917387862 node_paths=PackedStringArray("animation_tree")]
@@ -99,11 +100,11 @@ walking_animation_name = "Rig_Large_MovementBasic/Walking_A"
 running_animation_name = "Rig_Large_MovementBasic/Running_A"
 animation_tree = NodePath("../AnimationTree")
 
-[node name="AnimationTree" type="AnimationTree" parent="shell_boned_flipped" unique_id=133142745]
+[node name="AnimationTree" type="AnimationTree" parent="shell_boned_flipped" unique_id=824088105]
 tree_root = SubResource("AnimationNodeStateMachine_elech")
 advance_expression_base_node = NodePath("../..")
 anim_player = NodePath("../AnimationPlayer")
-parameters/Run/blend_position = 2.3027027
+parameters/Run/blend_position = 4.526432
 
 [node name="State_machine_Behaviour#DebugLines" type="MeshInstance3D" parent="." unique_id=533354744]
 visible = false
