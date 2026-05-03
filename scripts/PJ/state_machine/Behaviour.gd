@@ -5,7 +5,7 @@ class_name Behaviour
 @export_group("general")
 @export var player_sight_fov: float = 180
 @export var player_sight_range: float = 2
-@export var attack_range: float = 1.0
+@export var attack_range: float = 1
 @export var walls_layer: int
 
 var timer: float

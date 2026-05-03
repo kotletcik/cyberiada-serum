@@ -6,7 +6,7 @@ var mat: StandardMaterial3D
 var isActive: bool
 @export var turned_on_duration:= 2.0
 @export var turned_off_duration:= 2.0
-@export var noise_volume:= 10.0
+@export var noise_volume:= 12.0
 var turn_timer:= 0.0
 var sound_emitter_duration:= 0.5
 var sound_emitter_timer:=0.0
@@ -38,7 +38,7 @@ func _process(delta: float) -> void:
 	
 	if (isActive):
 		if (sound_emitter_timer > sound_emitter_duration):
-			EventBus.sound_emitted_by_player.emit(global_position, noise_volume);
+			EventBus.sound_emitted_by_player.emit(global_position + global_basis.z, noise_volume);
 			sound_emitter_timer = 0
 		else: sound_emitter_timer += delta
 
