@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bpn17cpejydhv"
-path="res://.godot/imported/shell_work.fbx-4b080619fcb0ea9d3b0863dc10ed35c3.scn"
+uid="uid://cmg4tv2cucxpa"
+path="res://.godot/imported/Pudełko.glb-041f32a8668d9c93b103455151630c47.scn"
 
 [deps]
 
-source_file="res://assets/models/shell_work.fbx"
-dest_files=["res://.godot/imported/shell_work.fbx-4b080619fcb0ea9d3b0863dc10ed35c3.scn"]
+source_file="res://assets/models/Pudełko.glb"
+dest_files=["res://.godot/imported/Pudełko.glb-041f32a8668d9c93b103455151630c47.scn"]
 
 [params]
 
@@ -30,7 +30,7 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=true
+animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
@@ -38,7 +38,5 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={}
-fbx/importer=0
-fbx/allow_geometry_helper_nodes=false
-fbx/embedded_image_handling=1
-fbx/naming_version=2
+gltf/naming_version=2
+gltf/embedded_image_handling=1

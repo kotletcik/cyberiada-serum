@@ -1,0 +1,21 @@
+[gd_resource type="AnimationNodeBlendSpace1D" format=3 uid="uid://bc2y71tjqhgpl"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_opuvl"]
+animation = &"Rig_Large_General/Idle_A"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rsf4w"]
+animation = &"Rig_Large_MovementBasic/Walking_A"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7e2mx"]
+animation = &"Rig_Large_MovementBasic/Running_A"
+
+[resource]
+blend_point_0/node = SubResource("AnimationNodeAnimation_opuvl")
+blend_point_0/pos = 0.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_rsf4w")
+blend_point_1/pos = 2.5
+blend_point_2/node = SubResource("AnimationNodeAnimation_7e2mx")
+blend_point_2/pos = 5.0
+min_space = 0.0
+max_space = 10.0
+value_label = "speed"
