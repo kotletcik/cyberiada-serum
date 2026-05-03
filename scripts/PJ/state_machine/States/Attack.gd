@@ -12,5 +12,6 @@ func attack():
 		var player = GameManager.instance.player
 		#player.camera_is_blocked = true
 		player.movement_is_blocked = true
+		player.look_at(state_machine.mob.global_position);
 		await get_tree().create_timer(1).timeout
 		GameManager.instance.game_over();
