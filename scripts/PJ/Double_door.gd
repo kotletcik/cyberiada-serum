@@ -11,6 +11,7 @@ var isMoving: bool = false
 @export var second_door: Node3D
 @export var unlock_if_clue_realized: Clue;
 @export var is_lift_door: bool = false;
+@export var lift_player_range: float = 5.0;
 var lift_close_call_started: bool = false;
 @export var lift_door_close_event: EventBus.triggers = EventBus.triggers.None;
 # @export var is_final_door: bool = false;
@@ -57,6 +58,7 @@ func _process(delta: float) -> void:
 	if(invisible): return;
 	var is_player_in_front: bool = false;
 	var subtracted_vector: Vector3 = first_door.global_position - GameManager.instance.player.global_position;
+	if(subtracted_vector.length() > lift_player_range): return;
 	var direction = subtracted_vector.normalized();
 	var dot: float = -first_door.global_basis.x.dot(direction);
 	var is_player_inside: bool = dot > 0.0;

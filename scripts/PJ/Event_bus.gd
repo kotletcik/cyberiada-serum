@@ -10,6 +10,7 @@ signal bad_ending()
 signal good_ending()
 signal final_stage()
 signal lift_to_final_level_unlocked()
+signal ending()
 
 
 enum triggers
@@ -18,7 +19,8 @@ enum triggers
 	BadEnding,
 	GoodEnding,
 	FinalStage,
-	LiftToFinalLevelUnlocked
+	LiftToFinalLevelUnlocked,
+	Ending
 }
 
 # func _ready():
@@ -56,6 +58,8 @@ func call_event(trigger: triggers):
 			final_stage.emit();
 		triggers.LiftToFinalLevelUnlocked:
 			lift_to_final_level_unlocked.emit();
+		triggers.Ending:
+			ending.emit();
 		triggers.None:
 			return;
 	

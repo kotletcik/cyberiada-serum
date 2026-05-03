@@ -4,6 +4,7 @@ class_name Shell_behaviour
 @export var test_mode:= false
 @export var animator: AnimationPlayer
 @onready var nav_agent: NavigationAgent3D = $"NavigationAgent3D"
+@export var disabled_on_start: bool = false;
 @export_group("follow_player")
 @export var follow_state_duration:= 5.0
 @export_group("searching_player")
@@ -28,12 +29,29 @@ var is_screaming = false
 var is_attacking = false
 var attack_target: Node3D
 
+var disabled: bool;
+var last_enabled_position: Vector3;
 
 func _ready() -> void:
 	add_to_group("Shell");
+	if(disabled_on_start): disable();
 
 func _process(delta: float) -> void:
+	if(disabled): return;
 	Check_conditions(delta)
+
+func disable():
+	visible = false;
+	last_enabled_position = global_position;
+	get_node("CollisionShape3D").disabled = true;
+	disabled = true;
+
+func enable():
+	visible = true;
+	get_node("CollisionShape3D").disabled = false;
+	disabled = false;
+	global_position = last_enabled_position;
+
 
 func Check_conditions(delta: float) -> void:
 	var current = state_machine.current_state.state_type
@@ -73,16 +91,16 @@ func Check_conditions(delta: float) -> void:
 			else:
 				change_state_by_name(State.types.Patrol)
 		State.types.Follow_sound:
-			var distance: Vector3 = (self.global_position) - (sound_target.global_position)
-			distance.y = 0;
+			# var distance: Vector3 = (self.global_position) - (sound_target.global_position)
+			# distance.y = 0;
 			if (is_player_in_sight && player_is_on_region):
 				if (PsycheManager.instance.invisibility_timer <= 0): 
 					change_state_by_name(State.types.Scream);
-			elif (distance.length() < attack_range):
-				change_state_by_name(State.types.Attack)
+			# elif (distance.length() < attack_range):
+			# 	change_state_by_name(State.types.Attack)
 			elif timer > 0: timer -= delta
 			elif timer < 0:
-				change_state_by_name(State.types.Attack)
+				change_state_by_name(State.types.Patrol)
 		State.types.Wander:
 			if (is_player_in_sight && player_is_on_region):
 				if (PsycheManager.instance.invisibility_timer <= 0): 

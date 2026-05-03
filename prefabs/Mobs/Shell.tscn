@@ -55,6 +55,7 @@ transitions = ["Start", "Run", SubResource("AnimationNodeStateMachineTransition_
 graph_offset = Vector2(8.21759, -25)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lj2st"]
+radius = 0.4
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nyxyb"]
 transparency = 1
@@ -83,6 +84,7 @@ collision_mask = 7
 script = ExtResource("6_raqt8")
 animator = NodePath("shell_boned_flipped/AnimationPlayer")
 sound_target = NodePath("State_machine/Follow_sound/Empty_target")
+scream_time = 1.0
 state_machine = NodePath("State_machine")
 player_sight_range = 16.0
 
@@ -113,6 +115,7 @@ skeleton = NodePath("../../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=58911616]
 shape = SubResource("CapsuleShape3D_lj2st")
+disabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1510776867]
 visible = false
