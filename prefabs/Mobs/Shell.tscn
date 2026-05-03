@@ -84,6 +84,7 @@ script = ExtResource("6_raqt8")
 animator = NodePath("shell_boned_flipped/AnimationPlayer")
 sound_target = NodePath("State_machine/Follow_sound/Empty_target")
 state_machine = NodePath("State_machine")
+player_sight_range = 16.0
 
 [node name="shell_boned_flipped" parent="." unique_id=62765794 instance=ExtResource("2_7805i")]
 transform = Transform3D(-0.14, 0, -1.2239188e-08, 0, 0.14, 0, 1.2239188e-08, 0, -0.14, 0, -1, 0)
