@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dtpcgvcscyn7l"]
+
+[ext_resource type="Texture2D" uid="uid://dj25cy7blaa6o" path="res://textures/drewno/drewno_albedo.png" id="1_k7lu8"]
+[ext_resource type="Texture2D" uid="uid://cq2j7kt12wvsl" path="res://textures/drewno/drewno_normal.png" id="2_k66pt"]
+
+[resource]
+albedo_texture = ExtResource("1_k7lu8")
+normal_enabled = true
+normal_texture = ExtResource("2_k66pt")
