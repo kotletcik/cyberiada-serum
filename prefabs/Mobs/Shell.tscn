@@ -115,7 +115,6 @@ skeleton = NodePath("../../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=58911616]
 shape = SubResource("CapsuleShape3D_lj2st")
-disabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1510776867]
 visible = false

@@ -40,7 +40,7 @@
 [ext_resource type="Material" uid="uid://btanaporc8div" path="res://materials/test_material.tres" id="31_gbmb2"]
 [ext_resource type="PackedScene" uid="uid://5jpcyg1fb8pf" path="res://prefabs/triggers/clue_trigger.tscn" id="31_hdlg5"]
 [ext_resource type="Material" uid="uid://dw5ltmc0aga72" path="res://materials/kafelki_pekniete.tres" id="32_ba0om"]
-[ext_resource type="Material" path="res://materials/drewno.tres" id="32_mqcy5"]
+[ext_resource type="Material" uid="uid://dtpcgvcscyn7l" path="res://materials/drewno.tres" id="32_mqcy5"]
 [ext_resource type="Resource" uid="uid://dwbrn5l1ernyw" path="res://resources/thoughts/shell/first_shell.tres" id="34_0plmr"]
 [ext_resource type="Script" uid="uid://c04x2cp05cawr" path="res://scripts/Valk/lift_replacer.gd" id="34_mqcy5"]
 [ext_resource type="PackedScene" uid="uid://kkrsyjqqsie6" path="res://prefabs/triggers/event_trigger.tscn" id="35_scj3o"]
@@ -189,7 +189,7 @@ size = Vector3(0.5, 1.7540283, 1.2022705)
 script = ExtResource("1_xanii")
 
 [node name="Player" parent="." unique_id=2039338456 instance=ExtResource("1_ahihw")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 34.36978, 26.133179, 92.92099)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 83.97162, 21.62931, 84.2034)
 SOBER_WALK_SPEED = 6.9
 CROUCH_SPEED_MULTIPLIER = 0.3
 crouching_noise_volume = 1.5
@@ -3684,6 +3684,7 @@ omni_range = 4096.0
 
 [node name="DoubleDoor2" parent="Level3" unique_id=1077726694 instance=ExtResource("8_vcjj7")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.6893158, 1.949585, 3.4021626)
+is_open_on_start = true
 is_door_locked = true
 
 [node name="EmergencyButton" parent="Level3" unique_id=1879708818 node_paths=PackedStringArray("linked_door") instance=ExtResource("42_xmgvw")]
@@ -3812,7 +3813,6 @@ destroy_on_trigger = true
 
 [node name="Shell8" parent="Level3" unique_id=100241452 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.838234, 0.9513626, 11.223251)
-visible = false
 patrol_points = [NodePath("../Patrol Points/Hol1"), NodePath("../Patrol Points/Hol2")]
 
 [node name="FinalStageSetUpper" type="Node" parent="Level3" unique_id=1504780409 node_paths=PackedStringArray("shells", "shell_body", "lift_shell", "ending_trigger")]
