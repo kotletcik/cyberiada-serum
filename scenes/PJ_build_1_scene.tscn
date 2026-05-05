@@ -3885,7 +3885,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2390137, 1.3485718, -0.193
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.44993, 5.581295, -24.772392)
 
 [node name="CollisionShape3D" parent="Safe Zone" index="0" unique_id=1578128117]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29231644, -3.9852533, 3.7969093)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29231644, -3.9852533, 3.4136963)
 
 [editable path="Location5/ShellNavRegion/Geometry/StaticBody3D"]
 [editable path="Location5/ShellNavRegion/Geometry/StaticBody3D2"]
