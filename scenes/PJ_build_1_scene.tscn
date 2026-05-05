@@ -54,6 +54,7 @@
 [ext_resource type="Script" uid="uid://d25dunpwd5h5q" path="res://scripts/Valk/final_stage_set_up.gd" id="51_vkxoh"]
 [ext_resource type="PackedScene" uid="uid://bj3bbpkd1o1p0" path="res://assets/models/shell_boned_flipped.glb" id="52_bt5wu"]
 [ext_resource type="Script" uid="uid://f4v6nksxa5jk" path="res://scripts/Valk/ending_controller.gd" id="53_ipoun"]
+[ext_resource type="PackedScene" uid="uid://bj84lumadjlgo" path="res://prefabs/triggers/safe_zone.tscn" id="55_utgjm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13hkq"]
 albedo_color = Color(0.27450982, 0.27450982, 0.27450982, 1)
@@ -3874,6 +3875,18 @@ script = ExtResource("53_ipoun")
 [node name="Checkpoint Trigger7" parent="." unique_id=1306455661 instance=ExtResource("37_l3ixd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.334423, 24.56589, 94.69114)
 
+[node name="Safe Zone2" parent="." unique_id=487873807 instance=ExtResource("55_utgjm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.978035, 20.43622, 89.160545)
+
+[node name="CollisionShape3D" parent="Safe Zone2" index="0" unique_id=1578128117]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2390137, 1.3485718, -0.19340515)
+
+[node name="Safe Zone" parent="." unique_id=1264823426 instance=ExtResource("55_utgjm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.44993, 5.581295, -24.772392)
+
+[node name="CollisionShape3D" parent="Safe Zone" index="0" unique_id=1578128117]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29231644, -3.9852533, 3.7969093)
+
 [editable path="Location5/ShellNavRegion/Geometry/StaticBody3D"]
 [editable path="Location5/ShellNavRegion/Geometry/StaticBody3D2"]
 [editable path="Location5/ShellNavRegion/Geometry/StaticBody3D3"]
@@ -3898,3 +3911,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.334423, 24.56589, 94.69114
 [editable path="Level3/Event Trigger"]
 [editable path="Event Trigger"]
 [editable path="Checkpoint Trigger7"]
+[editable path="Safe Zone2"]
+[editable path="Safe Zone"]

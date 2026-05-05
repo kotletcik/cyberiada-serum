@@ -5,6 +5,7 @@ static var instance: GameManager;
 @onready var player: PlayerController = $"../Player" #Link na playera w globalnej scenie
 
 var is_game_over: bool = false;
+var is_player_in_safe_zone: bool = false;
 
 func _ready() -> void:
 	if(instance == null):
