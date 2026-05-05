@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dvmdyj4fspb72" path="res://scripts/Valk/safe_zone.gd" id="1_llab1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_id4pr"]
-size = Vector3(6.325058, 2.6328125, 5.5726166)
+size = Vector3(7.997612, 5.258362, 21.747871)
 
 [node name="Safe Zone" type="Area3D" unique_id=487873807]
 collision_mask = 16
