@@ -56,7 +56,7 @@ func enable():
 func Check_conditions(delta: float) -> void:
 	var current = state_machine.current_state.state_type
 	var is_player_in_sight = is_player_in_sight()
-	var player_is_on_region = player_is_on_region()
+	var player_is_on_region = player_is_on_region() && !GameManager.instance.is_player_in_safe_zone
 	match current:
 		State.types.Attack:
 			#if ((self.global_position) - (GameManager.instance.player.global_position)).length() > attack_range:
