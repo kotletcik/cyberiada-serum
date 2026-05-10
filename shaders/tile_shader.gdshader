@@ -1,11 +1,14 @@
 shader_type spatial;
+
 uniform vec2 tiling = vec2(2.0, 1.0);
 uniform vec2 offset = vec2(0.0, 0.0);
 uniform vec2 scroll_speed = vec2(0.1, 0.0);
 uniform bool moving = false;
-uniform sampler2D moja_tekstura : repeat_enable;
+uniform sampler2D moja_tekstura : repeat_enable; // po ang
 varying vec3 world_pos;
 varying vec3 world_normal;
+
+//jest git raczej
 
 void vertex() {
     world_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
