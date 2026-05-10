@@ -8,8 +8,6 @@ uniform sampler2D moja_tekstura : repeat_enable; // po ang
 varying vec3 world_pos;
 varying vec3 world_normal;
 
-//jest git raczej
-
 void vertex() {
     world_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
     world_normal = abs(NORMAL);
@@ -26,7 +24,7 @@ void fragment() {
  
     vec3 x_tex = texture(moja_tekstura, world_pos.zy * tiling + current_offset.x).rgb;
     vec3 y_tex = texture(moja_tekstura, world_pos.xz * tiling + current_offset.y).rgb;
-    vec3 z_tex = texture(moja_tekstura, world_pos.xy * tiling).rgb;
+    vec3 z_tex = texture(moja_tekstura, world_pos.xy * tiling).rgb; //tutaj nie ma scrollingu
     
     ALBEDO = x_tex * blending.x + y_tex * blending.y + z_tex * blending.z;
 }
