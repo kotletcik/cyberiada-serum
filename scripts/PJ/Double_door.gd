@@ -1,4 +1,5 @@
 extends Node3D
+class_name DoubleDoor
 
 var isOpened: bool = false
 var isMoving: bool = false
@@ -10,16 +11,32 @@ var isMoving: bool = false
 @export var second_door: Node3D
 @export var unlock_if_clue_realized: Clue;
 @export var is_lift_door: bool = false;
+@export var lift_player_range: float = 5.0;
 var lift_close_call_started: bool = false;
 @export var lift_door_close_event: EventBus.triggers = EventBus.triggers.None;
 # @export var is_final_door: bool = false;
 @onready var nav_region: NavigationRegion3D = get_parent() as NavigationRegion3D
+@export var is_door_locked: bool = false;
 
 var interacted: bool = false;
 
 var lift_call_started: bool = false;
 @export var lift_start_event: EventBus.triggers = EventBus.triggers.None;
 @export var lift_end_node: Node3D = null;
+
+var invisible: bool = false;
+
+func turn_invisible() -> void:
+	visible = false;
+	get_node("CollisionShape3D").disabled = true;
+	get_node("CollisionShape3D2").disabled = true;
+	invisible = true;
+
+func turn_visible() -> void:
+	visible = true;
+	get_node("CollisionShape3D").disabled = false;
+	get_node("CollisionShape3D2").disabled = false;
+	invisible = false;
 
 func _ready() -> void:
 	isOpened = is_open_on_start;
@@ -38,8 +55,10 @@ func start_lift():
 
 func _process(delta: float) -> void:
 	if(!is_lift_door): return;
+	if(invisible): return;
 	var is_player_in_front: bool = false;
 	var subtracted_vector: Vector3 = first_door.global_position - GameManager.instance.player.global_position;
+	if(subtracted_vector.length() > lift_player_range): return;
 	var direction = subtracted_vector.normalized();
 	var dot: float = -first_door.global_basis.x.dot(direction);
 	var is_player_inside: bool = dot > 0.0;
@@ -52,8 +71,10 @@ func _process(delta: float) -> void:
 		lift_close_call_started = true;
 	if(is_player_inside && !lift_call_started):
 		UIManager.instance.start_transition_to_black(5.0, start_lift, false);
+		lift_call_started = true;
 
 func player_interact():
+	if(is_door_locked): return;
 	if(unlock_if_clue_realized != null):
 		if(!PalaceManager.instance.is_clue_realized(unlock_if_clue_realized)): return;
 	
@@ -72,7 +93,7 @@ func switch_open():
 	var second_door_final_local_pos_z = second_door.position.z - move_distance if !isOpened else second_door.position.z + move_distance;
 	var start_time = Time.get_ticks_msec()
 	
-	while(abs(first_door.position.z - first_door_final_local_pos_z) > 0.01):
+	while(abs(first_door.position.z - first_door_final_local_pos_z) > 0.1):
 		var now = Time.get_ticks_msec()
 		var delta = (now - start_time) / 1000.0
 		var opened_bool_coeff: = 1 if !isOpened else -1;
@@ -90,6 +111,6 @@ func switch_open():
 		nav_region.bake_navigation_mesh(true)
 
 
-func close_door():
-	if(!isOpened): return;
-	switch_open()
+# func close_door():
+# 	if(!isOpened): return;
+# 	switch_open()

@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cltkcllw4noxk"]
+
+[ext_resource type="Texture2D" uid="uid://i6di1iu7pxbv" path="res://textures/kafelek.png" id="1_ckcs4"]
+
+[resource]
+albedo_color = Color(0.2767963, 0.27679634, 0.2767963, 1)
+albedo_texture = ExtResource("1_ckcs4")
+uv1_triplanar = true
+uv1_world_triplanar = true

@@ -1,7 +1,7 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://c8lvy3d54np1h"]
 
-[ext_resource type="Texture2D" uid="uid://ctr0a5r5j5mjd" path="res://textures/drzwi/drzwi_orm.png" id="2"]
-[ext_resource type="Texture2D" uid="uid://b4uhjv2ssfmeh" path="res://textures/drzwi/drzwi_normal.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://ctr0a5r5j5mjd" path="res://textures/drzwi/drzwi_orm.png" id="1_ttanx"]
+[ext_resource type="Texture2D" uid="uid://b4uhjv2ssfmeh" path="res://textures/drzwi/drzwi_normal.png" id="2_lbrd3"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xbcjm"]
 load_path = "res://.godot/imported/drzwi_albedo.png-a8683e5bef3eece735724c132504f86d.s3tc.ctex"
@@ -9,13 +9,13 @@ load_path = "res://.godot/imported/drzwi_albedo.png-a8683e5bef3eece735724c132504
 [resource]
 albedo_texture = SubResource("CompressedTexture2D_xbcjm")
 metallic = 0.41
-metallic_texture = ExtResource("2")
+metallic_texture = ExtResource("1_ttanx")
 metallic_texture_channel = 2
-roughness_texture = ExtResource("2")
+roughness_texture = ExtResource("1_ttanx")
 roughness_texture_channel = 1
 normal_enabled = true
 normal_scale = 10.0
-normal_texture = ExtResource("3")
+normal_texture = ExtResource("2_lbrd3")
 uv1_scale = Vector3(0.225, 0.225, 0.225)
 uv1_offset = Vector3(0, 0.45, -0.05)
 uv1_triplanar = true

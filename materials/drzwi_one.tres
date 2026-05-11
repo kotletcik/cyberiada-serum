@@ -1,0 +1,21 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cios83odooucc"]
+
+[ext_resource type="Texture2D" uid="uid://ctr0a5r5j5mjd" path="res://textures/drzwi/drzwi_orm.png" id="1_juypc"]
+[ext_resource type="Texture2D" uid="uid://b4uhjv2ssfmeh" path="res://textures/drzwi/drzwi_normal.png" id="2_gfaph"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xbcjm"]
+load_path = "res://.godot/imported/drzwi_albedo.png-a8683e5bef3eece735724c132504f86d.s3tc.ctex"
+
+[resource]
+albedo_texture = SubResource("CompressedTexture2D_xbcjm")
+metallic = 0.41
+metallic_texture = ExtResource("1_juypc")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("1_juypc")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_scale = 10.0
+normal_texture = ExtResource("2_gfaph")
+uv1_scale = Vector3(0.8, 0.8, 0.8)
+uv1_offset = Vector3(0, 0.45, -0.05)
+uv1_triplanar = true

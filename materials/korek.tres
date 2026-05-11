@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bxil1tlgw2u1m"]
+
+[ext_resource type="Texture2D" uid="uid://pddppo2ol1qq" path="res://textures/tablica_korkowa.png" id="1_7koiv"]
+
+[resource]
+albedo_color = Color(0.44523007, 0.44523, 0.44523, 1)
+albedo_texture = ExtResource("1_7koiv")
+uv1_triplanar = true
+uv1_world_triplanar = true

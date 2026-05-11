@@ -7,15 +7,18 @@
 [ext_resource type="Script" uid="uid://c681q57ewat6f" path="res://scripts/Valk/Managers/game_manager.gd" id="3_epoec"]
 [ext_resource type="PackedScene" uid="uid://bw8wddlntpkih" path="res://prefabs/Scene Prefabs/Interior/Door.tscn" id="3_f302j"]
 [ext_resource type="Script" uid="uid://coysphqpo5g2l" path="res://scripts/Valk/Managers/inventory_manager.gd" id="4_ccebf"]
-[ext_resource type="Resource" uid="uid://dxgio7tm8on85" path="res://resources/settings/psyche_manager_settings.tres" id="4_epoec"]
-[ext_resource type="PackedScene" uid="uid://d02kasr2lce4t" path="res://prefabs/Mobs/Mutation.tscn" id="5_ccebf"]
 [ext_resource type="Script" uid="uid://bj28ubqcmsltd" path="res://scripts/Valk/Managers/palace_manager.gd" id="5_f302j"]
 [ext_resource type="Script" uid="uid://b3e6n7nbttp0c" path="res://scripts/Valk/Resource Types/thought_path.gd" id="6_1j2da"]
+[ext_resource type="Resource" uid="uid://brv8sbdh27gef" path="res://resources/settings/test_psyche_manager_settings.tres" id="6_ihdp8"]
 [ext_resource type="Resource" uid="uid://cught0y7spfwy" path="res://resources/thought_paths/second_test_path.tres" id="7_cgang"]
 [ext_resource type="Resource" uid="uid://cop13c5am162g" path="res://resources/thought_paths/test_clue_path.tres" id="8_lmckm"]
 [ext_resource type="Resource" uid="uid://wncbvvg6xpva" path="res://resources/thought_paths/trigger_path.tres" id="9_dvlnh"]
 [ext_resource type="PackedScene" uid="uid://blsbgq16qsq5d" path="res://prefabs/ui_manager.tscn" id="14_epoec"]
+[ext_resource type="PackedScene" uid="uid://doimrejwy0736" path="res://prefabs/Scene Prefabs/Interior/Double_door.tscn" id="17_sodxj"]
+[ext_resource type="PackedScene" uid="uid://fy3m0tlxgfik" path="res://prefabs/Scene Prefabs/Interior/emergency_button.tscn" id="18_lw5r7"]
+[ext_resource type="PackedScene" uid="uid://ce6h2fmee74sw" path="res://prefabs/Scene Prefabs/scene_serum.tscn" id="19_0li7t"]
 [ext_resource type="Script" uid="uid://bvpanlcy3bc06" path="res://scripts/Valk/Managers/save_manager.gd" id="19_cgang"]
+[ext_resource type="PackedScene" uid="uid://dp8ptyamp3mvi" path="res://prefabs/Scene Prefabs/Interior/Transformator.tscn" id="20_jmjhv"]
 [ext_resource type="Resource" uid="uid://mm8l7277obwj" path="res://resources/last_checkpoint.tres" id="20_lmckm"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_oibo5"]
@@ -23,27 +26,13 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pm7s6"]
 albedo_color = Color(0.08627451, 0.08627451, 0.08627451, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_exxaa"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_nxxgv"]
+size = Vector3(6.5164948, 3.5075684, 6.895447)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_alv8w"]
-albedo_color = Color(0.5372549, 0.31764707, 0.16078432, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_iw0bw"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_21gb1"]
-albedo_color = Color(0, 0.33333334, 0, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_uyary"]
+size = Vector3(1.5096064, 0.48242188, 6.734619)
 
 [sub_resource type="BoxMesh" id="BoxMesh_pm7s6"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_alv8w"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iw0bw"]
-albedo_color = Color(0, 0, 0.34117648, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_21gb1"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bn5kw"]
-albedo_color = Color(0, 0, 0.34117648, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_exxaa"]
 albedo_color = Color(0.27450982, 0.27450982, 0.27450982, 1)
@@ -60,404 +49,771 @@ size = Vector3(0.5, 1.6655273, 1.0186081)
 [sub_resource type="BoxShape3D" id="BoxShape3D_jmjhv"]
 size = Vector3(0.5, 1.7540283, 1.2022705)
 
-[sub_resource type="BoxMesh" id="BoxMesh_ngn0i"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_epoec"]
-
 [node name="Main Scene" type="Node3D" unique_id=1279937539]
 script = ExtResource("1_f302j")
 
-[node name="Level1" type="Node3D" parent="." unique_id=1424703341]
+[node name="Level3" type="Node3D" parent="." unique_id=1424703341]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.510452, 20.486637, -11.615646)
 
-[node name="Sprite3D" type="Sprite3D" parent="Level1" unique_id=1908560313]
+[node name="Sprite3D" type="Sprite3D" parent="Level3" unique_id=1908560313]
 transform = Transform3D(-2, 3.019916e-07, 1.3200472e-14, 0, -8.742278e-08, 2, 3.019916e-07, 2, 8.742278e-08, -12.521328, -2.736393, 6.362629)
 visible = false
 texture = ExtResource("2_ccebf")
 
-[node name="floor1" type="CSGMesh3D" parent="Level1" unique_id=1064392878]
-transform = Transform3D(12.198709, 0, 0, 0, -0.3841644, 1.0113582e-06, 0, -3.3584726e-08, -11.568589, 3.0447826, -0.24071997, -2.237874)
-use_collision = true
-collision_layer = 2
-collision_mask = 16
-mesh = SubResource("BoxMesh_oibo5")
-material = SubResource("StandardMaterial3D_pm7s6")
-
-[node name="floor2" type="CSGMesh3D" parent="Level1" unique_id=2024080918]
-transform = Transform3D(14.294039, 0, 0, 0, -0.3841644, 1.0113582e-06, 0, -3.3584726e-08, -11.568589, -10.678801, -0.24071997, 3.756378)
+[node name="floor1" type="CSGMesh3D" parent="Level3" unique_id=1064392878]
+transform = Transform3D(14.336594, 0, 0, 0, -0.38416436, 1.0728251e-06, 0, -3.3584723e-08, -12.2716875, 2.4534302, -0.24072075, -2.4957361)
 use_collision = true
 collision_layer = 2
 mesh = SubResource("BoxMesh_oibo5")
 material = SubResource("StandardMaterial3D_pm7s6")
 
-[node name="floor7" type="CSGMesh3D" parent="Level1" unique_id=1656016280]
-transform = Transform3D(14.586225, 0, 0, 0, -0.38416436, 4.6904088e-07, 0, -3.3584723e-08, -5.365202, -10.592674, -0.24071997, 21.360617)
+[node name="floor13" type="CSGMesh3D" parent="Level3" unique_id=12532990]
+transform = Transform3D(12.198709, 0, 0, 0, -0.38416436, 6.6410627e-07, 0, -3.3584723e-08, -7.59649, -23.081715, -0.24072075, -5.7682877)
 use_collision = true
 collision_layer = 2
 mesh = SubResource("BoxMesh_oibo5")
 material = SubResource("StandardMaterial3D_pm7s6")
 
-[node name="floor8" type="CSGMesh3D" parent="Level1" unique_id=426918528]
+[node name="floor2" type="CSGMesh3D" parent="Level3" unique_id=2024080918]
+transform = Transform3D(14.294039, 0, 0, 0, -0.3841644, 1.0113582e-06, 0, -3.3584726e-08, -11.568589, -10.651295, -0.24072075, 3.8170557)
+use_collision = true
+collision_layer = 2
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="floor6" type="CSGMesh3D" parent="Level3" unique_id=549913403]
+transform = Transform3D(14.294039, 0, 0, 0, -0.3841644, 1.0113582e-06, 0, -3.3584726e-08, -11.568589, -24.869373, -0.24072075, 3.8170557)
+use_collision = true
+collision_layer = 2
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="floor12" type="CSGMesh3D" parent="Level3" unique_id=183542305]
+transform = Transform3D(14.294039, 0, 0, 0, -0.3841644, 1.0113582e-06, 0, -3.3584726e-08, -11.568589, -39.097874, -0.24072075, 3.8170557)
+use_collision = true
+collision_layer = 2
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="floor7" type="CSGMesh3D" parent="Level3" unique_id=1656016280]
+transform = Transform3D(14.586225, 0, 0, 0, -0.3841644, 8.940609e-07, 0, -3.3584723e-08, -10.226863, -10.615166, -0.24071884, 19.531317)
+use_collision = true
+collision_layer = 2
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="floor10" type="CSGMesh3D" parent="Level3" unique_id=129804351]
+transform = Transform3D(14.586225, 0, 0, 0, -0.3841644, 8.940609e-07, 0, -3.3584723e-08, -10.226863, -25.0568, -0.24071884, 19.531317)
+use_collision = true
+collision_layer = 2
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="floor11" type="CSGMesh3D" parent="Level3" unique_id=164438367]
+transform = Transform3D(14.586225, 0, 0, 0, -0.3841644, 8.940609e-07, 0, -3.3584723e-08, -10.226863, -39.64847, -0.24071884, 19.531317)
+use_collision = true
+collision_layer = 2
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="floor8" type="CSGMesh3D" parent="Level3" unique_id=426918528]
 transform = Transform3D(8.133351, 0, 0, 0, -0.38416436, 5.26193e-07, 0, -3.3584723e-08, -6.0189457, 3.9658942, -0.24071997, 21.470844)
 use_collision = true
 collision_layer = 2
 mesh = SubResource("BoxMesh_oibo5")
 material = SubResource("StandardMaterial3D_pm7s6")
 
-[node name="floor5" type="CSGMesh3D" parent="Level1" unique_id=1001073259]
-transform = Transform3D(8.653722, 0, 0, 0, -0.3841644, 1.0343223e-06, 0, -3.3584726e-08, -11.831268, -22.212074, -0.24071997, 10.717751)
+[node name="floor9" type="CSGMesh3D" parent="Level3" unique_id=1207606553]
+transform = Transform3D(10.049936, 0, 0, 0, -0.38202348, 5.232606e-07, 0, -3.3397562e-08, -5.9854035, 0.66490364, -0.22673416, 17.470844)
 use_collision = true
 collision_layer = 2
 mesh = SubResource("BoxMesh_oibo5")
 material = SubResource("StandardMaterial3D_pm7s6")
 
-[node name="floor4" type="CSGMesh3D" parent="Level1" unique_id=1994557456]
-transform = Transform3D(25.605034, 0, 0, 0, -0.3841644, 7.8061873e-07, 0, -3.3584726e-08, -8.929238, -4.9322786, -0.24071997, 14.104243)
+[node name="floor5" type="CSGMesh3D" parent="Level3" unique_id=1001073259]
+transform = Transform3D(19.452719, 0, 0, 0, -0.38416445, 2.4332387e-06, 0, -3.358473e-08, -27.833008, -48.699722, 3.4015865, 10.717751)
 use_collision = true
 collision_layer = 2
 mesh = SubResource("BoxMesh_oibo5")
 material = SubResource("StandardMaterial3D_pm7s6")
 
-[node name="floor3" type="CSGMesh3D" parent="Level1" unique_id=107555447]
+[node name="floor4" type="CSGMesh3D" parent="Level3" unique_id=1994557456]
+transform = Transform3D(109.97025, 0, 0, 0, -0.38416436, 4.227362e-07, 0, -3.3584723e-08, -4.835539, -4.9322777, -0.24072075, 12.000103)
+use_collision = true
+collision_layer = 2
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="floor3" type="CSGMesh3D" parent="Level3" unique_id=107555447]
 transform = Transform3D(9.063032, 0, 0, 0, -0.15593392, 5.3832855e-07, 0, -1.3632175e-08, -6.1577606, 1.294049, -0.12838417, 6.4723577)
 use_collision = true
 collision_layer = 2
 mesh = SubResource("BoxMesh_oibo5")
 material = SubResource("StandardMaterial3D_pm7s6")
 
-[node name="wall1" type="CSGMesh3D" parent="Level1" unique_id=1679597037]
-transform = Transform3D(0.154, 0, 0, 0, -2.063998, 1.0112035e-06, 0, -1.8044044e-07, -11.566819, 9.272293, 0.9289942, -2.2606344)
+[node name="wall1" type="CSGMesh3D" parent="Level3" unique_id=1679597037]
+transform = Transform3D(0.154, 0, 0, 0, -3.7024515, 1.0112034e-06, 0, -3.236786e-07, -11.566818, 9.272293, 1.9369564, -2.2606344)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_oibo5")
 material = SubResource("StandardMaterial3D_pm7s6")
 
-[node name="wall2" type="CSGMesh3D" parent="Level1" unique_id=1393513991]
-transform = Transform3D(0.154, 0, 0, 0, -2.063998, 5.2471177e-07, 0, -1.8044044e-07, -6.0020027, -3.2294626, 0.9289942, -5.0446215)
+[node name="wall2" type="CSGMesh3D" parent="Level3" unique_id=1393513991]
+transform = Transform3D(0.154, 0, 0, 0, -4.5321097, 5.247117e-07, 0, -3.962096e-07, -6.0020022, -3.2294617, 1.7153873, -5.0446205)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_oibo5")
 material = SubResource("StandardMaterial3D_pm7s6")
 
-[node name="wall5" type="CSGMesh3D" parent="Level1" unique_id=1468035923]
-transform = Transform3D(0.154, 0, 0, 0, -2.063998, 4.7035917e-07, 0, -1.8044044e-07, -5.380282, -3.2294626, 0.9289942, 0.5783031)
+[node name="wall5" type="CSGMesh3D" parent="Level3" unique_id=1468035923]
+transform = Transform3D(0.154, 0, 0, 0, -4.38122, 4.7035914e-07, 0, -3.830184e-07, -5.3802814, -3.2294617, 1.7183342, 0.57830334)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_oibo5")
 material = SubResource("StandardMaterial3D_pm7s6")
 
-[node name="wall6" type="CSGMesh3D" parent="Level1" unique_id=1063397757]
-transform = Transform3D(0.154, 0, 0, 0, -2.0639982, 1.2973978e-06, 0, -1.8044047e-07, -14.840499, 4.8693056, 0.9289942, 10.862181)
+[node name="wall6" type="CSGMesh3D" parent="Level3" unique_id=1063397757]
+transform = Transform3D(0.154, 0, 0, 0, -2.0639982, 1.2973978e-06, 0, -1.8044047e-07, -14.840499, 5.778886, 0.9289932, 10.862181)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_oibo5")
 material = SubResource("StandardMaterial3D_pm7s6")
 
-[node name="wall7" type="CSGMesh3D" parent="Level1" unique_id=2278698]
-transform = Transform3D(0.154, 0, 0, 0, -2.063998, 4.87163e-07, 0, -1.8044044e-07, -5.572495, 2.5163093, 0.9289942, 6.25395)
+[node name="wall7" type="CSGMesh3D" parent="Level3" unique_id=2278698]
+transform = Transform3D(0.154, 0, 0, 0, -4.6027074, 4.8716294e-07, 0, -4.0238146e-07, -5.5724945, 2.5163097, 1.588831, 6.25395)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_oibo5")
 material = SubResource("StandardMaterial3D_pm7s6")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Level1/wall7" unique_id=1859408005]
-transform = Transform3D(1, 0, 0, 0, 1, -2.5579538e-13, 0, 0, 1, -0.34593868, 0.1892092, 0.05480957)
+[node name="CSGBox3D" type="CSGBox3D" parent="Level3/wall7" unique_id=1859408005]
+transform = Transform3D(1, 0, 0, 0, 0.99999964, -2.5579538e-13, 0, 0, 0.9999999, -0.345932, 0.284791, 0.05480951)
 operation = 2
-size = Vector3(3.0083008, 0.62158203, 0.41723633)
+size = Vector3(3.0083008, 0.43041992, 0.41723633)
 
-[node name="wall14" type="CSGMesh3D" parent="Level1" unique_id=2098668259]
-transform = Transform3D(0.154, 0, 0, 0, -2.063998, 5.547245e-07, 0, -1.8044044e-07, -6.345309, 2.7953165, 0.9289942, 16.096731)
+[node name="wall14" type="CSGMesh3D" parent="Level3" unique_id=2098668259]
+transform = Transform3D(0.154, 0, 0, 0, -3.7799654, 3.892809e-07, 0, -3.3045507e-07, -4.4528546, 2.7953167, 1.9520874, 16.591152)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_oibo5")
 material = SubResource("StandardMaterial3D_pm7s6")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Level1/wall14" unique_id=1222043829]
-transform = Transform3D(1, 0, 0, 0, 1, -2.5579538e-13, 0, 0, 1, -0.13516617, 0.21459976, 0.026977539)
+[node name="CSGBox3D" type="CSGBox3D" parent="Level3/wall14" unique_id=1222043829]
+transform = Transform3D(1, 0, 0, 0, 1, -3.1974423e-13, 0, 1.563194e-13, 1, -0.13516998, 0.353333, 0.11682105)
 operation = 2
-size = Vector3(3.7451782, 0.5708008, 0.25610352)
+size = Vector3(3.7451782, 0.29333496, 0.43579102)
 
-[node name="wall11" type="CSGMesh3D" parent="Level1" unique_id=1042187045]
-transform = Transform3D(0.154, 0, 0, 0, -2.063998, 5.1445113e-07, 0, -1.8044044e-07, -5.884635, -3.213988, 0.9289942, 6.049243)
+[node name="wall11" type="CSGMesh3D" parent="Level3" unique_id=1042187045]
+transform = Transform3D(0.154, 0, 0, 0, -3.7445827, 5.144511e-07, 0, -3.2736182e-07, -5.8846345, -3.2139874, 1.777317, 6.049243)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_oibo5")
 material = SubResource("StandardMaterial3D_pm7s6")
 
-[node name="wall19" type="CSGMesh3D" parent="Level1" unique_id=380415762]
-transform = Transform3D(0.154, 0, 0, 0, -2.063998, 1.1677257e-06, 0, -1.8044044e-07, -13.357225, -26.62072, 0.9289942, 10.422719)
+[node name="wall29" type="CSGMesh3D" parent="Level3" unique_id=2107383512]
+transform = Transform3D(0.154, 0, 0, 0, -3.7445827, 4.3907082e-07, 0, -3.2736182e-07, -5.0223846, -8.593222, 1.777317, 0.7588482)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_oibo5")
 material = SubResource("StandardMaterial3D_pm7s6")
 
-[node name="wall16" type="CSGMesh3D" parent="Level1" unique_id=1864212488]
-transform = Transform3D(0.154, 0, 0, 0, -2.063998, 8.6130456e-07, 0, -1.8044044e-07, -9.852176, -3.213988, 0.9289942, 17.991688)
+[node name="wall19" type="CSGMesh3D" parent="Level3" unique_id=380415762]
+transform = Transform3D(0.154, 0, 0, 0, -2.063998, 1.1677257e-06, 0, -1.8044044e-07, -13.357225, -43.11077, 4.5713005, -2.0356264)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_oibo5")
 material = SubResource("StandardMaterial3D_pm7s6")
 
-[node name="wall23" type="CSGMesh3D" parent="Level1" unique_id=1030353981]
-transform = Transform3D(0.154, 0, 0, 0, -2.063998, 4.5932282e-07, 0, -1.8044044e-07, -5.2540407, 0.018204927, 0.9289942, 21.672781)
+[node name="wall43" type="CSGMesh3D" parent="Level3" unique_id=1713392607]
+transform = Transform3D(0.154, 0, 0, 0, -2.063998, 1.1677257e-06, 0, -1.8044044e-07, -13.357225, -42.80303, 4.5713005, 23.353642)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_oibo5")
 material = SubResource("StandardMaterial3D_pm7s6")
 
-[node name="wall26" type="CSGMesh3D" parent="Level1" unique_id=1409645169]
+[node name="wall16" type="CSGMesh3D" parent="Level3" unique_id=1864212488]
+transform = Transform3D(0.154, 0, 0, 0, -4.4491496, 8.6130444e-07, 0, -3.8895703e-07, -9.852175, -3.2139874, 1.6206722, 19.182098)
+use_collision = true
+collision_layer = 4
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="wall23" type="CSGMesh3D" parent="Level3" unique_id=1030353981]
+transform = Transform3D(0.154, 0, 0, 0, -2.063998, 5.437013e-07, 0, -1.8044044e-07, -6.219218, 0.018205643, 0.9289932, 21.672781)
+use_collision = true
+collision_layer = 4
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="wall26" type="CSGMesh3D" parent="Level3" unique_id=1409645169]
 transform = Transform3D(0.154, 0, 0, 0, -2.063998, 1.3856656e-07, 0, -1.8044045e-07, -1.5850168, -3.213988, 0.9289942, 23.759457)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_oibo5")
 material = SubResource("StandardMaterial3D_pm7s6")
 
-[node name="wall27" type="CSGMesh3D" parent="Level1" unique_id=755177693]
-transform = Transform3D(-6.731554e-09, -1.8044045e-07, -3.42417, 0, -2.0639982, 2.993505e-07, -0.15400001, 2.2552893e-14, 1.4967524e-07, 6.5798416, 0.9289942, 18.406271)
+[node name="wall27" type="CSGMesh3D" parent="Level3" unique_id=755177693]
+transform = Transform3D(-6.731554e-09, -1.8044045e-07, -2.3367543, 0, -2.0639982, 2.0428558e-07, -0.15400001, 2.2552893e-14, 1.0214279e-07, 7.030259, 0.9289932, 18.406271)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_oibo5")
 material = SubResource("StandardMaterial3D_pm7s6")
 
-[node name="wall24" type="CSGMesh3D" parent="Level1" unique_id=1233789763]
+[node name="wall24" type="CSGMesh3D" parent="Level3" unique_id=1233789763]
 transform = Transform3D(0.154, 0, 0, 0, -2.063998, 5.319509e-07, 0, -1.8044044e-07, -6.084809, 8.237219, 0.9289942, 21.55722)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_oibo5")
 material = SubResource("StandardMaterial3D_pm7s6")
 
-[node name="wall25" type="CSGMesh3D" parent="Level1" unique_id=1569367617]
+[node name="wall25" type="CSGMesh3D" parent="Level3" unique_id=1569367617]
 transform = Transform3D(-6.731554e-09, -1.8044045e-07, -8.070564, 0, -2.063998, 7.055512e-07, -0.15400001, 2.2552893e-14, 3.527756e-07, 4.171439, 0.9289942, 24.553022)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_oibo5")
 material = SubResource("StandardMaterial3D_pm7s6")
 
-[node name="wall12" type="CSGMesh3D" parent="Level1" unique_id=1196406335]
-transform = Transform3D(-1.1914717e-08, -1.8044047e-07, -5.945419, 0, -2.0639982, 5.197651e-07, -0.272577, -6.7782854e-15, 2.5988254e-07, -0.4948389, 0.9289942, 3.4989443)
+[node name="wall12" type="CSGMesh3D" parent="Level3" unique_id=1196406335]
+transform = Transform3D(-1.1914717e-08, -4.209882e-07, -5.9454184, 0, -4.8155437, 5.19765e-07, -0.272577, -1.5814513e-14, 2.598825e-07, -0.4948387, 1.4749832, 3.4989443)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_oibo5")
 material = SubResource("StandardMaterial3D_pm7s6")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Level1/wall12" unique_id=1608318127]
-transform = Transform3D(1, 1.6025863e-18, 1.1368684e-13, 0, 1, 4.8115714e-22, 0, -4.983792e-23, 1, 0.10291004, 0.18617395, 0.0051879585)
+[node name="CSGBox3D" type="CSGBox3D" parent="Level3/wall12" unique_id=1608318127]
+transform = Transform3D(1.0000002, 1.8566962e-18, 5.002221e-12, 2.646978e-23, 1.0000056, 2.0622854e-22, 0, -6.3948846e-14, 1.0000001, 0.102910995, 0.2713213, 0.00518775)
 operation = 2
-size = Vector3(1.248291, 0.61109924, 0.30065918)
+size = Vector3(1.248291, 0.44080353, 0.30065918)
 
-[node name="wall17" type="CSGMesh3D" parent="Level1" unique_id=1201894934]
-transform = Transform3D(-1.1914717e-08, -1.8044044e-07, -8.839698, 0, -2.063998, 7.72791e-07, -0.272577, -6.7782846e-15, 3.863955e-07, -22.152334, 0.9289942, 4.500808)
+[node name="wall17" type="CSGMesh3D" parent="Level3" unique_id=1201894934]
+transform = Transform3D(-1.1914717e-08, -1.8044044e-07, -8.839698, 0, -2.063998, 7.72791e-07, -0.272577, -6.7782846e-15, 3.863955e-07, -47.568222, 4.5713005, 4.500808)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_oibo5")
 material = SubResource("StandardMaterial3D_pm7s6")
 
-[node name="wall18" type="CSGMesh3D" parent="Level1" unique_id=1898952945]
-transform = Transform3D(-1.1914717e-08, -1.8044047e-07, -9.643881, 0, -2.0639982, 8.430948e-07, -0.272577, -6.7782854e-15, 4.215474e-07, -22.569902, 0.9289942, 16.728424)
+[node name="wall18" type="CSGMesh3D" parent="Level3" unique_id=1898952945]
+transform = Transform3D(-1.1914717e-08, -1.8044047e-07, -9.643881, 0, -2.0639982, 8.430948e-07, -0.272577, -6.7782854e-15, 4.215474e-07, -47.54139, 4.5713005, 16.728424)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_oibo5")
 material = SubResource("StandardMaterial3D_pm7s6")
 
-[node name="wall15" type="CSGMesh3D" parent="Level1" unique_id=1765095696]
-transform = Transform3D(-1.1914717e-08, -1.8044047e-07, -5.8443413, 0, -2.0639982, 5.1092866e-07, -0.272577, -6.7782854e-15, 2.5546433e-07, -0.20488036, 0.9289942, 18.595968)
+[node name="wall53" type="CSGMesh3D" parent="Level3" unique_id=1870834465]
+transform = Transform3D(-1.1914717e-08, -1.8044047e-07, -9.643881, 0, -2.0639982, 8.430948e-07, -0.272577, -6.7782854e-15, 4.215474e-07, -58.28911, 4.5713005, 16.728424)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_oibo5")
 material = SubResource("StandardMaterial3D_pm7s6")
 
-[node name="wall8" type="CSGMesh3D" parent="Level1" unique_id=423667229]
-transform = Transform3D(0.154, 0, 0, 0, -2.0639982, 9.638911e-07, 0, -1.8044047e-07, -11.02563, -17.879173, 0.9289942, 3.4772644)
+[node name="wall54" type="CSGMesh3D" parent="Level3" unique_id=2074850476]
+transform = Transform3D(-1.1914717e-08, -1.8044047e-07, -9.643881, 0, -2.0639982, 8.430948e-07, -0.272577, -6.7782854e-15, 4.215474e-07, -58.28911, 4.5713005, 4.8574743)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_oibo5")
 material = SubResource("StandardMaterial3D_pm7s6")
 
-[node name="wall20" type="CSGMesh3D" parent="Level1" unique_id=508138059]
-transform = Transform3D(0.154, 0, 0, 0, -2.063998, 2.1225699e-07, 0, -1.8044045e-07, -2.427937, -17.811598, 0.9289942, 14.202367)
+[node name="wall15" type="CSGMesh3D" parent="Level3" unique_id=1765095696]
+transform = Transform3D(-1.1914717e-08, -3.560076e-07, -5.844341, 0, -4.0722523, 5.109286e-07, -0.272577, -1.3373503e-14, 2.554643e-07, -0.20487976, 1.8076878, 18.595968)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_oibo5")
 material = SubResource("StandardMaterial3D_pm7s6")
 
-[node name="wall22" type="CSGMesh3D" parent="Level1" unique_id=1796013379]
-transform = Transform3D(0.2048268, 0, 0, 0, -2.0639985, 8.127799e-07, 0, -1.804405e-07, -9.297118, -17.782345, 0.9289942, 19.732183)
+[node name="wall20" type="CSGMesh3D" parent="Level3" unique_id=43187262]
+transform = Transform3D(-1.1914717e-08, -3.560076e-07, -5.844341, 0, -4.0722523, 5.109286e-07, -0.272577, -1.3373503e-14, 2.554643e-07, -0.20487976, 1.8076878, 16.897488)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_oibo5")
 material = SubResource("StandardMaterial3D_pm7s6")
 
-[node name="wall10" type="CSGMesh3D" parent="Level1" unique_id=1120277284]
-transform = Transform3D(-1.1914717e-08, -1.8044051e-07, -14.220362, 0, -2.0639982, 1.2431836e-06, -0.27257696, 7.887305e-15, 6.215918e-07, -10.665209, 0.9289942, -1.9140882)
+[node name="wall28" type="CSGMesh3D" parent="Level3" unique_id=2087565255]
+transform = Transform3D(-1.1914715e-08, -3.5600758e-07, -5.8443403, -0.27257696, 1.7800377e-07, 2.554642e-07, 1.1914717e-08, 4.072252, -5.1092854e-07, -0.20487976, 1.4439011, 16.897488)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_oibo5")
 material = SubResource("StandardMaterial3D_pm7s6")
 
-[node name="wall9" type="CSGMesh3D" parent="Level1" unique_id=1843740614]
-transform = Transform3D(-1.1914719e-08, -1.8044047e-07, -9.71987, 0, -2.0639982, 8.4973794e-07, -0.272577, -6.778286e-15, 4.2486897e-07, -2.3699996, 0.9289942, 8.89997)
+[node name="wall8" type="CSGMesh3D" parent="Level3" unique_id=423667229]
+transform = Transform3D(0.154, 0, 0, 0, -1.2392815, 9.638911e-07, 0, -1.0834144e-07, -11.02563, -39.18269, 3.7706738, 3.4772644)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_oibo5")
 material = SubResource("StandardMaterial3D_pm7s6")
 
-[node name="wall13" type="CSGMesh3D" parent="Level1" unique_id=675462473]
-transform = Transform3D(-1.1914719e-08, -1.804405e-07, -12.955127, 0, -2.0639985, 1.1325728e-06, -0.272577, -6.7782867e-15, 5.662864e-07, -3.4349232, 0.9289942, 13.073624)
+[node name="wall22" type="CSGMesh3D" parent="Level3" unique_id=1796013379]
+transform = Transform3D(0.2048268, 0, 0, 0, -0.9983457, 8.127799e-07, 0, -8.727816e-08, -9.297118, -39.085857, 3.884056, 19.732183)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_oibo5")
 material = SubResource("StandardMaterial3D_pm7s6")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Level1/wall13" unique_id=1143652869]
-transform = Transform3D(0.9999995, -1.9905274e-18, -3.637979e-12, 1.07467305e-20, 0.9999982, 6.252776e-13, -2.9198866e-14, -8.6597396e-13, 0.99997854, -0.16274643, 0.24243109, -0.12515327)
+[node name="wall10" type="CSGMesh3D" parent="Level3" unique_id=1120277284]
+transform = Transform3D(-1.1914717e-08, -3.4106972e-07, -14.220361, 0, -3.9013817, 1.2431835e-06, -0.27257696, 1.490863e-14, 6.2159177e-07, -10.665209, 1.6460419, -1.9140882)
+use_collision = true
+collision_layer = 4
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="wall9" type="CSGMesh3D" parent="Level3" unique_id=1843740614]
+transform = Transform3D(-1.1914719e-08, -4.7542363e-07, -5.8109283, 0, -5.438212, 5.080075e-07, -0.272577, -1.7859393e-14, 2.5400374e-07, -0.43754196, 0.9289932, 8.89997)
+use_collision = true
+collision_layer = 4
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="wall13" type="CSGMesh3D" parent="Level3" unique_id=675462473]
+transform = Transform3D(-1.1914719e-08, -3.4419082e-07, -6.369903, 0, -3.9370837, 5.5687445e-07, -0.272577, -1.2929603e-14, 2.7843723e-07, -0.1717987, 1.8878841, 14.768886)
+use_collision = true
+collision_layer = 4
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Level3/wall13" unique_id=1143652869]
+transform = Transform3D(0.9999996, -2.4631718e-18, -2.842171e-12, 7.120371e-21, 0.9999952, 7.9580786e-13, -3.996803e-14, -1.2079227e-12, 0.99997485, -0.16274929, 0.3533926, 0.27785993)
 operation = 2
-size = Vector3(1.6401978, 0.5151367, 0.12213135)
+size = Vector3(1.6401978, 0.2932129, 0.3098297)
 
-[node name="wall21" type="CSGMesh3D" parent="Level1" unique_id=630400112]
-transform = Transform3D(-1.1914719e-08, -1.804405e-07, -14.719738, 0, -2.0639985, 1.2868403e-06, -0.272577, -6.7782867e-15, 6.4342015e-07, -10.307489, 0.9289942, 24.159643)
+[node name="wall21" type="CSGMesh3D" parent="Level3" unique_id=630400112]
+transform = Transform3D(-1.1914719e-08, -3.2512006e-07, -14.719737, 0, -3.7189395, 1.2868402e-06, -0.272577, -1.2213206e-14, 6.434201e-07, -10.307489, 1.6675091, 24.159643)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_oibo5")
 material = SubResource("StandardMaterial3D_pm7s6")
 
-[node name="wall4" type="CSGMesh3D" parent="Level1" unique_id=838865865]
-transform = Transform3D(-1.1284309e-08, -1.3622877e-14, 7.2764034, 1.3066663e-08, -2.0639985, 0, 0.14946522, 1.8044047e-07, 5.4935316e-07, 8.606481, 0.9289942, 3.3825033)
+[node name="wall30" type="CSGMesh3D" parent="Level3" unique_id=163545525]
+transform = Transform3D(-1.1914719e-08, -3.2512006e-07, -14.719737, 0, -3.7189395, 1.2868402e-06, -0.272577, -1.2213206e-14, 6.434201e-07, -25.048862, 1.6675091, 24.159643)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_oibo5")
 material = SubResource("StandardMaterial3D_pm7s6")
 
-[node name="wall3" type="CSGMesh3D" parent="Level1" unique_id=275413476]
-transform = Transform3D(-2.0578987e-08, -1.3622873e-14, -12.254601, 2.3829436e-08, -2.063998, 0, -0.27257696, -1.8044044e-07, 9.251965e-07, 3.2453487, 0.9289942, -7.89685)
+[node name="wall31" type="CSGMesh3D" parent="Level3" unique_id=252889059]
+transform = Transform3D(-1.1914719e-08, -3.2512006e-07, -14.719737, 0, -3.7189395, 1.2868402e-06, -0.272577, -1.2213206e-14, 6.434201e-07, -39.76409, 1.6675091, 24.159643)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_oibo5")
 material = SubResource("StandardMaterial3D_pm7s6")
 
-[node name="noga1" type="CSGMesh3D" parent="Level1" unique_id=1292506126]
-transform = Transform3D(0.08716905, 0, 0, 0, 0.4655627, 0, 0, 0, 0.17633036, 0.20840597, 0.1530658, -7.04437)
+[node name="wall39" type="CSGMesh3D" parent="Level3" unique_id=715774907]
+transform = Transform3D(-1.1914719e-08, -3.2512006e-07, -14.719737, 0, -3.7189395, 1.2868402e-06, -0.272577, -1.2213206e-14, 6.434201e-07, -39.76409, 1.6675091, -1.968441)
 use_collision = true
-collision_layer = 6
-mesh = SubResource("BoxMesh_exxaa")
-material = SubResource("StandardMaterial3D_alv8w")
+collision_layer = 4
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
 
-[node name="noga2" type="CSGMesh3D" parent="Level1" unique_id=1061994237]
-transform = Transform3D(0.08716905, 0, 0, 0, 0.34560192, 0, 0, 0, 0.17633036, 0.20840597, 0.094514966, -4.4257917)
+[node name="wall41" type="CSGMesh3D" parent="Level3" unique_id=810884558]
+transform = Transform3D(-0.272577, 2.8422902e-14, 1.2868403e-06, -1.1544083e-22, -3.7189393, 1.2868401e-06, 2.3829438e-08, 3.2512006e-07, 14.719737, -46.35582, 1.6675091, 4.344235)
 use_collision = true
-collision_layer = 6
-mesh = SubResource("BoxMesh_exxaa")
-material = SubResource("StandardMaterial3D_alv8w")
+collision_layer = 4
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
 
-[node name="noga3" type="CSGMesh3D" parent="Level1" unique_id=1749239660]
-transform = Transform3D(0.08716905, 0, 0, 0, 0.4655627, 0, 0, 0, 0.17633036, -0.44714832, 0.1530658, -7.04437)
+[node name="wall42" type="CSGMesh3D" parent="Level3" unique_id=2025771242]
+transform = Transform3D(-0.272577, 2.8422902e-14, 1.2868403e-06, -1.1544083e-22, -3.7189393, 1.2868401e-06, 2.3829438e-08, 3.2512006e-07, 14.719737, -46.407963, 1.6675091, 16.77683)
 use_collision = true
-collision_layer = 6
-mesh = SubResource("BoxMesh_exxaa")
-material = SubResource("StandardMaterial3D_alv8w")
+collision_layer = 4
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
 
-[node name="noga4" type="CSGMesh3D" parent="Level1" unique_id=2128214128]
-transform = Transform3D(0.08716905, 0, 0, 0, 0.34560192, 0, 0, 0, 0.17633036, -0.44714832, 0.094514966, -4.4257917)
+[node name="wall40" type="CSGMesh3D" parent="Level3" unique_id=1258810101]
+transform = Transform3D(-1.1914719e-08, -3.2512003e-07, -5.7032413, 0, -3.7189393, 4.985931e-07, -0.272577, -1.22132054e-14, 2.4929656e-07, -30.263527, 1.6675091, -1.968441)
 use_collision = true
-collision_layer = 6
-mesh = SubResource("BoxMesh_exxaa")
-material = SubResource("StandardMaterial3D_alv8w")
+collision_layer = 4
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
 
-[node name="table1" type="CSGMesh3D" parent="Level1" unique_id=1019419246]
-transform = Transform3D(0.8809882, 0, 0, 0, 0.06970476, 0, 0, 0, 2.3777688, -0.10082698, 0.25096133, -5.4109454)
+[node name="wall48" type="CSGMesh3D" parent="Level3" unique_id=1638651862]
+transform = Transform3D(-1.1914718e-08, -3.2512e-07, -1.7346342, 0, -3.718939, 1.5164652e-07, -0.27257696, -1.2213205e-14, 7.582326e-08, -22.524643, 1.6675091, -1.968441)
 use_collision = true
-collision_layer = 6
-mesh = SubResource("BoxMesh_exxaa")
-material = SubResource("StandardMaterial3D_alv8w")
+collision_layer = 4
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
 
-[node name="table2" type="CSGMesh3D" parent="Level1" unique_id=426315755]
-transform = Transform3D(0.8809882, 0, 0, 0, 0.07310936, -0.3467713, 0, 0.02613376, 0.97009486, -0.098903656, 0.41537946, -7.075401)
+[node name="wall50" type="CSGMesh3D" parent="Level3" unique_id=2015658619]
+transform = Transform3D(-1.1914721e-08, -3.2512014e-07, -10.699092, 0, -3.7189407, 9.353442e-07, -0.27257702, -1.22132105e-14, 4.676721e-07, -22.524643, 1.6675091, -9.586716)
 use_collision = true
-collision_layer = 6
-mesh = SubResource("BoxMesh_exxaa")
-material = SubResource("StandardMaterial3D_alv8w")
+collision_layer = 4
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
 
-[node name="furniture" type="CSGMesh3D" parent="Level1" unique_id=5683118]
-transform = Transform3D(0.614217, 0, 0, 0, 0.79178965, 0, 0, 0, 6.9873943, 2.8844883, 0.3025195, -4.3368406)
+[node name="wall51" type="CSGMesh3D" parent="Level3" unique_id=917432233]
+transform = Transform3D(-0.27257702, -2.4426421e-14, 6.929615e-07, -8.4659177e-23, -3.7189407, 6.9296146e-07, 2.382944e-08, 3.251201e-07, 7.9265566, -27.747528, 1.6675091, -6.0437355)
 use_collision = true
-collision_layer = 6
-mesh = SubResource("BoxMesh_iw0bw")
-material = SubResource("StandardMaterial3D_21gb1")
+collision_layer = 4
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
 
-[node name="desk" type="CSGMesh3D" parent="Level1" unique_id=205283397]
+[node name="wall52" type="CSGMesh3D" parent="Level3" unique_id=775886188]
+transform = Transform3D(-0.27257702, -2.4426421e-14, 6.929615e-07, -8.4659177e-23, -3.7189407, 6.9296146e-07, 2.382944e-08, 3.251201e-07, 7.9265566, -17.292511, 1.6675091, -6.0437355)
+use_collision = true
+collision_layer = 4
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="wall32" type="CSGMesh3D" parent="Level3" unique_id=1138516104]
+transform = Transform3D(-1.1914719e-08, -1.7454029e-07, -5.014009, 0, -1.9965081, 4.3833853e-07, -0.272577, -6.556645e-15, 2.1916927e-07, -8.576002, 0.066093445, 8.159643)
+use_collision = true
+collision_layer = 4
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="wall33" type="CSGMesh3D" parent="Level3" unique_id=47415908]
+transform = Transform3D(-1.1914719e-08, -1.7454029e-07, -5.283802, 0, -1.9965081, 4.619246e-07, -0.272577, -6.556645e-15, 2.309623e-07, -17.341171, 0.066093445, 8.159643)
+use_collision = true
+collision_layer = 4
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="wall44" type="CSGMesh3D" parent="Level3" unique_id=874256612]
+transform = Transform3D(0.27257696, 4.2351645e-22, 2.5734741e-14, -8.465916e-23, -1.996508, 2.6892505e-07, 8.881784e-16, -1.7454025e-07, -3.0761445, -14.872089, 0.07850456, 9.645954)
+use_collision = true
+collision_layer = 4
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="wall47" type="CSGMesh3D" parent="Level3" unique_id=768716279]
+transform = Transform3D(0.23605861, -0.99825406, 1.3446257e-07, -0.1362885, -1.729027, 2.3289596e-07, 8.881786e-16, -1.7454026e-07, -3.076145, -19.87209, -0.27719498, 9.645954)
+use_collision = true
+collision_layer = 4
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="wall45" type="CSGMesh3D" parent="Level3" unique_id=220994799]
+transform = Transform3D(0.27257696, 4.2351645e-22, 2.5734741e-14, -8.465916e-23, -1.996508, 2.6892505e-07, 8.881784e-16, -1.7454025e-07, -3.0761445, -23.270084, 0.2963791, 14.8261385)
+use_collision = true
+collision_layer = 4
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="wall46" type="CSGMesh3D" parent="Level3" unique_id=752855114]
+transform = Transform3D(0.18861765, -1.2600363e-07, -2.2207217, -8.4659164e-23, -1.996508, 2.6892508e-07, -0.196778, -1.2077825e-07, -2.1286287, -15.862675, 0.14611816, 15.222941)
+use_collision = true
+collision_layer = 4
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="wall34" type="CSGMesh3D" parent="Level3" unique_id=1381163467]
+transform = Transform3D(-1.1914719e-08, -1.7454029e-07, -6.794651, 0, -1.9965081, 5.940072e-07, -0.272577, -6.556645e-15, 2.970036e-07, -26.87067, 0.066093445, 8.159643)
+use_collision = true
+collision_layer = 4
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="wall49" type="CSGMesh3D" parent="Level3" unique_id=1743288770]
+transform = Transform3D(-0.19274104, -1.2341862e-07, -4.8045435, -1.6628817e-22, -1.9965081, 5.9400713e-07, -0.192741, 1.234186e-07, 4.8045435, -25.72649, 0.066093445, 2.48985)
+use_collision = true
+collision_layer = 4
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="StairsCollider" type="StaticBody3D" parent="Level3" unique_id=1981872593]
+transform = Transform3D(-1, -8.742277e-08, 8.742278e-08, 8.742278e-08, -1, 8.742277e-08, 8.742277e-08, 8.742278e-08, 1, -26.967777, -0.13474846, 12.159643)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level3/StairsCollider" unique_id=1456901047]
+transform = Transform3D(0.7083398, 0.7058715, 0, -0.7058716, 0.70833975, 0, 0, 0, 1, 9.583393, -0.30859375, 0.0062555075)
+shape = SubResource("BoxShape3D_nxxgv")
+
+[node name="StairsCollider2" type="StaticBody3D" parent="Level3" unique_id=1243273951]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.865978, 1.4007969, 12.159643)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level3/StairsCollider2" unique_id=1527985335]
+transform = Transform3D(1, 0, 0, 0, 0.9999998, 0, 0, 0, 1, -11.562805, 1.9718552, -0.020874023)
+shape = SubResource("BoxShape3D_uyary")
+
+[node name="Stairs" type="CSGMesh3D" parent="Level3" unique_id=341197601]
+transform = Transform3D(-0.27257696, -3.554972e-15, 5.940072e-07, -2.0009998e-22, -0.5412471, 5.940072e-07, 2.3829434e-08, 4.731732e-08, 6.7946515, -34.783726, -0.13474846, 12.159643)
+collision_layer = 4
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="wall39" type="CSGMesh3D" parent="Level3/Stairs" unique_id=1558847980]
+transform = Transform3D(1, 1.6940659e-21, 0, -4.2351647e-22, 1, -1.1368684e-13, 8.881784e-16, 0, 1, 0.737854, -0.5359154, 0)
+use_collision = true
+collision_layer = 4
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="wall40" type="CSGMesh3D" parent="Level3/Stairs" unique_id=270606136]
+transform = Transform3D(1, 1.6940659e-21, 0, -4.2351647e-22, 1, -1.1368684e-13, 8.881784e-16, 0, 1, 1.7342224, -1.2112198, -7.450581e-09)
+use_collision = true
+collision_layer = 4
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="wall41" type="CSGMesh3D" parent="Level3/Stairs" unique_id=1194445156]
+transform = Transform3D(1, 1.6940659e-21, 0, -4.2351647e-22, 1, -1.1368684e-13, 8.881784e-16, 0, 1, 2.4493866, -1.7514648, -1.4901161e-08)
+use_collision = true
+collision_layer = 4
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="wall42" type="CSGMesh3D" parent="Level3/Stairs" unique_id=1059015414]
+transform = Transform3D(1, 1.6940659e-21, 0, -4.2351647e-22, 1, -1.1368684e-13, 8.881784e-16, 0, 1, 3.2539368, -2.2466888, -1.4901161e-08)
+use_collision = true
+collision_layer = 4
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="wall43" type="CSGMesh3D" parent="Level3/Stairs" unique_id=188956989]
+transform = Transform3D(1, 1.6940659e-21, 0, -4.2351647e-22, 1, -1.1368684e-13, 8.881784e-16, 0, 1, 4.147888, -2.8319588, -1.4901161e-08)
+use_collision = true
+collision_layer = 4
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="wall44" type="CSGMesh3D" parent="Level3/Stairs" unique_id=336620044]
+transform = Transform3D(1, 1.6940659e-21, 0, -4.2351647e-22, 1, -1.1368684e-13, 8.881784e-16, 0, 1, 4.952469, -3.2371407, -1.4901161e-08)
+use_collision = true
+collision_layer = 4
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="wall45" type="CSGMesh3D" parent="Level3/Stairs" unique_id=279844331]
+transform = Transform3D(1, 1.6940659e-21, 0, -4.2351647e-22, 1, -1.1368684e-13, 8.881784e-16, 0, 1, 6.025238, -3.6709137, -1.4901161e-08)
+use_collision = true
+collision_layer = 4
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="wall46" type="CSGMesh3D" parent="Level3/Stairs" unique_id=1089291287]
+transform = Transform3D(1, 1.6940659e-21, 0, -4.2351647e-22, 1, -1.1368684e-13, 8.881784e-16, 0, 1, 7.097992, -4.250622, -1.4901161e-08)
+use_collision = true
+collision_layer = 4
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="wall47" type="CSGMesh3D" parent="Level3/Stairs" unique_id=189525997]
+transform = Transform3D(1, 1.6940659e-21, 0, -4.2351647e-22, 1, -1.1368684e-13, 8.881784e-16, 0, 1, 7.9253235, -4.816372, -1.4901161e-08)
+use_collision = true
+collision_layer = 4
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="wall48" type="CSGMesh3D" parent="Level3/Stairs" unique_id=1552388845]
+transform = Transform3D(1, 1.6940659e-21, 0, -4.2351647e-22, 1, -1.1368684e-13, 8.881784e-16, 0, 1, 8.842972, -5.2785187, -1.4901161e-08)
+use_collision = true
+collision_layer = 4
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="wall49" type="CSGMesh3D" parent="Level3/Stairs" unique_id=1715446789]
+transform = Transform3D(1, 1.6940659e-21, 0, -4.2351647e-22, 1, -1.1368684e-13, 8.881784e-16, 0, 1, 9.76062, -5.692013, -1.4901161e-08)
+use_collision = true
+collision_layer = 4
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="wall50" type="CSGMesh3D" parent="Level3/Stairs" unique_id=637698300]
+transform = Transform3D(1, 1.6940659e-21, 0, -4.2351647e-22, 1, -1.1368684e-13, 8.881784e-16, 0, 1, 10.630005, -6.1055107, -1.4901161e-08)
+use_collision = true
+collision_layer = 4
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="wall51" type="CSGMesh3D" parent="Level3/Stairs" unique_id=1806230077]
+transform = Transform3D(1, 1.6940659e-21, 0, -4.2351647e-22, 1, -1.1368684e-13, 8.881784e-16, 0, 1, 11.451065, -6.47036, -1.4901161e-08)
+use_collision = true
+collision_layer = 4
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="wall52" type="CSGMesh3D" parent="Level3/Stairs" unique_id=271787365]
+transform = Transform3D(3.9366865, 1.6940659e-21, 0, -5.0821977e-21, 1, -3.410605e-13, 3.5527137e-15, 0, 0.99999976, 13.67276, -6.47036, -2.2351742e-08)
+use_collision = true
+collision_layer = 4
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="wall35" type="CSGMesh3D" parent="Level3" unique_id=1868240097]
+transform = Transform3D(-1.1914719e-08, -1.7454029e-07, -4.9973297, 0, -1.9965081, 4.3688038e-07, -0.272577, -6.556645e-15, 2.1844019e-07, -9.255997, 0.066093445, 16.159643)
+use_collision = true
+collision_layer = 4
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="wall36" type="CSGMesh3D" parent="Level3" unique_id=2062074749]
+transform = Transform3D(-1.1914719e-08, -1.7454029e-07, -6.794651, 0, -1.9965081, 5.940072e-07, -0.272577, -6.556645e-15, 2.970036e-07, -18.179146, 0.066093445, 16.159643)
+use_collision = true
+collision_layer = 4
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="wall38" type="CSGMesh3D" parent="Level3" unique_id=304868349]
+transform = Transform3D(-1.1914719e-08, -1.7454029e-07, -6.794651, 0, -1.9965081, 5.940072e-07, -0.272577, -6.556645e-15, 2.970036e-07, -26.667671, 0.066093445, 16.159643)
+use_collision = true
+collision_layer = 4
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="wall37" type="CSGMesh3D" parent="Level3" unique_id=1870778219]
+transform = Transform3D(-1.1914719e-08, -1.7454029e-07, -6.794651, 0, -1.9965081, 5.940072e-07, -0.272577, -6.556645e-15, 2.970036e-07, -25.807526, 0.066093445, 16.159643)
+visible = false
+use_collision = true
+collision_layer = 4
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="wall4" type="CSGMesh3D" parent="Level3" unique_id=838865865]
+transform = Transform3D(-1.1284307e-08, -2.7569291e-14, 3.7003784, 1.30666615e-08, -4.1770163, 0, 0.1494652, 3.6516633e-07, 2.793708e-07, 8.025894, 1.9934597, 3.3825035)
+use_collision = true
+collision_layer = 4
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="wall3" type="CSGMesh3D" parent="Level3" unique_id=275413476]
+transform = Transform3D(-2.0578986e-08, -2.7185572e-14, -12.254601, 2.3829434e-08, -4.118879, 0, -0.27257693, -3.6008385e-07, 9.251965e-07, 3.245349, 1.5859413, -7.8968506)
+use_collision = true
+collision_layer = 4
+mesh = SubResource("BoxMesh_oibo5")
+material = SubResource("StandardMaterial3D_pm7s6")
+
+[node name="desk" type="CSGMesh3D" parent="Level3" unique_id=205283397]
 transform = Transform3D(1, 0, 0, 0, 1.1370372, 0, 0, 0, 4.2745357, -2.5942543, 0.47832248, 0.34461594)
 use_collision = true
 collision_layer = 6
 mesh = SubResource("BoxMesh_pm7s6")
 
-[node name="CSGMesh3D" type="CSGMesh3D" parent="Level1" unique_id=1075573027]
-transform = Transform3D(0.9998918, -0.00075206184, 0.0031234939, 0.0005308505, 1.4179362, -0.0032482499, -0.0007081998, 0.0010455, 4.4075866, -1.498669, 0.5213401, -5.4611983)
-use_collision = true
-collision_mask = 17
-mesh = SubResource("BoxMesh_alv8w")
-material = SubResource("StandardMaterial3D_iw0bw")
-
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Level1/CSGMesh3D" unique_id=1984203710]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.1823256, 0.36235178, 0.49901998, 0)
-operation = 2
-mesh = SubResource("BoxMesh_21gb1")
-material = SubResource("StandardMaterial3D_bn5kw")
-
-[node name="interior5" type="CSGBox3D" parent="Level1" unique_id=165245501]
+[node name="interior5" type="CSGBox3D" parent="Level3" unique_id=165245501]
 transform = Transform3D(-0.06027176, -0.12306267, -0.99056697, -0.5599067, 0.82571816, -0.06851483, 0.8263607, 0.55049556, -0.1186711, 0.75274086, 0.044789433, 11.631842)
 material_override = SubResource("StandardMaterial3D_exxaa")
 use_collision = true
 collision_layer = 4
 size = Vector3(1.84375, 4.1048584, 2)
 
-[node name="interior6" type="CSGBox3D" parent="Level1" unique_id=752406281]
+[node name="interior6" type="CSGBox3D" parent="Level3" unique_id=752406281]
 transform = Transform3D(-0.060271762, -0.12306269, -0.99056697, -0.89807373, 0.43984503, -5.7277006e-08, 0.43569598, 0.889602, -0.1370296, 1.0152931, 0.5980464, 9.718622)
 material_override = SubResource("StandardMaterial3D_exxaa")
 use_collision = true
 collision_layer = 4
 size = Vector3(1.6557617, 0.72821045, 2)
 
-[node name="Door" parent="Level1" unique_id=217114237 instance=ExtResource("3_f302j")]
+[node name="interior7" type="CSGBox3D" parent="Level3" unique_id=1379525481]
+transform = Transform3D(0.8263607, 0.5504956, -0.11867105, -0.5599067, 0.82571816, -0.06851483, 0.06027176, 0.123062596, 0.99056697, 4.8406267, 0.044790268, 18.806507)
+material_override = SubResource("StandardMaterial3D_exxaa")
+use_collision = true
+collision_layer = 4
+size = Vector3(1.84375, 4.1048584, 2)
+
+[node name="interior8" type="CSGBox3D" parent="Level3" unique_id=633758047]
+transform = Transform3D(0.43569598, 0.889602, -0.13702956, -0.89807373, 0.43984503, -5.9201767e-08, 0.060271733, 0.12306266, 0.99056697, 2.9274073, 0.59804726, 18.543957)
+material_override = SubResource("StandardMaterial3D_exxaa")
+use_collision = true
+collision_layer = 4
+size = Vector3(1.6557617, 0.72821045, 2)
+
+[node name="Door" parent="Level3" unique_id=217114237 instance=ExtResource("3_f302j")]
 transform = Transform3D(1.9106855e-15, -1, -4.371139e-08, -4.371139e-08, -4.371139e-08, 1, -1, 0, -4.371139e-08, -1.9546027, 1.951362, 3.0347002)
 
-[node name="CollisionShape3D" parent="Level1/Door" index="0" unique_id=649342185]
+[node name="CollisionShape3D" parent="Level3/Door" index="0" unique_id=649342185]
 transform = Transform3D(0.99999994, 4.371139e-08, 4.371139e-08, -4.3711385e-08, -4.371139e-08, 1, 4.3711385e-08, -1, -4.3711385e-08, -0.108650684, -1.484743, -1.3307508)
 shape = SubResource("BoxShape3D_sodxj")
 
-[node name="DoorVisuals" parent="Level1/Door/CollisionShape3D" index="0" unique_id=623114512]
+[node name="DoorVisuals" parent="Level3/Door/CollisionShape3D" index="0" unique_id=623114512]
 transform = Transform3D(0.5, 0, 0, 0, 1.2874146, 0, 0, 0, 2.0007324, 0, 0, 0)
 
-[node name="Door2" parent="Level1" unique_id=1295034299 instance=ExtResource("3_f302j")]
+[node name="Door2" parent="Level3" unique_id=1295034299 instance=ExtResource("3_f302j")]
 transform = Transform3D(-1, 4.371139e-08, -4.3711385e-08, -4.371139e-08, -4.371139e-08, 1, 4.3711385e-08, 1, 4.3711392e-08, 2.1051564, 1.951362, 7.552932)
 
-[node name="CollisionShape3D" parent="Level1/Door2" index="0" unique_id=649342185]
+[node name="CollisionShape3D" parent="Level3/Door2" index="0" unique_id=649342185]
 transform = Transform3D(0.99999994, 4.3711662e-08, 4.371139e-08, -4.3711385e-08, -4.371139e-08, 1, 4.3711385e-08, -1, -4.3711385e-08, -0.108650684, -1.6762104, -1.3307508)
 shape = SubResource("BoxShape3D_lw5r7")
 
-[node name="DoorVisuals" parent="Level1/Door2/CollisionShape3D" index="0" unique_id=623114512]
+[node name="DoorVisuals" parent="Level3/Door2/CollisionShape3D" index="0" unique_id=623114512]
 transform = Transform3D(0.5, 0, 0, 0, 1.2874146, 0, 0, 0, 2.383667, 0, 0, 0)
 
-[node name="Door3" parent="Level1" unique_id=309632416 instance=ExtResource("3_f302j")]
-transform = Transform3D(-5.7320566e-15, 1, -1.3113416e-07, 4.371139e-08, 1.3113416e-07, 1, 1, 0, -4.371139e-08, -2.054678, 0.44563103, 13.440486)
+[node name="Door3" parent="Level3" unique_id=309632416 instance=ExtResource("3_f302j")]
+transform = Transform3D(-5.7320566e-15, 1, -1.3113416e-07, 4.371139e-08, 1.3113416e-07, 1, 1, 0, -4.371139e-08, -2.054678, 0.44563103, 14.388881)
 
-[node name="CollisionShape3D" parent="Level1/Door3" index="0" unique_id=649342185]
+[node name="CollisionShape3D" parent="Level3/Door3" index="0" unique_id=649342185]
 transform = Transform3D(0.99999994, 0, 0, -2.524355e-29, 1, -1.8512493e-29, 0, 0, 1, 0, 0.16723633, 0.022884369)
 shape = SubResource("BoxShape3D_0li7t")
 
-[node name="DoorVisuals" parent="Level1/Door3/CollisionShape3D" index="0" unique_id=623114512]
+[node name="DoorVisuals" parent="Level3/Door3/CollisionShape3D" index="0" unique_id=623114512]
 transform = Transform3D(0.5, 0, 0, 0, 1.6655273, 0, 0, 0, 1.0186081, 0, 0, 0)
 
-[node name="Door4" parent="Level1" unique_id=1979817060 instance=ExtResource("3_f302j")]
+[node name="Door4" parent="Level3" unique_id=1979817060 instance=ExtResource("3_f302j")]
 transform = Transform3D(1, 0, 0, 0, 1.3113416e-07, 1, 0, -1, 1.3113416e-07, 3.1157389, 0.42533302, 15.966577)
 
-[node name="CollisionShape3D" parent="Level1/Door4" index="0" unique_id=649342185]
+[node name="CollisionShape3D" parent="Level3/Door4" index="0" unique_id=649342185]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.053162575, 0.16680908)
 shape = SubResource("BoxShape3D_jmjhv")
 
-[node name="DoorVisuals" parent="Level1/Door4/CollisionShape3D" index="0" unique_id=623114512]
+[node name="DoorVisuals" parent="Level3/Door4/CollisionShape3D" index="0" unique_id=623114512]
 transform = Transform3D(0.5, 0, 0, 0, 1.7540283, 0, 0, 0, 1.2022705, 0, 0, 0)
 
+[node name="DoubleDoor" parent="Level3" unique_id=1301287337 instance=ExtResource("17_sodxj")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.084736, 1.4735012, 3.2447166)
+is_open_on_start = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Level3" unique_id=994557603]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9884415, 1.5521431, 0.8933363)
+light_energy = 16.0
+light_indirect_energy = 16.0
+omni_range = 4096.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Level3" unique_id=690647228]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.51021, 1.5521431, 17.25469)
+light_energy = 16.0
+light_indirect_energy = 16.0
+omni_range = 4096.0
+
+[node name="DoubleDoor2" parent="Level3" unique_id=1837077605 instance=ExtResource("17_sodxj")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.6893158, 1.949585, 3.4021626)
+is_door_locked = true
+
+[node name="EmergencyButton" parent="Level3" unique_id=2049750870 node_paths=PackedStringArray("linked_door") instance=ExtResource("18_lw5r7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.607499, 1.2184143, 4.1570253)
+linked_door = NodePath("../DoubleDoor2")
+
+[node name="Serum" parent="Level3" unique_id=1185205921 instance=ExtResource("19_0li7t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0587425, 0.4513607, -2.0035791)
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Level3" unique_id=1166291342]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.294083, 4.926796, 11.615646)
+light_energy = 64.0
+light_indirect_energy = 16.0
+omni_range = 24.099
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Level3" unique_id=61645329]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.231873, 7.684639, 11.615646)
+light_energy = 64.0
+light_indirect_energy = 16.0
+omni_range = 24.099
+
+[node name="Label3D" type="Label3D" parent="Level3" unique_id=738126934]
+transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, 5.683732, 1.4513626, 10.496404)
+text = "<- Wyjście"
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Level3/Label3D" unique_id=1699869128]
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0, 0.099342346)
+light_energy = 16.0
+light_indirect_energy = 25.505
+
+[node name="Transformator" parent="Level3" unique_id=324287953 instance=ExtResource("20_jmjhv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2341194, 1.3930035, -1.2345829)
+collision_layer = 1
+collision_mask = 1
+is_activating_by_rock = false
+is_activating_by_player_interaction = false
+
+[node name="Transformator2" parent="Level3" unique_id=866739836 instance=ExtResource("20_jmjhv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.4190445, 1.4513626, 23.742424)
+collision_layer = 1
+collision_mask = 1
+
+[node name="Transformator3" parent="Level3" unique_id=1643222633 instance=ExtResource("20_jmjhv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.795914, 1.4513626, 22.903307)
+collision_layer = 1
+collision_mask = 1
+
+[node name="Transformator4" parent="Level3" unique_id=2017664837 instance=ExtResource("20_jmjhv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.795914, 1.4513626, -7.096693)
+collision_layer = 1
+collision_mask = 1
+
 [node name="Player" parent="." unique_id=767105809 instance=ExtResource("1_d7j53")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -16.399467, 21.389395, -10.606398)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -27.906792, 21.389395, 1.1951857)
 CROUCH_SPEED_MULTIPLIER = 0.3
 crouching_noise_volume = 1.5
 walking_noise_volume = 3.0
@@ -465,8 +821,7 @@ walking_noise_volume = 3.0
 [node name="PsycheManager" type="Node" parent="." unique_id=48949697 node_paths=PackedStringArray("player")]
 script = ExtResource("2_ngn0i")
 player = NodePath("../Player")
-settings = ExtResource("4_epoec")
-mutation = ExtResource("5_ccebf")
+settings = ExtResource("6_ihdp8")
 metadata/_custom_type_script = "uid://s47j5s0f3fdy"
 
 [node name="GameManager" type="Node" parent="." unique_id=1032297343]
@@ -489,23 +844,7 @@ script = ExtResource("19_cgang")
 last_checkpoint = ExtResource("20_lmckm")
 metadata/_custom_type_script = "uid://bvpanlcy3bc06"
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1073508512]
-transform = Transform3D(358.8966, 0, 0, 0, 1, 0, 0, 0, 193.94424, 0, -25.22758, 0)
-visible = false
-collision_mask = 16
-size = Vector3(1, 14.626953, 1)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=259314789]
-transform = Transform3D(121.80836, 0, 0, 0, 1, 0, 0, 0, 316.3333, -350.9301, -7.3295174, 7.057948)
-mesh = SubResource("BoxMesh_ngn0i")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=762151780]
-collision_mask = 16
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=2099722738]
-shape = SubResource("BoxShape3D_epoec")
-
-[editable path="Level1/Door"]
-[editable path="Level1/Door2"]
-[editable path="Level1/Door3"]
-[editable path="Level1/Door4"]
+[editable path="Level3/Door"]
+[editable path="Level3/Door2"]
+[editable path="Level3/Door3"]
+[editable path="Level3/Door4"]

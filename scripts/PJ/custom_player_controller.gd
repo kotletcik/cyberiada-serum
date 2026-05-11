@@ -39,6 +39,9 @@ var is_crouching = false;
 @export var normal_camera_y: float = 0.36;
 @export var crouch_camera_y: float = 0.36;
 
+var movement_is_blocked:= false
+var camera_is_blocked:= false
+
 
 func _enter_tree() -> void:
 	crouch_check_sphere = PhysicsServer3D.sphere_shape_create();
@@ -65,7 +68,8 @@ func _physics_process(delta: float) -> void:
 	# zmiana szybkości w przyszłości by była tutaj
 	move_speed = SOBER_WALK_SPEED; 
 	if(Input.is_action_just_pressed("Crouch")):
-		crouch();
+		if (!movement_is_blocked):
+			crouch();
 	elif(Input.is_action_just_released("Crouch") && space_for_uncrouch() ||
 			(!Input.is_action_pressed("Crouch") && is_crouching && space_for_uncrouch())):
 		uncrouch();
@@ -77,8 +81,10 @@ func _physics_process(delta: float) -> void:
 		noise = walking_noise_volume
 
 	var input_dir = Vector3.ZERO
-	input_dir.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-	input_dir.z = Input.get_action_strength("move_backward") - Input.get_action_strength("move_forward")
+	
+	if (!movement_is_blocked):
+		input_dir.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+		input_dir.z = Input.get_action_strength("move_backward") - Input.get_action_strength("move_forward")
 	
 	if input_dir != Vector3.ZERO:
 		input_dir = input_dir.normalized()
@@ -123,6 +129,7 @@ func _input(event):
 
 func _unhandled_input(event):
 	if(UIManager.instance.is_in_esc_menu || !UIManager.instance.is_in_game): return;
+	if (camera_is_blocked): return;
 	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
@@ -153,5 +160,4 @@ func space_for_uncrouch() -> bool:
 	params.transform.origin = global_position + Vector3(0, crouch_check_y, 0);
 
 	var results = get_world_3d().direct_space_state.intersect_shape(params, 32);
-	# print(results.size());
 	return results.size() == 0;

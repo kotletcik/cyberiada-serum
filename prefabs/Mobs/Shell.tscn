@@ -1,20 +1,61 @@
 [gd_scene format=3 uid="uid://dqoenfwxbkoli"]
 
 [ext_resource type="PackedScene" uid="uid://b4512qioi3g1i" path="res://prefabs/Gravity.tscn" id="2_6sbjw"]
-[ext_resource type="PackedScene" uid="uid://bl1430h1aopmr" path="res://addons/KayKit_Character_Animations_1.0/Mannequin Character/characters/Mannequin_Large.glb" id="2_ukenm"]
+[ext_resource type="PackedScene" uid="uid://bj3bbpkd1o1p0" path="res://assets/models/shell_boned_flipped.glb" id="2_7805i"]
+[ext_resource type="AnimationLibrary" uid="uid://blw7uxsnrq3ho" path="res://addons/KayKit_Character_Animations_1.0/Animations/gltf/Rig_Large/Rig_Large_CombatMelee.glb" id="3_7805i"]
 [ext_resource type="AnimationLibrary" uid="uid://iy5871tg82i6" path="res://addons/KayKit_Character_Animations_1.0/Animations/gltf/Rig_Large/Rig_Large_General.glb" id="3_opuvl"]
 [ext_resource type="AnimationLibrary" uid="uid://drtl0aynkbn2u" path="res://addons/KayKit_Character_Animations_1.0/Animations/gltf/Rig_Large/Rig_Large_MovementBasic.glb" id="4_rsf4w"]
 [ext_resource type="AnimationLibrary" uid="uid://c8y1lkise7b5r" path="res://addons/KayKit_Character_Animations_1.0/Animations/gltf/Rig_Large/Rig_Large_Simulation.glb" id="5_7e2mx"]
-[ext_resource type="PackedScene" uid="uid://bxerqeybhhs0c" path="res://prefabs/Mobs/State_machine.tscn" id="5_e6lbg"]
+[ext_resource type="PackedScene" uid="uid://bxerqeybhhs0c" path="res://prefabs/Mobs/state_machine.tscn" id="5_e6lbg"]
+[ext_resource type="AnimationLibrary" uid="uid://bnrrihsy1b3qm" path="res://addons/KayKit_Character_Animations_1.0/Animations/gltf/Rig_Large/Rig_Large_MovementAdvanced.glb" id="5_gs4m8"]
 [ext_resource type="Script" uid="uid://b7oh0gjgvjexb" path="res://scripts/PJ/state_machine/Enemy_movement.gd" id="6_ajbgq"]
 [ext_resource type="Script" uid="uid://dntly0y7t12o6" path="res://scripts/PJ/movement_animator.gd" id="6_opuvl"]
 [ext_resource type="Script" uid="uid://dkukaamdo4acb" path="res://scripts/PJ/state_machine/Shell_behaviour.gd" id="6_raqt8"]
 [ext_resource type="Script" uid="uid://ws43rxsp8qki" path="res://scripts/PJ/state_machine/States/Patrol.gd" id="7_ayt5m"]
 [ext_resource type="Script" uid="uid://cch3iwxpn7a6u" path="res://scripts/PJ/state_machine/States/Scream.gd" id="7_lqxc7"]
+[ext_resource type="AnimationNodeBlendSpace1D" uid="uid://bc2y71tjqhgpl" path="res://assets/shell_animation_states/new_animation_node_blend_space_1d.tres" id="7_rsf4w"]
 [ext_resource type="PackedScene" uid="uid://cqmv7mxht6o6m" path="res://prefabs/gpu_particles_3d.tscn" id="8_6f62q"]
 [ext_resource type="Script" uid="uid://b7ydidx4polw6" path="res://scripts/Valk/shell_disappearance.gd" id="9_jt8f1"]
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rsf4w"]
+animation = &"Rig_Large_CombatMelee/Melee_2H_Slam"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7e2mx"]
+animation = &"Rig_Large_Simulation/Flexing"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7805i"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gs4m8"]
+advance_mode = 2
+advance_expression = "is_screaming"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ranhc"]
+advance_mode = 2
+advance_expression = "!is_screaming"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7e2mx"]
+advance_mode = 2
+advance_expression = "is_attacking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_elech"]
+advance_mode = 2
+advance_expression = "!is_attacking"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_elech"]
+states/End/position = Vector2(596.2, 134)
+states/Rig_Large_General_Hit_A/node = SubResource("AnimationNodeAnimation_rsf4w")
+states/Rig_Large_General_Hit_A/position = Vector2(527.2176, 54.999996)
+states/Rig_Large_Simulation_Flexing/node = SubResource("AnimationNodeAnimation_7e2mx")
+states/Rig_Large_Simulation_Flexing/position = Vector2(349.80002, 134)
+states/Run/node = ExtResource("7_rsf4w")
+states/Run/position = Vector2(349.80002, 54.999996)
+states/Start/position = Vector2(238, 54.999996)
+transitions = ["Start", "Run", SubResource("AnimationNodeStateMachineTransition_7805i"), "Run", "Rig_Large_Simulation_Flexing", SubResource("AnimationNodeStateMachineTransition_gs4m8"), "Rig_Large_Simulation_Flexing", "Run", SubResource("AnimationNodeStateMachineTransition_ranhc"), "Run", "Rig_Large_General_Hit_A", SubResource("AnimationNodeStateMachineTransition_7e2mx"), "Rig_Large_General_Hit_A", "Run", SubResource("AnimationNodeStateMachineTransition_elech")]
+graph_offset = Vector2(8.21759, -25)
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lj2st"]
+radius = 0.4
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nyxyb"]
 transparency = 1
@@ -37,24 +78,36 @@ size = Vector3(0.2, 0.2, 0.2)
 [sub_resource type="BoxMesh" id="BoxMesh_raqt8"]
 size = Vector3(0.4, 0.2, 0.2)
 
-[node name="Shell" type="CharacterBody3D" unique_id=2079833793 node_paths=PackedStringArray("sound_target", "state_machine") groups=["Shell"]]
+[node name="Shell" type="CharacterBody3D" unique_id=2079833793 node_paths=PackedStringArray("animator", "sound_target", "state_machine") groups=["Shell"]]
 collision_layer = 8
 collision_mask = 7
 script = ExtResource("6_raqt8")
+animator = NodePath("shell_boned_flipped/AnimationPlayer")
 sound_target = NodePath("State_machine/Follow_sound/Empty_target")
+scream_time = 1.0
 state_machine = NodePath("State_machine")
+player_sight_range = 16.0
 
-[node name="Skin" parent="." unique_id=1644313155 instance=ExtResource("2_ukenm")]
-transform = Transform3D(-0.5, 0, 4.371139e-08, 0, 0.5, 0, -4.371139e-08, 0, -0.5, 0, -0.9252626, 0)
+[node name="shell_boned_flipped" parent="." unique_id=62765794 instance=ExtResource("2_7805i")]
+transform = Transform3D(-0.14, 0, -1.2239188e-08, 0, 0.14, 0, 1.2239188e-08, 0, -0.14, 0, -1, 0)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Skin" unique_id=203633144]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="shell_boned_flipped" unique_id=917387862 node_paths=PackedStringArray("animation_tree")]
+libraries/Rig_Large_CombatMelee = ExtResource("3_7805i")
 libraries/Rig_Large_General = ExtResource("3_opuvl")
+libraries/Rig_Large_MovementAdvanced = ExtResource("5_gs4m8")
 libraries/Rig_Large_MovementBasic = ExtResource("4_rsf4w")
 libraries/Rig_Large_Simulation = ExtResource("5_7e2mx")
 script = ExtResource("6_opuvl")
 idle_animation_name = "Rig_Large_General/Idle_A"
 walking_animation_name = "Rig_Large_MovementBasic/Walking_A"
 running_animation_name = "Rig_Large_MovementBasic/Running_A"
+animation_tree = NodePath("../AnimationTree")
+
+[node name="AnimationTree" type="AnimationTree" parent="shell_boned_flipped" unique_id=824088105]
+tree_root = SubResource("AnimationNodeStateMachine_elech")
+advance_expression_base_node = NodePath("../..")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Run/blend_position = 4.526432
 
 [node name="State_machine_Behaviour#DebugLines" type="MeshInstance3D" parent="." unique_id=533354744]
 visible = false

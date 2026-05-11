@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dg433bvfg6cvt"]
 
-[ext_resource type="Script" uid="uid://67dqw2stjnr6" path="res://scripts/PJ/custom_player_controller.gd" id="1_v6fml"]
+[ext_resource type="Script" uid="uid://bj6xcom8cjiox" path="res://scripts/PJ/custom_player_controller.gd" id="1_v6fml"]
 [ext_resource type="Script" uid="uid://dvgoa1d8j20dg" path="res://scripts/Valk/player_interactions.gd" id="2_3li8b"]
 [ext_resource type="PackedScene" uid="uid://ce6h2fmee74sw" path="res://prefabs/Scene Prefabs/scene_serum.tscn" id="3_0dfmc"]
 [ext_resource type="PackedScene" uid="uid://cq7n16gqbc6eo" path="res://vignette/Vignette.tscn" id="3_abpoc"]
@@ -21,8 +21,6 @@ tonemap_exposure = 0.47
 ssao_enabled = true
 ssao_light_affect = 1.0
 ssao_ao_channel_affect = 0.75
-ssil_enabled = true
-sdfgi_enabled = true
 sdfgi_use_occlusion = true
 glow_enabled = true
 fog_enabled = true
@@ -37,7 +35,8 @@ platform_floor_layers = 4294967040
 script = ExtResource("1_v6fml")
 player_capsule = SubResource("CapsuleShape3D_v6fml")
 crouch_check_collision_mask = 15
-crouch_check_y = 0.2
+crouch_check_y = 0.845
+crouch_check_radius = 0.25
 normal_player_height = 1.55
 crouch_player_height = 0.69
 normal_camera_y = 0.42
@@ -57,7 +56,7 @@ interaction_range = 5.0
 interaction_mask = 239
 
 [node name="Rock Throw Position" type="Node3D" parent="Head/Camera3D" unique_id=1675000720]
-transform = Transform3D(0.99415094, 0.018753894, 0.10635862, 0, 0.98480785, -0.1736482, -0.107999355, 0.17263252, 0.97904766, 0.040209025, -0.1694467, 0)
+transform = Transform3D(0.99415094, 0.018753894, 0.10635862, 0, 0.98480785, -0.1736482, -0.107999355, 0.17263252, 0.97904766, 0.040209025, -0.028812647, 0)
 
 [node name="AudioListener3D" type="AudioListener3D" parent="Head/Camera3D" unique_id=711435251]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.42, 0)

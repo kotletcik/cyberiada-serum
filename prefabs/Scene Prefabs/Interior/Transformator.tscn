@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dp8ptyamp3mvi"]
+
+[ext_resource type="Script" uid="uid://dc7ujf1sgyfnl" path="res://scripts/PJ/transformator.gd" id="1_847bj"]
+[ext_resource type="PackedScene" uid="uid://cqmv7mxht6o6m" path="res://prefabs/gpu_particles_3d.tscn" id="2_qipyy"]
+[ext_resource type="Script" path="res://scripts/PJ/particles_timer.gd" id="3_dt32q"]
+[ext_resource type="Texture2D" uid="uid://b15uw8ofbj5ls" path="res://textures/emblemat_pioruna_zolte_bez_tla.png" id="4_40wo7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qipyy"]
+size = Vector3(2, 3, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_847bj"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_dt32q"]
+material = SubResource("StandardMaterial3D_847bj")
+size = Vector3(2, 3, 1)
+
+[node name="Transformator" type="StaticBody3D" unique_id=324287953 node_paths=PackedStringArray("animator")]
+collision_layer = 128
+collision_mask = 33
+script = ExtResource("1_847bj")
+animator = NodePath("GPUParticles3D")
+is_activating_by_rock = true
+is_activating_by_player_interaction = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1370385071]
+shape = SubResource("BoxShape3D_qipyy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1991477561]
+mesh = SubResource("BoxMesh_dt32q")
+
+[node name="GPUParticles3D" parent="." unique_id=207648955 instance=ExtResource("2_qipyy")]
+transform = Transform3D(1, 0, 0, 0, -0.25881904, -0.9659258, 0, 0.9659258, -0.25881904, 0, 0, 0.5143218)
+script = ExtResource("3_dt32q")
+interval_time = 1.0
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=994925503]
+transform = Transform3D(-0.2, 0, -1.7484556e-08, 0, 0.2, 0, 1.7484556e-08, 0, -0.2, 0, 0, -0.6092143)
+texture = ExtResource("4_40wo7")
+
+[node name="Sprite3D2" type="Sprite3D" parent="." unique_id=1531124813]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0.51316965)
+texture = ExtResource("4_40wo7")

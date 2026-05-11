@@ -51,6 +51,9 @@ func throw_rock(rock: RigidBody3D):
 	velocity.y = v0 * sin(alpha)
 
 	rock.apply_central_impulse(velocity * rock.mass)
+	rock.get_node("CollisionShape3D").disabled = true;
+	await get_tree().create_timer(0.1).timeout;
+	rock.get_node("CollisionShape3D").disabled = false;
 	
 func get_aim_target() -> Vector3:
 	var mouse_pos = get_viewport().get_mouse_position()

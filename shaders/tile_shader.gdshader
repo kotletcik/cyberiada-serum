@@ -1,4 +1,5 @@
 shader_type spatial;
+
 uniform vec2 tiling = vec2(2.0, 1.0);
 uniform vec2 offset = vec2(0.0, 0.0);
 uniform vec2 scroll_speed = vec2(0.1, 0.0);

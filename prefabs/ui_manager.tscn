@@ -323,6 +323,7 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "Meow Meow Meow"
 
 [node name="EscMenu" type="CanvasLayer" parent="." unique_id=1388220282]
+visible = false
 
 [node name="Panel" type="Panel" parent="EscMenu" unique_id=1537150450]
 anchors_preset = 8
@@ -685,6 +686,7 @@ offset_bottom = 1007.0
 text = "Wróć do głównego menu"
 
 [node name="Black Transition" type="CanvasLayer" parent="." unique_id=348055792]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="Black Transition" unique_id=460921685]
 offset_right = 1920.0
