@@ -21,6 +21,7 @@ shader_parameter/offset = Vector2(0, -1.915)
 shader_parameter/scroll_speed = Vector2(0.775, 0.055)
 shader_parameter/moving = false
 shader_parameter/moja_tekstura = ExtResource("2_yoa02")
+shader_parameter/brightness = -0.59999999403952
 
 [node name="RysiaSceen" type="Node3D" unique_id=20332525]
 
@@ -28,14 +29,14 @@ shader_parameter/moja_tekstura = ExtResource("2_yoa02")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34831703, 0, 0)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="MeshInstance3D" unique_id=107405542]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1867342, -0.14342487, -3.771596)
-size = Vector3(16.708298, 1, 19.231684)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1867342, -0.14342487, -8.427542)
+size = Vector3(16.708298, 1, 28.543575)
 material = SubResource("ShaderMaterial_yoa02")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=870385646]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34831703, 0, 8.859718)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="MeshInstance3D2" unique_id=1091034843]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1867342, -0.14342487, 4.208477)
-size = Vector3(16.708298, 1, 6.006794)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1867342, -0.14342487, 3.4147654)
+size = Vector3(16.708298, 1, 7.5942173)
 material = SubResource("ShaderMaterial_hp4d2")
