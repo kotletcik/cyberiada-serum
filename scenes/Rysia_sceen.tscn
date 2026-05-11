@@ -21,7 +21,7 @@ shader_parameter/offset = Vector2(0, -1.915)
 shader_parameter/scroll_speed = Vector2(0.775, 0.055)
 shader_parameter/moving = false
 shader_parameter/moja_tekstura = ExtResource("2_yoa02")
-shader_parameter/brightness = -0.59999999403952
+shader_parameter/brightness = 1.4901200051653518e-08
 
 [node name="RysiaSceen" type="Node3D" unique_id=20332525]
 
