@@ -9,6 +9,22 @@ uniform float brightness : hint_range(-1.0, 1.0, 0.1) = 0;
 varying vec3 world_pos;
 varying vec3 world_normal;
 
+vec2 turn_tile(vec2 uv_in, vec2 pivot, float rotation_degrees){
+	uv_in -= pivot;
+	float rotation_radians = radians(rotation_degrees);
+	float c = cos(rotation_radians);
+	float s = sin(rotation_radians);
+	
+	vec2 uv_out;
+
+	uv_out.x = uv_in.x * c + uv_in.y * s;
+	uv_out.y = uv_in.y * c - uv_in.x * s;
+
+	uv_out += pivot;
+	
+	return uv_out;
+}
+
 mat4 brighteness_matrix(float b){
 	return mat4(
 		vec4(1, 0, 0, 0),
@@ -31,10 +47,18 @@ void fragment() {
 	if (moving) {
         current_offset += scroll_speed * TIME;
     }
+	vec2 uv_x = world_pos.zy * tiling + current_offset;
+    vec2 uv_y = world_pos.xz * tiling + current_offset;
+    vec2 uv_z = world_pos.xy * tiling + current_offset;
+
+    uv_x = turn_tile(uv_x, vec2(0.5), 90);
+    uv_y = turn_tile(uv_y, vec2(0.5), 90);
+    uv_z = turn_tile(uv_z, vec2(0.5), 90);
+	
+	vec3 x_tex = texture(moja_tekstura, uv_x).rgb;
+    vec3 y_tex = texture(moja_tekstura, uv_y).rgb;
+    vec3 z_tex = texture(moja_tekstura, uv_z).rgb;
  
-    vec3 x_tex = texture(moja_tekstura, world_pos.zy * tiling + current_offset.x).rgb;
-    vec3 y_tex = texture(moja_tekstura, world_pos.xz * tiling + current_offset.y).rgb;
-    vec3 z_tex = texture(moja_tekstura, world_pos.xy * tiling).rgb;
     mat4 matrix = brighteness_matrix(brightness);
 	vec3 base_color = (x_tex * blending.x + y_tex * blending.y + z_tex * blending.z);
     ALBEDO = (matrix * vec4(base_color, 1.0)).rgb;
