@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bya7074yvflm6" path="res://prefabs/ui/thought_path_button.tscn" id="3_bpt2d"]
 [ext_resource type="Script" uid="uid://bw0o64kaou276" path="res://scripts/Valk/palace_ui_controller.gd" id="5_6hyqm"]
 [ext_resource type="PackedScene" uid="uid://gld2pf7nmd7u" path="res://prefabs/ui/controls_panel.tscn" id="6_msfjg"]
+[ext_resource type="AudioStream" uid="uid://dn2mbdujgiprb" path="res://assets/sounds/openNotes.WAV" id="6_wtjxn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wtjxn"]
 font_color = Color(0, 0, 0, 1)
@@ -30,7 +31,7 @@ bg_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wtjxn"]
 bg_color = Color(0, 0, 0, 1)
 
-[node name="UIManager" type="Node" unique_id=798929640 node_paths=PackedStringArray("added_thought_notif", "mind_palace_ui", "notes_ui", "esc_menu", "game_over_screen", "bad_ending_screen", "good_ending_screen", "black_transition")]
+[node name="UIManager" type="Node" unique_id=798929640 node_paths=PackedStringArray("added_thought_notif", "mind_palace_ui", "notes_ui", "esc_menu", "game_over_screen", "bad_ending_screen", "good_ending_screen", "black_transition", "open_notes_sound")]
 script = ExtResource("1_4asm2")
 added_thought_notif = NodePath("AddedThoughtNotif")
 mind_palace_ui = NodePath("MindPalace")
@@ -42,6 +43,7 @@ game_over_screen = NodePath("Game Over")
 bad_ending_screen = NodePath("Bad Ending")
 good_ending_screen = NodePath("Good Ending")
 black_transition = NodePath("Black Transition")
+open_notes_sound = NodePath("OpenNotesSound")
 metadata/_custom_type_script = "uid://k7qr63sybur6"
 
 [node name="AddedThoughtNotif" type="CanvasLayer" parent="." unique_id=1916351234]
@@ -693,3 +695,7 @@ offset_bottom = 1080.0
 mouse_filter = 2
 mouse_behavior_recursive = 1
 color = Color(0, 0, 0, 1)
+
+[node name="OpenNotesSound" type="AudioStreamPlayer" parent="." unique_id=418152731]
+stream = ExtResource("6_wtjxn")
+bus = &"SFX"
