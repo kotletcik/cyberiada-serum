@@ -15,4 +15,5 @@ func reappear_shells():
 	lift_shell.disable();
 	ending_trigger.enable_trigger = true;
 	for i in range(0, shells.size()):
+		if(shells[i] == null): continue;
 		shells[i].enable();
