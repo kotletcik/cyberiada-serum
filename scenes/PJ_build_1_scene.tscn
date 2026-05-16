@@ -227,7 +227,7 @@ size = Vector3(7.997612, 5.258362, 21.747871)
 script = ExtResource("1_xanii")
 
 [node name="Player" parent="." unique_id=2039338456 instance=ExtResource("1_ahihw")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 83.97162, 21.62931, 84.2034)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 83.97162, 21.212997, 84.2034)
 SOBER_WALK_SPEED = 6.9
 CROUCH_SPEED_MULTIPLIER = 0.3
 crouching_noise_volume = 1.5
@@ -3930,6 +3930,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.44993, 5.581295, -24.7723
 [node name="CollisionShape3D" parent="Safe Zone" index="0" unique_id=1578128117]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29231644, -3.9852533, 3.4136963)
 shape = SubResource("BoxShape3D_jm1i1")
+
+[node name="SoundManager" type="Node" parent="." unique_id=596959604]
 
 [editable path="Location5/ShellNavRegion/Geometry/StaticBody3D"]
 [editable path="Location5/ShellNavRegion/Geometry/StaticBody3D2"]

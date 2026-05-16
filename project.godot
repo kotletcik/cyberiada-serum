@@ -19,6 +19,10 @@ run/main_scene="res://scenes/MainMenu.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://ddtkkikt14lei"
+
 [autoload]
 
 EventBus="*res://scripts/PJ/Event_bus.gd"
@@ -30,6 +34,9 @@ settings/addon_root_folder="res://addons/debug_draw_3d"
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
 window/size/resizable=false
 window/stretch/mode="canvas_items"
 
