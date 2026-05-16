@@ -5,7 +5,8 @@ uniform vec2 offset = vec2(0.0, 0.0);
 uniform vec2 scroll_speed = vec2(0.1, 0.0);
 uniform bool moving = false;
 uniform sampler2D texture_map : repeat_enable;
-uniform float brightness : hint_range(-1.0, 1.0, 0.1) = 0;
+uniform float brightness : hint_range(-1.0, 1.0, 0.01) = 0;
+uniform vec3 color = vec3(0.0,0.0,0.0);
 uniform sampler2D normal_map;
 uniform sampler2D roughness_map;
 uniform sampler2D metallic_map;
@@ -86,7 +87,7 @@ void fragment() {
     vec3 z_m = texture(metallic_map, uv_z).rgb;
  
     mat4 matrix = brighteness_matrix(brightness);
-	vec3 base_color = (x_tex * blending.x + y_tex * blending.y + z_tex * blending.z);
+	vec3 base_color = (x_tex * blending.x + y_tex * blending.y + z_tex * blending.z) * color;
 	vec3 mixed_normal = (x_nor * blending.x + y_nor * blending.y + z_nor * blending.z);
     
  
