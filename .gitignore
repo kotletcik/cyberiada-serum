@@ -25,3 +25,6 @@ build/
 test_folder/
 export_presets.cfg
 export_presets.cfg
+.idea/indexLayout.xml
+.idea/libraries/GdSdk.xml
+.idea/vcs.xml
