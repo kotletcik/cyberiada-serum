@@ -43,7 +43,7 @@
 [ext_resource type="Material" uid="uid://dtpcgvcscyn7l" path="res://materials/drewno.tres" id="32_mqcy5"]
 [ext_resource type="Shader" uid="uid://dhcli8e5pg6e1" path="res://shaders/tile_shader.gdshader" id="33_nc1sr"]
 [ext_resource type="Resource" uid="uid://dwbrn5l1ernyw" path="res://resources/thoughts/shell/first_shell.tres" id="34_0plmr"]
-[ext_resource type="Script" path="res://scripts/Valk/lift_replacer.gd" id="34_mqcy5"]
+[ext_resource type="Script" uid="uid://c04x2cp05cawr" path="res://scripts/Valk/lift_replacer.gd" id="34_mqcy5"]
 [ext_resource type="Texture2D" uid="uid://3bhyqovko3ps" path="res://textures/prubny_kafelek/prubnykafel_orm.png" id="34_swbfn"]
 [ext_resource type="Texture2D" uid="uid://del2dmidaesxr" path="res://textures/kafelki_pekniete/kafelki_pekniete_normal.png" id="35_jakws"]
 [ext_resource type="PackedScene" uid="uid://kkrsyjqqsie6" path="res://prefabs/triggers/event_trigger.tscn" id="35_scj3o"]
@@ -56,7 +56,7 @@
 [ext_resource type="Texture2D" uid="uid://c42se58kbsb47" path="res://textures/IMG_0455.jpg" id="50_cidjx"]
 [ext_resource type="Material" uid="uid://bxil1tlgw2u1m" path="res://materials/korek.tres" id="51_r8wc8"]
 [ext_resource type="Script" uid="uid://d25dunpwd5h5q" path="res://scripts/Valk/final_stage_set_up.gd" id="51_vkxoh"]
-[ext_resource type="Script" path="res://scripts/Valk/ending_controller.gd" id="53_ipoun"]
+[ext_resource type="Script" uid="uid://f4v6nksxa5jk" path="res://scripts/Valk/ending_controller.gd" id="53_ipoun"]
 [ext_resource type="Texture2D" uid="uid://1ydbjgs84r77" path="res://textures/betonowy_kafel/betonowy_kafel_normal.png" id="55_jakws"]
 [ext_resource type="PackedScene" uid="uid://bj84lumadjlgo" path="res://prefabs/triggers/safe_zone.tscn" id="55_utgjm"]
 [ext_resource type="Texture2D" uid="uid://c4sduy2n6u2u5" path="res://textures/betonowy_kafel/betonowy_kafel_albedo.png" id="56_i3x6b"]
@@ -3722,6 +3722,7 @@ omni_range = 4096.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Level3" unique_id=1978625632]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.51021, 1.5521431, 17.25469)
+visible = false
 light_energy = 16.0
 light_indirect_energy = 16.0
 omni_range = 4096.0
@@ -3739,12 +3740,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0587425, 0.4513607, -2.0035
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Level3" unique_id=1277212142]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.294083, 4.926796, 11.615646)
+visible = false
 light_energy = 64.0
 light_indirect_energy = 16.0
 omni_range = 24.099
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="Level3" unique_id=677450702]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.231873, 7.684639, 11.615646)
+visible = false
 light_energy = 64.0
 light_indirect_energy = 16.0
 omni_range = 24.099
@@ -3755,6 +3758,7 @@ text = "<- Wyjście"
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Level3/Label3D" unique_id=1465724176]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0, 0.099342346)
+visible = false
 light_energy = 16.0
 light_indirect_energy = 25.505
 
