@@ -35,25 +35,31 @@
 [ext_resource type="Resource" uid="uid://inlb87ae3v2h" path="res://resources/notes/test_not.tres" id="28_314lw"]
 [ext_resource type="Material" uid="uid://cmri8y4naac10" path="res://materials/metal_z_wypukloscami.tres" id="29_gbmb2"]
 [ext_resource type="Resource" uid="uid://cpshgebigpcom" path="res://resources/thoughts/wakeup/wakeup.tres" id="29_p7nqx"]
-[ext_resource type="Material" path="res://materials/plytki_metalowe_z_wypuklosciami.tres" id="30_ba0om"]
+[ext_resource type="Material" uid="uid://boblir86ikxs1" path="res://materials/plytki_metalowe_z_wypuklosciami.tres" id="30_ba0om"]
 [ext_resource type="Texture2D" uid="uid://c0npdy8j254ac" path="res://level_design.png" id="31_4h7xs"]
 [ext_resource type="Material" uid="uid://btanaporc8div" path="res://materials/test_material.tres" id="31_gbmb2"]
 [ext_resource type="PackedScene" uid="uid://5jpcyg1fb8pf" path="res://prefabs/triggers/clue_trigger.tscn" id="31_hdlg5"]
 [ext_resource type="Material" uid="uid://dw5ltmc0aga72" path="res://materials/kafelki_pekniete.tres" id="32_ba0om"]
 [ext_resource type="Material" uid="uid://dtpcgvcscyn7l" path="res://materials/drewno.tres" id="32_mqcy5"]
+[ext_resource type="Shader" uid="uid://dhcli8e5pg6e1" path="res://shaders/tile_shader.gdshader" id="33_nc1sr"]
 [ext_resource type="Resource" uid="uid://dwbrn5l1ernyw" path="res://resources/thoughts/shell/first_shell.tres" id="34_0plmr"]
 [ext_resource type="Script" path="res://scripts/Valk/lift_replacer.gd" id="34_mqcy5"]
+[ext_resource type="Texture2D" uid="uid://3bhyqovko3ps" path="res://textures/prubny_kafelek/prubnykafel_orm.png" id="34_swbfn"]
+[ext_resource type="Texture2D" uid="uid://del2dmidaesxr" path="res://textures/kafelki_pekniete/kafelki_pekniete_normal.png" id="35_jakws"]
 [ext_resource type="PackedScene" uid="uid://kkrsyjqqsie6" path="res://prefabs/triggers/event_trigger.tscn" id="35_scj3o"]
+[ext_resource type="Texture2D" uid="uid://c4vn7hvnnxigg" path="res://textures/kafelki_pekniete/kafelki_pekniete_orm.png" id="36_i3x6b"]
 [ext_resource type="PackedScene" uid="uid://cwpnmj2jjqjcg" path="res://prefabs/triggers/checkpoint_trigger.tscn" id="37_l3ixd"]
+[ext_resource type="Texture2D" uid="uid://bjwsfbcaajobr" path="res://textures/kafelki_pekniete/kafelki_pekniete_albedo.png" id="37_wh1og"]
 [ext_resource type="PackedScene" uid="uid://disyay20hbkli" path="res://assets/models/Pudełko otwarte.fbx" id="40_jumma"]
-[ext_resource type="PackedScene" path="res://prefabs/Scene Prefabs/Interior/emergency_button.tscn" id="42_xmgvw"]
-[ext_resource type="PackedScene" path="res://prefabs/Scene Prefabs/Interior/Transformator.tscn" id="43_ba0om"]
+[ext_resource type="PackedScene" uid="uid://fy3m0tlxgfik" path="res://prefabs/Scene Prefabs/Interior/emergency_button.tscn" id="42_xmgvw"]
+[ext_resource type="PackedScene" uid="uid://dp8ptyamp3mvi" path="res://prefabs/Scene Prefabs/Interior/Transformator.tscn" id="43_ba0om"]
 [ext_resource type="Texture2D" uid="uid://c42se58kbsb47" path="res://textures/IMG_0455.jpg" id="50_cidjx"]
-[ext_resource type="Material" uid="uid://cltkcllw4noxk" path="res://materials/kafelki.tres" id="50_ipoun"]
 [ext_resource type="Material" uid="uid://bxil1tlgw2u1m" path="res://materials/korek.tres" id="51_r8wc8"]
-[ext_resource type="Script" path="res://scripts/Valk/final_stage_set_up.gd" id="51_vkxoh"]
+[ext_resource type="Script" uid="uid://d25dunpwd5h5q" path="res://scripts/Valk/final_stage_set_up.gd" id="51_vkxoh"]
 [ext_resource type="Script" path="res://scripts/Valk/ending_controller.gd" id="53_ipoun"]
-[ext_resource type="PackedScene" path="res://prefabs/triggers/safe_zone.tscn" id="55_utgjm"]
+[ext_resource type="Texture2D" uid="uid://1ydbjgs84r77" path="res://textures/betonowy_kafel/betonowy_kafel_normal.png" id="55_jakws"]
+[ext_resource type="PackedScene" uid="uid://bj84lumadjlgo" path="res://prefabs/triggers/safe_zone.tscn" id="55_utgjm"]
+[ext_resource type="Texture2D" uid="uid://c4sduy2n6u2u5" path="res://textures/betonowy_kafel/betonowy_kafel_albedo.png" id="56_i3x6b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13hkq"]
 albedo_color = Color(0.27450982, 0.27450982, 0.27450982, 1)
@@ -96,6 +102,20 @@ vertices = PackedVector3Array(-4.5, 1, 7.8400517, -4.5, 1, 6.5900517, -6, 1, 6.5
 polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 3), PackedInt32Array(4, 2, 3), PackedInt32Array(0, 1, 7), PackedInt32Array(7, 9, 0), PackedInt32Array(0, 9, 8), PackedInt32Array(11, 10, 12), PackedInt32Array(12, 10, 8), PackedInt32Array(16, 15, 13), PackedInt32Array(13, 15, 14), PackedInt32Array(17, 12, 8), PackedInt32Array(9, 17, 8), PackedInt32Array(15, 9, 14), PackedInt32Array(14, 9, 7), PackedInt32Array(19, 18, 20), PackedInt32Array(20, 18, 21)]
 geometry_parsed_geometry_type = 1
 agent_radius = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ci713"]
+render_priority = 0
+shader = ExtResource("33_nc1sr")
+shader_parameter/tiling = Vector2(1.05, 1.05)
+shader_parameter/offset = Vector2(0.08, 0)
+shader_parameter/scroll_speed = Vector2(0.1, 0)
+shader_parameter/moving = false
+shader_parameter/texture_map = ExtResource("37_wh1og")
+shader_parameter/brightness = -0.59999999403952
+shader_parameter/color = Vector3(0, 0, 0)
+shader_parameter/normal_map = ExtResource("35_jakws")
+shader_parameter/roughness_map = ExtResource("36_i3x6b")
+shader_parameter/metallic_map = ExtResource("34_swbfn")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vkxoh"]
 albedo_texture = ExtResource("26_0ljpd")
@@ -161,6 +181,18 @@ agent_max_slope = 10.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r8wc8"]
 albedo_color = Color(0.08627451, 0.08627451, 0.08627451, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wh1og"]
+render_priority = 0
+shader = ExtResource("33_nc1sr")
+shader_parameter/tiling = Vector2(1, 1)
+shader_parameter/offset = Vector2(0.13, -0.355)
+shader_parameter/scroll_speed = Vector2(0.1, 0)
+shader_parameter/moving = false
+shader_parameter/texture_map = ExtResource("56_i3x6b")
+shader_parameter/brightness = -0.69000000692912
+shader_parameter/color = Vector3(1.225, 1.29, 1.36)
+shader_parameter/normal_map = ExtResource("55_jakws")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_utgjm"]
 size = Vector3(6.5164948, 3.5075684, 6.895447)
@@ -1469,8 +1501,8 @@ scream_time = 3.0
 navigation_mesh = SubResource("NavigationMesh_lfu3u")
 
 [node name="floor" type="CSGBox3D" parent="Location7/ShellNavRegion" unique_id=930730176]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07487488, 0, -0.02026844)
-material_override = ExtResource("32_ba0om")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13142395, 0.15555286, -0.2733841)
+material_override = SubResource("ShaderMaterial_ci713")
 use_collision = true
 collision_layer = 2
 size = Vector3(20, 1, 20)
@@ -2986,8 +3018,8 @@ mesh = SubResource("BoxMesh_vkxoh")
 material = SubResource("StandardMaterial3D_r8wc8")
 
 [node name="floor2" type="CSGMesh3D" parent="Level3" unique_id=471380293]
-transform = Transform3D(14.294039, 0, 0, 0, -0.3841644, 1.0113582e-06, 0, -3.3584726e-08, -11.568589, -10.651295, -0.24072075, 3.8170557)
-material_override = ExtResource("50_ipoun")
+transform = Transform3D(14.294039, 0, 0, 0, -0.3841644, 1.0113582e-06, 0, -3.3584726e-08, -11.568589, -10.419128, -0.2347126, 4.049881)
+material_override = SubResource("ShaderMaterial_wh1og")
 use_collision = true
 collision_layer = 2
 mesh = SubResource("BoxMesh_vkxoh")
@@ -2995,7 +3027,7 @@ material = SubResource("StandardMaterial3D_r8wc8")
 
 [node name="floor6" type="CSGMesh3D" parent="Level3" unique_id=1486072798]
 transform = Transform3D(14.294039, 0, 0, 0, -0.3841644, 1.0113582e-06, 0, -3.3584726e-08, -11.568589, -24.869373, -0.24072075, 3.8170557)
-material_override = ExtResource("50_ipoun")
+material_override = SubResource("ShaderMaterial_wh1og")
 use_collision = true
 collision_layer = 2
 mesh = SubResource("BoxMesh_vkxoh")
@@ -3003,7 +3035,7 @@ material = SubResource("StandardMaterial3D_r8wc8")
 
 [node name="floor12" type="CSGMesh3D" parent="Level3" unique_id=2019312804]
 transform = Transform3D(14.294039, 0, 0, 0, -0.3841644, 1.0113582e-06, 0, -3.3584726e-08, -11.568589, -39.097874, -0.24072075, 3.8170557)
-material_override = ExtResource("50_ipoun")
+material_override = SubResource("ShaderMaterial_wh1og")
 use_collision = true
 collision_layer = 2
 mesh = SubResource("BoxMesh_vkxoh")
@@ -3011,7 +3043,7 @@ material = SubResource("StandardMaterial3D_r8wc8")
 
 [node name="floor7" type="CSGMesh3D" parent="Level3" unique_id=1984577063]
 transform = Transform3D(14.586225, 0, 0, 0, -0.3841644, 8.940609e-07, 0, -3.3584723e-08, -10.226863, -10.615166, -0.24071884, 19.531317)
-material_override = ExtResource("50_ipoun")
+material_override = SubResource("ShaderMaterial_wh1og")
 use_collision = true
 collision_layer = 2
 mesh = SubResource("BoxMesh_vkxoh")
@@ -3019,7 +3051,7 @@ material = SubResource("StandardMaterial3D_r8wc8")
 
 [node name="floor10" type="CSGMesh3D" parent="Level3" unique_id=700449971]
 transform = Transform3D(14.586225, 0, 0, 0, -0.3841644, 8.940609e-07, 0, -3.3584723e-08, -10.226863, -25.0568, -0.24071884, 19.531317)
-material_override = ExtResource("50_ipoun")
+material_override = SubResource("ShaderMaterial_wh1og")
 use_collision = true
 collision_layer = 2
 mesh = SubResource("BoxMesh_vkxoh")
@@ -3027,7 +3059,7 @@ material = SubResource("StandardMaterial3D_r8wc8")
 
 [node name="floor11" type="CSGMesh3D" parent="Level3" unique_id=1252384561]
 transform = Transform3D(14.586225, 0, 0, 0, -0.3841644, 8.940609e-07, 0, -3.3584723e-08, -10.226863, -39.64847, -0.24071884, 19.531317)
-material_override = ExtResource("50_ipoun")
+material_override = SubResource("ShaderMaterial_wh1og")
 use_collision = true
 collision_layer = 2
 mesh = SubResource("BoxMesh_vkxoh")
@@ -3055,8 +3087,8 @@ mesh = SubResource("BoxMesh_vkxoh")
 material = SubResource("StandardMaterial3D_r8wc8")
 
 [node name="floor4" type="CSGMesh3D" parent="Level3" unique_id=1875291485]
-transform = Transform3D(109.97025, 0, 0, 0, -0.38416436, 4.227362e-07, 0, -3.3584723e-08, -4.835539, -4.9322777, -0.24072075, 12.000103)
-material_override = ExtResource("50_ipoun")
+transform = Transform3D(109.97025, 0, 0, 0, -0.38416436, 4.227362e-07, 0, -3.3584723e-08, -4.835539, -4.9164658, -0.31110954, 11.763229)
+material_override = SubResource("ShaderMaterial_wh1og")
 use_collision = true
 collision_layer = 2
 mesh = SubResource("BoxMesh_vkxoh")
@@ -3827,14 +3859,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.838234, 0.9513626, 11.2232
 patrol_points = [NodePath("../Patrol Points/Hol1"), NodePath("../Patrol Points/Hol2")]
 scream_time = 3.0
 
-[node name="FinalStageSetUpper" type="Node" parent="Level3" unique_id=1504780409 node_paths=PackedStringArray("shell_body", "lift_shell", "ending_trigger")]
+[node name="FinalStageSetUpper" type="Node" parent="Level3" unique_id=1504780409 node_paths=PackedStringArray("lift_shell", "ending_trigger")]
 script = ExtResource("51_vkxoh")
-shell_body = NodePath("../shell_boned_flipped")
 lift_shell = NodePath("../Shell")
 ending_trigger = NodePath("../../Event Trigger")
-
-[node name="shell_boned_flipped" parent="Level3" unique_id=1261509755]
-transform = Transform3D(-0.1306884, -0.008555947, -0.10199675, 0.102354966, -0.010924363, -0.130231, 0, -0.165419, 0.013876091, 8.2659, 0.28420448, 0.7029114)
 
 [node name="Shell3" parent="Level3" unique_id=1858960719 instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.594868, 0.9513626, 2.566368)
