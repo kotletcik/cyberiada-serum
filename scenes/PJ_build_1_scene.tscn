@@ -43,7 +43,6 @@
 [ext_resource type="Material" uid="uid://dtpcgvcscyn7l" path="res://materials/drewno.tres" id="32_mqcy5"]
 [ext_resource type="Shader" uid="uid://dhcli8e5pg6e1" path="res://shaders/tile_shader.gdshader" id="33_nc1sr"]
 [ext_resource type="Resource" uid="uid://dwbrn5l1ernyw" path="res://resources/thoughts/shell/first_shell.tres" id="34_0plmr"]
-[ext_resource type="Script" uid="uid://c04x2cp05cawr" path="res://scripts/Valk/lift_replacer.gd" id="34_mqcy5"]
 [ext_resource type="Texture2D" uid="uid://3bhyqovko3ps" path="res://textures/prubny_kafelek/prubnykafel_orm.png" id="34_swbfn"]
 [ext_resource type="Texture2D" uid="uid://del2dmidaesxr" path="res://textures/kafelki_pekniete/kafelki_pekniete_normal.png" id="35_jakws"]
 [ext_resource type="PackedScene" uid="uid://kkrsyjqqsie6" path="res://prefabs/triggers/event_trigger.tscn" id="35_scj3o"]
@@ -60,6 +59,7 @@
 [ext_resource type="Texture2D" uid="uid://1ydbjgs84r77" path="res://textures/betonowy_kafel/betonowy_kafel_normal.png" id="55_jakws"]
 [ext_resource type="PackedScene" uid="uid://bj84lumadjlgo" path="res://prefabs/triggers/safe_zone.tscn" id="55_utgjm"]
 [ext_resource type="Texture2D" uid="uid://c4sduy2n6u2u5" path="res://textures/betonowy_kafel/betonowy_kafel_albedo.png" id="56_i3x6b"]
+[ext_resource type="Resource" uid="uid://cpnf8bwsat2kd" path="res://resources/notes/final_test.tres" id="59_jakws"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13hkq"]
 albedo_color = Color(0.27450982, 0.27450982, 0.27450982, 1)
@@ -190,8 +190,8 @@ shader_parameter/offset = Vector2(0.13, -0.355)
 shader_parameter/scroll_speed = Vector2(0.1, 0)
 shader_parameter/moving = false
 shader_parameter/texture_map = ExtResource("56_i3x6b")
-shader_parameter/brightness = -0.69000000692912
-shader_parameter/color = Vector3(1.225, 1.29, 1.36)
+shader_parameter/brightness = 0.9999999552959999
+shader_parameter/color = Vector3(1, 1, 1)
 shader_parameter/normal_map = ExtResource("55_jakws")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_utgjm"]
@@ -227,7 +227,7 @@ size = Vector3(7.997612, 5.258362, 21.747871)
 script = ExtResource("1_xanii")
 
 [node name="Player" parent="." unique_id=2039338456 instance=ExtResource("1_ahihw")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 83.97162, 21.212997, 84.2034)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -90.43806, 1.8713055, -39.66001)
 SOBER_WALK_SPEED = 6.9
 CROUCH_SPEED_MULTIPLIER = 0.3
 crouching_noise_volume = 1.5
@@ -831,7 +831,7 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -77.
 [node name="Geometry" type="Node3D" parent="Location4" unique_id=471358102]
 
 [node name="floor" type="CSGBox3D" parent="Location4/Geometry" unique_id=1527311062]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.019905, -0.054899216, -9.824783)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.019905, 0.12705278, -9.824783)
 material_override = ExtResource("31_gbmb2")
 use_collision = true
 collision_layer = 2
@@ -1116,7 +1116,7 @@ navigation_mesh = SubResource("NavigationMesh_eqt5g")
 transform = Transform3D(-4.3711395e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711395e-08, 9.729862, 2.479858, -0.918025)
 
 [node name="CorridorFloor" type="CSGBox3D" parent="Location5/ShellNavRegion" unique_id=645064917]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.428502)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11353874, 8.428502)
 material_override = ExtResource("31_gbmb2")
 use_collision = true
 collision_layer = 2
@@ -2492,19 +2492,13 @@ move_distance = 0.2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2347794, 0.49395037, -17.624441)
 move_distance = 0.2
 
-[node name="DoubleDoor4" parent="Location14/ShellNavRegion" unique_id=1329964714 instance=ExtResource("8_vcjj7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.23098, 1.5470771, -0.8482971)
-isDisposable = true
-is_open_on_start = true
-
 [node name="DoubleDoor8" parent="Location14/ShellNavRegion" unique_id=1420444234 node_paths=PackedStringArray("lift_end_node") instance=ExtResource("8_vcjj7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.231003, 1.5715301, -0.8482971)
-is_open_on_start = true
 is_lift_door = true
 lift_end_node = NodePath("Level3StartPoint")
 
 [node name="Level3StartPoint" type="Node3D" parent="Location14/ShellNavRegion/DoubleDoor8" unique_id=1169181322]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.552254, 23.97322, 99.90974)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -37.528313, 23.97322, 92.9715)
 
 [node name="Patrol Points" type="Node3D" parent="Location14/ShellNavRegion" unique_id=955766969]
 
@@ -2634,11 +2628,6 @@ material_override = SubResource("StandardMaterial3D_ve5ok")
 use_collision = true
 collision_layer = 4
 size = Vector3(52.087494, 5, 1)
-
-[node name="LiftReplacer" type="Node" parent="Location14/ShellNavRegion" unique_id=1324180610 node_paths=PackedStringArray("lift_to_disable", "lift_to_enable")]
-script = ExtResource("34_mqcy5")
-lift_to_disable = NodePath("../DoubleDoor4")
-lift_to_enable = NodePath("../DoubleDoor8")
 
 [node name="Event Trigger" parent="Location14/ShellNavRegion" unique_id=1351867159 instance=ExtResource("35_scj3o")]
 transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -1.489502, 0.92113924, 12.829993)
@@ -2834,7 +2823,7 @@ patrol_points = [NodePath("../ShellNavRegion/Patrol Points/Patrol Point 1"), Nod
 scream_time = 3.0
 
 [node name="Level2StartPoint" type="Node3D" parent="Location14" unique_id=313223630]
-transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 6.076309, 1.3938289, -27.532158)
+transform = Transform3D(-4.371138e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.371138e-08, 1.7065735, 1.3938289, -27.532158)
 
 [node name="Transformator" parent="Location14" unique_id=324287953 instance=ExtResource("43_ba0om")]
 transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0.638916, 1.0076492, -6.233432)
@@ -3010,6 +2999,13 @@ collision_layer = 2
 mesh = SubResource("BoxMesh_vkxoh")
 material = SubResource("StandardMaterial3D_r8wc8")
 
+[node name="floor14" type="CSGMesh3D" parent="Level3" unique_id=1191622512]
+transform = Transform3D(14.336594, 0, 0, 0, -0.38416436, 1.0728251e-06, 0, -3.3584723e-08, -12.2716875, 2.4534302, -0.24072075, -14.775543)
+use_collision = true
+collision_layer = 2
+mesh = SubResource("BoxMesh_vkxoh")
+material = SubResource("StandardMaterial3D_r8wc8")
+
 [node name="floor13" type="CSGMesh3D" parent="Level3" unique_id=536236237]
 transform = Transform3D(12.198709, 0, 0, 0, -0.38416436, 6.6410627e-07, 0, -3.3584723e-08, -7.59649, -23.081715, -0.24072075, -5.7682877)
 use_collision = true
@@ -3123,7 +3119,7 @@ mesh = SubResource("BoxMesh_vkxoh")
 material = SubResource("StandardMaterial3D_r8wc8")
 
 [node name="wall6" type="CSGMesh3D" parent="Level3" unique_id=1586205770]
-transform = Transform3D(0.154, 0, 0, 0, -2.0639982, 1.2973978e-06, 0, -1.8044047e-07, -14.840499, 5.778886, 0.9289932, 10.862181)
+transform = Transform3D(0.154, 0, 0, 0, -4.030784, 1.2973977e-06, 0, -3.5238236e-07, -14.840498, 5.778885, 1.920044, 10.862183)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_vkxoh")
@@ -3630,7 +3626,14 @@ mesh = SubResource("BoxMesh_vkxoh")
 material = SubResource("StandardMaterial3D_r8wc8")
 
 [node name="wall3" type="CSGMesh3D" parent="Level3" unique_id=692466208]
-transform = Transform3D(-2.0578986e-08, -2.7185572e-14, -12.254601, 2.3829434e-08, -4.118879, 0, -0.27257693, -3.6008385e-07, 9.251965e-07, 3.245349, 1.5859413, -7.8968506)
+transform = Transform3D(-2.0578986e-08, -2.7185572e-14, -12.254601, 2.3829434e-08, -4.118879, 0, -0.27257693, -3.6008385e-07, 9.251965e-07, -5.1953278, 1.898323, -7.8968506)
+use_collision = true
+collision_layer = 4
+mesh = SubResource("BoxMesh_vkxoh")
+material = SubResource("StandardMaterial3D_r8wc8")
+
+[node name="wall59" type="CSGMesh3D" parent="Level3" unique_id=1422900338]
+transform = Transform3D(-2.0578986e-08, -2.7185572e-14, -12.254601, 2.3829434e-08, -4.118879, 0, -0.27257693, -3.6008385e-07, 9.251965e-07, 12.518074, 1.5859413, -7.8968506)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_vkxoh")
@@ -3716,8 +3719,6 @@ is_open_on_start = true
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Level3" unique_id=132564715]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9884415, 1.5521431, 0.8933363)
-light_energy = 16.0
-light_indirect_energy = 16.0
 omni_range = 4096.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Level3" unique_id=1978625632]
@@ -3740,14 +3741,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0587425, 0.4513607, -2.0035
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Level3" unique_id=1277212142]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.294083, 4.926796, 11.615646)
-visible = false
 light_energy = 64.0
 light_indirect_energy = 16.0
 omni_range = 24.099
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="Level3" unique_id=677450702]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.231873, 7.684639, 11.615646)
-visible = false
 light_energy = 64.0
 light_indirect_energy = 16.0
 omni_range = 24.099
@@ -3758,7 +3757,6 @@ text = "<- Wyjście"
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Level3/Label3D" unique_id=1465724176]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0, 0.099342346)
-visible = false
 light_energy = 16.0
 light_indirect_energy = 25.505
 
@@ -3860,6 +3858,7 @@ destroy_on_trigger = true
 
 [node name="Shell8" parent="Level3" unique_id=100241452 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.838234, 0.9513626, 11.223251)
+disabled_on_start = true
 patrol_points = [NodePath("../Patrol Points/Hol1"), NodePath("../Patrol Points/Hol2")]
 scream_time = 3.0
 
@@ -3870,31 +3869,38 @@ ending_trigger = NodePath("../../Event Trigger")
 
 [node name="Shell3" parent="Level3" unique_id=1858960719 instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.594868, 0.9513626, 2.566368)
+disabled_on_start = true
 scream_time = 3.0
 
 [node name="Shell4" parent="Level3" unique_id=405650842 instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.571907, 0.9513664, 18.712471)
+disabled_on_start = true
 scream_time = 3.0
 
 [node name="Shell5" parent="Level3" unique_id=1533710129 instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.095749, 0.9513645, 18.644218)
+disabled_on_start = true
 scream_time = 3.0
 
 [node name="Shell6" parent="Level3" unique_id=208171354 instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.254005, 0.9513645, 19.490028)
+disabled_on_start = true
 scream_time = 3.0
 
 [node name="Shell7" parent="Level3" unique_id=894879535 instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.860264, 0.9513626, 0.25444794)
+disabled_on_start = true
 scream_time = 3.0
 
 [node name="Shell9" parent="Level3" unique_id=2033088050 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.852539, 0.9513626, 0.32563782)
+disabled_on_start = true
 patrol_points = [NodePath("../Patrol Points/Hol3"), NodePath("../Patrol Points/Hol4"), NodePath("../Patrol Points/Hol5"), NodePath("../Patrol Points/Hol6")]
 scream_time = 3.0
 
 [node name="Shell10" parent="Level3" unique_id=1707849709 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.210403, 0.9513607, 6.987404)
+disabled_on_start = true
 patrol_points = [NodePath("../Patrol Points/Hol6"), NodePath("../Patrol Points/Hol7"), NodePath("../Patrol Points/Hol8"), NodePath("../Patrol Points/Hol9"), NodePath("../Patrol Points/Hol10")]
 scream_time = 3.0
 
@@ -3902,6 +3908,43 @@ scream_time = 3.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2469444, 0)
 vertices = PackedVector3Array(-59.01168, 0, -3.8110886, -58.6858, 0, 24.289436, -38.860756, 0, 23.487404, -37.980175, 0, -2.2343445)
 affect_navigation_mesh = true
+
+[node name="wall56" type="CSGBox3D" parent="Level3" unique_id=765328483]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.34773254, 2, -14.801025)
+material_override = SubResource("StandardMaterial3D_56gwk")
+use_collision = true
+collision_layer = 4
+size = Vector3(13.744873, 5, 1)
+
+[node name="wall57" type="CSGBox3D" parent="Level3" unique_id=1487518594]
+transform = Transform3D(1, 0, -7.1054274e-15, 0, 1, 0, 7.1054274e-15, 0, 1, 4.8307114, 2, -12.622696)
+material_override = SubResource("StandardMaterial3D_56gwk")
+use_collision = true
+collision_layer = 4
+size = Vector3(19.38794, 5, 1)
+
+[node name="wall58" type="CSGBox3D" parent="Level3" unique_id=189090702]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.451828, 2, -9.605316)
+material_override = SubResource("StandardMaterial3D_56gwk")
+use_collision = true
+collision_layer = 4
+size = Vector3(3.78479, 5, 1)
+
+[node name="DoubleDoor4" parent="Level3" unique_id=23139633 instance=ExtResource("8_vcjj7")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.360588, 1.8617687, -8.064384)
+isDisposable = true
+unlock_if_clue_realized = ExtResource("18_bd5a3")
+is_lift_door = true
+lift_start_event = 2
+
+[node name="Serum2" parent="Level3" unique_id=654654330 instance=ExtResource("9_3rc8y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3476868, 0.4513607, -11.535667)
+event_on_pickup = 1
+
+[node name="Scene Note" parent="Level3" unique_id=22668409 instance=ExtResource("25_sbrwg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.528885, 3.636425, 7.391472)
+note_to_hold = ExtResource("59_jakws")
+clue_to_gather = ExtResource("18_bd5a3")
 
 [node name="Event Trigger" parent="." unique_id=8243466 instance=ExtResource("35_scj3o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.024635, 20.438, 79.93127)
@@ -3916,6 +3959,12 @@ script = ExtResource("53_ipoun")
 
 [node name="Checkpoint Trigger7" parent="." unique_id=1306455661 instance=ExtResource("37_l3ixd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.334423, 24.56589, 94.69114)
+
+[node name="Checkpoint Trigger8" parent="." unique_id=74997912 instance=ExtResource("37_l3ixd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113.66614, -2.639247, -4.2456646)
+
+[node name="Checkpoint Trigger9" parent="." unique_id=1044367692 instance=ExtResource("37_l3ixd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.37646, 20.880663, 88.75433)
 
 [node name="Safe Zone2" parent="." unique_id=487873807 instance=ExtResource("55_utgjm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.978035, 20.43622, 89.160545)
@@ -3957,5 +4006,7 @@ shape = SubResource("BoxShape3D_jm1i1")
 [editable path="Level3/Event Trigger"]
 [editable path="Event Trigger"]
 [editable path="Checkpoint Trigger7"]
+[editable path="Checkpoint Trigger8"]
+[editable path="Checkpoint Trigger9"]
 [editable path="Safe Zone2"]
 [editable path="Safe Zone"]

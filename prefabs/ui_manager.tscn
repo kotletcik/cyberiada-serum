@@ -688,7 +688,6 @@ offset_bottom = 1007.0
 text = "Wróć do głównego menu"
 
 [node name="Black Transition" type="CanvasLayer" parent="." unique_id=348055792]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="Black Transition" unique_id=460921685]
 offset_right = 1920.0
