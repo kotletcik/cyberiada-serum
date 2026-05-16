@@ -94,7 +94,7 @@ void fragment() {
     NORMAL_MAP = mixed_normal;
     
    
-    NORMAL_MAP_DEPTH = 1.5; 
+    //NORMAL_MAP_DEPTH = 1.5; 
 
     
     ROUGHNESS = (x_r * blending.x + y_r * blending.y + z_r * blending.z).r;
