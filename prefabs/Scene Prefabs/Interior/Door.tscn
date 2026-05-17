@@ -5,7 +5,7 @@
 [ext_resource type="Material" uid="uid://cios83odooucc" path="res://materials/drzwi_one.tres" id="3_ha8st"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_82ivq"]
-size = Vector3(0.5, 2, 1.5)
+size = Vector3(0.5, 3.5863495, 5.2976074)
 
 [sub_resource type="BoxMesh" id="BoxMesh_r2mki"]
 
@@ -21,7 +21,7 @@ shape = SubResource("BoxShape3D_82ivq")
 script = ExtResource("2_82ivq")
 
 [node name="DoorVisuals" type="MeshInstance3D" parent="CollisionShape3D" unique_id=623114512]
-transform = Transform3D(0.5, 0, 0, 0, 2, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.5, 0, 0, 0, 3.5863495, 0, 0, 0, 5.2976074, 0, 0, 0)
 material_override = ExtResource("3_ha8st")
 mesh = SubResource("BoxMesh_r2mki")
 skeleton = NodePath("../../../..")
