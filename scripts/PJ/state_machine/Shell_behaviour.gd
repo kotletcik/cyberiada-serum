@@ -91,13 +91,13 @@ func Check_conditions(delta: float) -> void:
 			else:
 				change_state_by_name(State.types.Patrol)
 		State.types.Follow_sound:
-			# var distance: Vector3 = (self.global_position) - (sound_target.global_position)
-			# distance.y = 0;
+			var distance: Vector3 = (self.global_position) - (sound_target.global_position)
+			distance.y = 0;
 			if (is_player_in_sight && player_is_on_region):
 				if (PsycheManager.instance.invisibility_timer <= 0): 
 					change_state_by_name(State.types.Scream);
-			# elif (distance.length() < attack_range):
-			# 	change_state_by_name(State.types.Attack)
+			elif (distance.length() < attack_range):
+				change_state_by_name(State.types.Searching)
 			elif timer > 0: timer -= delta
 			elif timer < 0:
 				change_state_by_name(State.types.Patrol)
