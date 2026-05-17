@@ -3843,7 +3843,7 @@ scream_time = 3.0
 script = ExtResource("51_vkxoh")
 shells = [NodePath("../Shell8"), NodePath("../Shell3"), NodePath("../Shell4"), NodePath("../Shell5"), NodePath("../Shell6"), NodePath("../Shell7"), NodePath("../Shell9"), NodePath("../Shell10")]
 lift_shell = NodePath("../Shell")
-ending_trigger = NodePath("../../Event Trigger")
+ending_trigger = NodePath("")
 
 [node name="Shell3" parent="Level3" unique_id=1858960719 instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.594868, 0.9513626, 2.566368)
@@ -3931,14 +3931,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.528885, 3.636425, 7.39147
 note_to_hold = ExtResource("59_jakws")
 clue_to_gather = ExtResource("18_bd5a3")
 
-[node name="Event Trigger" parent="." unique_id=8243466 instance=ExtResource("35_scj3o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.024635, 20.438, 79.93127)
-event_delay = 0.0
-trigger_event = 5
-
-[node name="CollisionShape3D" parent="Event Trigger" index="0" unique_id=422333525]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1285934, 1.3485718, 0.73462677)
-
 [node name="EndingController" type="Node" parent="." unique_id=2086030099]
 script = ExtResource("53_ipoun")
 
@@ -3989,7 +3981,6 @@ shape = SubResource("BoxShape3D_jm1i1")
 [editable path="Level3/Door3"]
 [editable path="Level3/Door4"]
 [editable path="Level3/Event Trigger"]
-[editable path="Event Trigger"]
 [editable path="Checkpoint Trigger7"]
 [editable path="Checkpoint Trigger8"]
 [editable path="Checkpoint Trigger9"]
