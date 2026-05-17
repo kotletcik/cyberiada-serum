@@ -19,10 +19,6 @@ run/main_scene="res://scenes/MainMenu.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
-[audio]
-
-buses/default_bus_layout="uid://ddtkkikt14lei"
-
 [autoload]
 
 EventBus="*res://scripts/PJ/Event_bus.gd"
@@ -136,8 +132,6 @@ Crouch={
 
 [rendering]
 
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
 lights_and_shadows/directional_shadow/soft_shadow_filter_quality=5
 lights_and_shadows/directional_shadow/16_bits=false
 anti_aliasing/quality/use_debanding=true
