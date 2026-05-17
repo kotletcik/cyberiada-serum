@@ -43,7 +43,6 @@
 [ext_resource type="Material" uid="uid://dtpcgvcscyn7l" path="res://materials/drewno.tres" id="32_mqcy5"]
 [ext_resource type="Shader" uid="uid://dhcli8e5pg6e1" path="res://shaders/tile_shader.gdshader" id="33_nc1sr"]
 [ext_resource type="Resource" uid="uid://dwbrn5l1ernyw" path="res://resources/thoughts/shell/first_shell.tres" id="34_0plmr"]
-[ext_resource type="Script" path="res://scripts/Valk/lift_replacer.gd" id="34_mqcy5"]
 [ext_resource type="Texture2D" uid="uid://3bhyqovko3ps" path="res://textures/prubny_kafelek/prubnykafel_orm.png" id="34_swbfn"]
 [ext_resource type="Texture2D" uid="uid://del2dmidaesxr" path="res://textures/kafelki_pekniete/kafelki_pekniete_normal.png" id="35_jakws"]
 [ext_resource type="PackedScene" uid="uid://kkrsyjqqsie6" path="res://prefabs/triggers/event_trigger.tscn" id="35_scj3o"]
@@ -56,11 +55,12 @@
 [ext_resource type="Texture2D" uid="uid://c42se58kbsb47" path="res://textures/IMG_0455.jpg" id="50_cidjx"]
 [ext_resource type="Material" uid="uid://bxil1tlgw2u1m" path="res://materials/korek.tres" id="51_r8wc8"]
 [ext_resource type="Script" uid="uid://d25dunpwd5h5q" path="res://scripts/Valk/final_stage_set_up.gd" id="51_vkxoh"]
-[ext_resource type="Script" path="res://scripts/Valk/ending_controller.gd" id="53_ipoun"]
+[ext_resource type="Script" uid="uid://f4v6nksxa5jk" path="res://scripts/Valk/ending_controller.gd" id="53_ipoun"]
 [ext_resource type="Texture2D" uid="uid://catptl6s2xgxk" path="res://textures/betonowy_kafel/betonowy_kafel_normal.png" id="55_jakws"]
 [ext_resource type="PackedScene" uid="uid://bj84lumadjlgo" path="res://prefabs/triggers/safe_zone.tscn" id="55_utgjm"]
 [ext_resource type="Texture2D" uid="uid://dxo2567jfiauo" path="res://textures/betonowy_kafel/betonowy_kafel_albedo.png" id="56_i3x6b"]
 [ext_resource type="Texture2D" uid="uid://g8mdsa2vxbj" path="res://textures/beton/beton_normal.png" id="57_jakws"]
+[ext_resource type="Resource" uid="uid://cpnf8bwsat2kd" path="res://resources/notes/final_test.tres" id="59_jakws"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13hkq"]
 albedo_color = Color(0.27450982, 0.27450982, 0.27450982, 1)
@@ -3858,11 +3858,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.838234, 0.9513626, 11.2232
 patrol_points = [NodePath("../Patrol Points/Hol1"), NodePath("../Patrol Points/Hol2")]
 scream_time = 3.0
 
-[node name="FinalStageSetUpper" type="Node" parent="Level3" unique_id=1504780409 node_paths=PackedStringArray("shells", "lift_shell", "ending_trigger")]
+[node name="FinalStageSetUpper" type="Node" parent="Level3" unique_id=1504780409 node_paths=PackedStringArray("shells")]
 script = ExtResource("51_vkxoh")
 shells = [NodePath("../Shell8"), NodePath("../Shell3"), NodePath("../Shell4"), NodePath("../Shell5"), NodePath("../Shell6"), NodePath("../Shell7"), NodePath("../Shell9"), NodePath("../Shell10")]
-lift_shell = NodePath("../Shell")
-ending_trigger = NodePath("")
 
 [node name="Shell3" parent="Level3" unique_id=1858960719 instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.594868, 0.9513626, 2.566368)
