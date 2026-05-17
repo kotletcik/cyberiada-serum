@@ -14,6 +14,9 @@ static var instance: UIManager;
 @export var bad_ending_screen: CanvasLayer;
 @export var good_ending_screen: CanvasLayer;
 @export var black_transition: CanvasLayer;
+
+@export var open_notes_sound: AudioStreamPlayer;
+
 var game_over_controls: Control;
 var controls_menu: Control;
 
@@ -225,6 +228,7 @@ func _input(event):
 				resume_game();
 
 func switch_to_notes_ui_panel():
+	open_notes_sound.play();
 	remove_child(mind_palace_ui);
 	clear_mind_palace_ui();
 	is_mind_palace_ui_active = false;
@@ -436,6 +440,7 @@ func hide_mind_palace_ui():
 	is_mind_palace_ui_active = false;
 
 func show_notes_ui():
+	open_notes_sound.play();
 	is_in_game = false;
 	add_child(notes_ui);
 	update_notes_ui();

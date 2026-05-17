@@ -2,6 +2,7 @@ extends Node3D
 
 @export var serum: PackedScene 
 @export var interaction_range: float = 10.0
+@export var pickup_sound: AudioStreamPlayer3D
 @export_flags_3d_physics var interaction_mask: int
 
 
@@ -20,6 +21,7 @@ func _process(_delta: float) -> void:
 			var object: Node3D = collision["collider"];
 			print(object.name);
 			if(object.is_in_group("Serum")):
+				pickup_sound.play();
 				InventoryManager.instance.add_item(ITEM_TYPE.SERUM, 1);
 				var pickup_item = object as PickupItem;
 				EventBus.call_event(pickup_item.event_on_pickup);
@@ -28,6 +30,7 @@ func _process(_delta: float) -> void:
 				# 	PalaceManager.instance.create_thought(pickup_item.clue_on_pickup);
 				object.disable();
 			if(object.is_in_group("Rock")):
+				pickup_sound.play();
 				InventoryManager.instance.add_item(ITEM_TYPE.ROCK, 1);
 				var pickup_item = object as PickupItem;
 				EventBus.call_event(pickup_item.event_on_pickup);

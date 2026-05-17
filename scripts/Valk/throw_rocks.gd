@@ -9,6 +9,8 @@ extends Node
 @export var throw_angle = 40.0; # from looking direction to up
 @export var torque_force = 100.0;
 @export var aim_range = 20.0;
+
+@export var rock_throw_sound: AudioStreamPlayer3D
 var vel_vector: Vector3;
 const g = 9.8;
 
@@ -21,7 +23,8 @@ func _physics_process(delta: float) -> void:
 		InventoryManager.instance.remove_item(ITEM_TYPE.ROCK, 1);
 	
 func throw_rock(rock: RigidBody3D):
-
+	
+	rock_throw_sound.play()
 	var start: Vector3 = throw_position.global_position
 	var target: Vector3 = get_aim_target()
 

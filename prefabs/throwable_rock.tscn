@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bl467r2v4j413"]
 
 [ext_resource type="Script" uid="uid://soiht2of6t23" path="res://scripts/Valk/throwable_rock.gd" id="1_tbn3g"]
+[ext_resource type="AudioStream" uid="uid://2xly1f7cdc8y" path="res://assets/sounds/throw_hit.wav" id="2_bd0jf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t4e8a"]
 
@@ -65,10 +66,11 @@ vertex_color_use_as_albedo = true
 [sub_resource type="SphereMesh" id="SphereMesh_61yg0"]
 material = SubResource("StandardMaterial3D_ix58x")
 
-[node name="Throwable Rock" type="RigidBody3D" unique_id=653372323]
+[node name="Throwable Rock" type="RigidBody3D" unique_id=653372323 node_paths=PackedStringArray("fall_sound_manager")]
 collision_layer = 32
 collision_mask = 47
 script = ExtResource("1_tbn3g")
+fall_sound_manager = NodePath("AudioStreamPlayer3D")
 destroy_time = 60.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1652705227]
@@ -89,5 +91,9 @@ explosiveness = 0.9
 fixed_fps = 0
 process_material = SubResource("ParticleProcessMaterial_udv0p")
 draw_pass_1 = SubResource("SphereMesh_61yg0")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1020179069]
+stream = ExtResource("2_bd0jf")
+bus = &"SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
