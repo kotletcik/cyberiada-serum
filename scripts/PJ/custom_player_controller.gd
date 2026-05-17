@@ -23,6 +23,10 @@ var last_frame_mouse_pos: Vector3
 var mouse_input: Vector2
 var camera_base_offset: Vector3 # zapamiętany oryginalny lokalny offset kamery
 
+var current_sound_time: float
+@export var footstep_repeat_time: float
+@export var footstep_sound: AudioStreamPlayer3D
+
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
 @onready var collision_shape = $CollisionShape3D
@@ -61,6 +65,7 @@ func _ready() -> void:
 	# Zachowaj oryginalną lokalną pozycję kamery aby bobbing jej nie nadpisywał
 	if !camera: print("NO CAMERA DETECTED!!!")
 	camera_base_offset = camera.transform.origin
+	current_sound_time = footstep_repeat_time
 
 func _physics_process(delta: float) -> void:
 	# DebugDraw3D.draw_sphere(global_position + Vector3(0, crouch_check_y, 0), crouch_check_radius);
@@ -101,6 +106,11 @@ func _physics_process(delta: float) -> void:
 	move_vec.y = 0.0
 	if move_vec != Vector3.ZERO:
 		direction = move_vec.normalized()
+		if not is_crouching:
+			current_sound_time -= delta
+			if current_sound_time <= 0:
+				footstep_sound.play()
+				current_sound_time = footstep_repeat_time
 		
 	if input_dir != Vector3.ZERO:
 		velocity.x = direction.x * move_speed
@@ -112,7 +122,7 @@ func _physics_process(delta: float) -> void:
 
 	t_bob += delta * velocity.length();# * float(is_on_floor())
 	camera.transform.origin = camera_base_offset + _headbob(t_bob)
-
+	
 	# zastosowanie ruchu
 	move_and_slide()
 
