@@ -16,6 +16,7 @@
 [ext_resource type="AnimationNodeBlendSpace1D" uid="uid://bc2y71tjqhgpl" path="res://assets/shell_animation_states/new_animation_node_blend_space_1d.tres" id="7_rsf4w"]
 [ext_resource type="PackedScene" uid="uid://cqmv7mxht6o6m" path="res://prefabs/gpu_particles_3d.tscn" id="8_6f62q"]
 [ext_resource type="Script" uid="uid://b7ydidx4polw6" path="res://scripts/Valk/shell_disappearance.gd" id="9_jt8f1"]
+[ext_resource type="AudioStream" uid="uid://bm4f7msuu0sgn" path="res://assets/sounds/screaming.mp3" id="16_gs4m8"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rsf4w"]
 animation = &"Rig_Large_CombatMelee/Melee_2H_Slam"
@@ -183,12 +184,19 @@ metadata/_custom_type_script = "uid://foywhiftl87x"
 [node name="MeshInstance3D" type="MeshInstance3D" parent="State_machine/Patrol/empty_target" unique_id=751999632]
 mesh = SubResource("BoxMesh_lqxc7")
 
-[node name="Scream" type="Node" parent="State_machine" unique_id=1485384955]
+[node name="Scream" type="Node" parent="State_machine" unique_id=1485384955 node_paths=PackedStringArray("screaming_sound")]
 script = ExtResource("7_lqxc7")
+screaming_sound = NodePath("ScreamingSound")
 move_speed = 0.1
 model_color = Color(0.62540996, 0.0008913695, 0.00048867153, 1)
 state_type = 7
 metadata/_custom_type_script = "uid://foywhiftl87x"
+
+[node name="ScreamingSound" type="AudioStreamPlayer3D" parent="State_machine/Scream" unique_id=426780992]
+stream = ExtResource("16_gs4m8")
+volume_db = 10.0
+max_db = 6.0
+bus = &"SFX"
 
 [node name="Eyes" type="MeshInstance3D" parent="." unique_id=1218871193]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4183241, -0.47043222)

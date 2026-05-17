@@ -2,7 +2,7 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1ydbjgs84r77"
+uid="uid://catptl6s2xgxk"
 path.s3tc="res://.godot/imported/betonowy_kafel_normal.png-7cc893df9919dc2a282658651279bd6d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
@@ -22,12 +22,12 @@ compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=1
+compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=1
-roughness/src_normal="res://textures/betonowy_kafel/betonowy_kafel_normal.png"
+roughness/mode=0
+roughness/src_normal=""
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2
