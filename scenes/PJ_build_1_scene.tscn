@@ -43,7 +43,7 @@
 [ext_resource type="Material" uid="uid://dtpcgvcscyn7l" path="res://materials/drewno.tres" id="32_mqcy5"]
 [ext_resource type="Shader" uid="uid://dhcli8e5pg6e1" path="res://shaders/tile_shader.gdshader" id="33_nc1sr"]
 [ext_resource type="Resource" uid="uid://dwbrn5l1ernyw" path="res://resources/thoughts/shell/first_shell.tres" id="34_0plmr"]
-[ext_resource type="Script" uid="uid://c04x2cp05cawr" path="res://scripts/Valk/lift_replacer.gd" id="34_mqcy5"]
+[ext_resource type="Script" path="res://scripts/Valk/lift_replacer.gd" id="34_mqcy5"]
 [ext_resource type="Texture2D" uid="uid://3bhyqovko3ps" path="res://textures/prubny_kafelek/prubnykafel_orm.png" id="34_swbfn"]
 [ext_resource type="Texture2D" uid="uid://del2dmidaesxr" path="res://textures/kafelki_pekniete/kafelki_pekniete_normal.png" id="35_jakws"]
 [ext_resource type="PackedScene" uid="uid://kkrsyjqqsie6" path="res://prefabs/triggers/event_trigger.tscn" id="35_scj3o"]
@@ -56,10 +56,11 @@
 [ext_resource type="Texture2D" uid="uid://c42se58kbsb47" path="res://textures/IMG_0455.jpg" id="50_cidjx"]
 [ext_resource type="Material" uid="uid://bxil1tlgw2u1m" path="res://materials/korek.tres" id="51_r8wc8"]
 [ext_resource type="Script" uid="uid://d25dunpwd5h5q" path="res://scripts/Valk/final_stage_set_up.gd" id="51_vkxoh"]
-[ext_resource type="Script" uid="uid://f4v6nksxa5jk" path="res://scripts/Valk/ending_controller.gd" id="53_ipoun"]
-[ext_resource type="Texture2D" uid="uid://1ydbjgs84r77" path="res://textures/betonowy_kafel/betonowy_kafel_normal.png" id="55_jakws"]
+[ext_resource type="Script" path="res://scripts/Valk/ending_controller.gd" id="53_ipoun"]
+[ext_resource type="Texture2D" uid="uid://catptl6s2xgxk" path="res://textures/betonowy_kafel/betonowy_kafel_normal.png" id="55_jakws"]
 [ext_resource type="PackedScene" uid="uid://bj84lumadjlgo" path="res://prefabs/triggers/safe_zone.tscn" id="55_utgjm"]
-[ext_resource type="Texture2D" uid="uid://c4sduy2n6u2u5" path="res://textures/betonowy_kafel/betonowy_kafel_albedo.png" id="56_i3x6b"]
+[ext_resource type="Texture2D" uid="uid://dxo2567jfiauo" path="res://textures/betonowy_kafel/betonowy_kafel_albedo.png" id="56_i3x6b"]
+[ext_resource type="Texture2D" uid="uid://g8mdsa2vxbj" path="res://textures/beton/beton_normal.png" id="57_jakws"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13hkq"]
 albedo_color = Color(0.27450982, 0.27450982, 0.27450982, 1)
@@ -112,7 +113,7 @@ shader_parameter/scroll_speed = Vector2(0.1, 0)
 shader_parameter/moving = false
 shader_parameter/texture_map = ExtResource("37_wh1og")
 shader_parameter/brightness = -0.59999999403952
-shader_parameter/color = Vector3(0, 0, 0)
+shader_parameter/color = Color(0, 0, 0, 0)
 shader_parameter/normal_map = ExtResource("35_jakws")
 shader_parameter/roughness_map = ExtResource("36_i3x6b")
 shader_parameter/metallic_map = ExtResource("34_swbfn")
@@ -190,15 +191,32 @@ shader_parameter/offset = Vector2(0.13, -0.355)
 shader_parameter/scroll_speed = Vector2(0.1, 0)
 shader_parameter/moving = false
 shader_parameter/texture_map = ExtResource("56_i3x6b")
-shader_parameter/brightness = -0.69000000692912
-shader_parameter/color = Vector3(1.225, 1.29, 1.36)
+shader_parameter/brightness = -2.2352000028647012e-08
+shader_parameter/color = Color(0.48066348, 0.48836797, 0.48066372, 0.27058825)
 shader_parameter/normal_map = ExtResource("55_jakws")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_i3x6b"]
+load_path = "res://.godot/imported/beton_albedo.png-335501de9ca3d8e015cc916f3bf8d449.s3tc.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7e274"]
+render_priority = 0
+shader = ExtResource("33_nc1sr")
+shader_parameter/tiling = Vector2(1.06, 1)
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/scroll_speed = Vector2(0.1, 0)
+shader_parameter/moving = false
+shader_parameter/texture_map = SubResource("CompressedTexture2D_i3x6b")
+shader_parameter/brightness = -0.06000002101087998
+shader_parameter/color = Color(0.9033257, 0.9033282, 0.9062176, 0.7294118)
+shader_parameter/normal_map = ExtResource("57_jakws")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_utgjm"]
 size = Vector3(6.5164948, 3.5075684, 6.895447)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pph2w"]
 size = Vector3(1.5096064, 0.48242188, 6.734619)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8bsfy"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_r8jwp"]
 
@@ -3081,13 +3099,14 @@ material = SubResource("StandardMaterial3D_r8wc8")
 
 [node name="floor5" type="CSGMesh3D" parent="Level3" unique_id=1881537693]
 transform = Transform3D(19.452719, 0, 0, 0, -0.38416445, 2.4332387e-06, 0, -3.358473e-08, -27.833008, -48.699722, 3.4015865, 10.717751)
+material_override = SubResource("ShaderMaterial_wh1og")
 use_collision = true
 collision_layer = 2
 mesh = SubResource("BoxMesh_vkxoh")
 material = SubResource("StandardMaterial3D_r8wc8")
 
 [node name="floor4" type="CSGMesh3D" parent="Level3" unique_id=1875291485]
-transform = Transform3D(109.97025, 0, 0, 0, -0.38416436, 4.227362e-07, 0, -3.3584723e-08, -4.835539, -4.9164658, -0.31110954, 11.763229)
+transform = Transform3D(109.97025, 0, 0, 0, -0.38416436, 4.227362e-07, 0, -3.3584723e-08, -4.835539, -5.0848694, -0.2545166, 12.029457)
 material_override = SubResource("ShaderMaterial_wh1og")
 use_collision = true
 collision_layer = 2
@@ -3289,14 +3308,14 @@ transform = Transform3D(0.154, 0, 0, 0, -1.2392815, 9.638911e-07, 0, -1.0834144e
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_vkxoh")
-material = SubResource("StandardMaterial3D_r8wc8")
+material = SubResource("ShaderMaterial_7e274")
 
 [node name="wall22" type="CSGMesh3D" parent="Level3" unique_id=126394140]
 transform = Transform3D(0.2048268, 0, 0, 0, -0.9983457, 8.127799e-07, 0, -8.727816e-08, -9.297118, -39.085857, 3.884056, 19.732183)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_vkxoh")
-material = SubResource("StandardMaterial3D_r8wc8")
+material = SubResource("ShaderMaterial_7e274")
 
 [node name="wall10" type="CSGMesh3D" parent="Level3" unique_id=718990873]
 transform = Transform3D(-1.1914717e-08, -7.949136e-07, -14.220359, 0, -9.09275, 1.2431834e-06, -0.27257696, 3.4746775e-14, 6.215917e-07, -10.665207, 3.092184, -1.9140854)
@@ -3487,108 +3506,108 @@ transform = Transform3D(1, 0, 0, 0, 0.9999998, 0, 0, 0, 1, -11.562805, 1.9718552
 shape = SubResource("BoxShape3D_pph2w")
 
 [node name="Stairs" type="CSGMesh3D" parent="Level3" unique_id=1570954180]
-transform = Transform3D(-0.27257696, -3.554972e-15, 5.940072e-07, -2.0009998e-22, -0.5412471, 5.940072e-07, 2.3829434e-08, 4.731732e-08, 6.7946515, -34.783726, -0.13474846, 12.159643)
+transform = Transform3D(-0.27257696, -3.554972e-15, 5.940072e-07, -2.0009998e-22, -0.5412471, 5.940072e-07, 2.3829434e-08, 4.731732e-08, 6.7946515, -34.678535, 0.19446754, 11.406914)
 collision_layer = 4
-mesh = SubResource("BoxMesh_vkxoh")
-material = SubResource("StandardMaterial3D_r8wc8")
+mesh = SubResource("BoxMesh_8bsfy")
+material = SubResource("ShaderMaterial_7e274")
 
 [node name="wall39" type="CSGMesh3D" parent="Level3/Stairs" unique_id=516416400]
 transform = Transform3D(1, 1.6940659e-21, 0, -4.2351647e-22, 1, -1.1368684e-13, 8.881784e-16, 0, 1, 0.737854, -0.5359154, 0)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_vkxoh")
-material = SubResource("StandardMaterial3D_r8wc8")
+material = SubResource("ShaderMaterial_7e274")
 
 [node name="wall40" type="CSGMesh3D" parent="Level3/Stairs" unique_id=844016979]
 transform = Transform3D(1, 1.6940659e-21, 0, -4.2351647e-22, 1, -1.1368684e-13, 8.881784e-16, 0, 1, 1.7342224, -1.2112198, -7.450581e-09)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_vkxoh")
-material = SubResource("StandardMaterial3D_r8wc8")
+material = SubResource("ShaderMaterial_7e274")
 
 [node name="wall41" type="CSGMesh3D" parent="Level3/Stairs" unique_id=2062643931]
 transform = Transform3D(1, 1.6940659e-21, 0, -4.2351647e-22, 1, -1.1368684e-13, 8.881784e-16, 0, 1, 2.4493866, -1.7514648, -1.4901161e-08)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_vkxoh")
-material = SubResource("StandardMaterial3D_r8wc8")
+material = SubResource("ShaderMaterial_7e274")
 
 [node name="wall42" type="CSGMesh3D" parent="Level3/Stairs" unique_id=491268070]
 transform = Transform3D(1, 1.6940659e-21, 0, -4.2351647e-22, 1, -1.1368684e-13, 8.881784e-16, 0, 1, 3.2539368, -2.2466888, -1.4901161e-08)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_vkxoh")
-material = SubResource("StandardMaterial3D_r8wc8")
+material = SubResource("ShaderMaterial_7e274")
 
 [node name="wall43" type="CSGMesh3D" parent="Level3/Stairs" unique_id=562197741]
 transform = Transform3D(1, 1.6940659e-21, 0, -4.2351647e-22, 1, -1.1368684e-13, 8.881784e-16, 0, 1, 4.147888, -2.8319588, -1.4901161e-08)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_vkxoh")
-material = SubResource("StandardMaterial3D_r8wc8")
+material = SubResource("ShaderMaterial_7e274")
 
 [node name="wall44" type="CSGMesh3D" parent="Level3/Stairs" unique_id=123028680]
 transform = Transform3D(1, 1.6940659e-21, 0, -4.2351647e-22, 1, -1.1368684e-13, 8.881784e-16, 0, 1, 4.952469, -3.2371407, -1.4901161e-08)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_vkxoh")
-material = SubResource("StandardMaterial3D_r8wc8")
+material = SubResource("ShaderMaterial_7e274")
 
 [node name="wall45" type="CSGMesh3D" parent="Level3/Stairs" unique_id=1598086331]
 transform = Transform3D(1, 1.6940659e-21, 0, -4.2351647e-22, 1, -1.1368684e-13, 8.881784e-16, 0, 1, 6.025238, -3.6709137, -1.4901161e-08)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_vkxoh")
-material = SubResource("StandardMaterial3D_r8wc8")
+material = SubResource("ShaderMaterial_7e274")
 
 [node name="wall46" type="CSGMesh3D" parent="Level3/Stairs" unique_id=2031276140]
 transform = Transform3D(1, 1.6940659e-21, 0, -4.2351647e-22, 1, -1.1368684e-13, 8.881784e-16, 0, 1, 7.097992, -4.250622, -1.4901161e-08)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_vkxoh")
-material = SubResource("StandardMaterial3D_r8wc8")
+material = SubResource("ShaderMaterial_7e274")
 
 [node name="wall47" type="CSGMesh3D" parent="Level3/Stairs" unique_id=1984593736]
 transform = Transform3D(1, 1.6940659e-21, 0, -4.2351647e-22, 1, -1.1368684e-13, 8.881784e-16, 0, 1, 7.9253235, -4.816372, -1.4901161e-08)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_vkxoh")
-material = SubResource("StandardMaterial3D_r8wc8")
+material = SubResource("ShaderMaterial_7e274")
 
 [node name="wall48" type="CSGMesh3D" parent="Level3/Stairs" unique_id=1686848229]
 transform = Transform3D(1, 1.6940659e-21, 0, -4.2351647e-22, 1, -1.1368684e-13, 8.881784e-16, 0, 1, 8.842972, -5.2785187, -1.4901161e-08)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_vkxoh")
-material = SubResource("StandardMaterial3D_r8wc8")
+material = SubResource("ShaderMaterial_7e274")
 
 [node name="wall49" type="CSGMesh3D" parent="Level3/Stairs" unique_id=1091807834]
 transform = Transform3D(1, 1.6940659e-21, 0, -4.2351647e-22, 1, -1.1368684e-13, 8.881784e-16, 0, 1, 9.76062, -5.692013, -1.4901161e-08)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_vkxoh")
-material = SubResource("StandardMaterial3D_r8wc8")
+material = SubResource("ShaderMaterial_7e274")
 
 [node name="wall50" type="CSGMesh3D" parent="Level3/Stairs" unique_id=1204905994]
 transform = Transform3D(1, 1.6940659e-21, 0, -4.2351647e-22, 1, -1.1368684e-13, 8.881784e-16, 0, 1, 10.630005, -6.1055107, -1.4901161e-08)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_vkxoh")
-material = SubResource("StandardMaterial3D_r8wc8")
+material = SubResource("ShaderMaterial_7e274")
 
 [node name="wall51" type="CSGMesh3D" parent="Level3/Stairs" unique_id=1444839533]
 transform = Transform3D(1, 1.6940659e-21, 0, -4.2351647e-22, 1, -1.1368684e-13, 8.881784e-16, 0, 1, 11.451065, -6.47036, -1.4901161e-08)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_vkxoh")
-material = SubResource("StandardMaterial3D_r8wc8")
+material = SubResource("ShaderMaterial_7e274")
 
 [node name="wall52" type="CSGMesh3D" parent="Level3/Stairs" unique_id=771494358]
 transform = Transform3D(3.9366865, 1.6940659e-21, 0, -5.0821977e-21, 1, -3.410605e-13, 3.5527137e-15, 0, 0.99999976, 13.67276, -6.47036, -2.2351742e-08)
 use_collision = true
 collision_layer = 4
 mesh = SubResource("BoxMesh_vkxoh")
-material = SubResource("StandardMaterial3D_r8wc8")
+material = SubResource("ShaderMaterial_7e274")
 
 [node name="wall35" type="CSGMesh3D" parent="Level3" unique_id=538122995]
 transform = Transform3D(-1.1914719e-08, -1.7454029e-07, -4.9973297, 0, -1.9965081, 4.3688038e-07, -0.272577, -6.556645e-15, 2.1844019e-07, -9.255997, 0.066093445, 16.159643)
@@ -3776,7 +3795,7 @@ noise_volume = 0.5
 rock_activate_duration = 5.0
 
 [node name="Transformator3" parent="Level3" unique_id=1933813550 instance=ExtResource("43_ba0om")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.795914, 1.4513626, 22.903307)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.795864, 1.4622517, 22.90458)
 collision_layer = 1
 collision_mask = 1
 noise_volume = 0.5

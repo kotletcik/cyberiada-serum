@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dp8ptyamp3mvi"]
 
-[ext_resource type="Script" uid="uid://dc7ujf1sgyfnl" path="res://scripts/PJ/transformator.gd" id="1_847bj"]
+[ext_resource type="Script" path="res://scripts/PJ/transformator.gd" id="1_847bj"]
+[ext_resource type="Material" path="res://textures/metalowa_plyta_z_srubami/metalowa_plyta_ze_srubami.tres" id="2_iy5in"]
 [ext_resource type="PackedScene" uid="uid://cqmv7mxht6o6m" path="res://prefabs/gpu_particles_3d.tscn" id="2_qipyy"]
 [ext_resource type="Script" path="res://scripts/PJ/particles_timer.gd" id="3_dt32q"]
 [ext_resource type="Texture2D" uid="uid://b15uw8ofbj5ls" path="res://textures/emblemat_pioruna_zolte_bez_tla.png" id="4_40wo7"]
@@ -26,6 +27,7 @@ is_activating_by_player_interaction = true
 shape = SubResource("BoxShape3D_qipyy")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1991477561]
+material_override = ExtResource("2_iy5in")
 mesh = SubResource("BoxMesh_dt32q")
 
 [node name="GPUParticles3D" parent="." unique_id=207648955 instance=ExtResource("2_qipyy")]

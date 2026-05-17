@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxo2567jfiauo"
-path.s3tc="res://.godot/imported/betonowy_kafel_albedo.png-ad810e766f4f67889dfa8e9a295e0728.s3tc.ctex"
+uid="uid://h083ncas55w5"
+path.s3tc="res://.godot/imported/metalowa_plyta_ze_srubami_albedo.png-3a38ac5ca8c823bd73a5de4de9ae8149.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/betonowy_kafel/betonowy_kafel_albedo.png"
-dest_files=["res://.godot/imported/betonowy_kafel_albedo.png-ad810e766f4f67889dfa8e9a295e0728.s3tc.ctex"]
+source_file="res://textures/metalowa_plyta_z_srubami/metalowa_plyta_ze_srubami_albedo.png"
+dest_files=["res://.godot/imported/metalowa_plyta_ze_srubami_albedo.png-3a38ac5ca8c823bd73a5de4de9ae8149.s3tc.ctex"]
 
 [params]
 
