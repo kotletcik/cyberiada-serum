@@ -192,7 +192,7 @@ shader_parameter/scroll_speed = Vector2(0.1, 0)
 shader_parameter/moving = false
 shader_parameter/texture_map = ExtResource("56_i3x6b")
 shader_parameter/brightness = -2.2352000028647012e-08
-shader_parameter/color = Color(0.48066348, 0.48836797, 0.48066372, 0.27058825)
+shader_parameter/color = Color(0.48235294, 0.49019608, 0.48235294, 1)
 shader_parameter/normal_map = ExtResource("55_jakws")
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_i3x6b"]
@@ -234,6 +234,15 @@ size = Vector3(0.5, 1.6655273, 1.0186081)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i3x6b"]
 size = Vector3(0.5, 1.7540283, 1.2022705)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wh1og"]
+size = Vector3(0.5, 3.5863495, 3.8997803)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ci713"]
+size = Vector3(0.5, 3.5863495, 4.506775)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7e274"]
+size = Vector3(0.5, 3.5863495, 5.2976074)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r8jwp"]
 size = Vector3(5.7799444, 5.258362, 5.6494923)
@@ -3710,10 +3719,6 @@ shape = SubResource("BoxShape3D_i3x6b")
 [node name="DoorVisuals" parent="Level3/Door4/CollisionShape3D" index="0" unique_id=623114512]
 transform = Transform3D(0.5, 0, 0, 0, 1.7540283, 0, 0, 0, 1.2022705, 0, 0, 0)
 
-[node name="DoubleDoor" parent="Level3" unique_id=779226659 instance=ExtResource("8_vcjj7")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.084736, 1.4735012, 3.2447166)
-is_open_on_start = true
-
 [node name="OmniLight3D" type="OmniLight3D" parent="Level3" unique_id=132564715]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9884415, 1.5521431, 0.8933363)
 omni_range = 4096.0
@@ -3738,13 +3743,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0587425, 0.4513607, -2.0035
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Level3" unique_id=1277212142]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.294083, 4.926796, 11.615646)
-light_energy = 64.0
+light_energy = 16.0
 light_indirect_energy = 16.0
 omni_range = 24.099
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="Level3" unique_id=677450702]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.231873, 7.684639, 11.615646)
-light_energy = 64.0
+light_energy = 16.0
 light_indirect_energy = 16.0
 omni_range = 24.099
 
@@ -3948,6 +3953,42 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.528885, 3.636425, 7.39147
 note_to_hold = ExtResource("59_jakws")
 clue_to_gather = ExtResource("18_bd5a3")
 
+[node name="Door5" parent="Level3" unique_id=313378897 instance=ExtResource("10_vcjj7")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -19.833626, 1.9406223, -1.4150009)
+is_open_on_start = true
+move_distance = 4.0
+
+[node name="CollisionShape3D" parent="Level3/Door5" index="0" unique_id=649342185]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.106536865, -0.0791626)
+shape = SubResource("BoxShape3D_wh1og")
+
+[node name="DoorVisuals" parent="Level3/Door5/CollisionShape3D" index="0" unique_id=623114512]
+transform = Transform3D(0.5, 0, 0, 0, 3.5863495, 0, 0, 0, 3.8997803, 0, 0, 0)
+
+[node name="Door6" parent="Level3" unique_id=563849535 instance=ExtResource("10_vcjj7")]
+transform = Transform3D(5.9604645e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, 5.9604645e-08, -25.171082, 1.9406223, -1.4150009)
+is_open_on_start = true
+move_distance = 4.0
+
+[node name="CollisionShape3D" parent="Level3/Door6" index="0" unique_id=649342185]
+transform = Transform3D(0.9999948, 0, -3.0198066e-13, 0, 1, 0, 3.0553338e-13, 0, 0.9999949, 0, -0.106536865, 0.35525513)
+shape = SubResource("BoxShape3D_ci713")
+
+[node name="DoorVisuals" parent="Level3/Door6/CollisionShape3D" index="0" unique_id=623114512]
+transform = Transform3D(0.5, 0, 0, 0, 3.5863495, 0, 0, 0, 4.506775, 0, 0, 0)
+
+[node name="Door7" parent="Level3" unique_id=1571442818 instance=ExtResource("10_vcjj7")]
+transform = Transform3D(5.9604645e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, 5.9604645e-08, -6.1710815, 1.9406223, 3.584999)
+is_open_on_start = true
+move_distance = 5.0
+
+[node name="CollisionShape3D" parent="Level3/Door7" index="0" unique_id=649342185]
+transform = Transform3D(0.99999297, 0, -4.121148e-13, 0, 1, 0, 4.156675e-13, 0, 0.999993, 0, -0.17913055, -0.17028809)
+shape = SubResource("BoxShape3D_7e274")
+
+[node name="DoorVisuals" parent="Level3/Door7/CollisionShape3D" index="0" unique_id=623114512]
+transform = Transform3D(0.5, 0, 0, 0, 3.5863495, 0, 0, 0, 5.2976074, 0, 0, 0)
+
 [node name="EndingController" type="Node" parent="." unique_id=2086030099]
 script = ExtResource("53_ipoun")
 
@@ -3998,6 +4039,9 @@ shape = SubResource("BoxShape3D_jm1i1")
 [editable path="Level3/Door3"]
 [editable path="Level3/Door4"]
 [editable path="Level3/Event Trigger"]
+[editable path="Level3/Door5"]
+[editable path="Level3/Door6"]
+[editable path="Level3/Door7"]
 [editable path="Checkpoint Trigger7"]
 [editable path="Checkpoint Trigger8"]
 [editable path="Checkpoint Trigger9"]
