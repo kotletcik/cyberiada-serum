@@ -6,7 +6,7 @@ uniform vec2 scroll_speed = vec2(0.1, 0.0);
 uniform bool moving = false;
 uniform sampler2D texture_map : repeat_enable;
 uniform float brightness : hint_range(-1.0, 1.0, 0.01) = 0;
-uniform vec3 color = vec3(0.0,0.0,0.0);
+uniform vec4 color : source_color = vec4(0.0,0.0,0.0,0.0);
 uniform sampler2D normal_map;
 uniform sampler2D roughness_map;
 uniform sampler2D metallic_map;
@@ -87,7 +87,7 @@ void fragment() {
     vec3 z_m = texture(metallic_map, uv_z).rgb;
  
     mat4 matrix = brighteness_matrix(brightness);
-	vec3 base_color = (x_tex * blending.x + y_tex * blending.y + z_tex * blending.z) * color;
+	vec3 base_color = (x_tex * blending.x + y_tex * blending.y + z_tex * blending.z);
 	vec3 mixed_normal = (x_nor * blending.x + y_nor * blending.y + z_nor * blending.z);
     
  
@@ -100,7 +100,7 @@ void fragment() {
     ROUGHNESS = (x_r * blending.x + y_r * blending.y + z_r * blending.z).r;
     METALLIC = (x_m * blending.x + y_m * blending.y + z_m * blending.z).r;
 	
-    ALBEDO = (matrix * vec4(base_color, 1.0)).rgb;
+    ALBEDO = (matrix * vec4(base_color, 1.0) * color).rgb;
 	
 }
 
