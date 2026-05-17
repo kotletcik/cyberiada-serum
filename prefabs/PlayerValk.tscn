@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://cwde7cnnyebq2" path="res://assets/sounds/pickUp.mp3" id="5_kt11o"]
 [ext_resource type="PackedScene" uid="uid://b4512qioi3g1i" path="res://prefabs/Gravity.tscn" id="5_uxk6a"]
 [ext_resource type="Script" uid="uid://chqddn3tlmas8" path="res://scripts/Valk/throw_rocks.gd" id="6_moip8"]
+[ext_resource type="AudioStream" uid="uid://dw3p28ug7xoyi" path="res://assets/sounds/krok.WAV" id="6_wky4a"]
 [ext_resource type="PackedScene" uid="uid://bl467r2v4j413" path="res://prefabs/throwable_rock.tscn" id="7_52ka2"]
 [ext_resource type="Script" uid="uid://2qft4tmq65a0" path="res://scripts/PJ/Walking_noise_maker.gd" id="8_pb500"]
 [ext_resource type="PackedScene" uid="uid://6tgemnaldm0g" path="res://prefabs/ui/player_hud.tscn" id="9_d4q5a"]
@@ -30,11 +31,13 @@ fog_light_color = Color(0, 0, 0, 1)
 adjustment_enabled = true
 adjustment_contrast = 1.25
 
-[node name="PlayerValk" type="CharacterBody3D" unique_id=767105809]
+[node name="PlayerValk" type="CharacterBody3D" unique_id=767105809 node_paths=PackedStringArray("footstep_sound")]
 collision_layer = 16
 collision_mask = 71
 platform_floor_layers = 4294967040
 script = ExtResource("1_v6fml")
+footstep_repeat_time = 0.3
+footstep_sound = NodePath("Head/Camera3D/FootstepSound")
 player_capsule = SubResource("CapsuleShape3D_v6fml")
 crouch_check_collision_mask = 15
 crouch_check_y = 0.845
@@ -71,6 +74,11 @@ bus = &"SFX"
 
 [node name="PickupSound" type="AudioStreamPlayer3D" parent="Head/Camera3D" unique_id=944489560]
 stream = ExtResource("5_kt11o")
+bus = &"SFX"
+
+[node name="FootstepSound" type="AudioStreamPlayer3D" parent="Head/Camera3D" unique_id=1072214851]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8479581, 0)
+stream = ExtResource("6_wky4a")
 bus = &"SFX"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2006764769]
