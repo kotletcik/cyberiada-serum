@@ -10,13 +10,13 @@ var isMoving: bool = false
 @export var first_door: Node3D
 @export var second_door: Node3D
 @export var unlock_if_clue_realized: Clue;
+@export var is_door_locked: bool = false;
 @export var is_lift_door: bool = false;
 @export var lift_player_range: float = 5.0;
 var lift_close_call_started: bool = false;
 @export var lift_door_close_event: EventBus.triggers = EventBus.triggers.None;
 # @export var is_final_door: bool = false;
 @onready var nav_region: NavigationRegion3D = get_parent() as NavigationRegion3D
-@export var is_door_locked: bool = false;
 
 var interacted: bool = false;
 
