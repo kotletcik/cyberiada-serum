@@ -19,7 +19,7 @@ func _process(_delta: float) -> void:
 		# print(collision.is_empty());
 		if(!collision.is_empty()):
 			var object: Node3D = collision["collider"];
-			print(object.name);
+			# print(object.name);
 			if(object.is_in_group("Serum")):
 				pickup_sound.play();
 				InventoryManager.instance.add_item(ITEM_TYPE.SERUM, 1);

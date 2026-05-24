@@ -1,19 +1,19 @@
+class_name EnemyMovement;
 extends NavigationAgent3D
-#Odpowiada za nadawanie prędkości ruchu i targeta dla navAgent3D
 
 @onready var mob: CharacterBody3D = $"../"
 @export var general_move_speed: float = 1.0
-@export var acceleration: float=1 # jak szybko agent nabiera i traci prędkość move_speed
+@export var acceleration: float = 1 
 var move_speed : float = 2.0
 var update_target_pos_timer: float = 1.0
-var target: Node3D
+# var target: Node3D
 # var is_active: bool = true nieuzywany?
 var timer
 var rotation_speed = 15.0
 
 func _ready() -> void:
 	mob = get_parent()
-	update_target_pos_every(update_target_pos_timer)
+	# update_target_pos_every(update_target_pos_timer)
 	
 func _physics_process(delta: float):
 	var destination = get_next_path_position()
@@ -36,7 +36,7 @@ func _physics_process(delta: float):
 	if (abs(mob.velocity.dot(forward) - move_speed) > 0.5 && mob.velocity.length() < 6.0):
 		if (mob.velocity.dot(forward) < move_speed):
 			acc_coeff = 1
-		else : 
+		else: 
 			acc_coeff = -10
 		mob.velocity = (mob.velocity.length() + acc_coeff * acceleration * delta) * -mob.transform.basis.z
 		
@@ -53,17 +53,20 @@ func _physics_process(delta: float):
 
 func stop_immediately():
 	move_speed = 0
-	var _y_vel = mob.velocity.y
 	mob.velocity = Vector3.ZERO
-	mob.velocity.y = _y_vel
+	set_target_position(mob.global_position);
 
-func update_target_pos_every(_update_target_pos_timer: float):
-	if target:
-		set_target_position(target.position)
-	timer = get_tree().create_timer(_update_target_pos_timer)
-	await timer.timeout
-	# if is_active:
-	update_target_pos_every(update_target_pos_timer)
+# func update_target_pos_every(_update_target_pos_timer: float):
+# 	if target:
+# 		set_target_position(target.position)
+# 	timer = get_tree().create_timer(_update_target_pos_timer)
+# 	await timer.timeout
+# 	# if is_active:
+# 	update_target_pos_every(update_target_pos_timer)
 		
-func update_target(): #nieuzywany?
-	timer.stop()
+# func update_target(): #nieuzywany?
+# 	timer.stop()
+
+func update_target_position(pos: Vector3):
+	if(pos == target_position): return;
+	set_target_position(pos);

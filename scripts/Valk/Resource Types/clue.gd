@@ -2,12 +2,6 @@
 class_name Clue
 extends Resource
 
-enum triggers
-{
-    None,
-    SomethingUnlocks,
-}
-
 @export var name: String;
 @export var description: String;
 @export var ui_pos: Vector2 :
@@ -27,7 +21,7 @@ enum triggers
 
 @export var connected_note: Note = null;
 
-@export var clue_trigger: triggers;
+@export var clue_trigger: EventBus.triggers;
 
 # @export_group("Clues On Unlock")
 @export var clues_to_gather: Array[Clue];

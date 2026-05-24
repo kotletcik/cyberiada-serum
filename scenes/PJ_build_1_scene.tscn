@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://bw8wddlntpkih" path="res://prefabs/Scene Prefabs/Interior/Door.tscn" id="10_vcjj7"]
 [ext_resource type="PackedScene" uid="uid://dqoenfwxbkoli" path="res://prefabs/Mobs/Shell.tscn" id="11_01gpf"]
 [ext_resource type="PackedScene" uid="uid://dfiw1ws6ojtp8" path="res://prefabs/Scene Prefabs/Markers/PatrolPoint.tscn" id="12_uyulh"]
+[ext_resource type="Resource" uid="uid://c374w3rnjrvcl" path="res://resources/thought_paths/test.tres" id="13_e8688"]
 [ext_resource type="PackedScene" uid="uid://blsbgq16qsq5d" path="res://prefabs/ui_manager.tscn" id="13_rf5c3"]
 [ext_resource type="PackedScene" uid="uid://bl7pr1jrqx1d8" path="res://prefabs/triggers/restart_trigger.tscn" id="15_lfu3u"]
 [ext_resource type="Script" uid="uid://bvpanlcy3bc06" path="res://scripts/Valk/Managers/save_manager.gd" id="17_njve1"]
@@ -52,6 +53,8 @@
 [ext_resource type="PackedScene" uid="uid://disyay20hbkli" path="res://assets/models/Pudełko otwarte.fbx" id="40_jumma"]
 [ext_resource type="PackedScene" uid="uid://fy3m0tlxgfik" path="res://prefabs/Scene Prefabs/Interior/emergency_button.tscn" id="42_xmgvw"]
 [ext_resource type="PackedScene" uid="uid://dp8ptyamp3mvi" path="res://prefabs/Scene Prefabs/Interior/Transformator.tscn" id="43_ba0om"]
+[ext_resource type="Resource" uid="uid://dxcllb7sdw7cc" path="res://resources/notes/level2_test.tres" id="44_7e274"]
+[ext_resource type="Resource" uid="uid://eig46fvsxk75" path="res://resources/thoughts/test/level2_lift.tres" id="45_8bsfy"]
 [ext_resource type="Texture2D" uid="uid://c42se58kbsb47" path="res://textures/IMG_0455.jpg" id="50_cidjx"]
 [ext_resource type="Material" uid="uid://bxil1tlgw2u1m" path="res://materials/korek.tres" id="51_r8wc8"]
 [ext_resource type="Script" uid="uid://d25dunpwd5h5q" path="res://scripts/Valk/final_stage_set_up.gd" id="51_vkxoh"]
@@ -61,6 +64,9 @@
 [ext_resource type="Texture2D" uid="uid://dxo2567jfiauo" path="res://textures/betonowy_kafel/betonowy_kafel_albedo.png" id="56_i3x6b"]
 [ext_resource type="Texture2D" uid="uid://g8mdsa2vxbj" path="res://textures/beton/beton_normal.png" id="57_jakws"]
 [ext_resource type="Resource" uid="uid://cpnf8bwsat2kd" path="res://resources/notes/final_test.tres" id="59_jakws"]
+[ext_resource type="Resource" uid="uid://u5xshasy4och" path="res://resources/thoughts/test/final_stage.tres" id="62_reab3"]
+[ext_resource type="PackedScene" uid="uid://dyaq4kxu6uw2w" path="res://assets/models/RamkaA4.glb" id="63_7e274"]
+[ext_resource type="PackedScene" uid="uid://5qq71hbote7v" path="res://assets/models/BED.glb" id="64_8bsfy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13hkq"]
 albedo_color = Color(0.27450982, 0.27450982, 0.27450982, 1)
@@ -250,11 +256,14 @@ size = Vector3(5.7799444, 5.258362, 5.6494923)
 [sub_resource type="BoxShape3D" id="BoxShape3D_jm1i1"]
 size = Vector3(7.997612, 5.258362, 21.747871)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_reab3"]
+size = Vector3(22.458408, 5.258362, 17.792803)
+
 [node name="Build_1_Scene" type="Node3D" unique_id=649139474]
 script = ExtResource("1_xanii")
 
 [node name="Player" parent="." unique_id=2039338456 instance=ExtResource("1_ahihw")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 81.293526, 26.203238, 82.67571)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -76.89672, 1.3059216, 0.869225)
 SOBER_WALK_SPEED = 6.9
 CROUCH_SPEED_MULTIPLIER = 0.3
 crouching_noise_volume = 1.5
@@ -278,7 +287,7 @@ metadata/_custom_type_script = "uid://coysphqpo5g2l"
 
 [node name="PalaceManager" type="Node" parent="." unique_id=275441011]
 script = ExtResource("5_7uhkk")
-thought_paths = Array[ExtResource("6_8isj6")]([ExtResource("7_sbrwg"), ExtResource("9_e7wky"), ExtResource("8_g76yq")])
+thought_paths = Array[ExtResource("6_8isj6")]([ExtResource("7_sbrwg"), ExtResource("9_e7wky"), ExtResource("8_g76yq"), ExtResource("13_e8688")])
 metadata/_custom_type_script = "uid://bj28ubqcmsltd"
 
 [node name="SaveManager" type="Node" parent="." unique_id=1313784305]
@@ -371,7 +380,6 @@ size = Vector3(5, 5, 1)
 
 [node name="DoubleDoor" parent="Start Location/Geometry" unique_id=1301287337 instance=ExtResource("8_vcjj7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.777817, 2.425858, 10.257927)
-is_open_on_start = true
 unlock_if_clue_realized = ExtResource("27_p7nqx")
 
 [node name="interior2" type="CSGBox3D" parent="Start Location/Geometry" unique_id=1999219356]
@@ -1361,12 +1369,11 @@ affect_navigation_mesh = true
 
 [node name="Shell" parent="Location5" unique_id=2079833793 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.255352, 1.4558756, -15.171085)
-follow_state_duration = 1.0
+debug_index = 1
 hearing_range = 32.0
 wander_time = 1.0
 patrol_time = 0.0
 patrol_points = [NodePath("../Patrol Points/Patrol Point 1"), NodePath("../Patrol Points/Patrol Point 2"), NodePath("../Patrol Points/Patrol Point 3")]
-scream_time = 3.0
 
 [node name="Patrol Points" type="Node3D" parent="Location5" unique_id=750402056]
 
@@ -1510,7 +1517,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.057377, 0, -15.342804)
 
 [node name="Shell" parent="Location7" unique_id=1992373891 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6056662, 1.4558756, 5.8289146)
-follow_state_duration = 1.0
+debug_index = 3
 hearing_range = 16.0
 patrol_time = 5.2
 patrol_points = [NodePath("../ShellPatrolPoints/PatrolPoint1"), NodePath("../ShellPatrolPoints/PatrolPoint2"), NodePath("../ShellPatrolPoints/PatrolPoint3"), NodePath("../ShellPatrolPoints/PatrolPoint2")]
@@ -1518,7 +1525,7 @@ scream_time = 3.0
 
 [node name="Shell2" parent="Location7" unique_id=945879773 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4587593, 1.4558756, 5.8289146)
-follow_state_duration = 1.0
+debug_index = 2
 hearing_range = 16.0
 patrol_time = 5.0
 patrol_points = [NodePath("../ShellPatrolPoints/PatrolPoint1"), NodePath("../ShellPatrolPoints/PatrolPoint4"), NodePath("../ShellPatrolPoints/PatrolPoint1"), NodePath("../ShellPatrolPoints/PatrolPoint2")]
@@ -1873,6 +1880,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3121138, 0, -4.3173733)
 
 [node name="Shell" parent="Location9" unique_id=846101904 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6056662, 1.4558756, 5.8289146)
+debug_index = 4
 hearing_range = 16.0
 patrol_time = 5.0
 patrol_points = [NodePath("../ShellPatrolPoints/PatrolPoint1"), NodePath("../ShellPatrolPoints/PatrolPoint2"), NodePath("../ShellPatrolPoints/PatrolPoint3"), NodePath("../ShellPatrolPoints/PatrolPoint2")]
@@ -2352,6 +2360,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.083115, 1.2641665, 21.795
 
 [node name="Shell" parent="Location10" unique_id=167450878 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6356068, 1.4558756, -13.183457)
+debug_index = 5
 hearing_range = 16.0
 patrol_time = 1.0
 patrol_points = [NodePath("../ShellNavRegion/Patrol Points/Patrol Point 1"), NodePath("../ShellNavRegion/Patrol Points/Patrol Point 2")]
@@ -2521,6 +2530,7 @@ move_distance = 0.2
 
 [node name="DoubleDoor8" parent="Location14/ShellNavRegion" unique_id=1420444234 node_paths=PackedStringArray("lift_end_node") instance=ExtResource("8_vcjj7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.231003, 1.5715301, -0.8482971)
+unlock_if_clue_realized = ExtResource("45_8bsfy")
 is_lift_door = true
 lift_end_node = NodePath("Level3StartPoint")
 
@@ -2658,6 +2668,7 @@ size = Vector3(52.087494, 5, 1)
 
 [node name="Event Trigger" parent="Location14/ShellNavRegion" unique_id=1351867159 instance=ExtResource("35_scj3o")]
 transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -1.489502, 0.92113924, 12.829993)
+enable_trigger = false
 trigger_event = 4
 
 [node name="wall18" type="CSGBox3D" parent="Location14/ShellNavRegion" unique_id=1146946227]
@@ -2835,8 +2846,14 @@ use_collision = true
 collision_layer = 4
 size = Vector3(7.533465, 5, 1)
 
+[node name="Scene Note" parent="Location14/ShellNavRegion" unique_id=1656860083 instance=ExtResource("25_sbrwg")]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -1.8253174, -0.36103582, 12.746229)
+note_to_hold = ExtResource("44_7e274")
+clue_to_gather = ExtResource("45_8bsfy")
+
 [node name="Shell" parent="Location14" unique_id=25262275 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.896347, 0.59397864, -13.183456)
+debug_index = 7
 hearing_range = 16.0
 patrol_time = 1.0
 patrol_points = [NodePath("../ShellNavRegion/Patrol Points/Patrol Point 1"), NodePath("../ShellNavRegion/Patrol Points/Patrol Point 2")]
@@ -2844,6 +2861,7 @@ scream_time = 3.0
 
 [node name="Shell2" parent="Location14" unique_id=80240976 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.8963547, 0.59397864, -38.268543)
+debug_index = 6
 hearing_range = 16.0
 patrol_time = 1.0
 patrol_points = [NodePath("../ShellNavRegion/Patrol Points/Patrol Point 1"), NodePath("../ShellNavRegion/Patrol Points/Patrol Point 2")]
@@ -2943,6 +2961,34 @@ skeleton = NodePath("../..")
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 20.217812, 2.2608564, -11.5871525)
 text = "< Wyjście
 Pokój dla służby >"
+font_size = 64
+
+[node name="Label3D3" type="Label3D" parent="." unique_id=1296350608]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -76.307495, 2.2608564, -26.070503)
+text = "< Magazyn nr 1
+Magazyny >"
+font_size = 64
+
+[node name="Label3D4" type="Label3D" parent="." unique_id=1598009589]
+transform = Transform3D(5.9604645e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, 5.9604645e-08, 116.66829, -0.77906656, -21.246449)
+text = "Pokoje Mieszkalne >"
+font_size = 64
+
+[node name="Label3D7" type="Label3D" parent="." unique_id=256941717]
+transform = Transform3D(5.9604645e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, 5.9604645e-08, 116.66829, -0.77906656, -12.007866)
+text = "< Pokoje Mieszkalne"
+font_size = 64
+
+[node name="Label3D8" type="Label3D" parent="." unique_id=1106249582]
+transform = Transform3D(0, 1, -5.960464e-08, 5.9604645e-08, 0, 1.0000001, 0.99999994, 0, -5.960464e-08, 121.2156, -3.3930569, -16.425732)
+text = "Winda
+"
+font_size = 64
+
+[node name="Label3D9" type="Label3D" parent="." unique_id=1179251748]
+transform = Transform3D(2.9802322e-08, -1, 5.9604638e-08, 5.9604645e-08, 0, 1.0000001, -0.9999999, -2.9802322e-08, 5.9604645e-08, 117.41901, -3.3930569, -16.425732)
+text = "Jadalnia
+"
 font_size = 64
 
 [node name="Label3D5" type="Label3D" parent="." unique_id=274121314]
@@ -3721,6 +3767,7 @@ transform = Transform3D(0.5, 0, 0, 0, 1.7540283, 0, 0, 0, 1.2022705, 0, 0, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Level3" unique_id=132564715]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9884415, 1.5521431, 0.8933363)
+light_energy = 16.0
 omni_range = 4096.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Level3" unique_id=1978625632]
@@ -3743,13 +3790,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0587425, 0.4513607, -2.0035
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Level3" unique_id=1277212142]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.294083, 4.926796, 11.615646)
-light_energy = 16.0
+light_energy = 64.0
 light_indirect_energy = 16.0
 omni_range = 24.099
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="Level3" unique_id=677450702]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.231873, 7.684639, 11.615646)
-light_energy = 16.0
+light_energy = 64.0
 light_indirect_energy = 16.0
 omni_range = 24.099
 
@@ -3846,6 +3893,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.048676, 0.5726967, 17.2668
 
 [node name="Shell" parent="Level3" unique_id=1354937306 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7542114, 0.9513607, 11.233505)
+debug_index = 9
 patrol_points = [NodePath("../Patrol Points/Corridor1"), NodePath("../Patrol Points/Corridor2")]
 scream_time = 3.0
 
@@ -3860,6 +3908,7 @@ destroy_on_trigger = true
 
 [node name="Shell8" parent="Level3" unique_id=100241452 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.838234, 0.9513626, 11.223251)
+debug_index = 8
 patrol_points = [NodePath("../Patrol Points/Hol1"), NodePath("../Patrol Points/Hol2")]
 scream_time = 3.0
 
@@ -3940,7 +3989,7 @@ size = Vector3(3.78479, 5, 1)
 [node name="DoubleDoor4" parent="Level3" unique_id=23139633 instance=ExtResource("8_vcjj7")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.360588, 1.8617687, -8.064384)
 isDisposable = true
-unlock_if_clue_realized = ExtResource("18_bd5a3")
+unlock_if_clue_realized = ExtResource("62_reab3")
 is_lift_door = true
 lift_start_event = 2
 
@@ -3951,7 +4000,7 @@ event_on_pickup = 1
 [node name="Scene Note" parent="Level3" unique_id=22668409 instance=ExtResource("25_sbrwg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.528885, 3.636425, 7.391472)
 note_to_hold = ExtResource("59_jakws")
-clue_to_gather = ExtResource("18_bd5a3")
+clue_to_gather = ExtResource("62_reab3")
 
 [node name="Door5" parent="Level3" unique_id=313378897 instance=ExtResource("10_vcjj7")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -19.833626, 1.9406223, -1.4150009)
@@ -3986,9 +4035,6 @@ move_distance = 5.0
 transform = Transform3D(0.99999297, 0, -4.121148e-13, 0, 1, 0, 4.156675e-13, 0, 0.999993, 0, -0.17913055, -0.17028809)
 shape = SubResource("BoxShape3D_7e274")
 
-[node name="DoorVisuals" parent="Level3/Door7/CollisionShape3D" index="0" unique_id=623114512]
-transform = Transform3D(0.5, 0, 0, 0, 3.5863495, 0, 0, 0, 5.2976074, 0, 0, 0)
-
 [node name="EndingController" type="Node" parent="." unique_id=2086030099]
 script = ExtResource("53_ipoun")
 
@@ -4015,7 +4061,29 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.44993, 5.581295, -24.7723
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29231644, -3.9852533, 3.4136963)
 shape = SubResource("BoxShape3D_jm1i1")
 
+[node name="Safe Zone3" parent="." unique_id=645343217 instance=ExtResource("55_utgjm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.94493, 0.7935357, -14.371408)
+
+[node name="CollisionShape3D" parent="Safe Zone3" index="0" unique_id=1578128117]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.715269, 1.3485718, -1.2429075)
+shape = SubResource("BoxShape3D_reab3")
+
 [node name="SoundManager" type="Node" parent="." unique_id=596959604]
+
+[node name="RamkaA4" parent="." unique_id=1549672320 instance=ExtResource("63_7e274")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.70555, 20.5965, 103.55132)
+
+[node name="BED2" parent="." unique_id=956003249 instance=ExtResource("64_8bsfy")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 89.64696, -4.8544445, 4.7725735)
+
+[node name="BED3" parent="." unique_id=640555308 instance=ExtResource("64_8bsfy")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 96.56558, -4.8544445, 4.7725735)
+
+[node name="BED4" parent="." unique_id=276114203 instance=ExtResource("64_8bsfy")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 105.08921, -7.714116, 4.7725735)
+
+[node name="BED5" parent="." unique_id=1354904495 instance=ExtResource("64_8bsfy")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 111.827354, -3.8787923, 4.7725735)
 
 [editable path="Location5/ShellNavRegion/Geometry/StaticBody3D"]
 [editable path="Location5/ShellNavRegion/Geometry/StaticBody3D2"]
@@ -4047,3 +4115,4 @@ shape = SubResource("BoxShape3D_jm1i1")
 [editable path="Checkpoint Trigger9"]
 [editable path="Safe Zone2"]
 [editable path="Safe Zone"]
+[editable path="Safe Zone3"]

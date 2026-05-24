@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Clue" format=3 uid="uid://eig46fvsxk75"]
+
+[ext_resource type="Script" uid="uid://q760mct2evav" path="res://scripts/Valk/Resource Types/clue.gd" id="1_sjshl"]
+
+[resource]
+script = ExtResource("1_sjshl")
+name = "Winda Odblokowana"
+ui_pos = Vector2(32, 32)
+automatically_unlock = true
+clue_trigger = 4
+metadata/_custom_type_script = "uid://q760mct2evav"
