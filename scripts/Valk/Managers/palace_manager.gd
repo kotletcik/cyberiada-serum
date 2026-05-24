@@ -102,11 +102,7 @@ func create_thought(chosen_clue: Clue):
 		for j in range(0, thought_paths[i].required_clues.size()):
 			if(thought_paths[i].required_clues[j] == chosen_clue):
 				thought_paths[i].is_clue_realized[j] = true;
-				match chosen_clue.clue_trigger:
-					Clue.triggers.None:
-						print("no trigger function in: " + str(chosen_clue.name));
-					Clue.triggers.SomethingUnlocks:
-						trigger_test();
+				EventBus.call_event(chosen_clue.clue_trigger);
 						
 				remove_gathered_clue(chosen_clue);
 				for k in range(0, chosen_clue.clues_to_gather.size()):
