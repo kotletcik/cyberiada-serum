@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://d3u3hck08ltj7"]
+
+[ext_resource type="Shader" uid="uid://dhcli8e5pg6e1" path="res://shaders/tile_shader.gdshader" id="1_h4l4j"]
+[ext_resource type="Texture2D" uid="uid://b2ptowo3uesqr" path="res://textures/plakat_2_i_pol.png" id="2_f5r0k"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_h4l4j")
+shader_parameter/tiling = Vector2(2, 1)
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/scroll_speed = Vector2(0.1, 0)
+shader_parameter/moving = false
+shader_parameter/texture_map = ExtResource("2_f5r0k")
+shader_parameter/brightness = 0.0
+shader_parameter/color = Color(0, 0, 0, 0)

@@ -45,7 +45,7 @@ mat4 brighteness_matrix(float b){
 
 void vertex() {
     world_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
-    world_normal = abs(NORMAL);
+    world_normal = (MODEL_MATRIX * vec4(NORMAL, 0.0)).xyz;
 }
 
 void fragment() {
@@ -56,7 +56,7 @@ void fragment() {
 	if (moving) {
         current_offset += scroll_speed * TIME;
     }
-	vec2 uv_x = world_pos.zy * tiling + current_offset;
+	vec2 uv_x = world_pos.yz * tiling + current_offset;
     vec2 uv_y = world_pos.xz * tiling + current_offset;
     vec2 uv_z = world_pos.xy * tiling + current_offset;
 	
