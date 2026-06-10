@@ -64,6 +64,8 @@
 [ext_resource type="PackedScene" uid="uid://dyaq4kxu6uw2w" path="res://assets/models/RamkaA4.glb" id="63_7e274"]
 [ext_resource type="PackedScene" uid="uid://5qq71hbote7v" path="res://assets/models/BED.glb" id="64_8bsfy"]
 [ext_resource type="PackedScene" uid="uid://biv21pm0dcslu" path="res://assets/models/pólki2.glb" id="66_8bsfy"]
+[ext_resource type="Resource" uid="uid://dprs3dalqojdh" path="res://resources/notes/nadzor.tres" id="66_reab3"]
+[ext_resource type="Resource" uid="uid://c4862r6c8lf7v" path="res://resources/thoughts/serum/changes.tres" id="67_e8688"]
 [ext_resource type="PackedScene" uid="uid://bwn823crhyywa" path="res://assets/models/pólki1.glb" id="68_e8688"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13hkq"]
@@ -1312,7 +1314,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.99998856, 0.7553714, -15.6
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.137535, 0.71621513, -2.3047457)
 
 [node name="Scene Note" parent="Location5" unique_id=1944761136 instance=ExtResource("25_sbrwg")]
-transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -21.517616, 0.49600005, -7.3732467)
+transform = Transform3D(0.08703425, -7.450581e-09, -0.99620533, 0.05119972, 0.99867845, 0.0044730976, 0.9948888, -0.051394746, 0.086919226, -21.517616, 0.57735556, -7.3732467)
 note_to_hold = ExtResource("24_8fi71")
 clue_to_gather = ExtResource("26_0plmr")
 
@@ -2798,7 +2800,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92.43784, 1.1121733, -2.2847
 note_to_hold = ExtResource("28_314lw")
 
 [node name="Scene Note2" parent="." unique_id=582625376 instance=ExtResource("25_sbrwg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.65049, 1.4074953, -35.15101)
+transform = Transform3D(-0.98985326, 0, 0.14209335, 0, 1, 0, -0.14209335, 0, -0.98985326, -86.65049, 1.4074953, -35.15101)
 note_to_hold = ExtResource("26_e7wky")
 clue_to_gather = ExtResource("27_p7nqx")
 
@@ -4016,6 +4018,11 @@ transform = Transform3D(1, 0, 0, 0, 1.0356107, 0, 0, 0, 0.928136, -5.874199, 0.1
 
 [node name="pólki3" parent="." unique_id=264835945 instance=ExtResource("68_e8688")]
 transform = Transform3D(-0.051967226, 0, -0.96067244, 0, 0.60989904, 0, 0.96390957, 0, -0.051792722, 17.556355, 0.46896052, -27.811174)
+
+[node name="Scene Note3" parent="." unique_id=1738485564 instance=ExtResource("25_sbrwg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.10817, 0.6686605, -26.609829)
+note_to_hold = ExtResource("66_reab3")
+clue_to_gather = ExtResource("67_e8688")
 
 [editable path="Location5/ShellNavRegion/Geometry/StaticBody3D"]
 [editable path="Location5/ShellNavRegion/Geometry/StaticBody3D2"]

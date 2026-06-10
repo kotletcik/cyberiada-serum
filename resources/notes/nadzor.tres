@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Note" format=3 uid="uid://dprs3dalqojdh"]
+
+[ext_resource type="Script" uid="uid://db4xf6hpks04h" path="res://scripts/Valk/Resource Types/note.gd" id="1_0enb2"]
+
+[resource]
+script = ExtResource("1_0enb2")
+title = "Pacjenci pod ścisłym nadzorem"
+content = "Wszystko w porządku. Brak problemów z zaakceptowaniem ciał po 
+operacji oprócz braku nerki u jednego z pacjentów. 
+Brak większych zażaleń."
+metadata/_custom_type_script = "uid://db4xf6hpks04h"
