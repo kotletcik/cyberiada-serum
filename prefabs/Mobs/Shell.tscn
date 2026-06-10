@@ -80,6 +80,7 @@ animator = NodePath("shell_boned_flipped/AnimationPlayer")
 stuck_range_length = 0.001
 scream_time = 1.0
 state_machine = NodePath("State_machine")
+player_sight_fov = 120.0
 player_sight_range = 16.0
 attack_range = 1.1
 
