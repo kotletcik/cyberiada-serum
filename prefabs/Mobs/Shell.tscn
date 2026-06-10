@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cqmv7mxht6o6m" path="res://prefabs/gpu_particles_3d.tscn" id="8_6f62q"]
 [ext_resource type="Script" uid="uid://b7ydidx4polw6" path="res://scripts/Valk/shell_disappearance.gd" id="9_jt8f1"]
 [ext_resource type="AudioStream" uid="uid://bm4f7msuu0sgn" path="res://assets/sounds/screaming.mp3" id="16_gs4m8"]
+[ext_resource type="AudioStream" uid="uid://dw3p28ug7xoyi" path="res://assets/sounds/krok.WAV" id="18_ranhc"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rsf4w"]
 animation = &"Rig_Large_CombatMelee/Melee_2H_Slam"
@@ -72,12 +73,14 @@ albedo_color = Color(0.27935672, 0.27935672, 0.27935672, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_raqt8"]
 size = Vector3(0.4, 0.2, 0.2)
 
-[node name="Shell" type="CharacterBody3D" unique_id=2079833793 node_paths=PackedStringArray("animator", "state_machine") groups=["Shell"]]
+[node name="Shell" type="CharacterBody3D" unique_id=2079833793 node_paths=PackedStringArray("animator", "footstep_sound", "state_machine") groups=["Shell"]]
 collision_layer = 8
 collision_mask = 7
 script = ExtResource("6_raqt8")
 animator = NodePath("shell_boned_flipped/AnimationPlayer")
 stuck_range_length = 0.001
+footstep_sound = NodePath("FootstepSound")
+footstep_repeat_time = 0.3
 scream_time = 1.0
 state_machine = NodePath("State_machine")
 player_sight_fov = 120.0
@@ -190,5 +193,8 @@ visible = false
 
 [node name="GPUParticles3D" parent="." unique_id=207648955 instance=ExtResource("8_6f62q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95233065, 0)
+
+[node name="FootstepSound" type="AudioStreamPlayer3D" parent="." unique_id=211702565]
+stream = ExtResource("18_ranhc")
 
 [editable path="State_machine"]

@@ -25,7 +25,6 @@
 [ext_resource type="Resource" uid="uid://emdxa24gcxrb" path="res://resources/thoughts/serum/serum.tres" id="18_bd5a3"]
 [ext_resource type="Resource" uid="uid://mm8l7277obwj" path="res://resources/last_checkpoint.tres" id="19_cnf01"]
 [ext_resource type="PackedScene" uid="uid://bbdr5l71yrkwb" path="res://assets/models/kosz.glb" id="19_qcrui"]
-[ext_resource type="PackedScene" uid="uid://bkchxldix2dc7" path="res://assets/models/kaloryfer.glb" id="20_ih6r1"]
 [ext_resource type="Resource" uid="uid://beopfd6yqk0so" path="res://resources/thoughts/shell/use_serum.tres" id="20_j12l6"]
 [ext_resource type="Resource" uid="uid://chbvik850k7tu" path="res://resources/thoughts/shell/kamien.tres" id="21_eqt5g"]
 [ext_resource type="Resource" uid="uid://0clrfc6yrxg1" path="res://resources/notes/smierc.tres" id="24_8fi71"]
@@ -36,6 +35,7 @@
 [ext_resource type="Texture2D" uid="uid://bg62wg4jydsyj" path="res://textures/beton/beton_orm.png" id="27_8bsfy"]
 [ext_resource type="Resource" uid="uid://dt7dtcb4bds7m" path="res://resources/thoughts/wakeup/watch.tres" id="27_p7nqx"]
 [ext_resource type="Resource" uid="uid://inlb87ae3v2h" path="res://resources/notes/test_not.tres" id="28_314lw"]
+[ext_resource type="PackedScene" uid="uid://d2oavkjmyps2c" path="res://prefabs/Scene Prefabs/Interior/Bed.tscn" id="29_8bsfy"]
 [ext_resource type="Material" uid="uid://cmri8y4naac10" path="res://materials/metal_z_wypukloscami.tres" id="29_gbmb2"]
 [ext_resource type="Resource" uid="uid://cpshgebigpcom" path="res://resources/thoughts/wakeup/wakeup.tres" id="29_p7nqx"]
 [ext_resource type="Material" uid="uid://boblir86ikxs1" path="res://materials/plytki_metalowe_z_wypuklosciami.tres" id="30_ba0om"]
@@ -64,6 +64,10 @@
 [ext_resource type="PackedScene" uid="uid://dyaq4kxu6uw2w" path="res://assets/models/RamkaA4.glb" id="63_7e274"]
 [ext_resource type="PackedScene" uid="uid://5qq71hbote7v" path="res://assets/models/BED.glb" id="64_8bsfy"]
 [ext_resource type="PackedScene" uid="uid://biv21pm0dcslu" path="res://assets/models/pólki2.glb" id="66_8bsfy"]
+[ext_resource type="PackedScene" uid="uid://dg6bln1u574dc" path="res://prefabs/Scene Prefabs/Interior/Kaloryfer.tscn" id="66_reab3"]
+[ext_resource type="Resource" uid="uid://dprs3dalqojdh" path="res://resources/notes/nadzor.tres" id="66_reab3"]
+[ext_resource type="Resource" uid="uid://c4862r6c8lf7v" path="res://resources/thoughts/serum/changes.tres" id="67_e8688"]
+[ext_resource type="PackedScene" uid="uid://bfjb44ev16w5x" path="res://assets/models/Łóżko.glb" id="66_reab3"]
 [ext_resource type="PackedScene" uid="uid://bwn823crhyywa" path="res://assets/models/pólki1.glb" id="68_e8688"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13hkq"]
@@ -245,7 +249,7 @@ size = Vector3(22.458408, 5.258362, 17.792803)
 script = ExtResource("1_xanii")
 
 [node name="Player" parent="." unique_id=2039338456 instance=ExtResource("1_ahihw")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -19.741241, 1.3059216, -9.841455)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -90.70032, 1.3059216, -39.291508)
 SOBER_WALK_SPEED = 6.9
 CROUCH_SPEED_MULTIPLIER = 0.3
 crouching_noise_volume = 1.5
@@ -305,7 +309,7 @@ collision_layer = 2
 size = Vector3(16.002441, 1, 11.073669)
 
 [node name="interior1" type="CSGBox3D" parent="Start Location/Geometry" unique_id=1934286615]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -4.458931, 0.7897129, 10.857777)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -4.4778214, 0.7897134, 10.848827)
 material_override = SubResource("StandardMaterial3D_jik7h")
 use_collision = true
 collision_layer = 4
@@ -405,8 +409,57 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6545105, 2.236245, 7.320289
 [node name="kosz" parent="Start Location/Geometry" unique_id=629320047 instance=ExtResource("19_qcrui")]
 transform = Transform3D(0.30132917, 0, 0, 0, 0.25260645, 0, 0, 0, 0.3238361, 0.90773773, 0.47434032, 6.6870804)
 
-[node name="kaloryfer" parent="Start Location/Geometry" unique_id=254008819 instance=ExtResource("20_ih6r1")]
-transform = Transform3D(0.20203285, 0, 0, 0, 0.33044848, 0, 0, 0, 0.462161, -4.81575, -0.005931616, 6.6146736)
+[node name="interior9" type="CSGBox3D" parent="Start Location/Geometry" unique_id=1240888743]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -4.4778214, 0.7897134, 26.646896)
+material_override = SubResource("StandardMaterial3D_jik7h")
+use_collision = true
+collision_layer = 4
+size = Vector3(4, 0.61621094, 2)
+
+[node name="interior10" type="CSGBox3D" parent="Start Location/Geometry" unique_id=968251466]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.058769226, 1.3189812, 29.263561)
+material_override = SubResource("StandardMaterial3D_jik7h")
+use_collision = true
+collision_layer = 4
+size = Vector3(4, 0.08105469, 2)
+
+[node name="interior11" type="CSGBox3D" parent="Start Location/Geometry" unique_id=1257105134]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 21.995827, 1.3189812, 47.195656)
+material_override = SubResource("StandardMaterial3D_jik7h")
+use_collision = true
+collision_layer = 4
+size = Vector3(4, 0.08105469, 2)
+
+[node name="interior12" type="CSGBox3D" parent="Start Location/Geometry" unique_id=1177455218]
+transform = Transform3D(-0.875532, 0.48316014, -7.654143e-08, 0.48316014, 0.875532, 4.22392e-08, 8.742278e-08, 0, -1, -5.8049393, 0.92331886, 25.148323)
+material_override = SubResource("StandardMaterial3D_jik7h")
+use_collision = true
+collision_layer = 4
+size = Vector3(0.9975586, 0.88342285, 2)
+
+[node name="interior13" type="CSGBox3D" parent="Start Location/Geometry" unique_id=1778408925]
+transform = Transform3D(-0.9999607, 0, 0.008866069, 0, 1, 0, -0.008866069, 0, -0.9999607, -6.664406, 0.7492466, 29.754948)
+material_override = SubResource("StandardMaterial3D_jik7h")
+use_collision = true
+collision_layer = 4
+size = Vector3(3.2512817, 0.5352783, 1.0467529)
+
+[node name="interior14" type="CSGBox3D" parent="Start Location/Geometry" unique_id=1028077613]
+transform = Transform3D(-0.9999607, 0, 0.008866069, 0, 1, 0, -0.008866069, 0, -0.9999607, -5.5989914, 1.6965351, 25.081978)
+material_override = SubResource("StandardMaterial3D_jik7h")
+use_collision = true
+collision_layer = 4
+size = Vector3(0.3775711, 2.4298553, 0.40530396)
+
+[node name="interior15" type="CSGBox3D" parent="Start Location/Geometry" unique_id=1084008578]
+transform = Transform3D(-0.9999607, 0, 0.008866069, -0.0022260281, 0.9679682, -0.25106287, -0.008582073, -0.25107273, -0.9679302, -5.060356, 2.938941, 25.760017)
+material_override = SubResource("StandardMaterial3D_jik7h")
+use_collision = true
+collision_layer = 4
+size = Vector3(1.4688797, 0.4507904, 1.9843903)
+
+[node name="kosz2" parent="Start Location/Geometry" unique_id=2118037873 instance=ExtResource("19_qcrui")]
+transform = Transform3D(0.30132917, 0, 0, 0, 0.25260645, 0, 0, 0, 0.3238361, 3.8843002, 0.47434032, 22.48515)
 
 [node name="Light" type="Node3D" parent="Start Location" unique_id=779494551]
 
@@ -606,8 +659,23 @@ size = Vector3(5, 5, 1)
 
 [node name="DoubleDoor" parent="Location12/Geometry" unique_id=366128883 instance=ExtResource("8_vcjj7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.777817, 2.425858, 3.8614159)
-move_distance = 0.2
 is_open_on_start = true
+
+[node name="Kurtyna" type="CSGBox3D" parent="Location12/Geometry" unique_id=1519005620]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.41198, 2.1443715, -2.7321224)
+size = Vector3(4.465454, 2.9658203, 0.2982788)
+
+[node name="Kurtyna2" type="CSGBox3D" parent="Location12/Geometry" unique_id=1465988676]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.411972, 2.1443715, 2.6840782)
+size = Vector3(4.465454, 2.9658203, 0.2982788)
+
+[node name="Kurtyna3" type="CSGBox3D" parent="Location12/Geometry" unique_id=1535390012]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.411972, 2.1443715, 7.9067535)
+size = Vector3(4.465454, 2.9658203, 0.2982788)
+
+[node name="Kurtyna4" type="CSGBox3D" parent="Location12/Geometry" unique_id=1127817944]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.411968, 2.1443715, 13.105179)
+size = Vector3(4.465454, 2.9658203, 0.2982788)
 
 [node name="Serums" type="Node3D" parent="Location12" unique_id=1258781746]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38609314, 0, -7.1479225)
@@ -657,6 +725,21 @@ light_indirect_energy = 4.081
 light_volumetric_fog_energy = 1.593
 light_specular = 0.473
 spot_range = 8.705
+
+[node name="Bed" parent="Location12" unique_id=1292152087 instance=ExtResource("29_8bsfy")]
+transform = Transform3D(0.765, 0, 0, 0, 0.765, 0, 0, 0, 0.765, -10.164913, 0.5328779, 0.2547512)
+
+[node name="Bed2" parent="Location12" unique_id=381056045 instance=ExtResource("29_8bsfy")]
+transform = Transform3D(0.765, 0, 0, 0, 0.765, 0, 0, 0, 0.765, -10.164909, 0.5328779, -5.26099)
+
+[node name="Bed3" parent="Location12" unique_id=367150125 instance=ExtResource("29_8bsfy")]
+transform = Transform3D(0.765, 0, 0, 0, 0.765, 0, 0, 0, 0.765, -10.164902, 0.5328779, 5.345125)
+
+[node name="Bed4" parent="Location12" unique_id=627491445 instance=ExtResource("29_8bsfy")]
+transform = Transform3D(0.765, 0, 0, 0, 0.765, 0, 0, 0, 0.765, -10.164902, 0.5328779, 10.700447)
+
+[node name="Bed5" parent="Location12" unique_id=808536824 instance=ExtResource("29_8bsfy")]
+transform = Transform3D(0.765, 0, 0, 0, 0.765, 0, 0, 0, 0.765, -10.164898, 0.5328779, 15.700172)
 
 [node name="Location3" type="Node3D" parent="." unique_id=383902323]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.642136, 0, -4.6783147)
@@ -1313,7 +1396,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.99998856, 0.7553714, -15.6
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.137535, 0.71621513, -2.3047457)
 
 [node name="Scene Note" parent="Location5" unique_id=1944761136 instance=ExtResource("25_sbrwg")]
-transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -21.517616, 0.49600005, -7.3732467)
+transform = Transform3D(0.08703425, -7.450581e-09, -0.99620533, 0.05119972, 0.99867845, 0.0044730976, 0.9948888, -0.051394746, 0.086919226, -21.517616, 0.57735556, -7.3732467)
 note_to_hold = ExtResource("24_8fi71")
 clue_to_gather = ExtResource("26_0plmr")
 
@@ -2799,7 +2882,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92.43784, 1.1121733, -2.2847
 note_to_hold = ExtResource("28_314lw")
 
 [node name="Scene Note2" parent="." unique_id=582625376 instance=ExtResource("25_sbrwg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.65049, 1.4074953, -35.15101)
+transform = Transform3D(-0.98985326, 0, 0.14209335, 0, 1, 0, -0.14209335, 0, -0.98985326, -86.65049, 1.4074953, -35.15101)
 note_to_hold = ExtResource("26_e7wky")
 clue_to_gather = ExtResource("27_p7nqx")
 
@@ -4017,6 +4100,17 @@ transform = Transform3D(1, 0, 0, 0, 1.0356107, 0, 0, 0, 0.928136, -5.874199, 0.1
 
 [node name="pólki3" parent="." unique_id=264835945 instance=ExtResource("68_e8688")]
 transform = Transform3D(-0.051967226, 0, -0.96067244, 0, 0.60989904, 0, 0.96390957, 0, -0.051792722, 17.556355, 0.46896052, -27.811174)
+
+[node name="Kaloryfer" parent="." unique_id=617290922 instance=ExtResource("66_reab3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.91153, 0.5150504, -41.84602)
+
+[node name="Kaloryfer2" parent="." unique_id=1014004649 instance=ExtResource("66_reab3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.91153, 0.5150504, -25.990984)
+
+[node name="Scene Note3" parent="." unique_id=1738485564 instance=ExtResource("25_sbrwg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.10817, 0.6686605, -26.609829)
+note_to_hold = ExtResource("66_reab3")
+clue_to_gather = ExtResource("67_e8688")
 
 [editable path="Location5/ShellNavRegion/Geometry/StaticBody3D"]
 [editable path="Location5/ShellNavRegion/Geometry/StaticBody3D2"]
