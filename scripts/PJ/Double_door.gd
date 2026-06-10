@@ -13,6 +13,7 @@ var isMoving: bool = false
 @export var is_door_locked: bool = false;
 @export var is_lift_door: bool = false;
 @export var lift_player_range: float = 5.0;
+@export var door_sound: AudioStreamPlayer3D;
 var lift_close_call_started: bool = false;
 @export var lift_door_close_event: EventBus.triggers = EventBus.triggers.None;
 # @export var is_final_door: bool = false;
@@ -71,6 +72,8 @@ func player_interact():
 
 func switch_open():
 	isMoving = true;
+	door_sound.play()
+	
 
 	var first_door_start_local_pos_z = first_door.position.z
 	var second_door_start_local_pos_z = second_door.position.z

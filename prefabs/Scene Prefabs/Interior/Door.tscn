@@ -3,17 +3,19 @@
 [ext_resource type="Script" uid="uid://c66vv1yiekulm" path="res://scripts/PJ/Interactable_movement.gd" id="1_poson"]
 [ext_resource type="Script" uid="uid://bt68h58dlhhgv" path="res://scripts/Valk/Tools/door_visuals.gd" id="2_82ivq"]
 [ext_resource type="Material" uid="uid://cios83odooucc" path="res://materials/drzwi_one.tres" id="3_ha8st"]
+[ext_resource type="AudioStream" uid="uid://ypgbnwiml2j" path="res://assets/sounds/doors.mp3" id="4_ha8st"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_82ivq"]
 size = Vector3(0.5, 3.5863495, 5.2976074)
 
 [sub_resource type="BoxMesh" id="BoxMesh_r2mki"]
 
-[node name="Door" type="StaticBody3D" unique_id=217114237]
+[node name="Door" type="StaticBody3D" unique_id=217114237 node_paths=PackedStringArray("door_sound")]
 collision_layer = 4
 collision_mask = 17
 script = ExtResource("1_poson")
 move_distance = 1.0
+door_sound = NodePath("DoorSound")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=649342185]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -26,3 +28,6 @@ material_override = ExtResource("3_ha8st")
 mesh = SubResource("BoxMesh_r2mki")
 skeleton = NodePath("../../../..")
 surface_material_override/0 = ExtResource("3_ha8st")
+
+[node name="DoorSound" type="AudioStreamPlayer3D" parent="." unique_id=696633967]
+stream = ExtResource("4_ha8st")
