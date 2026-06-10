@@ -7,6 +7,8 @@ class_name Shell_behaviour
 @export var disabled_on_start: bool = false;
 @export var stuck_return_timer: float = 2.0;
 @export var stuck_range_length: float = 0.01;
+@export var footstep_sound: AudioStreamPlayer3D
+@export var footstep_repeat_time: float
 
 @onready var nav_agent: NavigationAgent3D = $"NavigationAgent3D"
 
@@ -48,14 +50,22 @@ var last_position: Vector3;
 var stuck_timer: float = 0.0;
 var stuck_displacement: float = 0.0;
 
+var current_sound_time: float
+
 func _ready() -> void:
 	add_to_group("Shell");
 	if(disabled_on_start): disable();
 	last_position = global_position;
+	#current_sound_time = (na ten czas pomiędzy krokami)
 
 func _process(delta: float) -> void:
 	if(disabled): return;
 	Check_conditions(delta)
+	if state_machine.nav_agent.move_speed >= 1:
+		current_sound_time -= delta
+		if current_sound_time <= 0:
+			footstep_sound.play()
+			current_sound_time = footstep_repeat_time
 
 func disable():
 	visible = false;
