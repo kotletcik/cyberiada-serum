@@ -1,7 +1,6 @@
 extends CharacterBody3D
 class_name PlayerController
 
-
 @export var start_pos: = []
 @export var move_speed = SOBER_WALK_SPEED # bazowa prędkość ruchu
 
