@@ -27,7 +27,6 @@
 [ext_resource type="PackedScene" uid="uid://bbdr5l71yrkwb" path="res://assets/models/kosz.glb" id="19_qcrui"]
 [ext_resource type="PackedScene" uid="uid://bkchxldix2dc7" path="res://assets/models/kaloryfer.glb" id="20_ih6r1"]
 [ext_resource type="Resource" uid="uid://beopfd6yqk0so" path="res://resources/thoughts/shell/use_serum.tres" id="20_j12l6"]
-[ext_resource type="Material" uid="uid://b0o6ouiin0ag8" path="res://materials/beton.tres" id="20_scj3o"]
 [ext_resource type="Resource" uid="uid://chbvik850k7tu" path="res://resources/thoughts/shell/kamien.tres" id="21_eqt5g"]
 [ext_resource type="Resource" uid="uid://0clrfc6yrxg1" path="res://resources/notes/smierc.tres" id="24_8fi71"]
 [ext_resource type="PackedScene" uid="uid://clg0uguj2n21v" path="res://prefabs/Scene Prefabs/scene_note.tscn" id="25_sbrwg"]
@@ -246,7 +245,7 @@ size = Vector3(22.458408, 5.258362, 17.792803)
 script = ExtResource("1_xanii")
 
 [node name="Player" parent="." unique_id=2039338456 instance=ExtResource("1_ahihw")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -76.89672, 1.3059216, 0.869225)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -86.52023, 1.3059216, -37.147236)
 SOBER_WALK_SPEED = 6.9
 CROUCH_SPEED_MULTIPLIER = 0.3
 crouching_noise_volume = 1.5
@@ -1077,7 +1076,7 @@ navigation_mesh = SubResource("NavigationMesh_eqt5g")
 transform = Transform3D(-4.3711395e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711395e-08, 9.729862, 2.479858, -0.918025)
 
 [node name="CorridorFloor" type="CSGBox3D" parent="Location5/ShellNavRegion" unique_id=645064917]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11353874, 8.428502)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0009422302, 0.11511183, 8.423383)
 material_override = SubResource("ShaderMaterial_wh1og")
 use_collision = true
 collision_layer = 2
@@ -1108,15 +1107,15 @@ collision_layer = 4
 size = Vector3(5.0625, 5, 1)
 
 [node name="wall3" type="CSGBox3D" parent="Location5/ShellNavRegion/Geometry" unique_id=584167521]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03426361, 2, -40.59563)
-material_override = ExtResource("20_scj3o")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0475235, 1.9884567, -40.595497)
+material_override = SubResource("ShaderMaterial_reab3")
 use_collision = true
 collision_layer = 4
 size = Vector3(10.236816, 5, 1)
 
 [node name="wall20" type="CSGBox3D" parent="Location5/ShellNavRegion/Geometry" unique_id=1842712867]
 transform = Transform3D(-4.3711395e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711395e-08, 1.5168228, 2, -42.531548)
-material_override = ExtResource("20_scj3o")
+material_override = SubResource("ShaderMaterial_reab3")
 use_collision = true
 collision_layer = 4
 size = Vector3(6.36499, 5, 1)
@@ -2799,7 +2798,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92.43784, 1.1121733, -2.2847
 note_to_hold = ExtResource("28_314lw")
 
 [node name="Scene Note2" parent="." unique_id=582625376 instance=ExtResource("25_sbrwg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.74183, 1.4227071, -35.413673)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.65049, 1.4074953, -35.15101)
 note_to_hold = ExtResource("26_e7wky")
 clue_to_gather = ExtResource("27_p7nqx")
 
