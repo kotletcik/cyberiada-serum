@@ -36,6 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://bg62wg4jydsyj" path="res://textures/beton/beton_orm.png" id="27_8bsfy"]
 [ext_resource type="Resource" uid="uid://dt7dtcb4bds7m" path="res://resources/thoughts/wakeup/watch.tres" id="27_p7nqx"]
 [ext_resource type="Resource" uid="uid://inlb87ae3v2h" path="res://resources/notes/test_not.tres" id="28_314lw"]
+[ext_resource type="PackedScene" uid="uid://d2oavkjmyps2c" path="res://prefabs/Scene Prefabs/Interior/Bed.tscn" id="29_8bsfy"]
 [ext_resource type="Material" uid="uid://cmri8y4naac10" path="res://materials/metal_z_wypukloscami.tres" id="29_gbmb2"]
 [ext_resource type="Resource" uid="uid://cpshgebigpcom" path="res://resources/thoughts/wakeup/wakeup.tres" id="29_p7nqx"]
 [ext_resource type="Material" uid="uid://boblir86ikxs1" path="res://materials/plytki_metalowe_z_wypuklosciami.tres" id="30_ba0om"]
@@ -64,7 +65,6 @@
 [ext_resource type="PackedScene" uid="uid://dyaq4kxu6uw2w" path="res://assets/models/RamkaA4.glb" id="63_7e274"]
 [ext_resource type="PackedScene" uid="uid://5qq71hbote7v" path="res://assets/models/BED.glb" id="64_8bsfy"]
 [ext_resource type="PackedScene" uid="uid://biv21pm0dcslu" path="res://assets/models/pólki2.glb" id="66_8bsfy"]
-[ext_resource type="PackedScene" uid="uid://bfjb44ev16w5x" path="res://assets/models/Łóżko.glb" id="66_reab3"]
 [ext_resource type="PackedScene" uid="uid://bwn823crhyywa" path="res://assets/models/pólki1.glb" id="68_e8688"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13hkq"]
@@ -674,20 +674,20 @@ light_volumetric_fog_energy = 1.593
 light_specular = 0.473
 spot_range = 8.705
 
-[node name="Łóżko" parent="Location12" unique_id=1269110062 instance=ExtResource("66_reab3")]
-transform = Transform3D(-2.02, 0, -2.4080276e-07, 0, 2.02, 0, 2.4080276e-07, 0, -2.02, -10.01062, 0.72279453, 5.168108)
+[node name="Bed" parent="Location12" unique_id=1292152087 instance=ExtResource("29_8bsfy")]
+transform = Transform3D(0.765, 0, 0, 0, 0.765, 0, 0, 0, 0.765, -10.164913, 0.5328779, 0.2547512)
 
-[node name="Łóżko2" parent="Location12" unique_id=179483373 instance=ExtResource("66_reab3")]
-transform = Transform3D(-2.02, 0, -2.4080276e-07, 0, 2.02, 0, 2.4080276e-07, 0, -2.02, -10.010616, 0.72279453, -0.58296776)
+[node name="Bed2" parent="Location12" unique_id=381056045 instance=ExtResource("29_8bsfy")]
+transform = Transform3D(0.765, 0, 0, 0, 0.765, 0, 0, 0, 0.765, -10.164909, 0.5328779, -5.26099)
 
-[node name="Łóżko3" parent="Location12" unique_id=1131729366 instance=ExtResource("66_reab3")]
-transform = Transform3D(-2.02, 0, -2.4080276e-07, 0, 2.02, 0, 2.4080276e-07, 0, -2.02, -10.0106125, 0.72279453, -5.109995)
+[node name="Bed3" parent="Location12" unique_id=367150125 instance=ExtResource("29_8bsfy")]
+transform = Transform3D(0.765, 0, 0, 0, 0.765, 0, 0, 0, 0.765, -10.164902, 0.5328779, 5.345125)
 
-[node name="Łóżko4" parent="Location12" unique_id=984551429 instance=ExtResource("66_reab3")]
-transform = Transform3D(-2.02, 0, -2.4080276e-07, 0, 2.02, 0, 2.4080276e-07, 0, -2.02, -10.010609, 0.72279453, 11.190258)
+[node name="Bed4" parent="Location12" unique_id=627491445 instance=ExtResource("29_8bsfy")]
+transform = Transform3D(0.765, 0, 0, 0, 0.765, 0, 0, 0, 0.765, -10.164902, 0.5328779, 10.700447)
 
-[node name="Łóżko5" parent="Location12" unique_id=1194686960 instance=ExtResource("66_reab3")]
-transform = Transform3D(-2.02, 0, -2.4080276e-07, 0, 2.02, 0, 2.4080276e-07, 0, -2.02, -10.010605, 0.72279453, 15.725739)
+[node name="Bed5" parent="Location12" unique_id=808536824 instance=ExtResource("29_8bsfy")]
+transform = Transform3D(0.765, 0, 0, 0, 0.765, 0, 0, 0, 0.765, -10.164898, 0.5328779, 15.700172)
 
 [node name="Location3" type="Node3D" parent="." unique_id=383902323]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.642136, 0, -4.6783147)
