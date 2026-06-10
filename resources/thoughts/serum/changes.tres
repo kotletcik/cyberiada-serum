@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Clue" format=3 uid="uid://c4862r6c8lf7v"]
+
+[ext_resource type="Script" uid="uid://q760mct2evav" path="res://scripts/Valk/Resource Types/clue.gd" id="1_fu1hq"]
+
+[resource]
+script = ExtResource("1_fu1hq")
+name = "Zmiany..."
+description = "Może nie wszyscy pacjenci czuli się świetnie po zabiegu."
+metadata/_custom_type_script = "uid://q760mct2evav"
