@@ -12,8 +12,8 @@ class_name Shell_behaviour
 
 @onready var nav_agent: NavigationAgent3D = $"NavigationAgent3D"
 
-# @export_group("follow_player")
-# @export var follow_state_duration:= 5.0
+@export_group("follow_player")
+@export var follow_player_through_walls_duration:= 5.0
 
 @export_group("searching_player")
 @export var searching_time: float = 5.0
@@ -22,7 +22,6 @@ class_name Shell_behaviour
 
 @export_group("follow_sound")
 @export var follow_sound_state_duration:= 10.0
-# @export var sound_target: Node3D
 @export var hearing_range := 10.0
 
 @export_group("wander")
@@ -38,7 +37,6 @@ class_name Shell_behaviour
 
 @export_group ("attack")
 @export var attack_timer: = 3.0
-# var attack_target: Node3D
 
 var is_screaming = false
 var is_attacking = false
@@ -99,12 +97,14 @@ func Check_conditions(delta: float) -> void:
 			if ((self.global_position) - (GameManager.instance.player.global_position)).length() <= attack_range:
 				change_state_by_name(State.types.Attack)
 				return;
-			# if timer > 0:
-			# 	timer -= delta
-			elif(!is_player_in_sight || !is_player_on_region || PsycheManager.instance.invisibility_timer > 0):
-				change_state_by_name(State.types.Searching)
-			# else:
-			# 	change_state_by_name(State.types.Searching)
+			if(!is_player_on_region || PsycheManager.instance.invisibility_timer > 0):
+				change_state_by_name(State.types.Searching);
+				return;
+			if(!is_player_in_sight):
+				if timer > 0:
+					timer -= delta
+				else:
+					change_state_by_name(State.types.Searching)
 		State.types.Searching:
 			timer -= delta
 			if timer > 0:
@@ -119,7 +119,7 @@ func Check_conditions(delta: float) -> void:
 			if (is_player_in_sight && is_player_on_region):
 				if (PsycheManager.instance.invisibility_timer <= 0): 
 					change_state_by_name(State.types.Scream); return;
-			elif (distance.length() < 1.5):
+			elif (distance.length() < searching_radius):
 				change_state_by_name(State.types.Searching); return;
 
 			timer -= delta
@@ -176,6 +176,7 @@ func connect_sound_to_state(state: int) -> bool:
 
 func get_state_default_timer(state: int) -> float:
 	match state:
+		State.types.Follow_player: return follow_player_through_walls_duration;
 		State.types.Searching: return searching_time;
 		State.types.Wander: return wander_time;
 		State.types.Follow_sound: return follow_sound_state_duration;

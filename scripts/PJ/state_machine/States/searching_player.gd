@@ -23,6 +23,7 @@ func Enter():
 	searching_area_center = state_machine.mob.global_position
 	searching_point_change_time = state_machine.behaviour.searching_point_change_time
 	searching_radius = state_machine.behaviour.searching_radius 
+	searching_point_timer = searching_point_change_time
 
 	randomize_searching_point()
 

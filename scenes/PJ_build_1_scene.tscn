@@ -135,8 +135,8 @@ agent_radius = 1.0
 size = Vector3(0.5, 3.9634361, 2.8554077)
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_m1rxk"]
-vertices = PackedVector3Array(-5.25, 1, -6.256919, -4.25, 1, -6.256919, -4.25, 1, -7.756919, -6, 1, -5.506919, -9, 1, -7.756919, -9, 1, 0.2430811, -6, 1, 0.2430811, -3.5, 1, -6.256919, -2.75, 1, -0.006918907, -1, 1, 0.2430811, -1, 1, -0.5069189, -2.75, 1, -5.506919, -0.25, 1, -1.2569189, 3.25, 1, -7.756919, 1.5, 1, -1.2569189, 2.25, 1, -0.5069189, 2.25, 1, 7.993081, 3.25, 1, 7.993081, 8, 1, -5.256919, 8, 1, -7.756919, 6.5, 1, -7.756919, 6.75, 1, -4.506919, 6.25, 1, 4.493081, 6.75, 1, 7.993081, -3.5, 1, 1.2430811, -1, 1, 7.993081, -5.25, 1, 1.2430811, -9, 1, 7.993081)
-polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(0, 3, 2), PackedInt32Array(2, 3, 4), PackedInt32Array(6, 5, 3), PackedInt32Array(3, 5, 4), PackedInt32Array(7, 1, 2), PackedInt32Array(10, 9, 8), PackedInt32Array(11, 7, 2), PackedInt32Array(10, 8, 12), PackedInt32Array(12, 8, 11), PackedInt32Array(15, 14, 13), PackedInt32Array(14, 12, 11), PackedInt32Array(2, 13, 11), PackedInt32Array(11, 13, 14), PackedInt32Array(16, 15, 17), PackedInt32Array(17, 15, 13), PackedInt32Array(19, 18, 20), PackedInt32Array(20, 18, 21), PackedInt32Array(20, 21, 22), PackedInt32Array(22, 21, 23), PackedInt32Array(8, 9, 24), PackedInt32Array(24, 9, 25), PackedInt32Array(6, 26, 5), PackedInt32Array(5, 26, 27), PackedInt32Array(24, 25, 26), PackedInt32Array(26, 25, 27)]
+vertices = PackedVector3Array(-5.25, 1, -6.256919, -4.25, 1, -6.256919, -4.25, 1, -7.756919, -6, 1, -5.506919, -9, 1, -7.756919, -9, 1, 0.2430811, -6, 1, 0.2430811, 2.25, 1, 7.993081, 3.25, 1, 7.993081, 3.25, 1, 6.743081, -3.5, 1, -6.256919, -2.75, 1, -0.006918907, -1, 1, 0.2430811, -1, 1, -0.5069189, -2.75, 1, -5.506919, -0.25, 1, -1.2569189, 8, 1, -5.256919, 8, 1, -7.756919, 6.5, 1, -7.756919, 6.75, 1, -4.506919, 5.75, 1, 5.993081, 6.5, 1, 6.743081, 6.5, 1, 4.493081, 5.75, 1, 5.243081, 4, 1, 5.243081, 4, 1, 5.993081, 1.5, 1, -1.2569189, 3.25, 1, -7.756919, 6.75, 1, 7.993081, 2.25, 1, -0.5069189, 3.25, 1, 4.493081, -3.5, 1, 1.2430811, -1, 1, 7.993081, -5.25, 1, 1.2430811, -9, 1, 7.993081)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(0, 3, 2), PackedInt32Array(2, 3, 4), PackedInt32Array(6, 5, 3), PackedInt32Array(3, 5, 4), PackedInt32Array(9, 8, 7), PackedInt32Array(10, 1, 2), PackedInt32Array(13, 12, 11), PackedInt32Array(14, 10, 2), PackedInt32Array(13, 11, 15), PackedInt32Array(15, 11, 14), PackedInt32Array(17, 16, 18), PackedInt32Array(18, 16, 19), PackedInt32Array(23, 22, 20), PackedInt32Array(20, 22, 21), PackedInt32Array(20, 25, 23), PackedInt32Array(23, 25, 24), PackedInt32Array(26, 15, 14), PackedInt32Array(2, 27, 14), PackedInt32Array(14, 27, 26), PackedInt32Array(28, 21, 22), PackedInt32Array(9, 7, 30), PackedInt32Array(30, 7, 29), PackedInt32Array(29, 26, 27), PackedInt32Array(29, 27, 30), PackedInt32Array(18, 19, 22), PackedInt32Array(22, 19, 28), PackedInt32Array(25, 9, 24), PackedInt32Array(24, 9, 30), PackedInt32Array(11, 12, 31), PackedInt32Array(31, 12, 32), PackedInt32Array(6, 33, 5), PackedInt32Array(5, 33, 34), PackedInt32Array(31, 32, 33), PackedInt32Array(33, 32, 34)]
 geometry_parsed_geometry_type = 1
 agent_radius = 1.0
 
@@ -1382,6 +1382,7 @@ hearing_range = 32.0
 wander_time = 1.0
 patrol_time = 0.0
 patrol_points = [NodePath("../Patrol Points/Patrol Point 1"), NodePath("../Patrol Points/Patrol Point 2"), NodePath("../Patrol Points/Patrol Point 3")]
+player_sight_fov = 135.0
 
 [node name="Patrol Points" type="Node3D" parent="Location5" unique_id=750402056]
 
@@ -1953,7 +1954,7 @@ size = Vector3(14.119766, 5, 1)
 
 [node name="Door" parent="Location9/ShellNavRegion" unique_id=443912009 instance=ExtResource("10_vcjj7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.868557, 2.2790785, 5.64112)
-move_distance = 2.0
+move_distance = 2.5
 
 [node name="CollisionShape3D" parent="Location9/ShellNavRegion/Door" index="0" unique_id=649342185]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04329729, 0.01638794)
