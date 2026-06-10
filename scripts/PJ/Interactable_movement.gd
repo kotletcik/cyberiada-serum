@@ -6,6 +6,7 @@ var isMoving: bool = false
 @export var switch_open_direction = false 
 @export var move_distance:= 2.0
 @export var move_duration:= 0.5
+@export var door_sound: AudioStreamPlayer3D;
 @onready var nav_region: NavigationRegion3D = get_parent() as NavigationRegion3D
 
 func _ready() -> void:
@@ -19,6 +20,7 @@ func player_interact():
 
 func switch_open():
 	isMoving = true
+	door_sound.play()
 
 	var start_pos = global_position
 	var end_pos = global_position + transform.basis.z * move_distance if !isOpened else global_position - transform.basis.z * move_distance;
