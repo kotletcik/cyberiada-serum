@@ -1,17 +1,31 @@
-extends Behaviour
+extends CharacterBody3D
 class_name Shell_behaviour
 
-@export var debug_index: int = 0;
-@export var test_mode:= false
+@export var test_mode := false
 @export var animator: AnimationPlayer
 @export var disabled_on_start: bool = false;
 @export var stuck_return_timer: float = 2.0;
 @export var stuck_range_length: float = 0.01;
+@export var footstep_sound: AudioStreamPlayer3D
+@export var footstep_repeat_time: float
 
 @onready var nav_agent: NavigationAgent3D = $"NavigationAgent3D"
 
-# @export_group("follow_player")
-# @export var follow_state_duration:= 5.0
+@export var state_machine: State_machine
+@export_group("general")
+@export var player_sight_fov: float = 180
+@export var player_sight_range: float = 2
+@export var attack_range: float = 1
+@export var walls_layer: int
+
+var timer: float
+
+@export var disable_fov_check: bool = false;
+
+var dot: float = 0;
+
+@export_group("follow_player")
+@export var follow_player_through_walls_duration:= 5.0
 
 @export_group("searching_player")
 @export var searching_time: float = 5.0
@@ -20,7 +34,6 @@ class_name Shell_behaviour
 
 @export_group("follow_sound")
 @export var follow_sound_state_duration:= 10.0
-# @export var sound_target: Node3D
 @export var hearing_range := 10.0
 
 @export_group("wander")
@@ -36,7 +49,6 @@ class_name Shell_behaviour
 
 @export_group ("attack")
 @export var attack_timer: = 3.0
-# var attack_target: Node3D
 
 var is_screaming = false
 var is_attacking = false
@@ -48,14 +60,22 @@ var last_position: Vector3;
 var stuck_timer: float = 0.0;
 var stuck_displacement: float = 0.0;
 
+var current_sound_time: float
+
 func _ready() -> void:
 	add_to_group("Shell");
 	if(disabled_on_start): disable();
 	last_position = global_position;
+	#current_sound_time = (na ten czas pomiędzy krokami)
 
 func _process(delta: float) -> void:
 	if(disabled): return;
 	Check_conditions(delta)
+	if state_machine.nav_agent.move_speed >= 1:
+		current_sound_time -= delta
+		if current_sound_time <= 0:
+			footstep_sound.play()
+			current_sound_time = footstep_repeat_time
 
 func disable():
 	visible = false;
@@ -89,12 +109,14 @@ func Check_conditions(delta: float) -> void:
 			if ((self.global_position) - (GameManager.instance.player.global_position)).length() <= attack_range:
 				change_state_by_name(State.types.Attack)
 				return;
-			# if timer > 0:
-			# 	timer -= delta
-			elif(!is_player_in_sight || !is_player_on_region || PsycheManager.instance.invisibility_timer > 0):
-				change_state_by_name(State.types.Searching)
-			# else:
-			# 	change_state_by_name(State.types.Searching)
+			if(!is_player_on_region || PsycheManager.instance.invisibility_timer > 0):
+				change_state_by_name(State.types.Searching);
+				return;
+			if(!is_player_in_sight):
+				if timer > 0:
+					timer -= delta
+				else:
+					change_state_by_name(State.types.Searching)
 		State.types.Searching:
 			timer -= delta
 			if timer > 0:
@@ -109,7 +131,7 @@ func Check_conditions(delta: float) -> void:
 			if (is_player_in_sight && is_player_on_region):
 				if (PsycheManager.instance.invisibility_timer <= 0): 
 					change_state_by_name(State.types.Scream); return;
-			elif (distance.length() < 1.5):
+			elif (distance.length() < searching_radius):
 				change_state_by_name(State.types.Searching); return;
 
 			timer -= delta
@@ -166,6 +188,7 @@ func connect_sound_to_state(state: int) -> bool:
 
 func get_state_default_timer(state: int) -> float:
 	match state:
+		State.types.Follow_player: return follow_player_through_walls_duration;
 		State.types.Searching: return searching_time;
 		State.types.Wander: return wander_time;
 		State.types.Follow_sound: return follow_sound_state_duration;
@@ -181,7 +204,6 @@ func Enter_state(state: int):
 	timer = get_state_default_timer(state);
 	match state:
 		State.types.Scream:
-			print("Shell " + str(debug_index) + " switched to scream");
 			is_screaming = true;
 		State.types.Attack:
 			is_attacking = true;
@@ -206,18 +228,14 @@ func is_player_in_sight() -> bool:
 	var player_in_local: Vector3 = GameManager.instance.player.global_position - self.global_position;
 	var direction = player_in_local.normalized();
 	dot = self.global_basis.z.dot(direction);
-	if(test_mode): 
-		# print(player_in_local);
-		DebugDraw3D.draw_line(global_position, global_position + direction * player_sight_range, Color.RED);
-	if(player_in_local.length() > player_sight_range): return false;
-	if(dot < 1-(player_sight_fov/180)): #if(dot > (cos(deg_to_rad(player_sight_fov)/2))):
+
+	if(dot < (player_sight_fov/180)-1): 
 		if (PsycheManager.instance.invisibility_timer > 0): return false;
 		var query = PhysicsRayQueryParameters3D.create(global_position, global_position + direction * player_sight_range);
 		var space_state = self.get_world_3d().direct_space_state
 		var result = space_state.intersect_ray(query);
 		if(!result.is_empty()):
-			# print(result["collider"]);
-			if result["collider"] is CharacterBody3D:
+			if(result["collider"] is PlayerController):
 				return true;
 	return false;
 

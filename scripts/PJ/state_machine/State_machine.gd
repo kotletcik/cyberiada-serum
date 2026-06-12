@@ -6,7 +6,7 @@ class_name State_machine
 @export var mob: CharacterBody3D
 @export var nav_agent: EnemyMovement
 
-@onready var behaviour: Behaviour = $"../"
+@onready var behaviour: Shell_behaviour = $"../"
 
 var current_state : State
 # key = "nazwa": string, value = state: State

@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cqmv7mxht6o6m" path="res://prefabs/gpu_particles_3d.tscn" id="8_6f62q"]
 [ext_resource type="Script" uid="uid://b7ydidx4polw6" path="res://scripts/Valk/shell_disappearance.gd" id="9_jt8f1"]
 [ext_resource type="AudioStream" uid="uid://bm4f7msuu0sgn" path="res://assets/sounds/screaming.mp3" id="16_gs4m8"]
+[ext_resource type="AudioStream" uid="uid://dw3p28ug7xoyi" path="res://assets/sounds/krok.WAV" id="18_ranhc"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rsf4w"]
 animation = &"Rig_Large_CombatMelee/Melee_2H_Slam"
@@ -72,16 +73,19 @@ albedo_color = Color(0.27935672, 0.27935672, 0.27935672, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_raqt8"]
 size = Vector3(0.4, 0.2, 0.2)
 
-[node name="Shell" type="CharacterBody3D" unique_id=2079833793 node_paths=PackedStringArray("animator", "state_machine") groups=["Shell"]]
+[node name="Shell" type="CharacterBody3D" unique_id=2079833793 node_paths=PackedStringArray("animator", "footstep_sound", "state_machine") groups=["Shell"]]
 collision_layer = 8
 collision_mask = 7
 script = ExtResource("6_raqt8")
 animator = NodePath("shell_boned_flipped/AnimationPlayer")
 stuck_range_length = 0.001
-scream_time = 1.0
+footstep_sound = NodePath("FootstepSound")
+footstep_repeat_time = 1.0
 state_machine = NodePath("State_machine")
+player_sight_fov = 105.0
 player_sight_range = 16.0
 attack_range = 1.1
+scream_time = 1.0
 
 [node name="shell_boned_flipped" parent="." unique_id=62765794 instance=ExtResource("2_7805i")]
 transform = Transform3D(-0.14, 0, -1.2239188e-08, 0, 0.14, 0, 1.2239188e-08, 0, -0.14, 0, -1, 0)
@@ -168,16 +172,10 @@ metadata/_custom_type_script = "uid://foywhiftl87x"
 
 [node name="Scream" type="Node" parent="State_machine" unique_id=1485384955 node_paths=PackedStringArray("screaming_sound")]
 script = ExtResource("7_lqxc7")
-screaming_sound = NodePath("ScreamingSound")
+screaming_sound = NodePath("../../ScreamingSound")
 move_speed = 0.1
 state_type = 7
 metadata/_custom_type_script = "uid://foywhiftl87x"
-
-[node name="ScreamingSound" type="AudioStreamPlayer3D" parent="State_machine/Scream" unique_id=426780992]
-stream = ExtResource("16_gs4m8")
-volume_db = 10.0
-max_db = 6.0
-bus = &"SFX"
 
 [node name="Eyes" type="MeshInstance3D" parent="." unique_id=1218871193]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4183241, -0.47043222)
@@ -189,5 +187,16 @@ visible = false
 
 [node name="GPUParticles3D" parent="." unique_id=207648955 instance=ExtResource("8_6f62q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95233065, 0)
+
+[node name="ScreamingSound" type="AudioStreamPlayer3D" parent="." unique_id=426780992]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.66066647, 0)
+stream = ExtResource("16_gs4m8")
+volume_db = -12.0
+unit_size = 8.0
+max_db = 6.0
+bus = &"SFX"
+
+[node name="FootstepSound" type="AudioStreamPlayer3D" parent="." unique_id=211702565]
+stream = ExtResource("18_ranhc")
 
 [editable path="State_machine"]
