@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Note" format=3 uid="uid://dk27c4hn77lta"]
+
+[ext_resource type="Script" uid="uid://db4xf6hpks04h" path="res://scripts/Valk/Resource Types/note.gd" id="1_vea1o"]
+
+[resource]
+script = ExtResource("1_vea1o")
+title = "List od przyjaciółki"
+content = "Kochana Lucy,
+Mam nadzieję, że wszystko pójdzie dobrze z twoją operacją. Pytałaś się jak ten mój nowy krem z BrightestFace’a i powiem ci, że szału nie ma. Chyba znowu dałam się zwieść temu zdjęciu na opakowaniu. Te dziewczyny są takie hipnotyzujące. Chciałabym tak wyglądać. 
+Ale wracając myślę, że krem tu nic nie pomoże i serum jest jedynym rozwiązaniem. Tobie w sumie też przydałaby się druga dawka.
+Twoja Betty XOXO
+"
+metadata/_custom_type_script = "uid://db4xf6hpks04h"

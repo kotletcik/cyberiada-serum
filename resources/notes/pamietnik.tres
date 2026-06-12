@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Note" format=3 uid="uid://bdo7ydx1r8lqo"]
+
+[ext_resource type="Script" uid="uid://db4xf6hpks04h" path="res://scripts/Valk/Resource Types/note.gd" id="1_b2vve"]
+
+[resource]
+script = ExtResource("1_b2vve")
+title = "Pamiętnik Betty"
+content = "8 września …
+To mój drugi dzień bycia piękną. Jestem taka szczęśliwa, że w końcu będę mogła wyjść bez wstydu na ulicę. Czuje się idealnie, ale jednak czegoś mi brakuje. Wciąż nie mogę pozbyć się wrażenia, że potrzebuje więcej tej tajemniczej substancji. Może uda mi się jej trochę wykraść, gdy pielęgniarka nie będzie patrzeć…
+Oprócz tego odgłosy z laboratorium na dole nie dają mi cały czas spać. Co oni tam trzymają?
+"
+metadata/_custom_type_script = "uid://db4xf6hpks04h"

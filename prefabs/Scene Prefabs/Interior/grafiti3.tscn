@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bvg2ykawllffl"]
+
+[ext_resource type="Texture2D" uid="uid://bw5qwfcwc7skc" path="res://textures/sciana_malunek_lub_maziaja_lub_grafiti_lub_grafika_lub_ogolnie_czerwone.png" id="1_8l5q5"]
+
+[node name="Grafiti3" type="Node3D" unique_id=2133369301]
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1687172272]
+texture = ExtResource("1_8l5q5")

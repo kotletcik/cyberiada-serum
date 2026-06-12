@@ -47,10 +47,12 @@
 [ext_resource type="Resource" uid="uid://bkesovt6cdtmu" path="res://resources/thoughts/serum/death2.tres" id="36_e8688"]
 [ext_resource type="PackedScene" uid="uid://cwpnmj2jjqjcg" path="res://prefabs/triggers/checkpoint_trigger.tscn" id="37_l3ixd"]
 [ext_resource type="PackedScene" uid="uid://disyay20hbkli" path="res://assets/models/Pudełko otwarte.fbx" id="40_jumma"]
+[ext_resource type="Resource" uid="uid://4e273iisukxh" path="res://resources/notes/liścik.tres" id="40_v38j0"]
 [ext_resource type="PackedScene" uid="uid://fy3m0tlxgfik" path="res://prefabs/Scene Prefabs/Interior/emergency_button.tscn" id="42_xmgvw"]
 [ext_resource type="PackedScene" uid="uid://dp8ptyamp3mvi" path="res://prefabs/Scene Prefabs/Interior/Transformator.tscn" id="43_ba0om"]
-[ext_resource type="Resource" uid="uid://dxcllb7sdw7cc" path="res://resources/notes/level2_test.tres" id="44_7e274"]
+[ext_resource type="Resource" uid="uid://dxcllb7sdw7cc" path="res://resources/notes/ostrzezenie.tres" id="44_7e274"]
 [ext_resource type="Resource" uid="uid://eig46fvsxk75" path="res://resources/thoughts/test/level2_lift.tres" id="45_8bsfy"]
+[ext_resource type="Resource" uid="uid://bdo7ydx1r8lqo" path="res://resources/notes/pamietnik.tres" id="48_5xlmm"]
 [ext_resource type="Resource" uid="uid://c5htpauyhlw8p" path="res://resources/thoughts/shell/traktowanie_shelli.tres" id="50_4cabd"]
 [ext_resource type="Texture2D" uid="uid://c42se58kbsb47" path="res://textures/IMG_0455.jpg" id="50_cidjx"]
 [ext_resource type="Material" uid="uid://bxil1tlgw2u1m" path="res://materials/korek.tres" id="51_r8wc8"]
@@ -65,12 +67,14 @@
 [ext_resource type="PackedScene" uid="uid://dyaq4kxu6uw2w" path="res://assets/models/RamkaA4.glb" id="63_7e274"]
 [ext_resource type="PackedScene" uid="uid://5qq71hbote7v" path="res://assets/models/BED.glb" id="64_8bsfy"]
 [ext_resource type="PackedScene" uid="uid://biv21pm0dcslu" path="res://assets/models/pólki2.glb" id="66_8bsfy"]
-[ext_resource type="PackedScene" uid="uid://bfjb44ev16w5x" path="res://assets/models/Łóżko.glb" id="66_reab3"]
 [ext_resource type="Resource" uid="uid://dprs3dalqojdh" path="res://resources/notes/nadzor.tres" id="67_4cabd"]
 [ext_resource type="Resource" uid="uid://c4862r6c8lf7v" path="res://resources/thoughts/serum/changes.tres" id="67_e8688"]
 [ext_resource type="PackedScene" uid="uid://bwn823crhyywa" path="res://assets/models/pólki1.glb" id="68_e8688"]
 [ext_resource type="Resource" uid="uid://d2q0pmn06limm" path="res://resources/notes/dokument_1.tres" id="70_ih6r1"]
 [ext_resource type="Resource" uid="uid://kownxk75ls1t" path="res://resources/thoughts/serum/bagatelizacja.tres" id="71_ih6r1"]
+[ext_resource type="PackedScene" uid="uid://dg6bln1u574dc" path="res://prefabs/Scene Prefabs/Interior/Kaloryfer.tscn" id="72_365f3"]
+[ext_resource type="Resource" uid="uid://dk27c4hn77lta" path="res://resources/notes/list_od_przyjaciolki.tres" id="73_5xlmm"]
+[ext_resource type="PackedScene" uid="uid://c24njyatqr7nw" path="res://prefabs/Scene Prefabs/Interior/poster.tscn" id="75_gu5uv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13hkq"]
 albedo_color = Color(0.27450982, 0.27450982, 0.27450982, 1)
@@ -251,7 +255,7 @@ size = Vector3(22.458408, 5.258362, 17.792803)
 script = ExtResource("1_xanii")
 
 [node name="Player" parent="." unique_id=2039338456 instance=ExtResource("1_ahihw")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -77.08996, 1.3059216, -7.4412165)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -91.08249, 1.3059216, -40.31132)
 SOBER_WALK_SPEED = 6.9
 CROUCH_SPEED_MULTIPLIER = 0.3
 crouching_noise_volume = 1.5
@@ -1702,6 +1706,10 @@ use_collision = true
 collision_layer = 4
 size = Vector3(2.9990845, 0.22496033, 1)
 
+[node name="Scene Note" parent="Location7/ShellNavRegion" unique_id=811657686 instance=ExtResource("25_sbrwg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.74983, 0.47780576, 11.939444)
+note_to_hold = ExtResource("40_v38j0")
+
 [node name="ShellPatrolPoints" type="Node3D" parent="Location7" unique_id=129370278]
 
 [node name="PatrolPoint1" parent="Location7/ShellPatrolPoints" unique_id=1812035498 instance=ExtResource("12_uyulh")]
@@ -2846,9 +2854,13 @@ collision_layer = 4
 size = Vector3(7.533465, 5, 1)
 
 [node name="Scene Note" parent="Location14/ShellNavRegion" unique_id=1656860083 instance=ExtResource("25_sbrwg")]
-transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -1.8253174, -0.36103582, 12.746229)
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -3.1208115, -0.28368592, 12.999525)
 note_to_hold = ExtResource("44_7e274")
 clue_to_gather = ExtResource("45_8bsfy")
+
+[node name="Scene Note2" parent="Location14/ShellNavRegion" unique_id=1434423498 instance=ExtResource("25_sbrwg")]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -9.825173, -0.3880396, -18.668608)
+note_to_hold = ExtResource("48_5xlmm")
 
 [node name="Shell" parent="Location14" unique_id=25262275 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.896347, 0.59397864, -13.183456)
@@ -4096,12 +4108,6 @@ transform = Transform3D(1, 0, 0, 0, 1.0356107, 0, 0, 0, 0.928136, -5.874199, 0.1
 [node name="pólki3" parent="." unique_id=264835945 instance=ExtResource("68_e8688")]
 transform = Transform3D(-0.051967226, 0, -0.96067244, 0, 0.60989904, 0, 0.96390957, 0, -0.051792722, 17.556355, 0.46896052, -27.811174)
 
-[node name="Kaloryfer" parent="." unique_id=617290922 instance=ExtResource("66_reab3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.91153, 0.5150504, -41.84602)
-
-[node name="Kaloryfer2" parent="." unique_id=1014004649 instance=ExtResource("66_reab3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.91153, 0.5150504, -25.990984)
-
 [node name="Scene Note3" parent="." unique_id=1738485564 instance=ExtResource("25_sbrwg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.10817, 0.6686605, -26.609829)
 note_to_hold = ExtResource("67_4cabd")
@@ -4111,6 +4117,19 @@ clue_to_gather = ExtResource("67_e8688")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.17534, 0.67212915, -15.581775)
 note_to_hold = ExtResource("70_ih6r1")
 clue_to_gather = ExtResource("71_ih6r1")
+
+[node name="Kaloryfer" parent="." unique_id=617290922 instance=ExtResource("72_365f3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92.92449, 0.44031477, -42.0798)
+
+[node name="Kaloryfer2" parent="." unique_id=827370664 instance=ExtResource("72_365f3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92.92449, 0.44031477, -25.842606)
+
+[node name="Scene Note5" parent="." unique_id=1512419689 instance=ExtResource("25_sbrwg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.60818, -3.3751411, -34.02563)
+note_to_hold = ExtResource("73_5xlmm")
+
+[node name="Poster" parent="." unique_id=706714231 instance=ExtResource("75_gu5uv")]
+transform = Transform3D(0.14121555, 0.04059212, 0, -0.038669292, 0.14823748, 0, 0, 0, 1.1393907, 92.70522, -0.4745464, -38.3781)
 
 [editable path="Location5/ShellNavRegion/Geometry/StaticBody3D"]
 [editable path="Location5/ShellNavRegion/Geometry/StaticBody3D2"]
