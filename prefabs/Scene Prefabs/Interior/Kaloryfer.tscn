@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dg6bln1u574dc"]
+
+[ext_resource type="PackedScene" uid="uid://bb8ojoq52vt11" path="res://assets/models/kaloryfer_smooth.glb" id="1_55jki"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ov4en"]
+size = Vector3(2.1334076, 1.6608276, 0.57458496)
+
+[node name="Kaloryfer" type="StaticBody3D" unique_id=617290922]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=949988653]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.076301575, 0.9712906, -0.11187744)
+shape = SubResource("BoxShape3D_ov4en")
+
+[node name="kaloryfer_smooth" parent="." unique_id=821201963 instance=ExtResource("1_55jki")]
+transform = Transform3D(0.27, 0, 0, 0, 0.27, 0, 0, 0, 0.27, -0.70580244, -0.015050411, -0.009222984)
