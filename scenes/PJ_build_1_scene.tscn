@@ -8,11 +8,11 @@
 [ext_resource type="Script" uid="uid://coysphqpo5g2l" path="res://scripts/Valk/Managers/inventory_manager.gd" id="4_vcjj7"]
 [ext_resource type="Script" uid="uid://bj28ubqcmsltd" path="res://scripts/Valk/Managers/palace_manager.gd" id="5_7uhkk"]
 [ext_resource type="Script" uid="uid://b3e6n7nbttp0c" path="res://scripts/Valk/Resource Types/thought_path.gd" id="6_8isj6"]
-[ext_resource type="Resource" uid="uid://cught0y7spfwy" path="res://resources/thought_paths/second_test_path.tres" id="7_sbrwg"]
-[ext_resource type="Resource" uid="uid://cop13c5am162g" path="res://resources/thought_paths/test_clue_path.tres" id="8_g76yq"]
+[ext_resource type="Resource" uid="uid://cught0y7spfwy" path="res://resources/thought_paths/pobudka.tres" id="7_sbrwg"]
+[ext_resource type="Resource" uid="uid://cop13c5am162g" path="res://resources/thought_paths/shell.tres" id="8_g76yq"]
 [ext_resource type="PackedScene" uid="uid://doimrejwy0736" path="res://prefabs/Scene Prefabs/Interior/Double_door.tscn" id="8_vcjj7"]
 [ext_resource type="PackedScene" uid="uid://ce6h2fmee74sw" path="res://prefabs/Scene Prefabs/scene_serum.tscn" id="9_3rc8y"]
-[ext_resource type="Resource" uid="uid://wncbvvg6xpva" path="res://resources/thought_paths/trigger_path.tres" id="9_e7wky"]
+[ext_resource type="Resource" uid="uid://wncbvvg6xpva" path="res://resources/thought_paths/serum.tres" id="9_e7wky"]
 [ext_resource type="PackedScene" uid="uid://bieh4iknld2hn" path="res://prefabs/Scene Prefabs/scene_rock.tscn" id="10_abvy7"]
 [ext_resource type="PackedScene" uid="uid://bw8wddlntpkih" path="res://prefabs/Scene Prefabs/Interior/Door.tscn" id="10_vcjj7"]
 [ext_resource type="PackedScene" uid="uid://dqoenfwxbkoli" path="res://prefabs/Mobs/Shell.tscn" id="11_01gpf"]
@@ -25,7 +25,7 @@
 [ext_resource type="Resource" uid="uid://emdxa24gcxrb" path="res://resources/thoughts/serum/serum.tres" id="18_bd5a3"]
 [ext_resource type="Resource" uid="uid://mm8l7277obwj" path="res://resources/last_checkpoint.tres" id="19_cnf01"]
 [ext_resource type="PackedScene" uid="uid://bbdr5l71yrkwb" path="res://assets/models/kosz.glb" id="19_qcrui"]
-[ext_resource type="Resource" uid="uid://beopfd6yqk0so" path="res://resources/thoughts/shell/use_serum.tres" id="20_j12l6"]
+[ext_resource type="Resource" uid="uid://beopfd6yqk0so" path="res://resources/thoughts/serum/use_serum.tres" id="20_j12l6"]
 [ext_resource type="Resource" uid="uid://chbvik850k7tu" path="res://resources/thoughts/shell/kamien.tres" id="21_eqt5g"]
 [ext_resource type="PackedScene" uid="uid://clg0uguj2n21v" path="res://prefabs/Scene Prefabs/scene_note.tscn" id="25_sbrwg"]
 [ext_resource type="Texture2D" uid="uid://cfmpxovcb10tl" path="res://textures/beton/beton_albedo.png" id="26_0ljpd"]
@@ -34,8 +34,7 @@
 [ext_resource type="Texture2D" uid="uid://bg62wg4jydsyj" path="res://textures/beton/beton_orm.png" id="27_8bsfy"]
 [ext_resource type="Resource" uid="uid://dt7dtcb4bds7m" path="res://resources/thoughts/wakeup/watch.tres" id="27_p7nqx"]
 [ext_resource type="Resource" uid="uid://inlb87ae3v2h" path="res://resources/notes/sprawko_z_magazynu.tres" id="28_314lw"]
-[ext_resource type="Resource" uid="uid://inlb87ae3v2h" path="res://resources/notes/test_not.tres" id="28_314lw"]
-[ext_resource type="PackedScene" uid="uid://d2oavkjmyps2c" path="res://prefabs/Scene Prefabs/Interior/Bed.tscn" id="29_8bsfy"]
+[ext_resource type="PackedScene" path="res://prefabs/Scene Prefabs/Interior/Bed.tscn" id="29_8bsfy"]
 [ext_resource type="Material" uid="uid://cmri8y4naac10" path="res://materials/metal_z_wypukloscami.tres" id="29_gbmb2"]
 [ext_resource type="Resource" uid="uid://cpshgebigpcom" path="res://resources/thoughts/wakeup/wakeup.tres" id="29_p7nqx"]
 [ext_resource type="Material" uid="uid://boblir86ikxs1" path="res://materials/plytki_metalowe_z_wypuklosciami.tres" id="30_ba0om"]
@@ -70,6 +69,8 @@
 [ext_resource type="Resource" uid="uid://dprs3dalqojdh" path="res://resources/notes/nadzor.tres" id="67_4cabd"]
 [ext_resource type="Resource" uid="uid://c4862r6c8lf7v" path="res://resources/thoughts/serum/changes.tres" id="67_e8688"]
 [ext_resource type="PackedScene" uid="uid://bwn823crhyywa" path="res://assets/models/pólki1.glb" id="68_e8688"]
+[ext_resource type="Resource" uid="uid://d2q0pmn06limm" path="res://resources/notes/dokument_1.tres" id="70_ih6r1"]
+[ext_resource type="Resource" uid="uid://kownxk75ls1t" path="res://resources/thoughts/serum/bagatelizacja.tres" id="71_ih6r1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13hkq"]
 albedo_color = Color(0.27450982, 0.27450982, 0.27450982, 1)
@@ -1378,7 +1379,6 @@ affect_navigation_mesh = true
 
 [node name="Shell" parent="Location5" unique_id=2079833793 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.255352, 1.4558756, -15.171085)
-debug_index = 1
 hearing_range = 32.0
 wander_time = 1.0
 patrol_time = 0.0
@@ -1525,7 +1525,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.057377, 0, -15.342804)
 
 [node name="Shell" parent="Location7" unique_id=1992373891 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6056662, 1.4558756, 5.8289146)
-debug_index = 3
 test_mode = true
 hearing_range = 16.0
 patrol_time = 5.2
@@ -1534,7 +1533,6 @@ scream_time = 3.0
 
 [node name="Shell2" parent="Location7" unique_id=945879773 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4587593, 1.4558756, 5.8289146)
-debug_index = 2
 test_mode = true
 hearing_range = 16.0
 patrol_time = 5.0
@@ -1890,7 +1888,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3121138, 0, -4.3173733)
 
 [node name="Shell" parent="Location9" unique_id=846101904 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6056662, 1.4558756, 5.8289146)
-debug_index = 4
 hearing_range = 16.0
 patrol_time = 5.0
 patrol_points = [NodePath("../ShellPatrolPoints/PatrolPoint1"), NodePath("../ShellPatrolPoints/PatrolPoint2"), NodePath("../ShellPatrolPoints/PatrolPoint3"), NodePath("../ShellPatrolPoints/PatrolPoint2")]
@@ -2363,7 +2360,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.083115, 1.2641665, 21.795
 
 [node name="Shell" parent="Location10" unique_id=167450878 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6356068, 1.4558756, -13.183457)
-debug_index = 5
 hearing_range = 16.0
 patrol_time = 1.0
 patrol_points = [NodePath("../ShellNavRegion/Patrol Points/Patrol Point 1"), NodePath("../ShellNavRegion/Patrol Points/Patrol Point 2")]
@@ -2856,7 +2852,6 @@ clue_to_gather = ExtResource("45_8bsfy")
 
 [node name="Shell" parent="Location14" unique_id=25262275 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.896347, 0.59397864, -13.183456)
-debug_index = 7
 hearing_range = 16.0
 patrol_time = 1.0
 patrol_points = [NodePath("../ShellNavRegion/Patrol Points/Patrol Point 1"), NodePath("../ShellNavRegion/Patrol Points/Patrol Point 2")]
@@ -2864,7 +2859,6 @@ scream_time = 3.0
 
 [node name="Shell2" parent="Location14" unique_id=80240976 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.8963547, 0.59397864, -38.268543)
-debug_index = 6
 hearing_range = 16.0
 patrol_time = 1.0
 patrol_points = [NodePath("../ShellNavRegion/Patrol Points/Patrol Point 1"), NodePath("../ShellNavRegion/Patrol Points/Patrol Point 2")]
@@ -3897,7 +3891,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.048676, 0.5726967, 17.2668
 
 [node name="Shell" parent="Level3" unique_id=1354937306 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7542114, 0.9513607, 11.233505)
-debug_index = 9
 patrol_points = [NodePath("../Patrol Points/Corridor1"), NodePath("../Patrol Points/Corridor2")]
 scream_time = 3.0
 
@@ -3912,7 +3905,6 @@ destroy_on_trigger = true
 
 [node name="Shell8" parent="Level3" unique_id=100241452 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.838234, 0.9513626, 11.223251)
-debug_index = 8
 patrol_points = [NodePath("../Patrol Points/Hol1"), NodePath("../Patrol Points/Hol2")]
 scream_time = 3.0
 
@@ -4114,6 +4106,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.91153, 0.5150504, -25.990
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.10817, 0.6686605, -26.609829)
 note_to_hold = ExtResource("67_4cabd")
 clue_to_gather = ExtResource("67_e8688")
+
+[node name="Scene Note4" parent="." unique_id=935081957 instance=ExtResource("25_sbrwg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.17534, 0.67212915, -15.581775)
+note_to_hold = ExtResource("70_ih6r1")
+clue_to_gather = ExtResource("71_ih6r1")
 
 [editable path="Location5/ShellNavRegion/Geometry/StaticBody3D"]
 [editable path="Location5/ShellNavRegion/Geometry/StaticBody3D2"]

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ThoughtPath" format=3 uid="uid://wncbvvg6xpva"]
+
+[ext_resource type="Script" uid="uid://q760mct2evav" path="res://scripts/Valk/Resource Types/clue.gd" id="1_ycpyu"]
+[ext_resource type="Resource" uid="uid://emdxa24gcxrb" path="res://resources/thoughts/serum/serum.tres" id="2_ndl53"]
+[ext_resource type="Resource" uid="uid://y0ypx6kg0p7" path="res://resources/thoughts/serum/serum_invisibility.tres" id="3_a7f2g"]
+[ext_resource type="Resource" uid="uid://c4862r6c8lf7v" path="res://resources/thoughts/serum/changes.tres" id="4_jpjm1"]
+[ext_resource type="Resource" uid="uid://beopfd6yqk0so" path="res://resources/thoughts/serum/use_serum.tres" id="4_ndl53"]
+[ext_resource type="Resource" uid="uid://kownxk75ls1t" path="res://resources/thoughts/serum/bagatelizacja.tres" id="6_a7f2g"]
+[ext_resource type="Script" uid="uid://b3e6n7nbttp0c" path="res://scripts/Valk/Resource Types/thought_path.gd" id="6_iwwic"]
+
+[resource]
+script = ExtResource("6_iwwic")
+name = "Serum"
+required_clues = Array[ExtResource("1_ycpyu")]([ExtResource("2_ndl53"), ExtResource("3_a7f2g"), ExtResource("4_ndl53"), ExtResource("4_jpjm1"), ExtResource("6_a7f2g")])
+metadata/_custom_type_script = "uid://b3e6n7nbttp0c"
