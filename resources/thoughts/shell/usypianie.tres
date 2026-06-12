@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Clue" format=3 uid="uid://c2hxlilb7a1ta"]
+
+[ext_resource type="Script" uid="uid://q760mct2evav" path="res://scripts/Valk/Resource Types/clue.gd" id="1_6w0tw"]
+
+[resource]
+script = ExtResource("1_6w0tw")
+metadata/_custom_type_script = "uid://q760mct2evav"

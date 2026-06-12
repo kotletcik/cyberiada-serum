@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Clue" format=3 uid="uid://kownxk75ls1t"]
+
+[ext_resource type="Script" uid="uid://q760mct2evav" path="res://scripts/Valk/Resource Types/clue.gd" id="1_8cwpr"]
+[ext_resource type="Resource" uid="uid://d2q0pmn06limm" path="res://resources/notes/dokument_1.tres" id="2_6w6lo"]
+
+[resource]
+script = ExtResource("1_8cwpr")
+name = "Bagatelizacja"
+description = "Czemu oni tak bardzo bagatelizują negatywne skutki serum?"
+required_for_realization = false
+connected_note = ExtResource("2_6w6lo")
+metadata/_custom_type_script = "uid://q760mct2evav"
