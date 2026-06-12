@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_lbnfy")
 name = "Niewidzialność"
-description = "Serum powoduje, że jesteśmy niewidzialni dla shelli? Ciekawe"
+description = "Serum powoduje, że jesteśmy niewidzialni dla shelli? Ciekawe..."
 ui_pos = Vector2(256, 31)
 metadata/_custom_type_script = "uid://q760mct2evav"
