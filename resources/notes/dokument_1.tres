@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Note" format=3 uid="uid://d2q0pmn06limm"]
+
+[ext_resource type="Script" uid="uid://db4xf6hpks04h" path="res://scripts/Valk/Resource Types/note.gd" id="1_tj4gn"]
+
+[resource]
+script = ExtResource("1_tj4gn")
+title = "Dokument 1"
+content = "TAJNE. Jak najszybciej dostarczyc do laboratorium badawczego.
+Ostatnio wykryto braki w narządach u niektórych pacjentów.
+ Szkody nie są jednak zagrożeniem dla  życia."
+metadata/_custom_type_script = "uid://db4xf6hpks04h"
