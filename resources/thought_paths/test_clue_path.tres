@@ -7,9 +7,10 @@
 [ext_resource type="Resource" uid="uid://cb4rs16k73lop" path="res://resources/thoughts/shell/crouch.tres" id="3_njq6q"]
 [ext_resource type="Resource" uid="uid://beopfd6yqk0so" path="res://resources/thoughts/shell/use_serum.tres" id="4_2tlgf"]
 [ext_resource type="Resource" uid="uid://chbvik850k7tu" path="res://resources/thoughts/shell/kamien.tres" id="5_h0705"]
+[ext_resource type="Resource" uid="uid://c5htpauyhlw8p" path="res://resources/thoughts/shell/traktowanie_shelli.tres" id="7_njq6q"]
 
 [resource]
 script = ExtResource("2_w77fc")
 name = "Shell"
-required_clues = Array[ExtResource("1_sv7fu")]([ExtResource("2_2tlgf"), ExtResource("3_njq6q"), ExtResource("3_b6f40"), ExtResource("5_h0705"), ExtResource("4_2tlgf")])
+required_clues = Array[ExtResource("1_sv7fu")]([ExtResource("2_2tlgf"), ExtResource("3_njq6q"), ExtResource("3_b6f40"), ExtResource("5_h0705"), ExtResource("4_2tlgf"), ExtResource("7_njq6q")])
 metadata/_custom_type_script = "uid://b3e6n7nbttp0c"
