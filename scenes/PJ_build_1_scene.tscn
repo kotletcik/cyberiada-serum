@@ -34,7 +34,7 @@
 [ext_resource type="Texture2D" uid="uid://bg62wg4jydsyj" path="res://textures/beton/beton_orm.png" id="27_8bsfy"]
 [ext_resource type="Resource" uid="uid://dt7dtcb4bds7m" path="res://resources/thoughts/wakeup/watch.tres" id="27_p7nqx"]
 [ext_resource type="Resource" uid="uid://inlb87ae3v2h" path="res://resources/notes/sprawko_z_magazynu.tres" id="28_314lw"]
-[ext_resource type="PackedScene" path="res://prefabs/Scene Prefabs/Interior/Bed.tscn" id="29_8bsfy"]
+[ext_resource type="PackedScene" uid="uid://d2oavkjmyps2c" path="res://prefabs/Scene Prefabs/Interior/Bed.tscn" id="29_8bsfy"]
 [ext_resource type="Material" uid="uid://cmri8y4naac10" path="res://materials/metal_z_wypukloscami.tres" id="29_gbmb2"]
 [ext_resource type="Resource" uid="uid://cpshgebigpcom" path="res://resources/thoughts/wakeup/wakeup.tres" id="29_p7nqx"]
 [ext_resource type="Material" uid="uid://boblir86ikxs1" path="res://materials/plytki_metalowe_z_wypuklosciami.tres" id="30_ba0om"]
@@ -55,7 +55,7 @@
 [ext_resource type="Texture2D" uid="uid://c42se58kbsb47" path="res://textures/IMG_0455.jpg" id="50_cidjx"]
 [ext_resource type="Material" uid="uid://bxil1tlgw2u1m" path="res://materials/korek.tres" id="51_r8wc8"]
 [ext_resource type="Script" uid="uid://d25dunpwd5h5q" path="res://scripts/Valk/final_stage_set_up.gd" id="51_vkxoh"]
-[ext_resource type="Script" path="res://scripts/Valk/ending_controller.gd" id="53_ipoun"]
+[ext_resource type="Script" uid="uid://f4v6nksxa5jk" path="res://scripts/Valk/ending_controller.gd" id="53_ipoun"]
 [ext_resource type="Texture2D" uid="uid://catptl6s2xgxk" path="res://textures/betonowy_kafel/betonowy_kafel_normal.png" id="55_jakws"]
 [ext_resource type="PackedScene" uid="uid://bj84lumadjlgo" path="res://prefabs/triggers/safe_zone.tscn" id="55_utgjm"]
 [ext_resource type="Texture2D" uid="uid://dxo2567jfiauo" path="res://textures/betonowy_kafel/betonowy_kafel_albedo.png" id="56_i3x6b"]
@@ -251,7 +251,7 @@ size = Vector3(22.458408, 5.258362, 17.792803)
 script = ExtResource("1_xanii")
 
 [node name="Player" parent="." unique_id=2039338456 instance=ExtResource("1_ahihw")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -55.062138, 1.3059216, 0.61352265)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -77.08996, 1.3059216, -7.4412165)
 SOBER_WALK_SPEED = 6.9
 CROUCH_SPEED_MULTIPLIER = 0.3
 crouching_noise_volume = 1.5

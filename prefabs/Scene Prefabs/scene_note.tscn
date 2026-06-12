@@ -1,15 +1,16 @@
 [gd_scene format=3 uid="uid://clg0uguj2n21v"]
 
 [ext_resource type="Script" uid="uid://00ch4th54r1" path="res://scripts/Valk/scene_note.gd" id="1_t0tu7"]
-[ext_resource type="Material" path="res://textures/folder/folder.tres" id="2_y4g23"]
+[ext_resource type="Material" uid="uid://bf54akp3t0nec" path="res://textures/folder/folder.tres" id="2_y4g23"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t4e8a"]
 size = Vector3(1, 0.10070801, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_nxxrq"]
 
-[node name="Scene Note" type="StaticBody3D" unique_id=1944761136]
+[node name="Scene Note" type="StaticBody3D" unique_id=1944761136 node_paths=PackedStringArray("mesh_for_material")]
 script = ExtResource("1_t0tu7")
+mesh_for_material = NodePath("MeshInstance3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=271200828]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.004333496, 0)

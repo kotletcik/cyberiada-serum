@@ -5,30 +5,37 @@ extends Node3D
 @export var pickup_sound: AudioStreamPlayer3D
 @export_flags_3d_physics var interaction_mask: int
 
-
-func _ready() -> void:
-	pass 
+var hover_call: Callable = Callable();
+var unhover_call: Callable = Callable();
 
 func _process(_delta: float) -> void:
 	var forward: Vector3 = -get_global_transform().basis.z;
 	var query = PhysicsRayQueryParameters3D.create(global_position, global_position + forward * interaction_range);
 	query.collision_mask = interaction_mask;
 	var collision = get_world_3d().direct_space_state.intersect_ray(query);
-	# print(collision)
-	# print(collision.is_empty());
+
 	if(!collision.is_empty()):
 		var object: Node3D = collision["collider"];
-		# print(object.name);
 		if(object.is_in_group("Serum")):
 			var pickup_item = object as PickupItem;
-		if(object.is_in_group("Rock")):
+			hover_call = pickup_item.hover;
+			unhover_call = pickup_item.unhover;
+		elif(object.is_in_group("Rock")):
 			var pickup_item = object as PickupItem;
-		if(object.has_method("player_interact")):
-			object.player_hover();
+			hover_call = pickup_item.hover;
+			unhover_call = pickup_item.unhover;
+		elif(object.has_method("hover")):
+			hover_call = object.hover;
+			unhover_call = object.unhover;
+		else:
+			if(!unhover_call.is_null()):
+				unhover_call.call();
+				hover_call = Callable();
+				unhover_call = Callable();
+		
 	if(Input.is_action_just_pressed("Interact")):
 		if(!collision.is_empty()):
 			var object: Node3D = collision["collider"];
-			# print(object.name);
 			if(object.is_in_group("Serum")):
 				pickup_sound.play();
 				InventoryManager.instance.add_item(ITEM_TYPE.SERUM, 1);
@@ -38,6 +45,10 @@ func _process(_delta: float) -> void:
 				# if(pickup_item.does_clue_automatically_unlock):
 				# 	PalaceManager.instance.create_thought(pickup_item.clue_on_pickup);
 				object.disable();
+				if(!unhover_call.is_null()):
+					unhover_call.call();
+					hover_call = Callable();
+					unhover_call = Callable();
 			if(object.is_in_group("Rock")):
 				pickup_sound.play();
 				InventoryManager.instance.add_item(ITEM_TYPE.ROCK, 1);
@@ -47,5 +58,17 @@ func _process(_delta: float) -> void:
 				# if(pickup_item.does_clue_automatically_unlock):
 				# 	PalaceManager.instance.create_thought(pickup_item.clue_on_pickup);
 				object.disable();
+				if(!unhover_call.is_null()):
+					unhover_call.call();
+					hover_call = Callable();
+					unhover_call = Callable();
 			if(object.has_method("player_interact")):
 				object.player_interact();
+				if(!unhover_call.is_null()):
+					unhover_call.call();
+					hover_call = Callable();
+					unhover_call = Callable();
+	
+	if(!hover_call.is_null()):
+		hover_call.call();
+	
