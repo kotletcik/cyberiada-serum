@@ -172,16 +172,10 @@ metadata/_custom_type_script = "uid://foywhiftl87x"
 
 [node name="Scream" type="Node" parent="State_machine" unique_id=1485384955 node_paths=PackedStringArray("screaming_sound")]
 script = ExtResource("7_lqxc7")
-screaming_sound = NodePath("ScreamingSound")
+screaming_sound = NodePath("../../ScreamingSound")
 move_speed = 0.1
 state_type = 7
 metadata/_custom_type_script = "uid://foywhiftl87x"
-
-[node name="ScreamingSound" type="AudioStreamPlayer3D" parent="State_machine/Scream" unique_id=426780992]
-stream = ExtResource("16_gs4m8")
-volume_db = 10.0
-max_db = 6.0
-bus = &"SFX"
 
 [node name="Eyes" type="MeshInstance3D" parent="." unique_id=1218871193]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4183241, -0.47043222)
@@ -193,6 +187,14 @@ visible = false
 
 [node name="GPUParticles3D" parent="." unique_id=207648955 instance=ExtResource("8_6f62q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95233065, 0)
+
+[node name="ScreamingSound" type="AudioStreamPlayer3D" parent="." unique_id=426780992]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.66066647, 0)
+stream = ExtResource("16_gs4m8")
+volume_db = -12.0
+unit_size = 8.0
+max_db = 6.0
+bus = &"SFX"
 
 [node name="FootstepSound" type="AudioStreamPlayer3D" parent="." unique_id=211702565]
 stream = ExtResource("18_ranhc")
