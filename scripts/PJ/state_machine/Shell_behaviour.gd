@@ -1,8 +1,7 @@
-extends Behaviour
+extends CharacterBody3D
 class_name Shell_behaviour
 
-@export var debug_index: int = 0;
-@export var test_mode:= false
+@export var test_mode := false
 @export var animator: AnimationPlayer
 @export var disabled_on_start: bool = false;
 @export var stuck_return_timer: float = 2.0;
@@ -11,6 +10,19 @@ class_name Shell_behaviour
 @export var footstep_repeat_time: float
 
 @onready var nav_agent: NavigationAgent3D = $"NavigationAgent3D"
+
+@export var state_machine: State_machine
+@export_group("general")
+@export var player_sight_fov: float = 180
+@export var player_sight_range: float = 2
+@export var attack_range: float = 1
+@export var walls_layer: int
+
+var timer: float
+
+@export var disable_fov_check: bool = false;
+
+var dot: float = 0;
 
 @export_group("follow_player")
 @export var follow_player_through_walls_duration:= 5.0
@@ -192,7 +204,6 @@ func Enter_state(state: int):
 	timer = get_state_default_timer(state);
 	match state:
 		State.types.Scream:
-			print("Shell " + str(debug_index) + " switched to scream");
 			is_screaming = true;
 		State.types.Attack:
 			is_attacking = true;
@@ -217,18 +228,14 @@ func is_player_in_sight() -> bool:
 	var player_in_local: Vector3 = GameManager.instance.player.global_position - self.global_position;
 	var direction = player_in_local.normalized();
 	dot = self.global_basis.z.dot(direction);
-	if(test_mode): 
-		# print(player_in_local);
-		DebugDraw3D.draw_line(global_position, global_position + direction * player_sight_range, Color.RED);
-	if(player_in_local.length() > player_sight_range): return false;
-	if(dot < 1-(player_sight_fov/180)): #if(dot > (cos(deg_to_rad(player_sight_fov)/2))):
+
+	if(dot < (player_sight_fov/180)-1): 
 		if (PsycheManager.instance.invisibility_timer > 0): return false;
 		var query = PhysicsRayQueryParameters3D.create(global_position, global_position + direction * player_sight_range);
 		var space_state = self.get_world_3d().direct_space_state
 		var result = space_state.intersect_ray(query);
 		if(!result.is_empty()):
-			# print(result["collider"]);
-			if result["collider"] is CharacterBody3D:
+			if(result["collider"] is PlayerController):
 				return true;
 	return false;
 
