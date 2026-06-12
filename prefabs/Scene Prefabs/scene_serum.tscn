@@ -7,11 +7,13 @@
 [sub_resource type="BoxMesh" id="BoxMesh_nxxrq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4hjr6"]
+transparency = 1
 
-[node name="Serum" type="StaticBody3D" unique_id=1185205921]
+[node name="Serum" type="StaticBody3D" unique_id=1185205921 node_paths=PackedStringArray("mesh_for_material")]
 collision_layer = 64
 script = ExtResource("1_htdhu")
 group_name = "Serum"
+mesh_for_material = NodePath("MeshInstance3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1517536549]
 shape = SubResource("BoxShape3D_t4e8a")

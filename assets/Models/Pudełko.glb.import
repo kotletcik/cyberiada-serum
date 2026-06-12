@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cmg4tv2cucxpa"
-path="res://.godot/imported/Pudełko.glb-041f32a8668d9c93b103455151630c47.scn"
+path="res://.godot/imported/Pudełko.glb-f9a57b94b68d17b74ec040156bbcf9eb.scn"
 
 [deps]
 
-source_file="res://assets/models/Pudełko.glb"
-dest_files=["res://.godot/imported/Pudełko.glb-041f32a8668d9c93b103455151630c47.scn"]
+source_file="res://assets/Models/Pudełko.glb"
+dest_files=["res://.godot/imported/Pudełko.glb-f9a57b94b68d17b74ec040156bbcf9eb.scn"]
 
 [params]
 

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bieh4iknld2hn"]
 
 [ext_resource type="Script" uid="uid://dj53js5ssnx8d" path="res://scripts/Valk/pickup_item.gd" id="1_yy7vx"]
+[ext_resource type="Material" uid="uid://1s76iw2gx8q7" path="res://materials/rock.tres" id="2_dnybw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t4e8a"]
 
@@ -9,16 +10,11 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yy7vx"]
 albedo_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_es7b4"]
-albedo_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dnybw"]
-albedo_color = Color(0, 0, 0, 1)
-
-[node name="Rock" type="StaticBody3D" unique_id=1988284777]
+[node name="Rock" type="StaticBody3D" unique_id=1988284777 node_paths=PackedStringArray("csg_for_material")]
 collision_layer = 64
 script = ExtResource("1_yy7vx")
 group_name = "Rock"
+csg_for_material = NodePath("CSGBox3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=11158284]
 shape = SubResource("BoxShape3D_t4e8a")
@@ -29,10 +25,10 @@ mesh = SubResource("BoxMesh_nxxrq")
 surface_material_override/0 = SubResource("StandardMaterial3D_yy7vx")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=906956085]
-material = SubResource("StandardMaterial3D_es7b4")
+material = ExtResource("2_dnybw")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D" unique_id=206153210]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4050293, 0.4189453, 0)
 operation = 2
 size = Vector3(0.1899414, 0.16210938, 1)
-material = SubResource("StandardMaterial3D_dnybw")
+material = ExtResource("2_dnybw")

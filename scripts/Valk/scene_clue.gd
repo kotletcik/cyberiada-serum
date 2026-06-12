@@ -28,3 +28,5 @@ func enable() -> void:
 	visible = true;
 	get_node("CollisionShape3D").disabled = false;
 	is_disabled = false;
+
+
