@@ -8,6 +8,5 @@
 script = ExtResource("1_h1ru8")
 name = "Chloroform?"
 description = "Po co im chloroform? "
-connected_note = ExtResource("3_d6wk8")
 clues_to_gather = Array[ExtResource("1_h1ru8")]([ExtResource("2_t270v")])
 metadata/_custom_type_script = "uid://q760mct2evav"
