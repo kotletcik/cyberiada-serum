@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c24njyatqr7nw"]
+
+[ext_resource type="Texture2D" uid="uid://b2ptowo3uesqr" path="res://textures/plakat_2_i_pol.png" id="1_0xnqb"]
+
+[node name="Poster" type="Node3D" unique_id=706714231]
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=2131102297]
+transform = Transform3D(0.5186065, 0, 0, 0, 0.4864616, 0, 0, 0, 0.93494684, 0.7092643, 0, 0)
+texture = ExtResource("1_0xnqb")

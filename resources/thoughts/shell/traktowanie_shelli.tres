@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://q760mct2evav" path="res://scripts/Valk/Resource Types/clue.gd" id="1_h1ru8"]
 [ext_resource type="Resource" uid="uid://c2hxlilb7a1ta" path="res://resources/thoughts/shell/usypianie.tres" id="2_t270v"]
-[ext_resource type="Resource" uid="uid://inlb87ae3v2h" path="res://resources/notes/sprawko_z_magazynu.tres" id="3_d6wk8"]
 
 [resource]
 script = ExtResource("1_h1ru8")
