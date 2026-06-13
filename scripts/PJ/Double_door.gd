@@ -42,7 +42,7 @@ func start_lift():
 
 func _process(delta: float) -> void:
 	if(!is_lift_door): return;
-	var is_player_in_front: bool = false;
+	# var is_player_in_front: bool = false;
 	var subtracted_vector: Vector3 = first_door.global_position - GameManager.instance.player.global_position;
 	if(subtracted_vector.length() > lift_player_range): return;
 	var direction = subtracted_vector.normalized();
@@ -73,7 +73,7 @@ func player_interact():
 func switch_open():
 	isMoving = true;
 	door_sound.play()
-	
+	EventBus.sound_emitted_by_player.emit(global_position, 1.0);
 
 	var first_door_start_local_pos_z = first_door.position.z
 	var second_door_start_local_pos_z = second_door.position.z

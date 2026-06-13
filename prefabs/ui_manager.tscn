@@ -325,7 +325,6 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "Meow Meow Meow"
 
 [node name="EscMenu" type="CanvasLayer" parent="." unique_id=1388220282]
-visible = false
 
 [node name="Panel" type="Panel" parent="EscMenu" unique_id=1537150450]
 anchors_preset = 8
@@ -642,7 +641,7 @@ offset_top = 201.0
 offset_right = 1683.0
 offset_bottom = 1006.0
 theme_override_font_sizes/normal_font_size = 128
-text = "Przeszedłeś alfę, ale musiałeś się przy tym uzależnić od serum"
+text = "Przeszedłeś grę, ale musiałeś się przy tym uzależnić od serum"
 horizontal_alignment = 1
 
 [node name="MainMenu" type="Button" parent="Bad Ending/Panel" unique_id=2007954657]
@@ -676,7 +675,7 @@ offset_top = 201.0
 offset_right = 1587.0
 offset_bottom = 1006.0
 theme_override_font_sizes/normal_font_size = 128
-text = "Udało ci się przejść alfę bez uzależnienia się"
+text = "Udało ci się przejść grę bez uzależnienia się"
 horizontal_alignment = 1
 
 [node name="MainMenu" type="Button" parent="Good Ending/Panel" unique_id=372326746]
