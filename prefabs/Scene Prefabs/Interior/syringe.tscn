@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://c2mlaiydds8nv"]
+
+[ext_resource type="PackedScene" uid="uid://bmr0f4exhf6im" path="res://assets/Models/strzykawka.glb" id="1_kiikc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pn167"]
+size = Vector3(1.7039795, 1, 0.4440918)
+
+[node name="Syringe" type="StaticBody3D" unique_id=1752012508]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1067527760]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.017150879, 0.5035082, -0.0020751953)
+shape = SubResource("BoxShape3D_pn167")
+
+[node name="strzykawka" parent="." unique_id=456923671 instance=ExtResource("1_kiikc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22973752, -1.3871067, 0.0007125437)

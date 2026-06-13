@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bmr0f4exhf6im"
-path="res://.godot/imported/strzykawka.glb-ea72da4b5a5c924c730045a98412a563.scn"
+path="res://.godot/imported/strzykawka.glb-4d63d5e2b309ea6a9d66fc19eff26dfb.scn"
 
 [deps]
 
-source_file="res://assets/models/strzykawka.glb"
-dest_files=["res://.godot/imported/strzykawka.glb-ea72da4b5a5c924c730045a98412a563.scn"]
+source_file="res://assets/Models/strzykawka.glb"
+dest_files=["res://.godot/imported/strzykawka.glb-4d63d5e2b309ea6a9d66fc19eff26dfb.scn"]
 
 [params]
 

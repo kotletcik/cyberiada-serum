@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://uyj2c01y312j"]
+
+[ext_resource type="PackedScene" uid="uid://ceuuj6g4ys2cy" path="res://assets/Models/stół operacyjny.glb" id="1_4nmrh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v0qsw"]
+size = Vector3(1.7094116, 1.8066406, 3.8823242)
+
+[node name="OperatingTable" type="StaticBody3D" unique_id=1272697669]
+
+[node name="stół operacyjny" parent="." unique_id=294537245 instance=ExtResource("1_4nmrh")]
+transform = Transform3D(0.405, 0, 0, 0, 0.405, 0, 0, 0, 0.405, 0.024701238, 0, 2.0833693)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2000944636]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02407837, 0.92125773, 0.037841797)
+shape = SubResource("BoxShape3D_v0qsw")
