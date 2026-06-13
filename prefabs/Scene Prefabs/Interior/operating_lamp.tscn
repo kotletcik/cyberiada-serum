@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dal3ch5386yqy"]
+
+[ext_resource type="PackedScene" uid="uid://kq4l62y7dgf4" path="res://assets/Models/lampa.glb" id="1_enc2i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p0uh0"]
+size = Vector3(0.3788452, 3.8969574, 0.3609619)
+
+[node name="OperatingLamp" type="StaticBody3D" unique_id=269697576]
+
+[node name="lampa" parent="." unique_id=224004929 instance=ExtResource("1_enc2i")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.0081985, -0.6188286, -0.48909473)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=247789352]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0018615723, 1.974968, -0.48953092)
+shape = SubResource("BoxShape3D_p0uh0")

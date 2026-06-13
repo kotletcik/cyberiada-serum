@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://2v6oknjm4cvc"
-path="res://.godot/imported/Pudełko zamknięte.fbx-9b9fc24f17166557c4212613e82de6b4.scn"
+path="res://.godot/imported/Pudełko zamknięte.fbx-ceeeeb798dbd030d4eac152c384b7684.scn"
 
 [deps]
 
-source_file="res://assets/models/Pudełko zamknięte.fbx"
-dest_files=["res://.godot/imported/Pudełko zamknięte.fbx-9b9fc24f17166557c4212613e82de6b4.scn"]
+source_file="res://assets/Models/Pudełko zamknięte.fbx"
+dest_files=["res://.godot/imported/Pudełko zamknięte.fbx-ceeeeb798dbd030d4eac152c384b7684.scn"]
 
 [params]
 

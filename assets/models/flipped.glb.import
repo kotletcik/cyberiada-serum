@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://8obdu60o6hta"
-path="res://.godot/imported/flipped.glb-d1810525b9c7d72bc155a734830747d5.scn"
+path="res://.godot/imported/flipped.glb-c990a34c476e14066a57c60a3912f917.scn"
 
 [deps]
 
-source_file="res://assets/models/flipped.glb"
-dest_files=["res://.godot/imported/flipped.glb-d1810525b9c7d72bc155a734830747d5.scn"]
+source_file="res://assets/Models/flipped.glb"
+dest_files=["res://.godot/imported/flipped.glb-c990a34c476e14066a57c60a3912f917.scn"]
 
 [params]
 
