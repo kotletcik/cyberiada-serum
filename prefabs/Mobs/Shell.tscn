@@ -73,16 +73,18 @@ albedo_color = Color(0.27935672, 0.27935672, 0.27935672, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_raqt8"]
 size = Vector3(0.4, 0.2, 0.2)
 
-[node name="Shell" type="CharacterBody3D" unique_id=2079833793 node_paths=PackedStringArray("animator", "footstep_sound", "state_machine") groups=["Shell"]]
+[node name="Shell" type="CharacterBody3D" unique_id=2079833793 node_paths=PackedStringArray("test_text", "animator", "footstep_sound", "state_machine") groups=["Shell"]]
 collision_layer = 8
 collision_mask = 7
 script = ExtResource("6_raqt8")
+test_mode = true
+test_text = NodePath("TestText")
 animator = NodePath("shell_boned_flipped/AnimationPlayer")
 stuck_range_length = 0.001
 footstep_sound = NodePath("FootstepSound")
 footstep_repeat_time = 1.0
 state_machine = NodePath("State_machine")
-player_sight_fov = 105.0
+player_sight_fov = 120.0
 player_sight_range = 16.0
 attack_range = 1.1
 scream_time = 1.0
@@ -97,9 +99,6 @@ libraries/Rig_Large_MovementAdvanced = ExtResource("5_gs4m8")
 libraries/Rig_Large_MovementBasic = ExtResource("4_rsf4w")
 libraries/Rig_Large_Simulation = ExtResource("5_7e2mx")
 script = ExtResource("6_opuvl")
-idle_animation_name = "Rig_Large_General/Idle_A"
-walking_animation_name = "Rig_Large_MovementBasic/Walking_A"
-running_animation_name = "Rig_Large_MovementBasic/Running_A"
 animation_tree = NodePath("../AnimationTree")
 
 [node name="AnimationTree" type="AnimationTree" parent="shell_boned_flipped" unique_id=824088105]
@@ -144,8 +143,8 @@ move_speed = 5.0
 acceleration = 5.0
 
 [node name="Follow_player" parent="State_machine" index="1" unique_id=228265934]
-move_speed = 10.0
-acceleration = 5.0
+move_speed = 12.0
+acceleration = 12.0
 state_type = 1
 
 [node name="Attack" parent="State_machine" index="2" unique_id=494533407]
@@ -154,7 +153,8 @@ acceleration = 5.0
 state_type = 4
 
 [node name="Follow_sound" parent="State_machine" index="3" unique_id=1770033404]
-acceleration = 5.0
+move_speed = 6.0
+acceleration = 6.0
 state_type = 2
 
 [node name="Searching" parent="State_machine" index="4" unique_id=1226388208]
@@ -198,5 +198,9 @@ bus = &"SFX"
 
 [node name="FootstepSound" type="AudioStreamPlayer3D" parent="." unique_id=211702565]
 stream = ExtResource("18_ranhc")
+
+[node name="TestText" type="Label3D" parent="." unique_id=1882071993]
+transform = Transform3D(-0.9659258, 0, -0.2588191, 0, 1, 0, 0.2588191, 0, -0.9659258, 0, 1.436229, 0)
+text = "Test"
 
 [editable path="State_machine"]

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c8yy7j4ny07ve"
-path="res://.godot/imported/stolik chirurgiczny.glb-8585794d63976207188c4757d81d10a2.scn"
+path="res://.godot/imported/stolik chirurgiczny.glb-96f70a76bbabf62636de1923ca8b8f8b.scn"
 
 [deps]
 
-source_file="res://assets/Models/stolik chirurgiczny.glb"
-dest_files=["res://.godot/imported/stolik chirurgiczny.glb-8585794d63976207188c4757d81d10a2.scn"]
+source_file="res://assets/models/stolik chirurgiczny.glb"
+dest_files=["res://.godot/imported/stolik chirurgiczny.glb-96f70a76bbabf62636de1923ca8b8f8b.scn"]
 
 [params]
 

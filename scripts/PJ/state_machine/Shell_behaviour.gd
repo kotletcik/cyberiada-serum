@@ -2,6 +2,7 @@ extends CharacterBody3D
 class_name Shell_behaviour
 
 @export var test_mode := false
+@export var test_text: Label3D;
 @export var animator: AnimationPlayer
 @export var disabled_on_start: bool = false;
 @export var stuck_return_timer: float = 2.0;
@@ -62,7 +63,11 @@ var stuck_displacement: float = 0.0;
 
 var current_sound_time: float
 
+var last_player_region_pos
+
 func _ready() -> void:
+	if(!test_mode):
+		test_text.visible = false;
 	add_to_group("Shell");
 	if(disabled_on_start): disable();
 	last_position = global_position;
@@ -71,6 +76,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if(disabled): return;
 	Check_conditions(delta)
+	if(test_mode):
+		var keys = State.types.keys()
+		test_text.text = str(keys[state_machine.current_state.state_type]);
 	if state_machine.nav_agent.move_speed >= 1:
 		current_sound_time -= delta
 		if current_sound_time <= 0:
@@ -88,13 +96,14 @@ func enable():
 	get_node("CollisionShape3D").disabled = false;
 	disabled = false;
 	global_position = last_enabled_position;
+	change_state_by_name(State.types.Patrol);
 
 
 func Check_conditions(delta: float) -> void:
 	var current = state_machine.current_state.state_type
 	var is_player_in_sight = is_player_in_sight()
 	var is_player_on_region = player_is_on_region() && !GameManager.instance.is_player_in_safe_zone
-	
+
 	match current:
 		State.types.Attack:
 			#if ((self.global_position) - (GameManager.instance.player.global_position)).length() > attack_range:
@@ -110,8 +119,15 @@ func Check_conditions(delta: float) -> void:
 				change_state_by_name(State.types.Attack)
 				return;
 			if(!is_player_on_region || PsycheManager.instance.invisibility_timer > 0):
+				# if(last_player_region_pos != null):
+				# 	state_machine.transit_to_state(state_machine.current_state, State.types.Follow_sound)
+				# 	state_machine.nav_agent.update_target_position(last_player_region_pos)
+				# 	last_player_region_pos = null;
+				# else:
 				change_state_by_name(State.types.Searching);
 				return;
+			else:
+				last_player_region_pos = GameManager.instance.player.global_position;
 			if(!is_player_in_sight):
 				if timer > 0:
 					timer -= delta
@@ -153,18 +169,18 @@ func Check_conditions(delta: float) -> void:
 
 	# print((global_position - last_position).length());
 	# if(test_mode): print(stuck_displacement);
-	stuck_timer += delta;
-	stuck_displacement += (global_position - last_position).length()
-	if(stuck_timer >= stuck_return_timer):
-		if(stuck_displacement <= stuck_range_length && reset_stuck_state_for(current)):
-			if(is_current_state_hostile(current)):
-				change_state_by_name(State.types.Searching);
-			else:
-				change_state_by_name(State.types.Patrol);
-		stuck_displacement = 0;
-		stuck_timer = 0;
+	# stuck_timer += delta;
+	# stuck_displacement += (global_position - last_position).length()
+	# if(stuck_timer >= stuck_return_timer):
+	# 	if(stuck_displacement <= stuck_range_length && reset_stuck_state_for(current)):
+	# 		if(is_current_state_hostile(current)):
+	# 			change_state_by_name(State.types.Searching);
+	# 		else:
+	# 			change_state_by_name(State.types.Patrol);
+	# 	stuck_displacement = 0;
+	# 	stuck_timer = 0;
 	
-	last_position = global_position;
+	# last_position = global_position;
 		
 
 func is_current_state_hostile(state: int) -> bool:
@@ -249,7 +265,7 @@ func player_is_on_region() -> bool:
 
 func on_heard_a_sound(sound_pos: Vector3, volume: float):
 	var current_state: int = state_machine.current_state.state_type;
-	if(current_state ==  State.types.Follow_sound || current_state == State.types.Follow_player): return;
+	if(current_state == State.types.Follow_player): return;
 	var sound_distance: float = (sound_pos - state_machine.mob.global_position).length();
 	if (sound_distance < hearing_range * volume || (current_state == State.types.Scream && volume > 10.0)):
 		state_machine.transit_to_state(state_machine.current_state, State.types.Follow_sound)

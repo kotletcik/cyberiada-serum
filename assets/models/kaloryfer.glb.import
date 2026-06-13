@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bkchxldix2dc7"
-path="res://.godot/imported/kaloryfer.glb-0705715c0805683b81c544113f7905ab.scn"
+path="res://.godot/imported/kaloryfer.glb-ad1bade96bf9f5773067fe7975d4f5cd.scn"
 
 [deps]
 
-source_file="res://assets/Models/kaloryfer.glb"
-dest_files=["res://.godot/imported/kaloryfer.glb-0705715c0805683b81c544113f7905ab.scn"]
+source_file="res://assets/models/kaloryfer.glb"
+dest_files=["res://.godot/imported/kaloryfer.glb-ad1bade96bf9f5773067fe7975d4f5cd.scn"]
 
 [params]
 

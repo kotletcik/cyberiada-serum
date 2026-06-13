@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bfjb44ev16w5x"
-path="res://.godot/imported/Łóżko.glb-3a3f18e992de26d22bcbdd15efa4ac96.scn"
+path="res://.godot/imported/Łóżko.glb-909597e84bdad59011dc00f992601d14.scn"
 
 [deps]
 
-source_file="res://assets/Models/Łóżko.glb"
-dest_files=["res://.godot/imported/Łóżko.glb-3a3f18e992de26d22bcbdd15efa4ac96.scn"]
+source_file="res://assets/models/Łóżko.glb"
+dest_files=["res://.godot/imported/Łóżko.glb-909597e84bdad59011dc00f992601d14.scn"]
 
 [params]
 
