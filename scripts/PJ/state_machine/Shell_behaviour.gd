@@ -127,17 +127,22 @@ func Check_conditions(delta: float) -> void:
 			timer -= delta
 			if timer <= 0: change_state_by_name(State.types.Patrol)
 		State.types.Follow_player:
-			if ((self.global_position) - (GameManager.instance.player.global_position)).length() <= attack_range:
-				# if(state_machine.current_state.follow_position == GameManager.instance.player.global_position):
-				GameManager.instance.shell_chase_counter -= 1;
-				change_state_by_name(State.types.Attack)
-				# else:
-				# 	change_state_by_name(State.types.Searching);
-				return;
+			var distance = ((self.global_position) - (state_machine.current_state.follow_position)).length();
+			if (state_machine.current_state.update_player_pos):
+				if(distance <= attack_range):
+					GameManager.instance.shell_chase_counter -= 1;
+					change_state_by_name(State.types.Attack)
+					return;
+			else:
+				if(distance < 2):
+					GameManager.instance.shell_chase_counter -= 1;
+					change_state_by_name(State.types.Searching);
+					return;
 			if(!is_player_on_region || PsycheManager.instance.invisibility_timer > 0):
 				GameManager.instance.shell_chase_counter -= 1;
 				change_state_by_name(State.types.Searching);
-				# state_machine.current_state.follow_position = last_player_region_pos;
+				state_machine.current_state.follow_position = last_player_region_pos;
+				state_machine.current_state.update_player_pos = false;
 				return;
 			if(!is_player_in_sight || state_machine.current_state.follow_position == last_player_region_pos):
 				if timer > 0:
