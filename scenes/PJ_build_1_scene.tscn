@@ -263,6 +263,23 @@ size = Vector3(7.997612, 5.258362, 21.747871)
 [sub_resource type="BoxShape3D" id="BoxShape3D_reab3"]
 size = Vector3(22.458408, 5.258362, 17.792803)
 
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_jq8xw"]
+clip_count = 2
+clip_0/name = &"Background"
+clip_0/stream = ExtResource("86_jq8xw")
+clip_0/auto_advance = 0
+clip_1/name = &"Chase"
+clip_1/stream = ExtResource("87_jq8xw")
+clip_1/auto_advance = 0
+_transitions = {
+Vector2i(-1, -1): {
+"fade_beats": 1.0,
+"fade_mode": 3,
+"from_time": 0,
+"to_time": 1
+}
+}
+
 [node name="Build_1_Scene" type="Node3D" unique_id=649139474]
 script = ExtResource("1_xanii")
 
@@ -4164,16 +4181,21 @@ transform = Transform3D(0.19488594, 0.006669348, 1.2379511e-08, -0.006669348, 0.
 [node name="KysGrafiti2" parent="." unique_id=663966934 instance=ExtResource("79_1h2ea")]
 transform = Transform3D(-0.2249228, -0.005893741, 1.9663377e-08, -0.005893741, 0.2249228, 5.1524696e-10, -1.9670127e-08, -1.8904556e-16, -0.225, 109.12891, -1.08338, -24.147917)
 
-[node name="MusicManager" type="Node3D" parent="." unique_id=1925825961]
+[node name="MusicManager" type="Node3D" parent="." unique_id=1925825961 node_paths=PackedStringArray("MusicController")]
 script = ExtResource("85_8oixc")
+MusicController = NodePath("MusicController")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="MusicManager" unique_id=1104830374]
 stream = ExtResource("86_jq8xw")
-autoplay = true
 bus = &"Music"
 
 [node name="ChaseMusic" type="AudioStreamPlayer" parent="MusicManager" unique_id=59201523]
 stream = ExtResource("87_jq8xw")
+
+[node name="MusicController" type="AudioStreamPlayer" parent="MusicManager" unique_id=1135661157]
+stream = SubResource("AudioStreamInteractive_jq8xw")
+autoplay = true
+bus = &"Music"
 
 [editable path="Location5/ShellNavRegion/Geometry/StaticBody3D"]
 [editable path="Location5/ShellNavRegion/Geometry/StaticBody3D2"]
