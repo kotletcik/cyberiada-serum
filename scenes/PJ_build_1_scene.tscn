@@ -53,13 +53,14 @@
 [ext_resource type="PackedScene" uid="uid://dp8ptyamp3mvi" path="res://prefabs/Scene Prefabs/Interior/Transformator.tscn" id="43_ba0om"]
 [ext_resource type="Resource" uid="uid://dxcllb7sdw7cc" path="res://resources/notes/ostrzezenie.tres" id="44_7e274"]
 [ext_resource type="Resource" uid="uid://eig46fvsxk75" path="res://resources/thoughts/test/level2_lift.tres" id="45_8bsfy"]
+[ext_resource type="Texture2D" uid="uid://dj25cy7blaa6o" path="res://textures/drewno/drewno_albedo.png" id="47_8oixc"]
 [ext_resource type="Resource" uid="uid://bdo7ydx1r8lqo" path="res://resources/notes/pamietnik.tres" id="48_5xlmm"]
 [ext_resource type="Resource" uid="uid://c5htpauyhlw8p" path="res://resources/thoughts/shell/traktowanie_shelli.tres" id="50_4cabd"]
 [ext_resource type="PackedScene" uid="uid://bh7o10x7jjory" path="res://prefabs/Scene Prefabs/Interior/grafiti1.tscn" id="50_ai52n"]
 [ext_resource type="Texture2D" uid="uid://c42se58kbsb47" path="res://textures/IMG_0455.jpg" id="50_cidjx"]
 [ext_resource type="Material" uid="uid://bxil1tlgw2u1m" path="res://materials/korek.tres" id="51_r8wc8"]
 [ext_resource type="Script" uid="uid://d25dunpwd5h5q" path="res://scripts/Valk/final_stage_set_up.gd" id="51_vkxoh"]
-[ext_resource type="Script" uid="uid://f4v6nksxa5jk" path="res://scripts/Valk/ending_controller.gd" id="53_ipoun"]
+[ext_resource type="Script" path="res://scripts/Valk/ending_controller.gd" id="53_ipoun"]
 [ext_resource type="Texture2D" uid="uid://catptl6s2xgxk" path="res://textures/betonowy_kafel/betonowy_kafel_normal.png" id="55_jakws"]
 [ext_resource type="PackedScene" uid="uid://bj84lumadjlgo" path="res://prefabs/triggers/safe_zone.tscn" id="55_utgjm"]
 [ext_resource type="Texture2D" uid="uid://dxo2567jfiauo" path="res://textures/betonowy_kafel/betonowy_kafel_albedo.png" id="56_i3x6b"]
@@ -173,6 +174,17 @@ polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(5, 4, 3), PackedInt32Arr
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_56gwk"]
 albedo_color = Color(0.27450982, 0.27450982, 0.27450982, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jq8xw"]
+render_priority = 0
+shader = ExtResource("33_nc1sr")
+shader_parameter/tiling = Vector2(2, 1)
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/scroll_speed = Vector2(0.1, 0)
+shader_parameter/moving = false
+shader_parameter/texture_map = ExtResource("47_8oixc")
+shader_parameter/brightness = 0.0
+shader_parameter/color = Color(0.446777, 0.44677705, 0.44677705, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ve5ok"]
 albedo_color = Color(0.27450982, 0.27450982, 0.27450982, 1)
@@ -713,7 +725,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.642136, 0, -4.6783147)
 [node name="Geometry" type="Node3D" parent="Location3" unique_id=188031139]
 
 [node name="floor" type="CSGBox3D" parent="Location3/Geometry" unique_id=1548557662]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8200684, 0, -1.8243103)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8200684, 0.26786613, -1.8243103)
 material_override = SubResource("ShaderMaterial_wh1og")
 use_collision = true
 collision_layer = 2
@@ -2520,7 +2532,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.083115, 1.2641665, 21.795
 
 [node name="floor" type="CSGBox3D" parent="Location14/ShellNavRegion" unique_id=1915998829]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.881424, -0.90735793, 14.429122)
-material_override = SubResource("StandardMaterial3D_56gwk")
+material_override = SubResource("ShaderMaterial_jq8xw")
 collision_layer = 2
 size = Vector3(39.149063, 1, 77.040405)
 

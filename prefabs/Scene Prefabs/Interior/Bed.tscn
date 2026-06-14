@@ -13,3 +13,5 @@ shape = SubResource("BoxShape3D_d7r10")
 
 [node name="BED" parent="." unique_id=403000821 instance=ExtResource("1_d7r10")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3332636, -0.457031, -2.3092093)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BED" unique_id=1048189704]
