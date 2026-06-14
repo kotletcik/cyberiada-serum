@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://dkvjla8fgr5tp" path="res://prefabs/Scene Prefabs/Interior/Dresser.tscn" id="18_4h7xs"]
 [ext_resource type="Resource" uid="uid://emdxa24gcxrb" path="res://resources/thoughts/serum/serum.tres" id="18_bd5a3"]
 [ext_resource type="Resource" uid="uid://mm8l7277obwj" path="res://resources/last_checkpoint.tres" id="19_cnf01"]
-[ext_resource type="PackedScene" uid="uid://bbdr5l71yrkwb" path="res://assets/Models/kosz.glb" id="19_qcrui"]
+[ext_resource type="PackedScene" uid="uid://bbdr5l71yrkwb" path="res://assets/models/kosz.glb" id="19_qcrui"]
 [ext_resource type="Resource" uid="uid://beopfd6yqk0so" path="res://resources/thoughts/serum/use_serum.tres" id="20_j12l6"]
 [ext_resource type="Resource" uid="uid://chbvik850k7tu" path="res://resources/thoughts/shell/kamien.tres" id="21_eqt5g"]
 [ext_resource type="PackedScene" uid="uid://clg0uguj2n21v" path="res://prefabs/Scene Prefabs/scene_note.tscn" id="25_sbrwg"]
@@ -47,7 +47,6 @@
 [ext_resource type="PackedScene" uid="uid://kkrsyjqqsie6" path="res://prefabs/triggers/event_trigger.tscn" id="35_scj3o"]
 [ext_resource type="Resource" uid="uid://bkesovt6cdtmu" path="res://resources/thoughts/serum/death2.tres" id="36_e8688"]
 [ext_resource type="PackedScene" uid="uid://cwpnmj2jjqjcg" path="res://prefabs/triggers/checkpoint_trigger.tscn" id="37_l3ixd"]
-[ext_resource type="PackedScene" uid="uid://disyay20hbkli" path="res://assets/Models/Pudełko otwarte.fbx" id="40_jumma"]
 [ext_resource type="Resource" uid="uid://4e273iisukxh" path="res://resources/notes/liścik.tres" id="40_v38j0"]
 [ext_resource type="PackedScene" uid="uid://fy3m0tlxgfik" path="res://prefabs/Scene Prefabs/Interior/emergency_button.tscn" id="42_xmgvw"]
 [ext_resource type="PackedScene" uid="uid://dp8ptyamp3mvi" path="res://prefabs/Scene Prefabs/Interior/Transformator.tscn" id="43_ba0om"]
@@ -66,26 +65,25 @@
 [ext_resource type="Texture2D" uid="uid://dxo2567jfiauo" path="res://textures/betonowy_kafel/betonowy_kafel_albedo.png" id="56_i3x6b"]
 [ext_resource type="Texture2D" uid="uid://g8mdsa2vxbj" path="res://textures/beton/beton_normal.png" id="57_jakws"]
 [ext_resource type="Resource" uid="uid://cpnf8bwsat2kd" path="res://resources/notes/final_test.tres" id="59_jakws"]
+[ext_resource type="Texture2D" uid="uid://pddppo2ol1qq" path="res://textures/tablica_korkowa.png" id="62_8oixc"]
 [ext_resource type="Resource" uid="uid://u5xshasy4och" path="res://resources/thoughts/test/final_stage.tres" id="62_reab3"]
-[ext_resource type="PackedScene" uid="uid://dyaq4kxu6uw2w" path="res://assets/Models/RamkaA4.glb" id="63_7e274"]
-[ext_resource type="PackedScene" uid="uid://5qq71hbote7v" path="res://assets/Models/BED.glb" id="64_8bsfy"]
-[ext_resource type="PackedScene" uid="uid://biv21pm0dcslu" path="res://assets/Models/pólki2.glb" id="66_8bsfy"]
+[ext_resource type="PackedScene" uid="uid://5qq71hbote7v" path="res://assets/models/BED.glb" id="64_8bsfy"]
+[ext_resource type="PackedScene" uid="uid://biv21pm0dcslu" path="res://assets/models/pólki2.glb" id="66_8bsfy"]
 [ext_resource type="Resource" uid="uid://dprs3dalqojdh" path="res://resources/notes/nadzor.tres" id="67_4cabd"]
 [ext_resource type="Resource" uid="uid://c4862r6c8lf7v" path="res://resources/thoughts/serum/changes.tres" id="67_e8688"]
-[ext_resource type="PackedScene" uid="uid://bwn823crhyywa" path="res://assets/Models/pólki1.glb" id="68_e8688"]
+[ext_resource type="PackedScene" uid="uid://bwn823crhyywa" path="res://assets/models/pólki1.glb" id="68_e8688"]
 [ext_resource type="Resource" uid="uid://d2q0pmn06limm" path="res://resources/notes/dokument_1.tres" id="70_ih6r1"]
 [ext_resource type="Resource" uid="uid://kownxk75ls1t" path="res://resources/thoughts/serum/bagatelizacja.tres" id="71_ih6r1"]
 [ext_resource type="PackedScene" uid="uid://dg6bln1u574dc" path="res://prefabs/Scene Prefabs/Interior/Kaloryfer.tscn" id="72_365f3"]
 [ext_resource type="Resource" uid="uid://dk27c4hn77lta" path="res://resources/notes/list_od_przyjaciolki.tres" id="73_5xlmm"]
 [ext_resource type="PackedScene" uid="uid://c24njyatqr7nw" path="res://prefabs/Scene Prefabs/Interior/poster.tscn" id="75_gu5uv"]
 [ext_resource type="PackedScene" uid="uid://uyj2c01y312j" path="res://prefabs/Scene Prefabs/Interior/operating_table.tscn" id="77_ced0w"]
-[ext_resource type="PackedScene" uid="uid://bmr0f4exhf6im" path="res://assets/Models/strzykawka.glb" id="78_ced0w"]
 [ext_resource type="PackedScene" uid="uid://df3xkjxdrrqsw" path="res://prefabs/Scene Prefabs/Interior/kys_grafiti.tscn" id="79_1h2ea"]
 [ext_resource type="PackedScene" uid="uid://dmcyy2se8klsr" path="res://prefabs/Scene Prefabs/Interior/grafiti2.tscn" id="80_cbhds"]
 [ext_resource type="PackedScene" uid="uid://bvg2ykawllffl" path="res://prefabs/Scene Prefabs/Interior/grafiti3.tscn" id="81_mwr1t"]
 [ext_resource type="PackedScene" uid="uid://c0cvllo2gdleq" path="res://prefabs/Scene Prefabs/Interior/grafiti5.tscn" id="82_udadv"]
 [ext_resource type="PackedScene" uid="uid://dnribjrdgdb63" path="res://prefabs/Scene Prefabs/Interior/poster_2.tscn" id="83_ktxpg"]
-[ext_resource type="Script" uid="uid://dgrk8p67smvth" path="res://scripts/Sanuuu/music_manager.gd" id="85_8oixc"]
+[ext_resource type="Script" path="res://scripts/Sanuuu/music_manager.gd" id="85_8oixc"]
 [ext_resource type="AudioStream" uid="uid://yj1rrwdxvo05" path="res://assets/sounds/background_music.wav" id="86_jq8xw"]
 [ext_resource type="AudioStream" uid="uid://biv2tvr7wwv4u" path="res://assets/sounds/chase.wav" id="87_jq8xw"]
 
@@ -241,6 +239,12 @@ size = Vector3(1.5096064, 0.48242188, 6.734619)
 [sub_resource type="BoxMesh" id="BoxMesh_8bsfy"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_r8jwp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jq8xw"]
+albedo_texture = ExtResource("62_8oixc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qnw51"]
+albedo_texture = ExtResource("62_8oixc")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jm1i1"]
 albedo_color = Color(0.27450982, 0.27450982, 0.27450982, 1)
@@ -3024,12 +3028,6 @@ spot_range = 4.024
 spot_attenuation = 0.01
 spot_angle = 23.439608
 
-[node name="Pudełko otwarte" parent="." unique_id=130765637 instance=ExtResource("40_jumma")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.620514, 0.4460001, 12.600686)
-
-[node name="Pudełko otwarte2" parent="." unique_id=99030861 instance=ExtResource("40_jumma")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.720848, 0.44599998, 13.702424)
-
 [node name="Transformator" parent="." unique_id=610376060 instance=ExtResource("42_xmgvw")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6.2871685, 2.0135221, 3.685447)
 
@@ -3706,14 +3704,14 @@ mesh = SubResource("BoxMesh_r8jwp")
 
 [node name="interior5" type="CSGBox3D" parent="Level3" unique_id=921574845]
 transform = Transform3D(-0.06027176, -0.12306267, -0.99056697, -0.5599067, 0.82571816, -0.06851483, 0.8263607, 0.55049556, -0.1186711, 0.75274086, 0.044789433, 11.631842)
-material_override = SubResource("StandardMaterial3D_jm1i1")
+material_override = SubResource("StandardMaterial3D_jq8xw")
 use_collision = true
 collision_layer = 4
 size = Vector3(1.84375, 4.1048584, 2)
 
 [node name="interior6" type="CSGBox3D" parent="Level3" unique_id=2016150496]
 transform = Transform3D(-0.060271762, -0.12306269, -0.99056697, -0.89807373, 0.43984503, -5.7277006e-08, 0.43569598, 0.889602, -0.1370296, 1.0152931, 0.5980464, 9.718622)
-material_override = SubResource("StandardMaterial3D_jm1i1")
+material_override = SubResource("StandardMaterial3D_qnw51")
 use_collision = true
 collision_layer = 4
 size = Vector3(1.6557617, 0.72821045, 2)
@@ -4086,9 +4084,6 @@ shape = SubResource("BoxShape3D_reab3")
 
 [node name="SoundManager" type="Node" parent="." unique_id=596959604]
 
-[node name="RamkaA4" parent="." unique_id=1549672320 instance=ExtResource("63_7e274")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.70555, 20.5965, 103.55132)
-
 [node name="BED4" parent="." unique_id=276114203 instance=ExtResource("64_8bsfy")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 105.08921, -7.714116, 4.7725735)
 
@@ -4135,18 +4130,6 @@ transform = Transform3D(-2.5571161e-08, 0, -0.585, 0, 0.585, 0, 0.585, 0, -2.557
 
 [node name="OperatingTable2" parent="." unique_id=1150978102 instance=ExtResource("77_ced0w")]
 transform = Transform3D(-2.5571161e-08, 0, -0.585, 0, 0.585, 0, 0.585, 0, -2.5571161e-08, -90.70862, 0.46763134, -21.966356)
-
-[node name="strzykawka" parent="." unique_id=456923671 instance=ExtResource("78_ced0w")]
-transform = Transform3D(0.4453645, -0.22726735, 9.934172e-09, 0, -2.1855694e-08, -0.5, 0.22726735, 0.4453645, -1.9467501e-08, -79.74148, 0.8526709, -33.593822)
-
-[node name="strzykawka3" parent="." unique_id=49191638 instance=ExtResource("78_ced0w")]
-transform = Transform3D(0.4434605, -0.22629574, 0.04618531, 0.041138582, -0.020992842, -0.49786234, 0.22726738, 0.44536456, -1.9467501e-08, 98.11268, -3.2995453, -25.422413)
-
-[node name="strzykawka4" parent="." unique_id=1492950244 instance=ExtResource("78_ced0w")]
-transform = Transform3D(-0.23372096, 0.44038564, -0.037881736, 0.04113858, -0.02099284, -0.49786234, -0.44009334, -0.23583855, -0.026420742, 98.11268, -3.2995453, -6.789928)
-
-[node name="strzykawka2" parent="." unique_id=1135126057 instance=ExtResource("78_ced0w")]
-transform = Transform3D(-0.1716577, -0.4685527, -0.031495746, 0.090233766, -2.545765e-08, -0.49179047, 0.4608595, -0.1745232, 0.08455856, -48.64962, 0.61996067, 10.601138)
 
 [node name="KysGrafiti" parent="." unique_id=533471731 instance=ExtResource("79_1h2ea")]
 transform = Transform3D(-0.185, 0, -2.7934224e-08, 0, 0.185, 0, 2.7934224e-08, 0, -0.185, -78.773125, 2.3995526, 3.1774325)

@@ -1,23 +1,20 @@
 [gd_scene format=3 uid="uid://ce6h2fmee74sw"]
 
 [ext_resource type="Script" uid="uid://dj53js5ssnx8d" path="res://scripts/Valk/pickup_item.gd" id="1_htdhu"]
+[ext_resource type="PackedScene" uid="uid://bmr0f4exhf6im" path="res://assets/models/strzykawka.glb" id="2_v2yvq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t4e8a"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_nxxrq"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4hjr6"]
-transparency = 1
 
 [node name="Serum" type="StaticBody3D" unique_id=1185205921 node_paths=PackedStringArray("mesh_for_material")]
 collision_layer = 64
 script = ExtResource("1_htdhu")
 group_name = "Serum"
-mesh_for_material = NodePath("MeshInstance3D")
+mesh_for_material = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1517536549]
 shape = SubResource("BoxShape3D_t4e8a")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1649528630]
-mesh = SubResource("BoxMesh_nxxrq")
-surface_material_override/0 = SubResource("StandardMaterial3D_4hjr6")
+
+[node name="strzykawka" parent="." unique_id=1431786407 instance=ExtResource("2_v2yvq")]
+transform = Transform3D(1, 0, 0, 0, -0.073725514, -0.99727863, 0, 0.99727863, -0.073725514, 0.21302354, 0.09544155, -2.0266225)
