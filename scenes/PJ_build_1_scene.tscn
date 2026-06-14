@@ -47,6 +47,7 @@
 [ext_resource type="PackedScene" uid="uid://kkrsyjqqsie6" path="res://prefabs/triggers/event_trigger.tscn" id="35_scj3o"]
 [ext_resource type="Resource" uid="uid://bkesovt6cdtmu" path="res://resources/thoughts/serum/death2.tres" id="36_e8688"]
 [ext_resource type="PackedScene" uid="uid://cwpnmj2jjqjcg" path="res://prefabs/triggers/checkpoint_trigger.tscn" id="37_l3ixd"]
+[ext_resource type="PackedScene" uid="uid://disyay20hbkli" path="res://assets/models/Pudełko otwarte.fbx" id="40_jumma"]
 [ext_resource type="Resource" uid="uid://4e273iisukxh" path="res://resources/notes/liścik.tres" id="40_v38j0"]
 [ext_resource type="PackedScene" uid="uid://fy3m0tlxgfik" path="res://prefabs/Scene Prefabs/Interior/emergency_button.tscn" id="42_xmgvw"]
 [ext_resource type="PackedScene" uid="uid://dp8ptyamp3mvi" path="res://prefabs/Scene Prefabs/Interior/Transformator.tscn" id="43_ba0om"]
@@ -67,6 +68,7 @@
 [ext_resource type="Resource" uid="uid://cpnf8bwsat2kd" path="res://resources/notes/final_test.tres" id="59_jakws"]
 [ext_resource type="Texture2D" uid="uid://pddppo2ol1qq" path="res://textures/tablica_korkowa.png" id="62_8oixc"]
 [ext_resource type="Resource" uid="uid://u5xshasy4och" path="res://resources/thoughts/test/final_stage.tres" id="62_reab3"]
+[ext_resource type="PackedScene" uid="uid://dyaq4kxu6uw2w" path="res://assets/models/RamkaA4.glb" id="63_7e274"]
 [ext_resource type="PackedScene" uid="uid://5qq71hbote7v" path="res://assets/models/BED.glb" id="64_8bsfy"]
 [ext_resource type="PackedScene" uid="uid://biv21pm0dcslu" path="res://assets/models/pólki2.glb" id="66_8bsfy"]
 [ext_resource type="Resource" uid="uid://dprs3dalqojdh" path="res://resources/notes/nadzor.tres" id="67_4cabd"]
@@ -78,6 +80,7 @@
 [ext_resource type="Resource" uid="uid://dk27c4hn77lta" path="res://resources/notes/list_od_przyjaciolki.tres" id="73_5xlmm"]
 [ext_resource type="PackedScene" uid="uid://c24njyatqr7nw" path="res://prefabs/Scene Prefabs/Interior/poster.tscn" id="75_gu5uv"]
 [ext_resource type="PackedScene" uid="uid://uyj2c01y312j" path="res://prefabs/Scene Prefabs/Interior/operating_table.tscn" id="77_ced0w"]
+[ext_resource type="PackedScene" uid="uid://bmr0f4exhf6im" path="res://assets/models/strzykawka.glb" id="78_ced0w"]
 [ext_resource type="PackedScene" uid="uid://df3xkjxdrrqsw" path="res://prefabs/Scene Prefabs/Interior/kys_grafiti.tscn" id="79_1h2ea"]
 [ext_resource type="PackedScene" uid="uid://dmcyy2se8klsr" path="res://prefabs/Scene Prefabs/Interior/grafiti2.tscn" id="80_cbhds"]
 [ext_resource type="PackedScene" uid="uid://bvg2ykawllffl" path="res://prefabs/Scene Prefabs/Interior/grafiti3.tscn" id="81_mwr1t"]
@@ -4183,7 +4186,6 @@ MusicController = NodePath("MusicController")
 [node name="MusicController" type="AudioStreamPlayer" parent="MusicManager" unique_id=1135661157]
 stream = SubResource("AudioStreamInteractive_jq8xw")
 autoplay = true
-bus = &"Music"
 
 [editable path="Location5/ShellNavRegion/Geometry/StaticBody3D"]
 [editable path="Location5/ShellNavRegion/Geometry/StaticBody3D2"]
