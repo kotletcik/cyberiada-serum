@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://biv21pm0dcslu"
-path="res://.godot/imported/pólki2.glb-6a02d05d3398c44f9f944056e870e953.scn"
+path="res://.godot/imported/pólki2.glb-4227ce9611b22ca9b9e280ac288a17eb.scn"
 
 [deps]
 
-source_file="res://assets/models/pólki2.glb"
-dest_files=["res://.godot/imported/pólki2.glb-6a02d05d3398c44f9f944056e870e953.scn"]
+source_file="res://assets/Models/pólki2.glb"
+dest_files=["res://.godot/imported/pólki2.glb-4227ce9611b22ca9b9e280ac288a17eb.scn"]
 
 [params]
 
