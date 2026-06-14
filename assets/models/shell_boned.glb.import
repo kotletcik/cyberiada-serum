@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://begjueux7sty0"
-path="res://.godot/imported/shell_boned.glb-f2127992316310cb3cec23596ceb9c3d.scn"
+path="res://.godot/imported/shell_boned.glb-e0ec33d3a2f3a63fde38e72574ad9f27.scn"
 
 [deps]
 
-source_file="res://assets/Models/shell_boned.glb"
-dest_files=["res://.godot/imported/shell_boned.glb-f2127992316310cb3cec23596ceb9c3d.scn"]
+source_file="res://assets/models/shell_boned.glb"
+dest_files=["res://.godot/imported/shell_boned.glb-e0ec33d3a2f3a63fde38e72574ad9f27.scn"]
 
 [params]
 

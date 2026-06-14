@@ -19,8 +19,8 @@ func _ready() -> void:
 		
 func is_player_chased() -> bool: return shell_chase_counter > 0;
 
-# func _process(delta: float) -> void:
-# 	print(shell_chase_counter);
+func _process(delta: float) -> void:
+	print(shell_chase_counter);
 
 func game_over() -> void:
 	is_game_over = true;
