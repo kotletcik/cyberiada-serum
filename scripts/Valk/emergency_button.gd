@@ -6,6 +6,7 @@ extends StaticBody3D
 var is_unlocking: bool = false;
 
 func player_interact():
+	play_sound()
 	if(linked_door == null):
 		print("DOOR NOT CONNECTED TO EMERGENCY BUTTON");
 		return;
@@ -16,3 +17,6 @@ func player_interact():
 	linked_door.switch_open();
 	await get_tree().create_timer(linked_door.move_duration).timeout;
 	is_unlocking = false;
+
+func play_sound() -> void:
+	$ClickSound.play()
