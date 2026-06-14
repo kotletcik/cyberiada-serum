@@ -4185,13 +4185,6 @@ transform = Transform3D(-0.2249228, -0.005893741, 1.9663377e-08, -0.005893741, 0
 script = ExtResource("85_8oixc")
 MusicController = NodePath("MusicController")
 
-[node name="BackgroundMusic" type="AudioStreamPlayer" parent="MusicManager" unique_id=1104830374]
-stream = ExtResource("86_jq8xw")
-bus = &"Music"
-
-[node name="ChaseMusic" type="AudioStreamPlayer" parent="MusicManager" unique_id=59201523]
-stream = ExtResource("87_jq8xw")
-
 [node name="MusicController" type="AudioStreamPlayer" parent="MusicManager" unique_id=1135661157]
 stream = SubResource("AudioStreamInteractive_jq8xw")
 autoplay = true
