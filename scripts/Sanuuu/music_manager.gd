@@ -12,7 +12,7 @@ func _process(_delta: float) -> void:
 		switch_music()
 
 func switch_music() -> void:
-	if playingChasing:
+	if !playingChasing:
 		$ChaseMusic.stop()
 		$BackgroundMusic.play()
 		return
