@@ -284,7 +284,7 @@ Vector2i(-1, -1): {
 script = ExtResource("1_xanii")
 
 [node name="Player" parent="." unique_id=2039338456 instance=ExtResource("1_ahihw")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -90.52101, 2.1436687, -40.161465)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -64.95874, 2.1436763, -5.8569984)
 SOBER_WALK_SPEED = 6.9
 CROUCH_SPEED_MULTIPLIER = 0.3
 crouching_noise_volume = 1.5
@@ -1509,14 +1509,14 @@ size = Vector3(1.6557617, 0.72821045, 2)
 [node name="Location7" type="Node3D" parent="." unique_id=1190777787]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.057377, 0, -15.342804)
 
-[node name="Shell" parent="Location7" unique_id=1992373891 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
+[node name="Shell" parent="Location7" unique_id=463217314 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6056662, 1.4558756, 5.8289146)
 hearing_range = 16.0
 patrol_time = 5.2
 patrol_points = [NodePath("../ShellPatrolPoints/PatrolPoint1"), NodePath("../ShellPatrolPoints/PatrolPoint2"), NodePath("../ShellPatrolPoints/PatrolPoint3"), NodePath("../ShellPatrolPoints/PatrolPoint2")]
 scream_time = 3.0
 
-[node name="Shell2" parent="Location7" unique_id=945879773 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
+[node name="Shell2" parent="Location7" unique_id=2105221315 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4587593, 1.4558756, 5.8289146)
 hearing_range = 16.0
 patrol_time = 5.0
@@ -1874,7 +1874,7 @@ spot_range = 8.705
 [node name="Location9" type="Node3D" parent="." unique_id=1443309715]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3121138, 0, -4.3173733)
 
-[node name="Shell" parent="Location9" unique_id=846101904 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
+[node name="Shell" parent="Location9" unique_id=962225751 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6056662, 1.4558756, 5.8289146)
 hearing_range = 16.0
 patrol_time = 5.0
@@ -2346,7 +2346,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.753912, 1.0424604, 12.27761
 [node name="OmniLight3D" type="OmniLight3D" parent="Location10/ShellNavRegion" unique_id=420804771]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.083115, 1.2641665, 21.79506)
 
-[node name="Shell" parent="Location10" unique_id=167450878 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
+[node name="Shell" parent="Location10" unique_id=127491962 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6356068, 1.4558756, -13.183457)
 hearing_range = 16.0
 patrol_time = 1.0
@@ -2847,14 +2847,14 @@ note_to_hold = ExtResource("48_5xlmm")
 [node name="Grafiti1" parent="Location14/ShellNavRegion" unique_id=49056071 instance=ExtResource("50_ai52n")]
 transform = Transform3D(-9.53086e-08, 0, 0.585, 0, 0.585, 0, -0.585, 0, -9.53086e-08, -28.941628, 2.1497922, 12.052454)
 
-[node name="Shell" parent="Location14" unique_id=25262275 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
+[node name="Shell" parent="Location14" unique_id=1505922517 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.896347, 0.59397864, -13.183456)
 hearing_range = 16.0
 patrol_time = 1.0
 patrol_points = [NodePath("../ShellNavRegion/Patrol Points/Patrol Point 1"), NodePath("../ShellNavRegion/Patrol Points/Patrol Point 2")]
 scream_time = 3.0
 
-[node name="Shell2" parent="Location14" unique_id=80240976 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
+[node name="Shell2" parent="Location14" unique_id=890248187 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.8963547, 0.59397864, -38.268543)
 hearing_range = 16.0
 patrol_time = 1.0
@@ -3892,7 +3892,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.048676, 0.5726967, 17.2668
 [node name="Hol17" type="Node3D" parent="Level3/Patrol Points" unique_id=1798096506]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.673088, 0.5726967, 17.266861)
 
-[node name="Shell" parent="Level3" unique_id=1354937306 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
+[node name="Shell" parent="Level3" unique_id=1145192486 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7542114, 0.9513607, 11.233505)
 patrol_points = [NodePath("../Patrol Points/Corridor1"), NodePath("../Patrol Points/Corridor2")]
 scream_time = 3.0
@@ -3906,58 +3906,58 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.852036, 3.7134056, 12.439
 trigger_event = 3
 destroy_on_trigger = true
 
-[node name="Shell8" parent="Level3" unique_id=100241452 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
+[node name="Shell8" parent="Level3" unique_id=1656681903 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.838234, 0.9513626, 11.223251)
 patrol_points = [NodePath("../Patrol Points/Hol1"), NodePath("../Patrol Points/Hol2")]
 scream_time = 3.0
 
 [node name="FinalStageSetUpper" type="Node" parent="Level3" unique_id=1504780409 node_paths=PackedStringArray("shells")]
 script = ExtResource("51_vkxoh")
-shells = [NodePath("../Shell8"), NodePath("../Shell3"), NodePath("../Shell4"), NodePath("../Shell5"), NodePath("../Shell6"), NodePath("../Shell7"), NodePath("../Shell9"), NodePath("../Shell10")]
+shells = [null, null, null, null, null, null, null, null]
 
-[node name="Shell3" parent="Level3" unique_id=1858960719 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
+[node name="Shell3" parent="Level3" unique_id=301939043 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.594868, 0.9513626, 2.566368)
 visible = false
 disabled_on_start = true
 patrol_points = [NodePath("../Patrol Points/Hol3"), NodePath("../Patrol Points/Hol9"), NodePath("../Patrol Points/Hol6"), NodePath("../Patrol Points/Hol7")]
 scream_time = 3.0
 
-[node name="Shell4" parent="Level3" unique_id=405650842 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
+[node name="Shell4" parent="Level3" unique_id=847915416 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.571907, 0.9513664, 18.712471)
 visible = false
 disabled_on_start = true
 patrol_points = [NodePath("../Patrol Points/Hol5"), NodePath("../Patrol Points/Hol13"), NodePath("../Patrol Points/Hol15")]
 scream_time = 3.0
 
-[node name="Shell5" parent="Level3" unique_id=1533710129 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
+[node name="Shell5" parent="Level3" unique_id=218530372 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.095749, 0.9513645, 18.644218)
 visible = false
 disabled_on_start = true
 patrol_points = [NodePath("../Patrol Points/Hol12"), NodePath("../Patrol Points/Hol14"), NodePath("../Patrol Points/Hol15"), NodePath("../Patrol Points/Hol16"), NodePath("../Patrol Points/Hol17")]
 scream_time = 3.0
 
-[node name="Shell6" parent="Level3" unique_id=208171354 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
+[node name="Shell6" parent="Level3" unique_id=1694080083 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.254005, 0.9513645, 19.490028)
 visible = false
 disabled_on_start = true
 patrol_points = [NodePath("../Patrol Points/Hol12"), NodePath("../Patrol Points/Hol10"), NodePath("../Patrol Points/Hol9")]
 scream_time = 3.0
 
-[node name="Shell7" parent="Level3" unique_id=894879535 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
+[node name="Shell7" parent="Level3" unique_id=2028960012 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.860264, 0.9513626, 0.25444794)
 visible = false
 disabled_on_start = true
 patrol_points = [NodePath("../Patrol Points/Hol4"), NodePath("../Patrol Points/Hol6"), NodePath("../Patrol Points/Hol7"), NodePath("../Patrol Points/Hol8")]
 scream_time = 3.0
 
-[node name="Shell9" parent="Level3" unique_id=2033088050 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
+[node name="Shell9" parent="Level3" unique_id=1547116249 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.852539, 0.9513626, 0.32563782)
 visible = false
 disabled_on_start = true
 patrol_points = [NodePath("../Patrol Points/Hol3"), NodePath("../Patrol Points/Hol4"), NodePath("../Patrol Points/Hol5"), NodePath("../Patrol Points/Hol6")]
 scream_time = 3.0
 
-[node name="Shell10" parent="Level3" unique_id=1707849709 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
+[node name="Shell10" parent="Level3" unique_id=1854700239 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_01gpf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.210403, 0.9513607, 6.987404)
 visible = false
 disabled_on_start = true
