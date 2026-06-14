@@ -104,6 +104,9 @@ func Check_conditions(delta: float) -> void:
 	var is_player_in_sight = is_player_in_sight()
 	var is_player_on_region = player_is_on_region() && !GameManager.instance.is_player_in_safe_zone
 
+	if(is_player_on_region && PsycheManager.instance.invisibility_timer <= 0):
+		last_player_region_pos = GameManager.instance.player.global_position;
+
 	match current:
 		State.types.Attack:
 			#if ((self.global_position) - (GameManager.instance.player.global_position)).length() > attack_range:
@@ -116,22 +119,22 @@ func Check_conditions(delta: float) -> void:
 			if timer <= 0: change_state_by_name(State.types.Patrol)
 		State.types.Follow_player:
 			if ((self.global_position) - (GameManager.instance.player.global_position)).length() <= attack_range:
+				# if(state_machine.current_state.follow_position == GameManager.instance.player.global_position):
+				GameManager.instance.shell_chase_counter -= 1;
 				change_state_by_name(State.types.Attack)
+				# else:
+				# 	change_state_by_name(State.types.Searching);
 				return;
 			if(!is_player_on_region || PsycheManager.instance.invisibility_timer > 0):
-				# if(last_player_region_pos != null):
-				# 	state_machine.transit_to_state(state_machine.current_state, State.types.Follow_sound)
-				# 	state_machine.nav_agent.update_target_position(last_player_region_pos)
-				# 	last_player_region_pos = null;
-				# else:
+				GameManager.instance.shell_chase_counter -= 1;
 				change_state_by_name(State.types.Searching);
+				# state_machine.current_state.follow_position = last_player_region_pos;
 				return;
-			else:
-				last_player_region_pos = GameManager.instance.player.global_position;
-			if(!is_player_in_sight):
+			if(!is_player_in_sight || state_machine.current_state.follow_position == last_player_region_pos):
 				if timer > 0:
 					timer -= delta
 				else:
+					GameManager.instance.shell_chase_counter -= 1;
 					change_state_by_name(State.types.Searching)
 		State.types.Searching:
 			timer -= delta
@@ -165,7 +168,9 @@ func Check_conditions(delta: float) -> void:
 			# print(timer);
 			if timer > 0:
 				timer -= delta
-			else: change_state_by_name(State.types.Follow_player);
+			else: 
+				GameManager.instance.shell_chase_counter += 1;
+				change_state_by_name(State.types.Follow_player);
 
 	# print((global_position - last_position).length());
 	# if(test_mode): print(stuck_displacement);
@@ -256,16 +261,32 @@ func is_player_in_sight() -> bool:
 	return false;
 
 func player_is_on_region() -> bool:
+	return is_pos_on_region(GameManager.instance.player.global_position);
+
+func is_pos_on_region(global_pos: Vector3):
 	var map_rid = nav_agent.get_navigation_map()
-	var closest_point = NavigationServer3D.map_get_closest_point(map_rid, GameManager.instance.player.global_position)
+	var closest_point = NavigationServer3D.map_get_closest_point(map_rid, global_pos)
 	if (test_mode_is_active):
 		print(closest_point)
-	var distance = GameManager.instance.player.global_position.distance_to(closest_point)
+	var distance = global_pos.distance_to(closest_point)
+	# print(distance);
 	return true if distance < 1 else false;
+
+# func is_pos_xz_on_region(global_pos: Vector3):
+# 	var map_rid = nav_agent.get_navigation_map()
+# 	var closest_point = NavigationServer3D.map_get_closest_point(map_rid, global_pos)
+# 	if (test_mode_is_active):
+# 		print(closest_point)
+# 	global_pos.y = 0;
+# 	closest_point.y = 0;
+# 	var distance = global_pos.distance_to(closest_point)
+# 	print(distance)
+# 	return true if distance < 2 else false;
 
 func on_heard_a_sound(sound_pos: Vector3, volume: float):
 	var current_state: int = state_machine.current_state.state_type;
 	if(current_state == State.types.Follow_player): return;
+	# if(!is_pos_xz_on_region(sound_pos)): return;
 	var sound_distance: float = (sound_pos - state_machine.mob.global_position).length();
 	if (sound_distance < hearing_range * volume || (current_state == State.types.Scream && volume > 10.0)):
 		state_machine.transit_to_state(state_machine.current_state, State.types.Follow_sound)
