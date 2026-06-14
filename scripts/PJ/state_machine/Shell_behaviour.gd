@@ -8,6 +8,7 @@ class_name Shell_behaviour
 @export var stuck_return_timer: float = 2.0;
 @export var stuck_range_length: float = 0.01;
 @export var footstep_sound: AudioStreamPlayer3D
+@export var running_sound: AudioStreamPlayer3D
 @export var footstep_repeat_time: float
 
 @onready var nav_agent: NavigationAgent3D = $"NavigationAgent3D"
@@ -53,6 +54,7 @@ var dot: float = 0;
 
 var is_screaming = false
 var is_attacking = false
+var is_running = false
 
 var disabled: bool;
 var last_enabled_position: Vector3;
@@ -79,10 +81,17 @@ func _process(delta: float) -> void:
 	if(test_mode):
 		var keys = State.types.keys()
 		test_text.text = str(keys[state_machine.current_state.state_type]);
+	if state_machine.nav_agent.move_speed >= 8:
+		is_running = true
+	else:
+		is_running = false
 	if state_machine.nav_agent.move_speed >= 1:
 		current_sound_time -= delta
 		if current_sound_time <= 0:
-			footstep_sound.play()
+			if is_running:
+				running_sound.play()
+			else:
+				footstep_sound.play()
 			current_sound_time = footstep_repeat_time
 
 func disable():
@@ -118,17 +127,22 @@ func Check_conditions(delta: float) -> void:
 			timer -= delta
 			if timer <= 0: change_state_by_name(State.types.Patrol)
 		State.types.Follow_player:
-			if ((self.global_position) - (GameManager.instance.player.global_position)).length() <= attack_range:
-				# if(state_machine.current_state.follow_position == GameManager.instance.player.global_position):
-				GameManager.instance.shell_chase_counter -= 1;
-				change_state_by_name(State.types.Attack)
-				# else:
-				# 	change_state_by_name(State.types.Searching);
-				return;
+			var distance = ((self.global_position) - (state_machine.current_state.follow_position)).length();
+			if (state_machine.current_state.update_player_pos):
+				if(distance <= attack_range):
+					GameManager.instance.shell_chase_counter -= 1;
+					change_state_by_name(State.types.Attack)
+					return;
+			else:
+				if(distance < 2):
+					GameManager.instance.shell_chase_counter -= 1;
+					change_state_by_name(State.types.Searching);
+					return;
 			if(!is_player_on_region || PsycheManager.instance.invisibility_timer > 0):
 				GameManager.instance.shell_chase_counter -= 1;
 				change_state_by_name(State.types.Searching);
-				# state_machine.current_state.follow_position = last_player_region_pos;
+				state_machine.current_state.follow_position = last_player_region_pos;
+				state_machine.current_state.update_player_pos = false;
 				return;
 			if(!is_player_in_sight || state_machine.current_state.follow_position == last_player_region_pos):
 				if timer > 0:

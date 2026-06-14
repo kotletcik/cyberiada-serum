@@ -2,15 +2,15 @@
 
 [ext_resource type="Script" uid="uid://c42xayhs8gg2c" path="res://scripts/Valk/emergency_button.gd" id="1_cve6o"]
 [ext_resource type="Material" uid="uid://dxidar8isnf0s" path="res://materials/emergency_button_mat.tres" id="2_7fcf4"]
+[ext_resource type="AudioStream" uid="uid://bdk5e64cvtijo" path="res://assets/sounds/click.wav" id="3_7fcf4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ba0om"]
 size = Vector3(0.5, 0.5, 0.5)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_gbmb2"]
 
-[node name="EmergencyButton" type="StaticBody3D" unique_id=2049750870 node_paths=PackedStringArray("linked_door")]
+[node name="EmergencyButton" type="StaticBody3D" unique_id=2049750870]
 script = ExtResource("1_cve6o")
-linked_door = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1535465864]
 shape = SubResource("BoxShape3D_ba0om")
@@ -21,3 +21,7 @@ material_override = ExtResource("2_7fcf4")
 mesh = SubResource("CylinderMesh_gbmb2")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=761050071]
+
+[node name="ClickSound" type="AudioStreamPlayer3D" parent="." unique_id=703609270]
+stream = ExtResource("3_7fcf4")
+bus = &"SFX"

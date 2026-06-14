@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ceuuj6g4ys2cy"
-path="res://.godot/imported/stół operacyjny.glb-4210987af330eccff36082fa91124a02.scn"
+path="res://.godot/imported/stół operacyjny.glb-c458d184dc32b4ceae3d40ff553210e2.scn"
 
 [deps]
 
-source_file="res://assets/models/stół operacyjny.glb"
-dest_files=["res://.godot/imported/stół operacyjny.glb-4210987af330eccff36082fa91124a02.scn"]
+source_file="res://assets/Models/stół operacyjny.glb"
+dest_files=["res://.godot/imported/stół operacyjny.glb-c458d184dc32b4ceae3d40ff553210e2.scn"]
 
 [params]
 

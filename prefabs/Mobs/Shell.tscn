@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://dqoenfwxbkoli"]
 
 [ext_resource type="PackedScene" uid="uid://b4512qioi3g1i" path="res://prefabs/Gravity.tscn" id="2_6sbjw"]
-[ext_resource type="PackedScene" uid="uid://bj3bbpkd1o1p0" path="res://assets/models/shell_boned_flipped.glb" id="2_7805i"]
+[ext_resource type="PackedScene" uid="uid://bj3bbpkd1o1p0" path="res://assets/Models/shell_boned_flipped.glb" id="2_7805i"]
+[ext_resource type="AnimationLibrary" uid="uid://blw7uxsnrq3ho" path="res://addons/KayKit_Character_Animations_1.0/Animations/gltf/Rig_Large/Rig_Large_CombatMelee.glb" id="3_7805i"]
+[ext_resource type="AnimationLibrary" uid="uid://iy5871tg82i6" path="res://addons/KayKit_Character_Animations_1.0/Animations/gltf/Rig_Large/Rig_Large_General.glb" id="3_opuvl"]
+[ext_resource type="AnimationLibrary" uid="uid://drtl0aynkbn2u" path="res://addons/KayKit_Character_Animations_1.0/Animations/gltf/Rig_Large/Rig_Large_MovementBasic.glb" id="4_rsf4w"]
+[ext_resource type="AnimationLibrary" uid="uid://c8y1lkise7b5r" path="res://addons/KayKit_Character_Animations_1.0/Animations/gltf/Rig_Large/Rig_Large_Simulation.glb" id="5_7e2mx"]
 [ext_resource type="PackedScene" uid="uid://bxerqeybhhs0c" path="res://prefabs/Mobs/state_machine.tscn" id="5_e6lbg"]
 [ext_resource type="Script" uid="uid://b7oh0gjgvjexb" path="res://scripts/PJ/state_machine/Enemy_movement.gd" id="6_ajbgq"]
 [ext_resource type="AnimationLibrary" uid="uid://c2qgxeco14a2j" path="res://assets/animations/New_run.fbx" id="6_elech"]
@@ -19,6 +23,7 @@
 [ext_resource type="AnimationLibrary" uid="uid://dse14ofwv3bdd" path="res://assets/animations/Walk.fbx" id="16_3ua0v"]
 [ext_resource type="AudioStream" uid="uid://bm4f7msuu0sgn" path="res://assets/sounds/screaming.mp3" id="16_gs4m8"]
 [ext_resource type="AudioStream" uid="uid://dw3p28ug7xoyi" path="res://assets/sounds/krok.WAV" id="18_ranhc"]
+[ext_resource type="AudioStream" uid="uid://ch767swa8jr3v" path="res://assets/sounds/run.wav" id="19_elech"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7wg4f"]
 animation = &"Idle/mixamo_com"
@@ -103,7 +108,7 @@ albedo_color = Color(0.27935672, 0.27935672, 0.27935672, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_raqt8"]
 size = Vector3(0.4, 0.2, 0.2)
 
-[node name="Shell" type="CharacterBody3D" unique_id=2079833793 node_paths=PackedStringArray("test_text", "footstep_sound", "state_machine") groups=["Shell"]]
+[node name="Shell" type="CharacterBody3D" unique_id=2079833793 node_paths=PackedStringArray("test_text", "animator", "footstep_sound", "running_sound", "state_machine") groups=["Shell"]]
 collision_layer = 8
 collision_mask = 7
 script = ExtResource("6_raqt8")
@@ -111,6 +116,7 @@ test_mode = true
 test_text = NodePath("TestText")
 stuck_range_length = 0.001
 footstep_sound = NodePath("FootstepSound")
+running_sound = NodePath("RunningSound")
 footstep_repeat_time = 1.0
 state_machine = NodePath("State_machine")
 player_sight_fov = 120.0
@@ -236,5 +242,8 @@ stream = ExtResource("18_ranhc")
 [node name="TestText" type="Label3D" parent="." unique_id=1882071993]
 transform = Transform3D(-0.9659258, 0, -0.2588191, 0, 1, 0, 0.2588191, 0, -0.9659258, 0, 1.436229, 0)
 text = "Test"
+
+[node name="RunningSound" type="AudioStreamPlayer3D" parent="." unique_id=1753506596]
+stream = ExtResource("19_elech")
 
 [editable path="State_machine"]
