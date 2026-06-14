@@ -86,6 +86,7 @@
 [ext_resource type="PackedScene" uid="uid://dnribjrdgdb63" path="res://prefabs/Scene Prefabs/Interior/poster_2.tscn" id="83_ktxpg"]
 [ext_resource type="Script" uid="uid://dgrk8p67smvth" path="res://scripts/Sanuuu/music_manager.gd" id="85_8oixc"]
 [ext_resource type="AudioStream" uid="uid://yj1rrwdxvo05" path="res://assets/sounds/background_music.wav" id="86_jq8xw"]
+[ext_resource type="AudioStream" uid="uid://biv2tvr7wwv4u" path="res://assets/sounds/chase.wav" id="87_jq8xw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13hkq"]
 albedo_color = Color(0.27450982, 0.27450982, 0.27450982, 1)
@@ -4172,6 +4173,7 @@ autoplay = true
 bus = &"Music"
 
 [node name="ChaseMusic" type="AudioStreamPlayer" parent="MusicManager" unique_id=59201523]
+stream = ExtResource("87_jq8xw")
 
 [editable path="Location5/ShellNavRegion/Geometry/StaticBody3D"]
 [editable path="Location5/ShellNavRegion/Geometry/StaticBody3D2"]

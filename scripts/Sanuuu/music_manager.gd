@@ -1,12 +1,12 @@
 extends Node3D
 
-var isChasing := false
 var playingChasing := false
 
 func _ready() -> void:
 	pass
 
 func _process(_delta: float) -> void:
+	var isChasing := GameManager.instance.is_player_chased()
 	if isChasing != playingChasing:
 		playingChasing = isChasing
 		switch_music()
