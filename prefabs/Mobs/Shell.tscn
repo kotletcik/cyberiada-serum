@@ -2,59 +2,89 @@
 
 [ext_resource type="PackedScene" uid="uid://b4512qioi3g1i" path="res://prefabs/Gravity.tscn" id="2_6sbjw"]
 [ext_resource type="PackedScene" uid="uid://bj3bbpkd1o1p0" path="res://assets/models/shell_boned_flipped.glb" id="2_7805i"]
-[ext_resource type="AnimationLibrary" uid="uid://blw7uxsnrq3ho" path="res://addons/KayKit_Character_Animations_1.0/Animations/gltf/Rig_Large/Rig_Large_CombatMelee.glb" id="3_7805i"]
-[ext_resource type="AnimationLibrary" uid="uid://iy5871tg82i6" path="res://addons/KayKit_Character_Animations_1.0/Animations/gltf/Rig_Large/Rig_Large_General.glb" id="3_opuvl"]
-[ext_resource type="AnimationLibrary" uid="uid://drtl0aynkbn2u" path="res://addons/KayKit_Character_Animations_1.0/Animations/gltf/Rig_Large/Rig_Large_MovementBasic.glb" id="4_rsf4w"]
-[ext_resource type="AnimationLibrary" uid="uid://c8y1lkise7b5r" path="res://addons/KayKit_Character_Animations_1.0/Animations/gltf/Rig_Large/Rig_Large_Simulation.glb" id="5_7e2mx"]
 [ext_resource type="PackedScene" uid="uid://bxerqeybhhs0c" path="res://prefabs/Mobs/state_machine.tscn" id="5_e6lbg"]
-[ext_resource type="AnimationLibrary" uid="uid://bnrrihsy1b3qm" path="res://addons/KayKit_Character_Animations_1.0/Animations/gltf/Rig_Large/Rig_Large_MovementAdvanced.glb" id="5_gs4m8"]
 [ext_resource type="Script" uid="uid://b7oh0gjgvjexb" path="res://scripts/PJ/state_machine/Enemy_movement.gd" id="6_ajbgq"]
+[ext_resource type="AnimationLibrary" uid="uid://c2qgxeco14a2j" path="res://assets/animations/New_run.fbx" id="6_elech"]
 [ext_resource type="Script" uid="uid://dntly0y7t12o6" path="res://scripts/PJ/movement_animator.gd" id="6_opuvl"]
 [ext_resource type="Script" uid="uid://dkukaamdo4acb" path="res://scripts/PJ/state_machine/Shell_behaviour.gd" id="6_raqt8"]
 [ext_resource type="Script" uid="uid://ws43rxsp8qki" path="res://scripts/PJ/state_machine/States/Patrol.gd" id="7_ayt5m"]
 [ext_resource type="Script" uid="uid://cch3iwxpn7a6u" path="res://scripts/PJ/state_machine/States/Scream.gd" id="7_lqxc7"]
-[ext_resource type="AnimationNodeBlendSpace1D" uid="uid://bc2y71tjqhgpl" path="res://assets/shell_animation_states/new_animation_node_blend_space_1d.tres" id="7_rsf4w"]
 [ext_resource type="PackedScene" uid="uid://cqmv7mxht6o6m" path="res://prefabs/gpu_particles_3d.tscn" id="8_6f62q"]
 [ext_resource type="Script" uid="uid://b7ydidx4polw6" path="res://scripts/Valk/shell_disappearance.gd" id="9_jt8f1"]
+[ext_resource type="AnimationLibrary" uid="uid://cp5af2wdi7h4t" path="res://assets/animations/Attack.fbx" id="10_wb7tl"]
+[ext_resource type="AnimationLibrary" uid="uid://bc2x2caqvreao" path="res://assets/animations/Idle.fbx" id="11_d0n2v"]
+[ext_resource type="AnimationLibrary" uid="uid://bwiwwigwl5rk2" path="res://assets/animations/Injured_walk.fbx" id="12_qx00w"]
+[ext_resource type="AnimationLibrary" uid="uid://pewiwwubdgbq" path="res://assets/animations/Rawwr.fbx" id="13_l63qx"]
+[ext_resource type="AnimationLibrary" uid="uid://cappofixlw6vr" path="res://assets/animations/T-Pose.fbx" id="15_7ri50"]
+[ext_resource type="AnimationLibrary" uid="uid://dse14ofwv3bdd" path="res://assets/animations/Walk.fbx" id="16_3ua0v"]
 [ext_resource type="AudioStream" uid="uid://bm4f7msuu0sgn" path="res://assets/sounds/screaming.mp3" id="16_gs4m8"]
 [ext_resource type="AudioStream" uid="uid://dw3p28ug7xoyi" path="res://assets/sounds/krok.WAV" id="18_ranhc"]
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7wg4f"]
+animation = &"Idle/mixamo_com"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jfduq"]
+animation = &"Walk/mixamo_com"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rsf4w"]
-animation = &"Rig_Large_CombatMelee/Melee_2H_Slam"
+animation = &"Attack/mixamo_com"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_elech"]
+animation = &"New_run/mixamo_com"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7e2mx"]
-animation = &"Rig_Large_Simulation/Flexing"
+animation = &"Rawwr/mixamo_com"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7805i"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_p67xu"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gs4m8"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r118c"]
 advance_mode = 2
-advance_expression = "is_screaming"
+advance_condition = &"is_walking"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ranhc"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g7fg0"]
 advance_mode = 2
-advance_expression = "!is_screaming"
+advance_condition = &"!is_walking"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7e2mx"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7wg4f"]
+advance_mode = 2
+advance_condition = &"is_running"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jfduq"]
+advance_mode = 2
+advance_condition = &"!is_running"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wb7tl"]
 advance_mode = 2
 advance_expression = "is_attacking"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_elech"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d0n2v"]
 advance_mode = 2
 advance_expression = "!is_attacking"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qx00w"]
+advance_mode = 2
+advance_expression = "!is_screaming"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l63qx"]
+advance_mode = 2
+advance_expression = "is_screaming"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_elech"]
 states/End/position = Vector2(596.2, 134)
-states/Rig_Large_General_Hit_A/node = SubResource("AnimationNodeAnimation_rsf4w")
-states/Rig_Large_General_Hit_A/position = Vector2(527.2176, 54.999996)
-states/Rig_Large_Simulation_Flexing/node = SubResource("AnimationNodeAnimation_7e2mx")
-states/Rig_Large_Simulation_Flexing/position = Vector2(349.80002, 134)
-states/Run/node = ExtResource("7_rsf4w")
-states/Run/position = Vector2(349.80002, 54.999996)
-states/Start/position = Vector2(238, 54.999996)
-transitions = ["Start", "Run", SubResource("AnimationNodeStateMachineTransition_7805i"), "Run", "Rig_Large_Simulation_Flexing", SubResource("AnimationNodeStateMachineTransition_gs4m8"), "Rig_Large_Simulation_Flexing", "Run", SubResource("AnimationNodeStateMachineTransition_ranhc"), "Run", "Rig_Large_General_Hit_A", SubResource("AnimationNodeStateMachineTransition_7e2mx"), "Rig_Large_General_Hit_A", "Run", SubResource("AnimationNodeStateMachineTransition_elech")]
-graph_offset = Vector2(8.21759, -25)
+states/Idle_mixamo_com/node = SubResource("AnimationNodeAnimation_7wg4f")
+states/Idle_mixamo_com/position = Vector2(282.2176, -57)
+states/Start/position = Vector2(8, 91)
+states/Walk_mixamo_com/node = SubResource("AnimationNodeAnimation_jfduq")
+states/Walk_mixamo_com/position = Vector2(543.2176, -76)
+states/attack/node = SubResource("AnimationNodeAnimation_rsf4w")
+states/attack/position = Vector2(475.2176, 54.999996)
+states/run/node = SubResource("AnimationNodeAnimation_elech")
+states/run/position = Vector2(277.2176, 54.999996)
+states/scream/node = SubResource("AnimationNodeAnimation_7e2mx")
+states/scream/position = Vector2(349.80002, 134)
+transitions = ["Start", "Idle_mixamo_com", SubResource("AnimationNodeStateMachineTransition_p67xu"), "Idle_mixamo_com", "Walk_mixamo_com", SubResource("AnimationNodeStateMachineTransition_r118c"), "Walk_mixamo_com", "Idle_mixamo_com", SubResource("AnimationNodeStateMachineTransition_g7fg0"), "Walk_mixamo_com", "run", SubResource("AnimationNodeStateMachineTransition_7wg4f"), "run", "Walk_mixamo_com", SubResource("AnimationNodeStateMachineTransition_jfduq"), "run", "attack", SubResource("AnimationNodeStateMachineTransition_wb7tl"), "attack", "run", SubResource("AnimationNodeStateMachineTransition_d0n2v"), "scream", "run", SubResource("AnimationNodeStateMachineTransition_qx00w"), "run", "scream", SubResource("AnimationNodeStateMachineTransition_l63qx")]
+graph_offset = Vector2(-0.78240967, -128)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lj2st"]
 radius = 0.4
@@ -73,13 +103,12 @@ albedo_color = Color(0.27935672, 0.27935672, 0.27935672, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_raqt8"]
 size = Vector3(0.4, 0.2, 0.2)
 
-[node name="Shell" type="CharacterBody3D" unique_id=2079833793 node_paths=PackedStringArray("test_text", "animator", "footstep_sound", "state_machine") groups=["Shell"]]
+[node name="Shell" type="CharacterBody3D" unique_id=2079833793 node_paths=PackedStringArray("test_text", "footstep_sound", "state_machine") groups=["Shell"]]
 collision_layer = 8
 collision_mask = 7
 script = ExtResource("6_raqt8")
 test_mode = true
 test_text = NodePath("TestText")
-animator = NodePath("shell_boned_flipped/AnimationPlayer")
 stuck_range_length = 0.001
 footstep_sound = NodePath("FootstepSound")
 footstep_repeat_time = 1.0
@@ -89,23 +118,28 @@ player_sight_range = 16.0
 attack_range = 1.1
 scream_time = 1.0
 
-[node name="shell_boned_flipped" parent="." unique_id=62765794 instance=ExtResource("2_7805i")]
+[node name="shell_boned_flipped" parent="." unique_id=534761452 instance=ExtResource("2_7805i")]
 transform = Transform3D(-0.14, 0, -1.2239188e-08, 0, 0.14, 0, 1.2239188e-08, 0, -0.14, 0, -1, 0)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="shell_boned_flipped" unique_id=917387862 node_paths=PackedStringArray("animation_tree")]
-libraries/Rig_Large_CombatMelee = ExtResource("3_7805i")
-libraries/Rig_Large_General = ExtResource("3_opuvl")
-libraries/Rig_Large_MovementAdvanced = ExtResource("5_gs4m8")
-libraries/Rig_Large_MovementBasic = ExtResource("4_rsf4w")
-libraries/Rig_Large_Simulation = ExtResource("5_7e2mx")
-script = ExtResource("6_opuvl")
-animation_tree = NodePath("../AnimationTree")
 
 [node name="AnimationTree" type="AnimationTree" parent="shell_boned_flipped" unique_id=824088105]
 tree_root = SubResource("AnimationNodeStateMachine_elech")
 advance_expression_base_node = NodePath("../..")
-anim_player = NodePath("../AnimationPlayer")
-parameters/Run/blend_position = 4.526432
+anim_player = NodePath("../AnimationPlayer2")
+parameters/conditions/!is_running = false
+parameters/conditions/!is_walking = false
+parameters/conditions/is_running = false
+parameters/conditions/is_walking = false
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="shell_boned_flipped" unique_id=1169575881 node_paths=PackedStringArray("animation_tree")]
+libraries/Attack = ExtResource("10_wb7tl")
+libraries/Idle = ExtResource("11_d0n2v")
+libraries/Injured_walk = ExtResource("12_qx00w")
+libraries/New_run = ExtResource("6_elech")
+libraries/Rawwr = ExtResource("13_l63qx")
+libraries/T-Pose = ExtResource("15_7ri50")
+libraries/Walk = ExtResource("16_3ua0v")
+script = ExtResource("6_opuvl")
+animation_tree = NodePath("../AnimationTree")
 
 [node name="State_machine_Behaviour#DebugLines" type="MeshInstance3D" parent="." unique_id=533354744]
 visible = false
