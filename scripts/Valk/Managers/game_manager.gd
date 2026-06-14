@@ -7,6 +7,8 @@ static var instance: GameManager;
 var is_game_over: bool = false;
 var is_player_in_safe_zone: bool = false;
 
+var shell_chase_counter: int = 0;
+
 func _ready() -> void:
 	if(instance == null):
 		instance = self;    
@@ -15,6 +17,11 @@ func _ready() -> void:
 		print("More than one GameManager exists!!!");
 		queue_free();
 		
+func is_player_chased(): return shell_chase_counter > 0;
+
+# func _process(delta: float) -> void:
+# 	print(shell_chase_counter);
+
 func game_over() -> void:
 	is_game_over = true;
 	pause_game();
