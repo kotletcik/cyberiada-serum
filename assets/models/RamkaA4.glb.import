@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dyaq4kxu6uw2w"
-path="res://.godot/imported/RamkaA4.glb-cac66b777d8b40aa0fcd76832d53b5cf.scn"
+path="res://.godot/imported/RamkaA4.glb-a836361afc89ff8803f6cc614042e681.scn"
 
 [deps]
 
-source_file="res://assets/models/RamkaA4.glb"
-dest_files=["res://.godot/imported/RamkaA4.glb-cac66b777d8b40aa0fcd76832d53b5cf.scn"]
+source_file="res://assets/Models/RamkaA4.glb"
+dest_files=["res://.godot/imported/RamkaA4.glb-a836361afc89ff8803f6cc614042e681.scn"]
 
 [params]
 

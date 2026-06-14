@@ -1,9 +1,10 @@
 extends Node3D
 
+@export var MusicController: AudioStreamPlayer
 var playingChasing := false
 
 func _ready() -> void:
-	pass
+	playingChasing = GameManager.instance.is_player_chased()
 
 func _process(_delta: float) -> void:
 	var isChasing := GameManager.instance.is_player_chased()
@@ -12,9 +13,7 @@ func _process(_delta: float) -> void:
 		switch_music()
 
 func switch_music() -> void:
-	if !playingChasing:
-		$ChaseMusic.stop()
-		$BackgroundMusic.play()
+	if playingChasing:
+		MusicController["parameters/switch_to_clip"] = "Chase"
 		return
-	$BackgroundMusic.stop()
-	$ChaseMusic.play()
+	MusicController["parameters/switch_to_clip"] = "Background"
