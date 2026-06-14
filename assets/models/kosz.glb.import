@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bbdr5l71yrkwb"
-path="res://.godot/imported/kosz.glb-34cb4a5352b817557f9b5e5aa7e608b6.scn"
+path="res://.godot/imported/kosz.glb-7889535248ca5be851136c585ad37955.scn"
 
 [deps]
 
-source_file="res://assets/models/kosz.glb"
-dest_files=["res://.godot/imported/kosz.glb-34cb4a5352b817557f9b5e5aa7e608b6.scn"]
+source_file="res://assets/Models/kosz.glb"
+dest_files=["res://.godot/imported/kosz.glb-7889535248ca5be851136c585ad37955.scn"]
 
 [params]
 

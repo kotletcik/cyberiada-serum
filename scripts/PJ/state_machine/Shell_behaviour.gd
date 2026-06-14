@@ -8,6 +8,7 @@ class_name Shell_behaviour
 @export var stuck_return_timer: float = 2.0;
 @export var stuck_range_length: float = 0.01;
 @export var footstep_sound: AudioStreamPlayer3D
+@export var running_sound: AudioStreamPlayer3D
 @export var footstep_repeat_time: float
 
 @onready var nav_agent: NavigationAgent3D = $"NavigationAgent3D"
@@ -53,6 +54,7 @@ var dot: float = 0;
 
 var is_screaming = false
 var is_attacking = false
+var is_running = false
 
 var disabled: bool;
 var last_enabled_position: Vector3;
@@ -79,10 +81,17 @@ func _process(delta: float) -> void:
 	if(test_mode):
 		var keys = State.types.keys()
 		test_text.text = str(keys[state_machine.current_state.state_type]);
+	if state_machine.nav_agent.move_speed >= 8:
+		is_running = true
+	else:
+		is_running = false
 	if state_machine.nav_agent.move_speed >= 1:
 		current_sound_time -= delta
 		if current_sound_time <= 0:
-			footstep_sound.play()
+			if is_running:
+				running_sound.play()
+			else:
+				footstep_sound.play()
 			current_sound_time = footstep_repeat_time
 
 func disable():
