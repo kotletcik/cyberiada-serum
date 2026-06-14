@@ -87,7 +87,7 @@ func is_correct_thought(checked_clue: Clue, chosen_clue: Clue) -> bool:
 			if(thought_paths[i].required_clues[j] == checked_clue && thought_paths[i].is_clue_realized[j]):
 				var index: int = j + 1;
 				for k in range(0, index):
-					if(!thought_paths[i].is_clue_realized[k] && thought_paths[i].required_for_realization[k]): return false;
+					if(!thought_paths[i].is_clue_realized[k] && thought_paths[i].required_clues[k].required_for_realization): return false;
 				if(index >= thought_paths[i].required_clues.size() || thought_paths[i].is_clue_realized[index]): return false;
 				if(thought_paths[i].required_clues[index] == chosen_clue): return true;
 	return false;
