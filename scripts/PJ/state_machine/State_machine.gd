@@ -27,6 +27,10 @@ func _ready():
 	EventBus.connect("game_restarted", transit_to_initial_state)
 	EventBus.connect("level_changed", transit_to_initial_state)
 
+# func get_state(id: int):
+# 	# var keys = State.types.keys()
+# 	return states[id];
+
 func _process(delta):
 	if current_state:
 		current_state.Update(delta)
