@@ -4,4 +4,5 @@
 
 [resource]
 script = ExtResource("1_yr4je")
+content = "Karta do wyjścia na powierzchnię została podana wraz z tym dokumentem"
 metadata/_custom_type_script = "uid://db4xf6hpks04h"

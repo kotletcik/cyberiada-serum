@@ -15,7 +15,7 @@ var vel_vector: Vector3;
 const g = 9.8;
 
 func _physics_process(delta: float) -> void:
-	if(Input.is_action_just_pressed("use_item_2")):
+	if(Input.is_action_just_pressed("use_item_2") && UIManager.instance.is_in_game):
 		var rock_instance : RigidBody3D = rock.instantiate() as RigidBody3D;
 		add_child(rock_instance);
 		rock_instance.global_position = throw_position.global_position;

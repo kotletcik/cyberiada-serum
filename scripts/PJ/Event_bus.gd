@@ -56,6 +56,7 @@ func call_event(trigger: triggers):
 			good_ending.emit();
 		triggers.FinalStage:
 			final_stage.emit();
+			SaveManager.instance.save_checkpoint();
 		triggers.LiftToFinalLevelUnlocked:
 			lift_to_final_level_unlocked.emit();
 		triggers.Ending:
