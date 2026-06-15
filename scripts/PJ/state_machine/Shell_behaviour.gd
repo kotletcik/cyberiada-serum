@@ -139,8 +139,8 @@ func Check_conditions(delta: float) -> void:
 					change_state_by_name(State.types.Searching);
 					return;
 			if(!is_player_on_region || PsycheManager.instance.invisibility_timer > 0):
-				GameManager.instance.shell_chase_counter -= 1;
-				change_state_by_name(State.types.Searching);
+				# GameManager.instance.shell_chase_counter -= 1;
+				# change_state_by_name(State.types.Searching);
 				state_machine.current_state.follow_position = last_player_region_pos;
 				state_machine.current_state.update_player_pos = false;
 				return;

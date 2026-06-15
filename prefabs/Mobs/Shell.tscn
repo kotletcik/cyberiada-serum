@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dqoenfwxbkoli"]
 
 [ext_resource type="PackedScene" uid="uid://b4512qioi3g1i" path="res://prefabs/Gravity.tscn" id="2_6sbjw"]
-[ext_resource type="PackedScene" uid="uid://bj3bbpkd1o1p0" path="res://assets/Models/shell_boned_flipped.glb" id="2_7805i"]
+[ext_resource type="PackedScene" uid="uid://bj3bbpkd1o1p0" path="res://assets/models/shell_boned_flipped.glb" id="2_7805i"]
 [ext_resource type="AnimationLibrary" uid="uid://blw7uxsnrq3ho" path="res://addons/KayKit_Character_Animations_1.0/Animations/gltf/Rig_Large/Rig_Large_CombatMelee.glb" id="3_7805i"]
 [ext_resource type="AnimationLibrary" uid="uid://iy5871tg82i6" path="res://addons/KayKit_Character_Animations_1.0/Animations/gltf/Rig_Large/Rig_Large_General.glb" id="3_opuvl"]
 [ext_resource type="AnimationLibrary" uid="uid://drtl0aynkbn2u" path="res://addons/KayKit_Character_Animations_1.0/Animations/gltf/Rig_Large/Rig_Large_MovementBasic.glb" id="4_rsf4w"]
@@ -78,7 +78,6 @@ size = Vector3(0.4, 0.2, 0.2)
 collision_layer = 8
 collision_mask = 7
 script = ExtResource("6_raqt8")
-test_mode = true
 test_text = NodePath("TestText")
 animator = NodePath("shell_boned_flipped/AnimationPlayer")
 stuck_range_length = 0.001
@@ -91,7 +90,7 @@ player_sight_range = 16.0
 attack_range = 1.1
 scream_time = 1.0
 
-[node name="shell_boned_flipped" parent="." unique_id=62765794 instance=ExtResource("2_7805i")]
+[node name="shell_boned_flipped" parent="." unique_id=427233992 instance=ExtResource("2_7805i")]
 transform = Transform3D(-0.14, 0, -1.2239188e-08, 0, 0.14, 0, 1.2239188e-08, 0, -0.14, 0, -1, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="shell_boned_flipped" unique_id=917387862 node_paths=PackedStringArray("animation_tree")]
@@ -128,7 +127,6 @@ _body = NodePath("..")
 avoidance_enabled = true
 height = 3.0
 radius = 2.0
-debug_enabled = true
 debug_path_custom_color = Color(0.95686275, 0.13333334, 0.23137255, 1)
 script = ExtResource("6_ajbgq")
 
@@ -145,8 +143,8 @@ move_speed = 5.0
 acceleration = 5.0
 
 [node name="Follow_player" parent="State_machine" index="1" unique_id=228265934]
-move_speed = 12.0
-acceleration = 12.0
+move_speed = 15.0
+acceleration = 15.0
 state_type = 1
 
 [node name="Attack" parent="State_machine" index="2" unique_id=494533407]

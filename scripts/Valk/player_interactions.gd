@@ -33,7 +33,7 @@ func _process(_delta: float) -> void:
 				hover_call = Callable();
 				unhover_call = Callable();
 		
-	if(Input.is_action_just_pressed("Interact")):
+	if(Input.is_action_just_pressed("Interact") && UIManager.instance.is_in_game):
 		if(!collision.is_empty()):
 			var object: Node3D = collision["collider"];
 			if(object.is_in_group("Serum")):

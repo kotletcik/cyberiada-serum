@@ -7,5 +7,7 @@ script = ExtResource("1_pu21l")
 title = "Raport"
 content = "Pacjent nr 46920 został poddany operacji i teraz czeka ją 7 dni śpiączki. 
 Możliwe niepożądane efekty serum po zbudzeniu.
-Zalecany ścisły nadzór."
+Zalecany ścisły nadzór.
+Pilnować karty do drzwi podanej wraz z tym dokumentem
+"
 metadata/_custom_type_script = "uid://db4xf6hpks04h"

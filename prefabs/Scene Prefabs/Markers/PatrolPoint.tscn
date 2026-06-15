@@ -11,4 +11,5 @@ height = 0.4
 [node name="PatrolPoint" type="Node3D" unique_id=1444820056]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1994238633]
+visible = false
 mesh = SubResource("SphereMesh_dsqxn")

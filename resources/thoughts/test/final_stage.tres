@@ -4,9 +4,9 @@
 
 [resource]
 script = ExtResource("1_4crc3")
-name = "Ostatnia winda"
-description = "Ostatnia winda jest już odblokowana"
-ui_pos = Vector2(64, 32)
+name = "Wyjście na powierzchnie"
+description = "MOGĘ JUŻ WYJŚĆ NA POWIERZCHNIE WINDĄ KTÓRA TU PRZYSZŁAM"
+ui_pos = Vector2(256, 32)
 automatically_unlock = true
 clue_trigger = 3
 metadata/_custom_type_script = "uid://q760mct2evav"

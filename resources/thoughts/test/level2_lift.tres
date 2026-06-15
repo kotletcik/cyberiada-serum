@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_sjshl")
 name = "Winda Odblokowana"
+description = "Muszę iść do Windy!!!"
 ui_pos = Vector2(32, 32)
 automatically_unlock = true
 clue_trigger = 4

@@ -205,5 +205,7 @@ text = "Mind Palace polega na tym, że trzeba łączyć ze sobą wskazówki, aby
 Robi się to przesuwając wskazówki z obszaru \"Zebrane Wskazówki\" na wskazówki w głównym panelu.
 Główny panel wyświetla wskazówki z wybranej przez siebie ścieżce wskazówek.
 Ścieżkę wskazówek można wybrać obok głównego panelu
-Czasami dodane wskazówki automatycznie się łączą z poprzednimi i nie trzeba nic wykonywać"
+Czasami dodane wskazówki automatycznie się łączą z poprzednimi i nie trzeba nic wykonywać.
+Jeśli jesteś utknięty na pierwszym poziomie, przejdź do zakładki Mind Palace i przenieś zebraną wskazówkę 
+na teren wskazówki już \"zaliczonej\" (nie obok)"
 label_settings = SubResource("LabelSettings_usnsq")

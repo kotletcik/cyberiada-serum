@@ -20,6 +20,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1")
+build_mode = true
 
 [node name="Background" type="ColorRect" parent="." unique_id=1260393015]
 layout_mode = 1
@@ -89,7 +90,7 @@ text = "CREDITS"
 [node name="ControlsButton" type="Button" parent="VBoxContainer" unique_id=436714771]
 custom_minimum_size = Vector2(300, 48)
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.9404425, 0, 0.009842546, 1)
 text = "KONTROLKI
 OBOWIĄZKOWO WEJŚĆ"
 

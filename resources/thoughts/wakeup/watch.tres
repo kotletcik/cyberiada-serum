@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Clue" format=3 uid="uid://dt7dtcb4bds7m"]
+[gd_resource type="Resource" script_class="Clue" format=3 uid="uid://cahopmi4vtc5x"]
 
 [ext_resource type="Script" uid="uid://q760mct2evav" path="res://scripts/Valk/Resource Types/clue.gd" id="1_1ix42"]
+[ext_resource type="Resource" uid="uid://dt7dtcb4bds7m" path="res://resources/thoughts/wakeup/card.tres" id="2_6pwmv"]
 [ext_resource type="Resource" uid="uid://b2q3agdc7eyfd" path="res://resources/notes/raport.tres" id="2_w0e2u"]
 
 [resource]
@@ -9,4 +10,5 @@ name = "Nadzór???"
 description = "Powinnam być pod nadzorem. Coś się stało... Powinnam byc ostrożna wychodząc"
 ui_pos = Vector2(256, 28)
 connected_note = ExtResource("2_w0e2u")
+clues_to_gather = Array[ExtResource("1_1ix42")]([ExtResource("2_6pwmv")])
 metadata/_custom_type_script = "uid://q760mct2evav"

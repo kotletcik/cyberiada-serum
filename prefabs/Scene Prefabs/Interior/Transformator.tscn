@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://dp8ptyamp3mvi"]
 
-[ext_resource type="Script" path="res://scripts/PJ/transformator.gd" id="1_847bj"]
-[ext_resource type="Material" path="res://textures/metalowa_plyta_z_srubami/metalowa_plyta_ze_srubami.tres" id="2_iy5in"]
+[ext_resource type="Script" uid="uid://dc7ujf1sgyfnl" path="res://scripts/PJ/transformator.gd" id="1_847bj"]
+[ext_resource type="Material" uid="uid://ff8b23xyn6sb" path="res://textures/metalowa_plyta_z_srubami/metalowa_plyta_ze_srubami.tres" id="2_iy5in"]
 [ext_resource type="PackedScene" uid="uid://cqmv7mxht6o6m" path="res://prefabs/gpu_particles_3d.tscn" id="2_qipyy"]
-[ext_resource type="Script" path="res://scripts/PJ/particles_timer.gd" id="3_dt32q"]
+[ext_resource type="Script" uid="uid://c3mwcvldgam25" path="res://scripts/PJ/particles_timer.gd" id="3_dt32q"]
 [ext_resource type="Texture2D" uid="uid://b15uw8ofbj5ls" path="res://textures/emblemat_pioruna_zolte_bez_tla.png" id="4_40wo7"]
+[ext_resource type="AudioStream" uid="uid://ghd3eydhhrij" path="res://assets/sounds/freesound_community-electricity-106510.mp3" id="6_s1dw7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qipyy"]
 size = Vector3(2, 3, 1)
@@ -15,13 +16,14 @@ size = Vector3(2, 3, 1)
 material = SubResource("StandardMaterial3D_847bj")
 size = Vector3(2, 3, 1)
 
-[node name="Transformator" type="StaticBody3D" unique_id=324287953 node_paths=PackedStringArray("animator")]
+[node name="Transformator" type="StaticBody3D" unique_id=324287953 node_paths=PackedStringArray("animator", "audio")]
 collision_layer = 128
 collision_mask = 33
 script = ExtResource("1_847bj")
 animator = NodePath("GPUParticles3D")
 is_activating_by_rock = true
 is_activating_by_player_interaction = true
+audio = NodePath("AudioStreamPlayer3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1370385071]
 shape = SubResource("BoxShape3D_qipyy")
@@ -42,3 +44,7 @@ texture = ExtResource("4_40wo7")
 [node name="Sprite3D2" type="Sprite3D" parent="." unique_id=1531124813]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0.51316965)
 texture = ExtResource("4_40wo7")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1609142553]
+stream = ExtResource("6_s1dw7")
+volume_db = -2.59

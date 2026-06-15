@@ -15,6 +15,7 @@ var sound_emitter_timer:=0.0
 @export var is_activating_by_timer: bool = false
 @export var rock_activate_duration:= 10.0
 @export var rock_activating_timer:= 0.0
+@export var audio: AudioStreamPlayer3D
 
 
 func _ready() -> void:
@@ -38,6 +39,7 @@ func _process(delta: float) -> void:
 	
 	if (isActive):
 		if (sound_emitter_timer > sound_emitter_duration):
+			audio.play();
 			EventBus.sound_emitted_by_player.emit(global_position + global_basis.z, noise_volume);
 			sound_emitter_timer = 0
 		else: sound_emitter_timer += delta
@@ -51,6 +53,7 @@ func rock_interact():
 		Activate(!isActive)
 
 func Activate(activate: bool = true):
+
 	isActive = activate
 	animator.isActive = activate
 	if (activate):
