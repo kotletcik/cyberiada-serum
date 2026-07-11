@@ -10,7 +10,7 @@ func Enter():
 		#player.camera_is_blocked = true
 	player.movement_is_blocked = true
 	player.look_at(state_machine.mob.global_position);
-	await get_tree().create_timer(1, false).timeout
+	await get_tree().create_timer(2, false).timeout
 	if (PsycheManager.instance.invisibility_timer > 0): return;
 	GameManager.instance.game_over();
 	

@@ -123,7 +123,7 @@ player_sight_range = 16.0
 attack_range = 1.1
 scream_time = 1.0
 
-[node name="shell_boned_flipped" parent="." unique_id=534761452 instance=ExtResource("2_7805i")]
+[node name="shell_boned_flipped" parent="." unique_id=427233992 instance=ExtResource("2_7805i")]
 transform = Transform3D(-0.14, 0, -1.2239188e-08, 0, 0.14, 0, 1.2239188e-08, 0, -0.14, 0, -1, 0)
 
 [node name="AnimationTree" type="AnimationTree" parent="shell_boned_flipped" unique_id=824088105]
